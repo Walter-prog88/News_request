@@ -1,0 +1,39 @@
+.DS_Store
+.env
+.tools/
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+data/raw/**
+data/processed/**
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+artifacts/models/**
+artifacts/runs/**
+artifacts/forward_signals.jsonl
+!artifacts/models/.gitkeep
+!artifacts/runs/.gitkeep
+reports/generated/**
+!reports/generated/.gitkeep
+tmp/
+
+# --- research backup boundary (added 2026-08-16) ---
+# Rule: code, protocols and small result ledgers are versioned; regenerable
+# numeric panels (minute caches, feature stores, per-run artefacts) are not.
+data/**
+.research_tmp/
+reports/rendered/**
+research/results/**
+research/g2_inputs/**
+research/sources/**
+*.rar
+*.npz
+*.npy
+*.pkl
+# heavy panels: ignore by default, then allow the two live research packages
+*.parquet
+!research/zoo_v1/**/*.parquet
+!research/showcase_v1/**/*.parquet
+!research/active_system_v1/regime_signal.parquet

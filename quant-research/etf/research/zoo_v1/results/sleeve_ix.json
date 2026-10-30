@@ -1,0 +1,117 @@
+[
+ {
+  "id": "sleeve_ix_e72dddd36d",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 21
+  },
+  "worst_clean": -1.511,
+  "full": -0.071
+ },
+ {
+  "id": "sleeve_ix_a4ab0a1361",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 21
+  },
+  "worst_clean": -0.788,
+  "full": 0.31
+ },
+ {
+  "id": "sleeve_ix_4200ff2d3c",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 63
+  },
+  "worst_clean": -1.541,
+  "full": 0.096
+ },
+ {
+  "id": "sleeve_ix_fa9abd7fff",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 63
+  },
+  "worst_clean": -0.83,
+  "full": 0.386
+ },
+ {
+  "id": "sleeve_ix_8e04580b6b",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 126
+  },
+  "worst_clean": -2.009,
+  "full": 0.193
+ },
+ {
+  "id": "sleeve_ix_b3e339a2a6",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 126
+  },
+  "worst_clean": -1.231,
+  "full": 0.578
+ },
+ {
+  "id": "sleeve_ix_3447d55217",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 252
+  },
+  "worst_clean": -1.242,
+  "full": 0.27
+ },
+ {
+  "id": "sleeve_ix_6facec6627",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 252
+  },
+  "worst_clean": -1.018,
+  "full": 0.478
+ },
+ {
+  "id": "sleeve_ix_40ecf4f519",
+  "spec": {
+   "kind": "rankmom_top2",
+   "w": 21
+  },
+  "worst_clean": -0.812,
+  "full": -0.497
+ },
+ {
+  "id": "sleeve_ix_78acf67b92",
+  "spec": {
+   "kind": "rankmom_top2",
+   "w": 63
+  },
+  "worst_clean": -0.661,
+  "full": -0.268
+ },
+ {
+  "id": "sleeve_ix_69138cd044",
+  "spec": {
+   "kind": "rankmom_top2",
+   "w": 126
+  },
+  "worst_clean": -0.36,
+  "full": 0.387
+ },
+ {
+  "id": "sleeve_ix_5a01f0df62",
+  "spec": {
+   "kind": "risk_parity_all"
+  },
+  "worst_clean": -0.687,
+  "full": 0.574
+ },
+ {
+  "id": "sleeve_ix_5134b7c0a0",
+  "spec": {
+   "kind": "equal_all"
+  },
+  "worst_clean": -0.801,
+  "full": 0.252
+ }
+]

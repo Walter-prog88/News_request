@@ -1,0 +1,14 @@
+sources:
+  - id: caitong_20260303
+    title: 财通证券-量化｜宽基指数择时怎么做？
+    publication_date: 2026-03-03
+    local_path: /path/to/user/Desktop/指数择时/财通证券-量化｜宽基指数择时怎么做？-260303.pdf
+    sha256: 5885783c882362da277814f26d50058bce660737355c32f5baf4c92f26de585b
+    reproduction_level: conceptual_reconstruction
+  - id: zhongyou_20260709
+    title: 中邮证券-市场脉搏（2）：基于LSTM-HMM混合方案的量化择时与动态仓位管理
+    publication_date: 2026-07-09
+    local_path: /path/to/user/Desktop/指数择时/中邮证券-市场脉搏（2）：基于LSTM~HMM混合方案的量化择时与动态仓位管理-260709.pdf
+    sha256: 4b0fb0915d7634f9e493fd1c7314a355532205d78a76affe9cd02af91311ced4
+    reproduction_level: conceptual_reconstruction
+

@@ -1,0 +1,42 @@
+{
+ "frozen": {
+  "2024-2026": {
+   "ann%": 91.0,
+   "sharpe": 2.18,
+   "mdd%": -20.3,
+   "calmar": 4.49
+  }
+ },
+ "frozen_gated": {
+  "2024-2026": {
+   "ann%": 90.1,
+   "sharpe": 2.22,
+   "mdd%": -20.3,
+   "calmar": 4.44
+  }
+ },
+ "rolling": {
+  "2024-2026": {
+   "ann%": 92.8,
+   "sharpe": 2.05,
+   "mdd%": -21.4,
+   "calmar": 4.33
+  }
+ },
+ "rolling_gated": {
+  "2024-2026": {
+   "ann%": 88.2,
+   "sharpe": 2.05,
+   "mdd%": -21.4,
+   "calmar": 4.12
+  }
+ },
+ "_meta": {
+  "dev_end_day": 1213,
+  "dev_end_date": "2024-01-02",
+  "n_features": 662,
+  "retrain_sessions": 63,
+  "gate_threshold": 0.3,
+  "time_in_market": 0.943
+ }
+}

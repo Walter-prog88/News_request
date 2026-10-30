@@ -1,0 +1,39 @@
+walk_forward:
+  minimum_train_years: 8
+  validation_years: 2
+  outer_test_years: 1
+  purge_trading_days: 90
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+execution:
+  position_min: 0.0
+  position_max: 1.0
+  decision_time: close
+  execution_time: next_open
+  cost_scenarios: [0.0, 1.0, 2.0]
+  delay_scenarios: [0, 1]
+  cash_day_count_convention: ACT/365
+
+bootstrap:
+  replications: 10000
+  average_block_days: 20
+  confidence: 0.95
+  fdr_q: 0.10
+
+validated_thresholds:
+  annual_alpha_min: 0.01
+  bootstrap_alpha_lower_min: 0.0
+  sharpe_improvement_min: 0.15
+  max_drawdown_improvement_min: 0.15
+  positive_fold_fraction_min: 0.60
+  robust_seed_parameter_fraction_min: 0.70
+  best_year_alpha_share_max: 0.50
+
+neural_increment_thresholds:
+  annual_alpha_increment_min: 0.005
+  sharpe_increment_min: 0.10
+  significance_level: 0.10
+
+parameter_robustness:
+  caitong_signal_thresholds: [0.45, 0.50, 0.55]
+  zhongyou_kelly_lookbacks: [10, 15, 20]

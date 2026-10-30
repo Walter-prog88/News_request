@@ -1,0 +1,14 @@
+[
+ {
+  "id": "anchor_04cd5ea307",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_valid21",
+   "domain": "dom",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": -0.042,
+  "full": 0.554
+ }
+]

@@ -1,0 +1,148 @@
+# 公开配置模板：复制为 sources.yaml 后按自己的数据与环境修改。
+# 所有采集源默认关闭，股票池与本地笔记路径为空；本地 Ollama 不需要密钥。
+---
+project:
+  name: Fin-RAG-Knowledge-Base
+  raw_dir: data/raw
+  processed_markdown_dir: data/processed/markdown
+  duplicate_dir: data/processed/duplicates
+  index_dir: data/index/faiss
+  logs_dir: logs
+request:
+  user_agent: 'Fin-RAG-Knowledge-Base/0.1 (+research use; contact: local)'
+  timeout_seconds: 25
+  delay_seconds: 2.0
+  max_pages: 1
+  max_docs_per_source: 5
+llm:
+  provider: ollama
+  model: qwen2.5:3b
+  base_url: http://localhost:11434/v1
+  max_tokens: 512
+  api_key_env: ''
+embedding:
+  provider: huggingface
+  model_name: BAAI/bge-small-zh-v1.5
+  normalize_embeddings: true
+  fallback_provider: hashing
+  hashing_dimension: 512
+chunking:
+  strategy: recursive
+  chunk_size: 900
+  chunk_overlap: 150
+  semantic_breakpoint_threshold: 0.45
+  exclude_title_patterns:
+  - 英文版
+  max_chunks_per_doc: 80
+sources:
+  gov_policy:
+    enabled: false
+    source_name: gov_policy
+    list_urls:
+    - https://www.gov.cn/zhengce/zuixin/
+    - https://www.gov.cn/zhengce/zhengcewenjianku/
+    allowed_domains:
+    - www.gov.cn
+    - app.www.gov.cn
+    include_keywords:
+    - 政策
+    - 通知
+    - 意见
+    - 办法
+    - 方案
+    - 规划
+    exclude_keywords:
+    - 视频
+    - 图解
+  ndrc:
+    enabled: false
+    source_name: ndrc
+    list_urls:
+    - https://www.ndrc.gov.cn/xxgk/wjk/index.html
+    - https://www.ndrc.gov.cn/xxgk/zcfb/tz/
+    allowed_domains:
+    - www.ndrc.gov.cn
+    include_keywords:
+    - 通知
+    - 公告
+    - 规划
+    - 政策
+    - 发改
+  csrc:
+    enabled: false
+    source_name: csrc
+    list_urls:
+    - https://www.csrc.gov.cn/csrc/c100039/common_list.shtml
+    - https://www.csrc.gov.cn/csrc/c101954/common_list.shtml
+    allowed_domains:
+    - www.csrc.gov.cn
+    include_keywords:
+    - 政策
+    - 通知
+    - 公告
+    - 指引
+    - 规定
+    - 办法
+    - 准则
+    - 标准
+    - 方案
+    - 意见
+    - 证券
+    - 上市公司
+    url_patterns:
+    - "/csrc/.+\\.shtml$"
+    - "/csrc/.+\\.html$"
+    - "/csrc/.+\\.pdf$"
+    exclude_url_patterns:
+    - common_list
+    max_docs_per_source: 5
+  miit:
+    enabled: false
+    source_name: miit
+    list_urls:
+    - https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/index.html
+    - https://www.miit.gov.cn/zwgk/zcwj/wjfb/gg/index.html
+    allowed_domains:
+    - www.miit.gov.cn
+    include_keywords:
+    - 通知
+    - 公告
+    - 规划
+    - 政策
+    - 算力
+    - 人工智能
+    - 信息通信
+    - 工业互联网
+    - 数据中心
+    url_patterns:
+    - "/art/\\d{4}/art_.+\\.html$"
+    - "/cms_files/.+\\.pdf$"
+    exclude_url_patterns:
+    - "/index\\.html$"
+    max_docs_per_source: 5
+  exchange_announcements:
+    enabled: false
+    source_name: exchange_announcement
+    max_pages: 1
+    page_size: 2
+    begin_date: '2025-01-01'
+    end_date: '2026-05-19'
+    sse:
+      enabled: false
+      api_url: https://query.sse.com.cn/security/stock/queryCompanyBulletin.do
+      referer: https://www.sse.com.cn/disclosure/listedinfo/announcement/
+      stock_codes: []
+      security_type: 307692844638330108813440
+      report_type: ALL
+    szse:
+      enabled: false
+      api_url: https://www.szse.cn/api/disc/announcement/annList
+      referer: https://www.szse.cn/disclosure/listed/bulletinDetail/index.html
+      download_base_url: https://disc.static.szse.cn/download
+      channel_code:
+      - fixed_disc
+      stock_codes: []
+    max_docs_per_source: 1000
+local_notes:
+  enabled: false
+  paths: []

@@ -1,0 +1,16 @@
+availability_rule: next_trading_day_when_release_time_unknown
+series:
+  - {id: DFF, group: rates_liquidity, frequency: daily}
+  - {id: DGS2, group: rates_liquidity, frequency: daily}
+  - {id: DGS10, group: rates_liquidity, frequency: daily}
+  # Weekly balance-sheet and claims data have publication dates that differ
+  # from their observation dates.  Require ALFRED realtime_start and consume
+  # only from the following session; current final histories are forbidden.
+  - {id: WALCL, group: rates_liquidity, frequency: weekly, use_alfred_vintage: true}
+  - {id: VIXCLS, group: risk_credit, frequency: daily}
+  - {id: BAMLH0A0HYM2, group: risk_credit, frequency: daily}
+  - {id: DTWEXBGS, group: dollar_commodity, frequency: daily}
+  - {id: DCOILWTICO, group: dollar_commodity, frequency: daily}
+  - {id: ICSA, group: high_frequency_economy, frequency: weekly, use_alfred_vintage: true}
+  - {id: CPIAUCSL, group: low_frequency_macro, frequency: monthly, use_alfred_vintage: true}
+  - {id: INDPRO, group: low_frequency_macro, frequency: monthly, use_alfred_vintage: true}

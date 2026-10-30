@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "as_of_inclusive": "2026-07-20",
+  "queries": [
+    {
+      "dataset_id": "fund_daily_510050_2026ytd",
+      "api_name": "fund_daily",
+      "params": {"ts_code": "510050.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_real_turnover_amount_candidate", "formal_status": "value_ready_timestamp_rule_required"}
+    },
+    {
+      "dataset_id": "fund_daily_510300_2026ytd",
+      "api_name": "fund_daily",
+      "params": {"ts_code": "510300.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_real_turnover_amount_candidate", "formal_status": "value_ready_timestamp_rule_required"}
+    },
+    {
+      "dataset_id": "fund_daily_510500_2026ytd",
+      "api_name": "fund_daily",
+      "params": {"ts_code": "510500.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_real_turnover_amount_candidate", "formal_status": "value_ready_timestamp_rule_required"}
+    },
+    {
+      "dataset_id": "fund_daily_512100_2026ytd",
+      "api_name": "fund_daily",
+      "params": {"ts_code": "512100.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_real_turnover_amount_candidate", "formal_status": "value_ready_timestamp_rule_required"}
+    },
+    {
+      "dataset_id": "fund_daily_563300_2026ytd",
+      "api_name": "fund_daily",
+      "params": {"ts_code": "563300.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_real_turnover_amount_candidate", "formal_status": "value_ready_timestamp_rule_required"}
+    },
+    {
+      "dataset_id": "fund_share_510050_2026ytd",
+      "api_name": "fund_share",
+      "params": {"ts_code": "510050.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_etf_share_candidate", "formal_status": "first_known_timestamp_missing"}
+    },
+    {
+      "dataset_id": "fund_share_510300_2026ytd",
+      "api_name": "fund_share",
+      "params": {"ts_code": "510300.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_etf_share_candidate", "formal_status": "first_known_timestamp_missing"}
+    },
+    {
+      "dataset_id": "fund_share_510500_2026ytd",
+      "api_name": "fund_share",
+      "params": {"ts_code": "510500.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_etf_share_candidate", "formal_status": "first_known_timestamp_missing"}
+    },
+    {
+      "dataset_id": "fund_share_512100_2026ytd",
+      "api_name": "fund_share",
+      "params": {"ts_code": "512100.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_etf_share_candidate", "formal_status": "first_known_timestamp_missing"}
+    },
+    {
+      "dataset_id": "fund_share_563300_2026ytd",
+      "api_name": "fund_share",
+      "params": {"ts_code": "563300.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_etf_share_candidate", "formal_status": "first_known_timestamp_missing"}
+    },
+    {
+      "dataset_id": "margin_sse_2026ytd",
+      "api_name": "margin",
+      "params": {"exchange_id": "SSE", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_margin_balance_candidate", "formal_status": "exchange_publication_timestamp_missing"}
+    },
+    {
+      "dataset_id": "margin_detail_510050_2026ytd",
+      "api_name": "margin_detail",
+      "params": {"ts_code": "510050.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_margin_detail_candidate", "formal_status": "publication_timestamp_missing"}
+    },
+    {
+      "dataset_id": "margin_detail_510300_2026ytd",
+      "api_name": "margin_detail",
+      "params": {"ts_code": "510300.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_margin_detail_candidate", "formal_status": "publication_timestamp_missing"}
+    },
+    {
+      "dataset_id": "margin_detail_510500_2026ytd",
+      "api_name": "margin_detail",
+      "params": {"ts_code": "510500.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_margin_detail_candidate", "formal_status": "publication_timestamp_missing"}
+    },
+    {
+      "dataset_id": "margin_detail_512100_2026ytd",
+      "api_name": "margin_detail",
+      "params": {"ts_code": "512100.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_margin_detail_candidate", "formal_status": "publication_timestamp_missing"}
+    },
+    {
+      "dataset_id": "margin_detail_563300_2026ytd",
+      "api_name": "margin_detail",
+      "params": {"ts_code": "563300.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "W2_margin_detail_candidate", "formal_status": "publication_timestamp_missing"}
+    },
+    {
+      "dataset_id": "index_dailybasic_000016_2026ytd",
+      "api_name": "index_dailybasic",
+      "params": {"ts_code": "000016.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "valuation_crosscheck", "formal_status": "crosscheck_only_no_dividend_yield"}
+    },
+    {
+      "dataset_id": "index_dailybasic_000300_2026ytd",
+      "api_name": "index_dailybasic",
+      "params": {"ts_code": "000300.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "valuation_crosscheck", "formal_status": "crosscheck_only_no_dividend_yield"}
+    },
+    {
+      "dataset_id": "index_dailybasic_000905_2026ytd",
+      "api_name": "index_dailybasic",
+      "params": {"ts_code": "000905.SH", "start_date": "20260101", "end_date": "20260720"},
+      "metadata": {"role": "valuation_crosscheck", "formal_status": "crosscheck_only_no_dividend_yield"}
+    },
+    {
+      "dataset_id": "shibor_2020_2026",
+      "api_name": "shibor",
+      "params": {"start_date": "20200101", "end_date": "20260720"},
+      "metadata": {"role": "macro_reference_SHIBOR3M", "formal_status": "official_release_timestamp_and_source_hash_missing"}
+    },
+    {
+      "dataset_id": "social_financing_monthly_2020_2026",
+      "api_name": "sf_month",
+      "params": {"start_m": "202001", "end_m": "202606"},
+      "metadata": {"role": "macro_reference_TSF", "formal_status": "first_release_vintage_and_definition_regime_missing"}
+    },
+    {
+      "dataset_id": "money_supply_2020_2026",
+      "api_name": "cn_m",
+      "params": {"start_m": "202001", "end_m": "202606"},
+      "metadata": {"role": "macro_reference_M0_M1_M2", "formal_status": "first_release_vintage_missing"}
+    },
+    {
+      "dataset_id": "pmi_2020_2026",
+      "api_name": "cn_pmi",
+      "params": {"start_m": "202001", "end_m": "202606"},
+      "metadata": {"role": "macro_reference_PMI_and_subindices", "formal_status": "database_create_time_is_not_release_time"}
+    },
+    {
+      "dataset_id": "cpi_2020_2026",
+      "api_name": "cn_cpi",
+      "params": {"start_m": "202001", "end_m": "202606"},
+      "metadata": {"role": "macro_reference_CPI", "formal_status": "first_release_timestamp_and_vintage_missing"}
+    },
+    {
+      "dataset_id": "ppi_2020_2026",
+      "api_name": "cn_ppi",
+      "params": {"start_m": "202001", "end_m": "202606"},
+      "metadata": {"role": "macro_reference_PPI", "formal_status": "first_release_timestamp_and_vintage_missing"}
+    },
+    {
+      "dataset_id": "gdp_2020_2026",
+      "api_name": "cn_gdp",
+      "params": {"start_q": "2020Q1", "end_q": "2026Q2"},
+      "metadata": {"role": "macro_reference_nominal_GDP", "formal_status": "first_release_timestamp_and_vintage_missing"}
+    },
+    {
+      "dataset_id": "eco_cal_cny_20260701_20260720",
+      "api_name": "eco_cal",
+      "params": {"start_date": "20260701", "end_date": "20260720", "currency": "CNY"},
+      "metadata": {"role": "W2_scheduled_macro_event_seed", "formal_status": "bounded_candidate_only_source_url_hash_and_family_coverage_missing"}
+    }
+  ]
+}
+

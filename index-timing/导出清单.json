@@ -1,0 +1,108 @@
+{
+  "source_repository": "wlater767/index-timing-research",
+  "snapshot_date": "2026-10-30",
+  "source_history_commits": 1,
+  "source_history_blobs_scanned": 106,
+  "source_visibility_changed": false,
+  "included": [
+    {
+      "path": ".gitignore",
+      "bytes": 151,
+      "sha256": "bc3121f6207ad3df348e9b7049fb42ba25dad8f68a79840491b91fba3e3c3e53"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 363,
+      "sha256": "67fba8dfa32c9dbc1d357da4582d75cb652c918b4f4f957aa0022816dc23d32c"
+    },
+    {
+      "path": "configs/valuable_data.json",
+      "bytes": 7903,
+      "sha256": "a79d2d325b5696a383bcd3ee9d7c62cca78cec24e4ea9a69fd0a5d92b0b5fc5a"
+    },
+    {
+      "path": "docs/DATA_LAYER.md",
+      "bytes": 1760,
+      "sha256": "0b69f1c7dced75fc8d1556b5328f68c64f470d4c1d1c34f2eda7c1869fe4056e"
+    },
+    {
+      "path": "docs/FAILED_APPROACHES.md",
+      "bytes": 2969,
+      "sha256": "9bd4631c2ee719132167acd1ba1717628fa1ecde697b3dea2126b475cdde8ef2"
+    },
+    {
+      "path": "docs/PROJECT_STATUS.md",
+      "bytes": 2401,
+      "sha256": "23c9ac135ebe50fa1d674557caec2c2cb6e069e7204867b4ce2add5a1d2ef508"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 706,
+      "sha256": "088e7fa304209cc86ed502ce5f6b66f59eb7cdf9e23c25769a154db5f2f91bc6"
+    },
+    {
+      "path": "src/index_timing_data/__init__.py",
+      "bytes": 596,
+      "sha256": "b278f2eee5bdddf4ee3fbdb974e45ed238bd54483fe53d60595e2e6c6d4cd872"
+    },
+    {
+      "path": "src/index_timing_data/__main__.py",
+      "bytes": 62,
+      "sha256": "19f07de3d1765a6803d4332ab1e67346381236f7769f47640e73849922394790"
+    },
+    {
+      "path": "src/index_timing_data/cli.py",
+      "bytes": 1760,
+      "sha256": "94e2d221f4a8d61be28feae0572dfaec813b963181c60fc218ed45ffdaa4b738"
+    },
+    {
+      "path": "src/index_timing_data/client.py",
+      "bytes": 5369,
+      "sha256": "9493f895e4789c6cf005262e798c93c678b1cf591a393cbfdbf7b2106661618e"
+    },
+    {
+      "path": "src/index_timing_data/config.py",
+      "bytes": 923,
+      "sha256": "7b51d3def03c20d2d191a0e31b65f1f2dc424bcb27d9403ad8e0e1269475b853"
+    },
+    {
+      "path": "src/index_timing_data/models.py",
+      "bytes": 3812,
+      "sha256": "d0cea86e26c0ad9cf2e8b3b0da4e66c3e0bcb0cd0a719cc1afe2371bb47f0e6a"
+    },
+    {
+      "path": "src/index_timing_data/snapshot.py",
+      "bytes": 7343,
+      "sha256": "7ea6d74fc227147c553a54cabe9701d0a880b09cacd541563c0f84fd2e605d9f"
+    },
+    {
+      "path": "tests/test_client.py",
+      "bytes": 2757,
+      "sha256": "4b7ed618950c1a00ecfc45452ae7684dfe3a16aa05e2809aaac626797ab962ff"
+    },
+    {
+      "path": "tests/test_config.py",
+      "bytes": 1698,
+      "sha256": "52fe243b8f6e74e19827b67946d0f1e568f81071740cc42b6b9f2c46c27228bf"
+    },
+    {
+      "path": "tests/test_snapshot.py",
+      "bytes": 2385,
+      "sha256": "36e67e2ce929d2370d5ea1068922a3953fdf56af21f75fb9f006b9d5fe374f37"
+    }
+  ],
+  "python_files": 10,
+  "python_ast_errors": [],
+  "excluded_categories": {
+    "课程接口原始响应JSON": 27,
+    "标准化行情宏观CSV": 27,
+    "请求回执": 27,
+    "快照清单与哈希文件": 2,
+    "数据接口覆盖元数据": 1,
+    "运行状态产物": 1,
+    "本机密钥示例与私人续建说明": "未复制"
+  },
+  "scan_match_values_recorded": false,
+  "source_commit": "1ec46749a7c37acb57880fa2d702df4892a78078",
+  "export_note": "安全源码与方法导出；原始快照和请求回执未公开。源文件SHA-256映射见included。"
+}

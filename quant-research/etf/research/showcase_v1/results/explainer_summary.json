@@ -1,0 +1,31 @@
+{
+ "windows": {
+  "strategy": {
+   "ann%": 80.8,
+   "sharpe": 2.38,
+   "mdd%": -14.8,
+   "calmar": 5.48
+  },
+  "selected_eq": {
+   "ann%": 8.2,
+   "sharpe": 0.49,
+   "mdd%": -40.2,
+   "calmar": 0.2
+  },
+  "pool_eq": {
+   "ann%": 7.6,
+   "sharpe": 0.46,
+   "mdd%": -40.6,
+   "calmar": 0.19
+  }
+ },
+ "n_names_ever_held": 471,
+ "cost_total_pct_of_initial": 95.59,
+ "reconciliation_residual": 5.542233338928781e-13,
+ "top10_share_of_positive_%": 28.6,
+ "final_nav": {
+  "strategy": 66.37165577329924,
+  "selected_eq": 1.7491126257751972,
+  "pool_eq": 1.677286989830681
+ }
+}

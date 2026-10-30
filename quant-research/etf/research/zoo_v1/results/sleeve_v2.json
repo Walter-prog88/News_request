@@ -1,0 +1,218 @@
+[
+ {
+  "id": "sleeve_v2_e72dddd36d",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 21
+  },
+  "worst_clean": -0.532,
+  "full": 0.094
+ },
+ {
+  "id": "sleeve_v2_a4ab0a1361",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 21
+  },
+  "worst_clean": -0.234,
+  "full": 0.101
+ },
+ {
+  "id": "sleeve_v2_4200ff2d3c",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 63
+  },
+  "worst_clean": -0.285,
+  "full": 0.329
+ },
+ {
+  "id": "sleeve_v2_fa9abd7fff",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 63
+  },
+  "worst_clean": 0.384,
+  "full": 0.722
+ },
+ {
+  "id": "sleeve_v2_8e04580b6b",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 126
+  },
+  "worst_clean": 0.068,
+  "full": 0.518
+ },
+ {
+  "id": "sleeve_v2_b3e339a2a6",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 126
+  },
+  "worst_clean": 0.302,
+  "full": 0.756
+ },
+ {
+  "id": "sleeve_v2_3447d55217",
+  "spec": {
+   "kind": "tsmom_sign",
+   "w": 252
+  },
+  "worst_clean": 0.161,
+  "full": 0.701
+ },
+ {
+  "id": "sleeve_v2_6facec6627",
+  "spec": {
+   "kind": "tsmom_vol",
+   "w": 252
+  },
+  "worst_clean": 0.499,
+  "full": 0.955
+ },
+ {
+  "id": "sleeve_v2_40ecf4f519",
+  "spec": {
+   "kind": "rankmom_top2",
+   "w": 21
+  },
+  "worst_clean": -0.279,
+  "full": 0.288
+ },
+ {
+  "id": "sleeve_v2_78acf67b92",
+  "spec": {
+   "kind": "rankmom_top2",
+   "w": 63
+  },
+  "worst_clean": -0.314,
+  "full": 0.062
+ },
+ {
+  "id": "sleeve_v2_69138cd044",
+  "spec": {
+   "kind": "rankmom_top2",
+   "w": 126
+  },
+  "worst_clean": -0.242,
+  "full": 0.321
+ },
+ {
+  "id": "sleeve_v2_5a01f0df62",
+  "spec": {
+   "kind": "risk_parity_all"
+  },
+  "worst_clean": -0.004,
+  "full": 0.912
+ },
+ {
+  "id": "sleeve_v2_5134b7c0a0",
+  "spec": {
+   "kind": "equal_all"
+  },
+  "worst_clean": -0.188,
+  "full": 0.563
+ },
+ {
+  "id": "sleeve_v2_1d101850cf",
+  "spec": {
+   "kind": "leadlag",
+   "gater": "fixed_income_etf",
+   "dir": 1
+  },
+  "worst_clean": -0.895,
+  "full": 0.019
+ },
+ {
+  "id": "sleeve_v2_55569897cc",
+  "spec": {
+   "kind": "leadlag",
+   "gater": "fixed_income_etf",
+   "dir": -1
+  },
+  "worst_clean": -0.906,
+  "full": 0.385
+ },
+ {
+  "id": "sleeve_v2_903fb42b64",
+  "spec": {
+   "kind": "leadlag",
+   "gater": "gold_spot_etf",
+   "dir": 1
+  },
+  "worst_clean": -0.97,
+  "full": 0.346
+ },
+ {
+  "id": "sleeve_v2_c91fbc4368",
+  "spec": {
+   "kind": "leadlag",
+   "gater": "gold_spot_etf",
+   "dir": -1
+  },
+  "worst_clean": -1.202,
+  "full": -0.351
+ },
+ {
+  "id": "sleeve_v2_c2490e4b33",
+  "spec": {
+   "kind": "dow",
+   "d": 0
+  },
+  "worst_clean": -1.754,
+  "full": -0.837
+ },
+ {
+  "id": "sleeve_v2_76b2156431",
+  "spec": {
+   "kind": "dow",
+   "d": 1
+  },
+  "worst_clean": -2.149,
+  "full": -1.337
+ },
+ {
+  "id": "sleeve_v2_fe04170879",
+  "spec": {
+   "kind": "dow",
+   "d": 2
+  },
+  "worst_clean": -1.834,
+  "full": -1.024
+ },
+ {
+  "id": "sleeve_v2_ec25dd67b4",
+  "spec": {
+   "kind": "dow",
+   "d": 3
+  },
+  "worst_clean": -1.629,
+  "full": -1.387
+ },
+ {
+  "id": "sleeve_v2_c28d2c54bb",
+  "spec": {
+   "kind": "dow",
+   "d": 4
+  },
+  "worst_clean": -1.91,
+  "full": -0.488
+ },
+ {
+  "id": "sleeve_v2_b3c880c202",
+  "spec": {
+   "kind": "month_turn"
+  },
+  "worst_clean": 0.715,
+  "full": 0.518
+ },
+ {
+  "id": "sleeve_v2_062bd527ec",
+  "spec": {
+   "kind": "vol_target_dom"
+  },
+  "worst_clean": -1.345,
+  "full": 0.121
+ }
+]

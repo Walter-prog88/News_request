@@ -1,0 +1,77 @@
+experiments:
+  - experiment_id: zhongyou_paper_proxy_2008
+    study: zhongyou
+    asset_ids:
+      - sse_composite
+      - csi300
+      - wind_all_a_proxy
+      - wind_microcap_proxy
+      - chinext
+      - star_composite
+      - csi1000
+      - csi2000
+    model: lstm_ae_ghmm_kelly
+    feature_set: disclosed_17_plus_soft6
+    train_end: 2020-12-31
+    test_start: 2021-01-01
+    seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assumptions:
+      - 正文逐项只能恢复17维而非所称25+维，忠实代理不擅自补成交量。
+      - 六软状态由1.0硬规则构造双Sigmoid代理，斜率固定5。
+      - 状态只用因果前向过滤；2021年后的底部补丁不计入主样本外结论。
+    parameters:
+      sequence_length: 90
+      zscore_window: 90
+      hidden_size: 64
+      latent_size: 10
+      n_states: 5
+      covariance_type: full
+      ghmm_restarts: 20
+      kelly_lookback_same_state: 15
+      robustness_kelly_lookbacks: [10, 15, 20]
+      microcap_opening_patch: false
+      bottom_patch: false
+
+  - experiment_id: zhongyou_paper_proxy_2016
+    study: zhongyou
+    asset_ids: [wind_all_a_proxy]
+    model: lstm_ae_ghmm_kelly
+    feature_set: disclosed_17_plus_soft6
+    train_end: 2020-12-31
+    test_start: 2021-01-01
+    seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assumptions:
+      - 使用正文3.1另一处2016至2020训练口径进行冲突敏感性检验。
+    parameters:
+      train_start: 2016-01-01
+      sequence_length: 90
+      zscore_window: 90
+      hidden_size: 64
+      latent_size: 10
+      n_states: 5
+      covariance_type: full
+      ghmm_restarts: 20
+      kelly_lookback_same_state: 15
+      robustness_kelly_lookbacks: [10, 15, 20]
+
+  - experiment_id: zhongyou_us_frozen
+    study: zhongyou
+    asset_ids: [sp500, nasdaq100]
+    model: lstm_ae_ghmm_kelly
+    feature_set: disclosed_17_plus_soft6
+    train_end: 2020-12-31
+    test_start: 2021-01-01
+    seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assumptions:
+      - 使用A股预注册协议，不针对SPY或QQQ测试表现重新选择参数。
+      - 忠实版不加入ETF成交量；成交量仅进入单列扩展。
+    parameters:
+      sequence_length: 90
+      zscore_window: 90
+      hidden_size: 64
+      latent_size: 10
+      n_states: 5
+      covariance_type: full
+      ghmm_restarts: 20
+      kelly_lookback_same_state: 15
+      robustness_kelly_lookbacks: [10, 15, 20]

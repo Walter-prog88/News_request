@@ -1,0 +1,66 @@
+[
+ {
+  "exec": "09:31 开盘价(瞬时)",
+  "minutes": 0,
+  "ann%": 88.1,
+  "sharpe": 2.25,
+  "mdd%": -16.7,
+  "calmar": 5.27
+ },
+ {
+  "exec": "TWAP 1 分钟",
+  "minutes": 1,
+  "ann%": 42.1,
+  "sharpe": 1.39,
+  "mdd%": -20.9,
+  "calmar": 2.01
+ },
+ {
+  "exec": "TWAP 2 分钟",
+  "minutes": 2,
+  "ann%": 40.9,
+  "sharpe": 1.38,
+  "mdd%": -22.1,
+  "calmar": 1.85
+ },
+ {
+  "exec": "TWAP 3 分钟",
+  "minutes": 3,
+  "ann%": 40.0,
+  "sharpe": 1.36,
+  "mdd%": -22.2,
+  "calmar": 1.8
+ },
+ {
+  "exec": "TWAP 5 分钟",
+  "minutes": 5,
+  "ann%": 40.2,
+  "sharpe": 1.38,
+  "mdd%": -22.3,
+  "calmar": 1.8
+ },
+ {
+  "exec": "TWAP 10 分钟",
+  "minutes": 10,
+  "ann%": 39.4,
+  "sharpe": 1.37,
+  "mdd%": -22.4,
+  "calmar": 1.76
+ },
+ {
+  "exec": "TWAP 15 分钟",
+  "minutes": 15,
+  "ann%": 38.6,
+  "sharpe": 1.35,
+  "mdd%": -22.2,
+  "calmar": 1.74
+ },
+ {
+  "exec": "TWAP 30 分钟",
+  "minutes": 30,
+  "ann%": 39.3,
+  "sharpe": 1.39,
+  "mdd%": -23.0,
+  "calmar": 1.71
+ }
+]

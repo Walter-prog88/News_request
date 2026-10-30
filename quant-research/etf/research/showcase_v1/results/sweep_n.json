@@ -1,0 +1,272 @@
+[
+ {
+  "K": 3,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.932,
+  "ann%": 92.3,
+  "sharpe": 2.14,
+  "mdd%": -20.2,
+  "calmar": 4.57
+ },
+ {
+  "K": 3,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.932,
+  "ann%": 87.9,
+  "sharpe": 2.07,
+  "mdd%": -20.4,
+  "calmar": 4.3
+ },
+ {
+  "K": 4,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.92,
+  "ann%": 91.4,
+  "sharpe": 2.18,
+  "mdd%": -20.3,
+  "calmar": 4.51
+ },
+ {
+  "K": 4,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.92,
+  "ann%": 87.0,
+  "sharpe": 2.11,
+  "mdd%": -20.5,
+  "calmar": 4.25
+ },
+ {
+  "K": 5,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.908,
+  "ann%": 91.8,
+  "sharpe": 2.23,
+  "mdd%": -20.6,
+  "calmar": 4.46
+ },
+ {
+  "K": 5,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.908,
+  "ann%": 87.5,
+  "sharpe": 2.15,
+  "mdd%": -20.8,
+  "calmar": 4.21
+ },
+ {
+  "K": 6,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.899,
+  "ann%": 95.8,
+  "sharpe": 2.33,
+  "mdd%": -18.4,
+  "calmar": 5.2
+ },
+ {
+  "K": 6,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.899,
+  "ann%": 91.5,
+  "sharpe": 2.26,
+  "mdd%": -18.7,
+  "calmar": 4.9
+ },
+ {
+  "K": 7,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.889,
+  "ann%": 97.6,
+  "sharpe": 2.38,
+  "mdd%": -17.2,
+  "calmar": 5.68
+ },
+ {
+  "K": 7,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.889,
+  "ann%": 93.2,
+  "sharpe": 2.31,
+  "mdd%": -17.4,
+  "calmar": 5.35
+ },
+ {
+  "K": 8,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.882,
+  "ann%": 91.8,
+  "sharpe": 2.29,
+  "mdd%": -16.0,
+  "calmar": 5.72
+ },
+ {
+  "K": 8,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.882,
+  "ann%": 87.6,
+  "sharpe": 2.22,
+  "mdd%": -16.3,
+  "calmar": 5.38
+ },
+ {
+  "K": 9,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.87,
+  "ann%": 90.4,
+  "sharpe": 2.28,
+  "mdd%": -16.9,
+  "calmar": 5.36
+ },
+ {
+  "K": 9,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.87,
+  "ann%": 86.3,
+  "sharpe": 2.21,
+  "mdd%": -17.1,
+  "calmar": 5.05
+ },
+ {
+  "K": 10,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.86,
+  "ann%": 92.2,
+  "sharpe": 2.32,
+  "mdd%": -16.5,
+  "calmar": 5.6
+ },
+ {
+  "K": 10,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.86,
+  "ann%": 88.1,
+  "sharpe": 2.25,
+  "mdd%": -16.7,
+  "calmar": 5.27
+ },
+ {
+  "K": 12,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.845,
+  "ann%": 88.5,
+  "sharpe": 2.3,
+  "mdd%": -15.0,
+  "calmar": 5.91
+ },
+ {
+  "K": 12,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.845,
+  "ann%": 84.5,
+  "sharpe": 2.22,
+  "mdd%": -15.2,
+  "calmar": 5.56
+ },
+ {
+  "K": 14,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.835,
+  "ann%": 85.9,
+  "sharpe": 2.27,
+  "mdd%": -14.5,
+  "calmar": 5.93
+ },
+ {
+  "K": 14,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.835,
+  "ann%": 82.0,
+  "sharpe": 2.2,
+  "mdd%": -14.7,
+  "calmar": 5.58
+ },
+ {
+  "K": 16,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.826,
+  "ann%": 85.5,
+  "sharpe": 2.29,
+  "mdd%": -14.8,
+  "calmar": 5.76
+ },
+ {
+  "K": 16,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.826,
+  "ann%": 81.7,
+  "sharpe": 2.22,
+  "mdd%": -15.1,
+  "calmar": 5.42
+ },
+ {
+  "K": 18,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.814,
+  "ann%": 81.3,
+  "sharpe": 2.23,
+  "mdd%": -14.8,
+  "calmar": 5.48
+ },
+ {
+  "K": 18,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.814,
+  "ann%": 77.6,
+  "sharpe": 2.16,
+  "mdd%": -15.1,
+  "calmar": 5.15
+ },
+ {
+  "K": 20,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.806,
+  "ann%": 82.7,
+  "sharpe": 2.27,
+  "mdd%": -14.8,
+  "calmar": 5.59
+ },
+ {
+  "K": 20,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.806,
+  "ann%": 79.0,
+  "sharpe": 2.2,
+  "mdd%": -15.0,
+  "calmar": 5.26
+ },
+ {
+  "K": 25,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.785,
+  "ann%": 78.5,
+  "sharpe": 2.22,
+  "mdd%": -15.1,
+  "calmar": 5.18
+ },
+ {
+  "K": 25,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.785,
+  "ann%": 75.0,
+  "sharpe": 2.15,
+  "mdd%": -15.4,
+  "calmar": 4.88
+ },
+ {
+  "K": 30,
+  "cost_bp": 0.5,
+  "one_way_turnover": 0.773,
+  "ann%": 74.6,
+  "sharpe": 2.17,
+  "mdd%": -15.2,
+  "calmar": 4.9
+ },
+ {
+  "K": 30,
+  "cost_bp": 1.0,
+  "one_way_turnover": 0.773,
+  "ann%": 71.2,
+  "sharpe": 2.09,
+  "mdd%": -15.4,
+  "calmar": 4.62
+ }
+]

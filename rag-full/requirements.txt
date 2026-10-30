@@ -1,0 +1,36 @@
+# LLM generation layer — OpenAI-compatible (SiliconFlow / DeepSeek / Ollama)
+openai>=1.30.0
+python-dotenv>=1.0.0
+# Optional: only needed if using Anthropic Claude backend
+anthropic>=0.40.0
+
+requests>=2.31.0
+beautifulsoup4>=4.12.3
+PyYAML>=6.0.1
+pdfplumber>=0.11.0
+PyMuPDF>=1.24.0
+tqdm>=4.66.0
+pandas>=2.0.0
+numpy>=1.24.0,<2.0.0
+
+# LangChain + FAISS RAG stack
+langchain>=0.2.14
+langchain-community>=0.2.12
+langchain-text-splitters>=0.2.2
+langchain-huggingface>=0.0.3
+faiss-cpu>=1.8.0
+sentence-transformers>=3.0.0
+
+# Chinese tokenization for dynamic domain term extraction
+jieba>=0.42.1
+
+# Optional but useful for markdown / metadata handling
+python-frontmatter>=1.1.0
+streamlit>=1.12,<2
+altair<5
+akshare>=1.13.0
+psutil>=5.9.0
+
+# Public export: pandas Parquet loaders require an engine.
+pyarrow>=12.0.0
+

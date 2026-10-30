@@ -1,0 +1,178 @@
+[
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:45-14:55 TWAP",
+  "rule": "基线",
+  "ann%": 22.9,
+  "sharpe": 0.91,
+  "mdd%": -29.4,
+  "calmar": 0.78,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:45-14:55 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 27.2,
+  "sharpe": 1.04,
+  "mdd%": -30.9,
+  "calmar": 0.88,
+  "one_way_turnover": 0.72
+ },
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:50-15:00 TWAP",
+  "rule": "基线",
+  "ann%": 24.3,
+  "sharpe": 0.95,
+  "mdd%": -29.5,
+  "calmar": 0.83,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:50-15:00 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 27.8,
+  "sharpe": 1.06,
+  "mdd%": -31.2,
+  "calmar": 0.89,
+  "one_way_turnover": 0.72
+ },
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:55-15:00 TWAP",
+  "rule": "基线",
+  "ann%": 25.0,
+  "sharpe": 0.97,
+  "mdd%": -29.3,
+  "calmar": 0.85,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:55-15:00 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 28.2,
+  "sharpe": 1.06,
+  "mdd%": -31.3,
+  "calmar": 0.9,
+  "one_way_turnover": 0.72
+ },
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:59-15:00 TWAP",
+  "rule": "基线",
+  "ann%": 24.5,
+  "sharpe": 0.95,
+  "mdd%": -29.9,
+  "calmar": 0.82,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "次日尾盘(信号早24h,干净)",
+  "entry_offset": 1,
+  "window": "14:59-15:00 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 27.9,
+  "sharpe": 1.04,
+  "mdd%": -31.8,
+  "calmar": 0.88,
+  "one_way_turnover": 0.72
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:45-14:55 TWAP",
+  "rule": "基线",
+  "ann%": 37.9,
+  "sharpe": 1.31,
+  "mdd%": -20.7,
+  "calmar": 1.83,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:45-14:55 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 42.0,
+  "sharpe": 1.42,
+  "mdd%": -19.7,
+  "calmar": 2.13,
+  "one_way_turnover": 0.72
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:50-15:00 TWAP",
+  "rule": "基线",
+  "ann%": 51.8,
+  "sharpe": 1.64,
+  "mdd%": -19.5,
+  "calmar": 2.66,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:50-15:00 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 56.2,
+  "sharpe": 1.76,
+  "mdd%": -18.4,
+  "calmar": 3.05,
+  "one_way_turnover": 0.72
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:55-15:00 TWAP",
+  "rule": "基线",
+  "ann%": 61.3,
+  "sharpe": 1.85,
+  "mdd%": -18.7,
+  "calmar": 3.27,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:55-15:00 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 65.6,
+  "sharpe": 1.96,
+  "mdd%": -17.6,
+  "calmar": 3.72,
+  "one_way_turnover": 0.72
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:59-15:00 TWAP",
+  "rule": "基线",
+  "ann%": 79.3,
+  "sharpe": 2.21,
+  "mdd%": -17.9,
+  "calmar": 4.43,
+  "one_way_turnover": 0.86
+ },
+ {
+  "timing": "同日尾盘(需14:45算出因子,上界)",
+  "entry_offset": 0,
+  "window": "14:59-15:00 TWAP",
+  "rule": "缓冲带B30",
+  "ann%": 83.1,
+  "sharpe": 2.31,
+  "mdd%": -16.9,
+  "calmar": 4.93,
+  "one_way_turnover": 0.72
+ }
+]

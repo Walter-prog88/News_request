@@ -1,0 +1,182 @@
+assets:
+  - asset_id: sse_composite
+    name: 上证指数
+    studies: [zhongyou]
+    signal_symbol: "000001"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2000-01-03
+    one_way_cost_bps: 10
+    cash_series: DR007
+
+  - asset_id: csi300
+    name: 沪深300
+    studies: [zhongyou]
+    signal_symbol: "000300"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2005-01-04
+    one_way_cost_bps: 10
+    cash_series: DR007
+
+  - asset_id: wind_all_a_proxy
+    name: 中证全指（万得全A免费代理）
+    studies: [caitong, zhongyou]
+    signal_symbol: "000985"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2005-01-04
+    one_way_cost_bps: 10
+    cash_series: DR007
+    proprietary: false
+    proxy_for: 万得全A
+    notes: 免费版只用于方法重构，不能用于数字级复现。
+
+  - asset_id: csi_dividend_tr_proxy
+    name: 中证红利（全收益指数免费代理）
+    studies: [caitong]
+    signal_symbol: "000922"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2005-01-04
+    one_way_cost_bps: 10
+    cash_series: DR007
+    proxy_for: 中证红利全收益
+    notes: 免费行情可能为价格指数口径；报告必须显示代理标签。
+
+  - asset_id: hang_seng_tech
+    name: 恒生科技
+    studies: [caitong]
+    signal_symbol: "HSTECH"
+    provider: akshare
+    market: HK
+    currency: HKD
+    calendar: XHKG
+    start: 2014-12-31
+    one_way_cost_bps: 10
+    notes: Yahoo代码^HSTECH当前不可用；使用AKShare/Sina同一指数历史进行理论long-cash回测。
+
+  - asset_id: star50
+    name: 科创50
+    studies: [caitong]
+    signal_symbol: "000688"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2019-12-31
+    one_way_cost_bps: 10
+    cash_series: DR007
+
+  - asset_id: wind_microcap_proxy
+    name: 中证2000（万得微盘免费代理）
+    studies: [caitong, zhongyou]
+    signal_symbol: "932000"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2014-12-31
+    one_way_cost_bps: 10
+    cash_series: DR007
+    proxy_for: 万得微盘
+    notes: 编制规则不同，不可用于数字级复现；与中证2000原标的结果分开标记。
+
+  - asset_id: cni2000
+    name: 国证2000
+    studies: [caitong]
+    signal_symbol: "399303"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2009-12-31
+    one_way_cost_bps: 10
+    cash_series: DR007
+
+  - asset_id: chinext
+    name: 创业板指
+    studies: [zhongyou]
+    signal_symbol: "399006"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2010-06-01
+    one_way_cost_bps: 10
+    cash_series: DR007
+
+  - asset_id: star_composite
+    name: 科创综指
+    studies: [zhongyou]
+    signal_symbol: "000680"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2019-07-22
+    one_way_cost_bps: 10
+    cash_series: DR007
+    notes: 独立验证训练不足8年时只标记Insufficient history。
+
+  - asset_id: csi1000
+    name: 中证1000
+    studies: [zhongyou]
+    signal_symbol: "000852"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2009-12-31
+    one_way_cost_bps: 10
+    cash_series: DR007
+
+  - asset_id: csi2000
+    name: 中证2000
+    studies: [zhongyou]
+    signal_symbol: "932000"
+    provider: akshare
+    market: CN
+    currency: CNY
+    calendar: XSHG
+    start: 2014-12-31
+    one_way_cost_bps: 10
+    cash_series: DR007
+
+  - asset_id: sp500
+    name: 标普500 / SPY可交易代理
+    studies: [caitong, zhongyou, us_extension]
+    signal_symbol: "^GSPC"
+    execution_symbol: SPY
+    provider: yahoo
+    market: US
+    currency: USD
+    calendar: XNYS
+    start: 2000-01-03
+    one_way_cost_bps: 2
+    cash_series: DGS3MO
+    proxy_for: S&P 500 total return
+    notes: 信号参考价格指数，执行和收益使用SPY复权OHLC。
+
+  - asset_id: nasdaq100
+    name: 纳斯达克100 / QQQ可交易代理
+    studies: [caitong, zhongyou, us_extension]
+    signal_symbol: "^NDX"
+    execution_symbol: QQQ
+    provider: yahoo
+    market: US
+    currency: USD
+    calendar: XNYS
+    start: 2000-01-03
+    one_way_cost_bps: 2
+    cash_series: DGS3MO
+    proxy_for: Nasdaq-100 total return
+    notes: 信号参考价格指数，执行和收益使用QQQ复权OHLC。

@@ -1,0 +1,4931 @@
+{
+  "module": "etf",
+  "source_repository": "wlater767/Index_research",
+  "snapshot_date": "2026-10-30",
+  "read_only_source": true,
+  "filter_version": 1,
+  "source_tracked_files": 952,
+  "candidate_files": 952,
+  "copied_files": 156,
+  "copied_bytes": 1148691,
+  "python_files": 81,
+  "python_ast_errors": [],
+  "static_match_filenames_only": [
+    "tests/test_macro_data.py"
+  ],
+  "included": [
+    {
+      "path": ".claude/skills/honest-search/SKILL.md",
+      "source_path": ".claude/skills/honest-search/SKILL.md",
+      "tracked": true,
+      "bytes": 2708,
+      "sha256": "95076c640f82b132d40b5487206a9db610ed36e5e4498b61ff114dae02ef52c9",
+      "source_sha256": "95076c640f82b132d40b5487206a9db610ed36e5e4498b61ff114dae02ef52c9",
+      "export_sha256": "95076c640f82b132d40b5487206a9db610ed36e5e4498b61ff114dae02ef52c9",
+      "export_modified": false
+    },
+    {
+      "path": ".claude/skills/showcase-report/SKILL.md",
+      "source_path": ".claude/skills/showcase-report/SKILL.md",
+      "tracked": true,
+      "bytes": 2830,
+      "sha256": "036b9eab650639fa430db714616ad1be42e053c23e5277056e0a0c6aa5702ae3",
+      "source_sha256": "036b9eab650639fa430db714616ad1be42e053c23e5277056e0a0c6aa5702ae3",
+      "export_sha256": "036b9eab650639fa430db714616ad1be42e053c23e5277056e0a0c6aa5702ae3",
+      "export_modified": false
+    },
+    {
+      "path": ".claude/workflows/chapter-build.js",
+      "source_path": ".claude/workflows/chapter-build.js",
+      "tracked": true,
+      "bytes": 12844,
+      "sha256": "caa4810f19486df62806935ee1b1b8df3d958a3b8e9e08f5af02e9df550c507e",
+      "source_sha256": "3615c97998bed891cc233e0c3eb8160781758c733d13d3ed4fb831ef548abbcf",
+      "export_sha256": "caa4810f19486df62806935ee1b1b8df3d958a3b8e9e08f5af02e9df550c507e",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": ".claude/workflows/zoo-axis-sweep.js",
+      "source_path": ".claude/workflows/zoo-axis-sweep.js",
+      "tracked": true,
+      "bytes": 5226,
+      "sha256": "7c4f584f9a3483cbcd8010d0498ee1fa71e0bd9f4f018843b58dceb0336292b8",
+      "source_sha256": "1a028ba6e7c25bee58d305d8d4993e0d9ca9d82b23062911fef896f9b34bfa18",
+      "export_sha256": "7c4f584f9a3483cbcd8010d0498ee1fa71e0bd9f4f018843b58dceb0336292b8",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 3
+    },
+    {
+      "path": ".gitignore",
+      "source_path": ".gitignore",
+      "tracked": true,
+      "bytes": 869,
+      "sha256": "a71dd779f37b13a24d952af7ae9745c5b37aa5653cd63fdd8c9648321593d447",
+      "source_sha256": "a71dd779f37b13a24d952af7ae9745c5b37aa5653cd63fdd8c9648321593d447",
+      "export_sha256": "a71dd779f37b13a24d952af7ae9745c5b37aa5653cd63fdd8c9648321593d447",
+      "export_modified": false
+    },
+    {
+      "path": ".python-version",
+      "source_path": ".python-version",
+      "tracked": true,
+      "bytes": 5,
+      "sha256": "49a506dd32096b010d75205acf3430c9ae6c40351888129499e5a5e487126c93",
+      "source_sha256": "49a506dd32096b010d75205acf3430c9ae6c40351888129499e5a5e487126c93",
+      "export_sha256": "49a506dd32096b010d75205acf3430c9ae6c40351888129499e5a5e487126c93",
+      "export_modified": false
+    },
+    {
+      "path": "Makefile",
+      "source_path": "Makefile",
+      "tracked": true,
+      "bytes": 541,
+      "sha256": "c561b9838080a5ed3083d0c7193574d3824082711793d83e46d383bba9702cdd",
+      "source_sha256": "c561b9838080a5ed3083d0c7193574d3824082711793d83e46d383bba9702cdd",
+      "export_sha256": "c561b9838080a5ed3083d0c7193574d3824082711793d83e46d383bba9702cdd",
+      "export_modified": false
+    },
+    {
+      "path": "REPRODUCE.md",
+      "source_path": "REPRODUCE.md",
+      "tracked": true,
+      "bytes": 3866,
+      "sha256": "7704fc94dc0dbb9f3866f4c57b783de101de43d5a15950e56c3b4765577e7e07",
+      "source_sha256": "549a8a5b9fa57e739b08c567657366d7976b245b8a6bf8baa204190a7e2ea9a7",
+      "export_sha256": "7704fc94dc0dbb9f3866f4c57b783de101de43d5a15950e56c3b4765577e7e07",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 3
+    },
+    {
+      "path": "app/dashboard.py",
+      "source_path": "app/dashboard.py",
+      "tracked": true,
+      "bytes": 5030,
+      "sha256": "48084988e0ce68eebcea3d0733389a3d79df15d43e93689ec2c9635635e0d03f",
+      "source_sha256": "48084988e0ce68eebcea3d0733389a3d79df15d43e93689ec2c9635635e0d03f",
+      "export_sha256": "48084988e0ce68eebcea3d0733389a3d79df15d43e93689ec2c9635635e0d03f",
+      "export_modified": false
+    },
+    {
+      "path": "configs/assets.yml",
+      "source_path": "configs/assets.yml",
+      "tracked": true,
+      "bytes": 4446,
+      "sha256": "dd5ff0841b1e02ac20f02088512d6ce91c35effaae7cb8e8600fca9ecfc22963",
+      "source_sha256": "dd5ff0841b1e02ac20f02088512d6ce91c35effaae7cb8e8600fca9ecfc22963",
+      "export_sha256": "dd5ff0841b1e02ac20f02088512d6ce91c35effaae7cb8e8600fca9ecfc22963",
+      "export_modified": false
+    },
+    {
+      "path": "configs/caitong.yml",
+      "source_path": "configs/caitong.yml",
+      "tracked": true,
+      "bytes": 1745,
+      "sha256": "211dfba6ef99d03a8cae9ec33b8fdb4832bf055e5402b72866667dec39dc2d7d",
+      "source_sha256": "211dfba6ef99d03a8cae9ec33b8fdb4832bf055e5402b72866667dec39dc2d7d",
+      "export_sha256": "211dfba6ef99d03a8cae9ec33b8fdb4832bf055e5402b72866667dec39dc2d7d",
+      "export_modified": false
+    },
+    {
+      "path": "configs/macro_us.yml",
+      "source_path": "configs/macro_us.yml",
+      "tracked": true,
+      "bytes": 1072,
+      "sha256": "d41fd626d9faebd77096c2369f998e10e7b1b6adc82344adee9a3e749bbde657",
+      "source_sha256": "d41fd626d9faebd77096c2369f998e10e7b1b6adc82344adee9a3e749bbde657",
+      "export_sha256": "d41fd626d9faebd77096c2369f998e10e7b1b6adc82344adee9a3e749bbde657",
+      "export_modified": false
+    },
+    {
+      "path": "configs/validation.yml",
+      "source_path": "configs/validation.yml",
+      "tracked": true,
+      "bytes": 935,
+      "sha256": "7e91c8ddfb8494f4496283f31c583caec778ff7fdabab9d1e88ecd3db309aee0",
+      "source_sha256": "7e91c8ddfb8494f4496283f31c583caec778ff7fdabab9d1e88ecd3db309aee0",
+      "export_sha256": "7e91c8ddfb8494f4496283f31c583caec778ff7fdabab9d1e88ecd3db309aee0",
+      "export_modified": false
+    },
+    {
+      "path": "configs/zhongyou.yml",
+      "source_path": "configs/zhongyou.yml",
+      "tracked": true,
+      "bytes": 2395,
+      "sha256": "2fad939e1f26c24f924073d6de12741c828d50f1f3aa7b728ae8c41f118784bb",
+      "source_sha256": "2fad939e1f26c24f924073d6de12741c828d50f1f3aa7b728ae8c41f118784bb",
+      "export_sha256": "2fad939e1f26c24f924073d6de12741c828d50f1f3aa7b728ae8c41f118784bb",
+      "export_modified": false
+    },
+    {
+      "path": "docs/current-findings.md",
+      "source_path": "docs/current-findings.md",
+      "tracked": true,
+      "bytes": 9532,
+      "sha256": "044ae673c4f2b90115543f083622bd2a304d88de18f4f4cc14e1ede2a55f80ec",
+      "source_sha256": "044ae673c4f2b90115543f083622bd2a304d88de18f4f4cc14e1ede2a55f80ec",
+      "export_sha256": "044ae673c4f2b90115543f083622bd2a304d88de18f4f4cc14e1ede2a55f80ec",
+      "export_modified": false
+    },
+    {
+      "path": "docs/methodology.md",
+      "source_path": "docs/methodology.md",
+      "tracked": true,
+      "bytes": 6880,
+      "sha256": "6822b11ca9ea2884fe4bbb556cfb569b30c339c5ea9ef926a63c6bf276bb3cb7",
+      "source_sha256": "6822b11ca9ea2884fe4bbb556cfb569b30c339c5ea9ef926a63c6bf276bb3cb7",
+      "export_sha256": "6822b11ca9ea2884fe4bbb556cfb569b30c339c5ea9ef926a63c6bf276bb3cb7",
+      "export_modified": false
+    },
+    {
+      "path": "docs/paper-reconstruction.md",
+      "source_path": "docs/paper-reconstruction.md",
+      "tracked": true,
+      "bytes": 8414,
+      "sha256": "1ff55e9547beb5bbd2e32d75369cc80c3370c8b04ed5be8d9d4c5be487dab35c",
+      "source_sha256": "1ff55e9547beb5bbd2e32d75369cc80c3370c8b04ed5be8d9d4c5be487dab35c",
+      "export_sha256": "1ff55e9547beb5bbd2e32d75369cc80c3370c8b04ed5be8d9d4c5be487dab35c",
+      "export_modified": false
+    },
+    {
+      "path": "pyproject.toml",
+      "source_path": "pyproject.toml",
+      "tracked": true,
+      "bytes": 1254,
+      "sha256": "b3d1467718b64b2d32d0144532d4d1f7586ec0cd61bfedd1f41722dfe93e687d",
+      "source_sha256": "b3d1467718b64b2d32d0144532d4d1f7586ec0cd61bfedd1f41722dfe93e687d",
+      "export_sha256": "b3d1467718b64b2d32d0144532d4d1f7586ec0cd61bfedd1f41722dfe93e687d",
+      "export_modified": false
+    },
+    {
+      "path": "reports/templates/report.html.j2",
+      "source_path": "reports/templates/report.html.j2",
+      "tracked": true,
+      "bytes": 6881,
+      "sha256": "e74805ee77f73aa689786188dffcc5e218b376bcfc6e6fbc8e774a08cd49ec2d",
+      "source_sha256": "e74805ee77f73aa689786188dffcc5e218b376bcfc6e6fbc8e774a08cd49ec2d",
+      "export_sha256": "e74805ee77f73aa689786188dffcc5e218b376bcfc6e6fbc8e774a08cd49ec2d",
+      "export_modified": false
+    },
+    {
+      "path": "research/reproducibility_manifest.yml",
+      "source_path": "research/reproducibility_manifest.yml",
+      "tracked": true,
+      "bytes": 1977,
+      "sha256": "dffc91815893256a742926c62eb62d9b0a146c57d9545ecc3ab516042502219c",
+      "source_sha256": "dffc91815893256a742926c62eb62d9b0a146c57d9545ecc3ab516042502219c",
+      "export_sha256": "dffc91815893256a742926c62eb62d9b0a146c57d9545ecc3ab516042502219c",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/backtest.py",
+      "source_path": "research/showcase_v1/backtest.py",
+      "tracked": true,
+      "bytes": 6340,
+      "sha256": "2d7b210c9645ab538351ad7ca1b557d12005639eff1b87c8f8bc8467694e2955",
+      "source_sha256": "340a74201e853f87b707799c446c6ae62b725813a2afdf89526967fcc857a5a8",
+      "export_sha256": "2d7b210c9645ab538351ad7ca1b557d12005639eff1b87c8f8bc8467694e2955",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/build_matrix.py",
+      "source_path": "research/showcase_v1/build_matrix.py",
+      "tracked": true,
+      "bytes": 5027,
+      "sha256": "99f46dae0e89088983a67a09c6b4cc668de793fe2ef2005ad920141b7cc101e6",
+      "source_sha256": "05b9310ab90d9cfd75c130ebb0bd17ac2f640c60541b10e758ab455fefb38d8e",
+      "export_sha256": "99f46dae0e89088983a67a09c6b4cc668de793fe2ef2005ad920141b7cc101e6",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/close_twap_sweep.py",
+      "source_path": "research/showcase_v1/close_twap_sweep.py",
+      "tracked": true,
+      "bytes": 2906,
+      "sha256": "e65491526778d6eb434be456f4fe3b66cb8e05d84ce8ebd6dcc60c5caa727523",
+      "source_sha256": "4951c9afd8a2dcb164344e76f18111468ee54d959f129490d5810de3570e5051",
+      "export_sha256": "e65491526778d6eb434be456f4fe3b66cb8e05d84ce8ebd6dcc60c5caa727523",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/d_gate.py",
+      "source_path": "research/showcase_v1/d_gate.py",
+      "tracked": true,
+      "bytes": 2770,
+      "sha256": "316207340b7cf2e9befefde2d9ea7d6a6cdd9c40bf23da2bb5edb8ba987ecc9f",
+      "source_sha256": "fc043d5b597672724ae8de0c6faa1421f6d36b1863dd99feac1714fbc5600eac",
+      "export_sha256": "316207340b7cf2e9befefde2d9ea7d6a6cdd9c40bf23da2bb5edb8ba987ecc9f",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 3
+    },
+    {
+      "path": "research/showcase_v1/deopen.py",
+      "source_path": "research/showcase_v1/deopen.py",
+      "tracked": true,
+      "bytes": 6433,
+      "sha256": "f1e6aef7629a624b69702241984d42b521246553994b592118652ef7feeb5b8e",
+      "source_sha256": "9a8030fd5eb9cf8a9f61138e260bb60a14c5ddc35e43ed60dd97d9aaa121ee04",
+      "export_sha256": "f1e6aef7629a624b69702241984d42b521246553994b592118652ef7feeb5b8e",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/deopen2.py",
+      "source_path": "research/showcase_v1/deopen2.py",
+      "tracked": true,
+      "bytes": 4389,
+      "sha256": "2d3fa56e2a496569fffa781481b1337399f0133225abcf2b9efe7d522c0f498f",
+      "source_sha256": "d6e8f400c734d08202ae58696c06af91ae0bc93662491b0330eca8093a830955",
+      "export_sha256": "2d3fa56e2a496569fffa781481b1337399f0133225abcf2b9efe7d522c0f498f",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/exec_grid.py",
+      "source_path": "research/showcase_v1/exec_grid.py",
+      "tracked": true,
+      "bytes": 6206,
+      "sha256": "226ded72e9ea2bca639f8fbfd30a0a99b89b64713da225d2d31ac95858df1e2d",
+      "source_sha256": "4faee4e331cd67f413487f50278d001308da6297e69b752dedc7e7584368b0ef",
+      "export_sha256": "226ded72e9ea2bca639f8fbfd30a0a99b89b64713da225d2d31ac95858df1e2d",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/explainer_charts.py",
+      "source_path": "research/showcase_v1/explainer_charts.py",
+      "tracked": true,
+      "bytes": 10561,
+      "sha256": "dd45499226885a8bfb099d2c04b4dc18fb63608e52cd7de259de95e7078a518d",
+      "source_sha256": "21f730c2f03ef08b3f0365932863cd9ec380a308c83ac208dfb6355d3a625c91",
+      "export_sha256": "dd45499226885a8bfb099d2c04b4dc18fb63608e52cd7de259de95e7078a518d",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/factor_factory.py",
+      "source_path": "research/showcase_v1/factor_factory.py",
+      "tracked": true,
+      "bytes": 23264,
+      "sha256": "f9147c8288071c8b45e8a08d37afb850b371bff078b723155ae32f9e37193ff4",
+      "source_sha256": "dacaff04d5b3bbc0b5caf82136f9d2836a51191ff9db8836e7e6f5e048bf2950",
+      "export_sha256": "f9147c8288071c8b45e8a08d37afb850b371bff078b723155ae32f9e37193ff4",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/factory_clean.py",
+      "source_path": "research/showcase_v1/factory_clean.py",
+      "tracked": true,
+      "bytes": 2863,
+      "sha256": "91b3de82b6e5e3d243ff3d5ff8372bc0413930165b820d8c0cb5d0a5107ce589",
+      "source_sha256": "6c21b0850a6382ce22358fd2e3ed1201b1b4caa523cfaaf1dedd998612fe5868",
+      "export_sha256": "91b3de82b6e5e3d243ff3d5ff8372bc0413930165b820d8c0cb5d0a5107ce589",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/finalize.py",
+      "source_path": "research/showcase_v1/finalize.py",
+      "tracked": true,
+      "bytes": 5322,
+      "sha256": "e5d1a424b07f0433c5b4e5aeed15119e59cf9de5ba5766ad60fc58d81d94b2a5",
+      "source_sha256": "8b2b7a2d99439d9f69dbe3e9616f8fdb3bccf2dac799d231e796e340ad8a6348",
+      "export_sha256": "e5d1a424b07f0433c5b4e5aeed15119e59cf9de5ba5766ad60fc58d81d94b2a5",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/generate_report.py",
+      "source_path": "research/showcase_v1/generate_report.py",
+      "tracked": true,
+      "bytes": 27736,
+      "sha256": "de94e334bd285f68914b0ca782dc1efc016f400cf372c927f09fa28c90af8ffb",
+      "source_sha256": "3c3f10c5f7da1294ee42a60ab59f765a05bf12216e2ca6a607232e3674e75a50",
+      "export_sha256": "de94e334bd285f68914b0ca782dc1efc016f400cf372c927f09fa28c90af8ffb",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/generate_validation_report.py",
+      "source_path": "research/showcase_v1/generate_validation_report.py",
+      "tracked": true,
+      "bytes": 15509,
+      "sha256": "c6f76f7eff2535f831989345af792c868f7fd89bc6e18a02c5d0fef7167c14e3",
+      "source_sha256": "f2a01e5b6e621e2b79b106815b1ecef2a4e04ef3c94100ca534d117840298a14",
+      "export_sha256": "c6f76f7eff2535f831989345af792c868f7fd89bc6e18a02c5d0fef7167c14e3",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/position_sizing.py",
+      "source_path": "research/showcase_v1/position_sizing.py",
+      "tracked": true,
+      "bytes": 3969,
+      "sha256": "7ab179633ed98b8c5ffad7b5055d50b9e637c3759fd1dba00f12acfaafa86be1",
+      "source_sha256": "20d5f3a36972b7646604f56bbac913b86d6c1c12ba49b0149185ff8d9bc455c4",
+      "export_sha256": "7ab179633ed98b8c5ffad7b5055d50b9e637c3759fd1dba00f12acfaafa86be1",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/rebuild_caches.sh",
+      "source_path": "research/showcase_v1/rebuild_caches.sh",
+      "tracked": true,
+      "bytes": 1535,
+      "sha256": "abd0e08f4881c8407dece58d6950b92a3b27cdb86b42b5098b4d7d069e1fc240",
+      "source_sha256": "26f76018d3e49d0adb25234ec99676de0304352a5054c067a0b8901b9c46026f",
+      "export_sha256": "abd0e08f4881c8407dece58d6950b92a3b27cdb86b42b5098b4d7d069e1fc240",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 3
+    },
+    {
+      "path": "research/showcase_v1/results/close_twap_sweep.csv",
+      "source_path": "research/showcase_v1/results/close_twap_sweep.csv",
+      "tracked": true,
+      "bytes": 1060,
+      "sha256": "267735f9e8d029bf6e95802ff6361e129d2134b250ba14a6c0786321946f7403",
+      "source_sha256": "267735f9e8d029bf6e95802ff6361e129d2134b250ba14a6c0786321946f7403",
+      "export_sha256": "267735f9e8d029bf6e95802ff6361e129d2134b250ba14a6c0786321946f7403",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/close_twap_sweep.json",
+      "source_path": "research/showcase_v1/results/close_twap_sweep.json",
+      "tracked": true,
+      "bytes": 3381,
+      "sha256": "5374a81c7811cb98c3558bf9b977fa25629c5e9c88885b1c8c2ef19a13c0494a",
+      "source_sha256": "5374a81c7811cb98c3558bf9b977fa25629c5e9c88885b1c8c2ef19a13c0494a",
+      "export_sha256": "5374a81c7811cb98c3558bf9b977fa25629c5e9c88885b1c8c2ef19a13c0494a",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/deopen2.csv",
+      "source_path": "research/showcase_v1/results/deopen2.csv",
+      "tracked": true,
+      "bytes": 232,
+      "sha256": "8f24005f7216081f5278b65ac864dbaf5ec1ceae80194a17b70d39626d328576",
+      "source_sha256": "8f24005f7216081f5278b65ac864dbaf5ec1ceae80194a17b70d39626d328576",
+      "export_sha256": "8f24005f7216081f5278b65ac864dbaf5ec1ceae80194a17b70d39626d328576",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/deopen2.json",
+      "source_path": "research/showcase_v1/results/deopen2.json",
+      "tracked": true,
+      "bytes": 637,
+      "sha256": "2f36fccea8273e247bd723c98b54f6dca63639c446f3bf3be75b02e9b45aea10",
+      "source_sha256": "2f36fccea8273e247bd723c98b54f6dca63639c446f3bf3be75b02e9b45aea10",
+      "export_sha256": "2f36fccea8273e247bd723c98b54f6dca63639c446f3bf3be75b02e9b45aea10",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/deopen_grid.csv",
+      "source_path": "research/showcase_v1/results/deopen_grid.csv",
+      "tracked": true,
+      "bytes": 553,
+      "sha256": "067b8bfa70073c6d90ed713a4023578b0a774790c100d8ce3671fd2bf1f03bf0",
+      "source_sha256": "067b8bfa70073c6d90ed713a4023578b0a774790c100d8ce3671fd2bf1f03bf0",
+      "export_sha256": "067b8bfa70073c6d90ed713a4023578b0a774790c100d8ce3671fd2bf1f03bf0",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/deopen_grid.json",
+      "source_path": "research/showcase_v1/results/deopen_grid.json",
+      "tracked": true,
+      "bytes": 1250,
+      "sha256": "02c91b47a1840a43598b23d8dccba98262758b0b19225ec8b6ea91799e8d9cb4",
+      "source_sha256": "02c91b47a1840a43598b23d8dccba98262758b0b19225ec8b6ea91799e8d9cb4",
+      "export_sha256": "02c91b47a1840a43598b23d8dccba98262758b0b19225ec8b6ea91799e8d9cb4",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/exec_grid.csv",
+      "source_path": "research/showcase_v1/results/exec_grid.csv",
+      "tracked": true,
+      "bytes": 526,
+      "sha256": "8b09d4c5ba79a1a67ce185a9ce408b866749c839c48da6cb45272d29a2c0009e",
+      "source_sha256": "8b09d4c5ba79a1a67ce185a9ce408b866749c839c48da6cb45272d29a2c0009e",
+      "export_sha256": "8b09d4c5ba79a1a67ce185a9ce408b866749c839c48da6cb45272d29a2c0009e",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/exec_grid.json",
+      "source_path": "research/showcase_v1/results/exec_grid.json",
+      "tracked": true,
+      "bytes": 1358,
+      "sha256": "423b94da7dcd16650a9c93332ebcb8c40ccf5e89dd826e13346d19fda94241f5",
+      "source_sha256": "423b94da7dcd16650a9c93332ebcb8c40ccf5e89dd826e13346d19fda94241f5",
+      "export_sha256": "423b94da7dcd16650a9c93332ebcb8c40ccf5e89dd826e13346d19fda94241f5",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/exec_mechanism.json",
+      "source_path": "research/showcase_v1/results/exec_mechanism.json",
+      "tracked": true,
+      "bytes": 136,
+      "sha256": "8f84e0acaf6019def436a05efc6f0e36c09820970725c5a40a691943fbbabb8a",
+      "source_sha256": "8f84e0acaf6019def436a05efc6f0e36c09820970725c5a40a691943fbbabb8a",
+      "export_sha256": "8f84e0acaf6019def436a05efc6f0e36c09820970725c5a40a691943fbbabb8a",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/explainer_summary.json",
+      "source_path": "research/showcase_v1/results/explainer_summary.json",
+      "tracked": true,
+      "bytes": 569,
+      "sha256": "7fc8bbb107048914096a7adf59bbb424a93c7268218ecb7836236ed5a1257739",
+      "source_sha256": "7fc8bbb107048914096a7adf59bbb424a93c7268218ecb7836236ed5a1257739",
+      "export_sha256": "7fc8bbb107048914096a7adf59bbb424a93c7268218ecb7836236ed5a1257739",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/factory_funnel.json",
+      "source_path": "research/showcase_v1/results/factory_funnel.json",
+      "tracked": true,
+      "bytes": 276,
+      "sha256": "3258ae166b9468cd7907541cc54789cdb2ce23387600f23eb420e4b084130c9b",
+      "source_sha256": "3258ae166b9468cd7907541cc54789cdb2ce23387600f23eb420e4b084130c9b",
+      "export_sha256": "3258ae166b9468cd7907541cc54789cdb2ce23387600f23eb420e4b084130c9b",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/factory_funnel_pre2024.json",
+      "source_path": "research/showcase_v1/results/factory_funnel_pre2024.json",
+      "tracked": true,
+      "bytes": 276,
+      "sha256": "f0ac23e8bc348ef44f8d43c43ca680fcefe62af7cfdc8481574a18c217256547",
+      "source_sha256": "f0ac23e8bc348ef44f8d43c43ca680fcefe62af7cfdc8481574a18c217256547",
+      "export_sha256": "f0ac23e8bc348ef44f8d43c43ca680fcefe62af7cfdc8481574a18c217256547",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/metrics.json",
+      "source_path": "research/showcase_v1/results/metrics.json",
+      "tracked": true,
+      "bytes": 2441,
+      "sha256": "825705412402c130d9b8ca524415258033e1fa15df74edc697b9ba8c268db62c",
+      "source_sha256": "825705412402c130d9b8ca524415258033e1fa15df74edc697b9ba8c268db62c",
+      "export_sha256": "825705412402c130d9b8ca524415258033e1fa15df74edc697b9ba8c268db62c",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/position_sizing_grid.csv",
+      "source_path": "research/showcase_v1/results/position_sizing_grid.csv",
+      "tracked": true,
+      "bytes": 1671,
+      "sha256": "c2dba7f955b18470509957aa3e0929414bfca90cdae7ac49d7575078a3a629a2",
+      "source_sha256": "c2dba7f955b18470509957aa3e0929414bfca90cdae7ac49d7575078a3a629a2",
+      "export_sha256": "c2dba7f955b18470509957aa3e0929414bfca90cdae7ac49d7575078a3a629a2",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/position_sizing_grid.json",
+      "source_path": "research/showcase_v1/results/position_sizing_grid.json",
+      "tracked": true,
+      "bytes": 5565,
+      "sha256": "794390eb9a281b831422aa1e5239ad853b67380bf33a15f227aeed8565a6fd1b",
+      "source_sha256": "794390eb9a281b831422aa1e5239ad853b67380bf33a15f227aeed8565a6fd1b",
+      "export_sha256": "794390eb9a281b831422aa1e5239ad853b67380bf33a15f227aeed8565a6fd1b",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/retrain_ladder.json",
+      "source_path": "research/showcase_v1/results/retrain_ladder.json",
+      "tracked": true,
+      "bytes": 543,
+      "sha256": "ed90483c0673f43b8821523adaf894811eead7be966994c9b54975ec18fcfb62",
+      "source_sha256": "ed90483c0673f43b8821523adaf894811eead7be966994c9b54975ec18fcfb62",
+      "export_sha256": "ed90483c0673f43b8821523adaf894811eead7be966994c9b54975ec18fcfb62",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_A.json",
+      "source_path": "research/showcase_v1/results/rolling_A.json",
+      "tracked": true,
+      "bytes": 351,
+      "sha256": "9e483ec6cd82c2f57946e3afd5496cbc05f1660c40646a3f6eb8a95c40af219b",
+      "source_sha256": "9e483ec6cd82c2f57946e3afd5496cbc05f1660c40646a3f6eb8a95c40af219b",
+      "export_sha256": "9e483ec6cd82c2f57946e3afd5496cbc05f1660c40646a3f6eb8a95c40af219b",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_B.json",
+      "source_path": "research/showcase_v1/results/rolling_B.json",
+      "tracked": true,
+      "bytes": 351,
+      "sha256": "fa8058bc0ad3361d25cdc47f9388d4bb9b175eed689e76433b40e9f0c915e183",
+      "source_sha256": "fa8058bc0ad3361d25cdc47f9388d4bb9b175eed689e76433b40e9f0c915e183",
+      "export_sha256": "fa8058bc0ad3361d25cdc47f9388d4bb9b175eed689e76433b40e9f0c915e183",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_C.json",
+      "source_path": "research/showcase_v1/results/rolling_C.json",
+      "tracked": true,
+      "bytes": 351,
+      "sha256": "722666caf02294a79d97c29dbb9066c57817cf35ff0d0c37b2aefae66c3ac7ef",
+      "source_sha256": "722666caf02294a79d97c29dbb9066c57817cf35ff0d0c37b2aefae66c3ac7ef",
+      "export_sha256": "722666caf02294a79d97c29dbb9066c57817cf35ff0d0c37b2aefae66c3ac7ef",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_D.json",
+      "source_path": "research/showcase_v1/results/rolling_D.json",
+      "tracked": true,
+      "bytes": 351,
+      "sha256": "e7104d93a1f94c317d51b39a7303ad9e67d367824f838d21046c4fe48a3c68d4",
+      "source_sha256": "e7104d93a1f94c317d51b39a7303ad9e67d367824f838d21046c4fe48a3c68d4",
+      "export_sha256": "e7104d93a1f94c317d51b39a7303ad9e67d367824f838d21046c4fe48a3c68d4",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_Dgate.json",
+      "source_path": "research/showcase_v1/results/rolling_Dgate.json",
+      "tracked": true,
+      "bytes": 377,
+      "sha256": "40666fc66d89c6484030b86c633ffc1d80ff4d6098302b68ec0965f469ee46f3",
+      "source_sha256": "40666fc66d89c6484030b86c633ffc1d80ff4d6098302b68ec0965f469ee46f3",
+      "export_sha256": "40666fc66d89c6484030b86c633ffc1d80ff4d6098302b68ec0965f469ee46f3",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/sweep_n.csv",
+      "source_path": "research/showcase_v1/results/sweep_n.csv",
+      "tracked": true,
+      "bytes": 1043,
+      "sha256": "7a85b9fc06fe2919890cc8e5265c109c2a01892494907e9339284bfdb3c5c4a7",
+      "source_sha256": "7a85b9fc06fe2919890cc8e5265c109c2a01892494907e9339284bfdb3c5c4a7",
+      "export_sha256": "7a85b9fc06fe2919890cc8e5265c109c2a01892494907e9339284bfdb3c5c4a7",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/sweep_n.json",
+      "source_path": "research/showcase_v1/results/sweep_n.json",
+      "tracked": true,
+      "bytes": 3964,
+      "sha256": "e3b0695763a8d8d476ec6aac5cac32b15c91dc5d9e4ba3a4b744c2f7ccc9a698",
+      "source_sha256": "e3b0695763a8d8d476ec6aac5cac32b15c91dc5d9e4ba3a4b744c2f7ccc9a698",
+      "export_sha256": "e3b0695763a8d8d476ec6aac5cac32b15c91dc5d9e4ba3a4b744c2f7ccc9a698",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/tail_1445.csv",
+      "source_path": "research/showcase_v1/results/tail_1445.csv",
+      "tracked": true,
+      "bytes": 1592,
+      "sha256": "a1b050ec9e43c818a2da97f86d2963d803306ddb42f4766085a57e9c1c052c79",
+      "source_sha256": "a1b050ec9e43c818a2da97f86d2963d803306ddb42f4766085a57e9c1c052c79",
+      "export_sha256": "a1b050ec9e43c818a2da97f86d2963d803306ddb42f4766085a57e9c1c052c79",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/tail_1445.json",
+      "source_path": "research/showcase_v1/results/tail_1445.json",
+      "tracked": true,
+      "bytes": 3713,
+      "sha256": "b0752fca9653826778db60b4e843cc4e43c81ed7582e197f07e67aa0660572e4",
+      "source_sha256": "b0752fca9653826778db60b4e843cc4e43c81ed7582e197f07e67aa0660572e4",
+      "export_sha256": "b0752fca9653826778db60b4e843cc4e43c81ed7582e197f07e67aa0660572e4",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/twap_decay.csv",
+      "source_path": "research/showcase_v1/results/twap_decay.csv",
+      "tracked": true,
+      "bytes": 347,
+      "sha256": "19bb018ba0cac5198b33b1b075c50018febf806c5ef9e6e17a7be1c0173651e1",
+      "source_sha256": "19bb018ba0cac5198b33b1b075c50018febf806c5ef9e6e17a7be1c0173651e1",
+      "export_sha256": "19bb018ba0cac5198b33b1b075c50018febf806c5ef9e6e17a7be1c0173651e1",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/twap_decay.json",
+      "source_path": "research/showcase_v1/results/twap_decay.json",
+      "tracked": true,
+      "bytes": 960,
+      "sha256": "4b5fc3f51e70698d318b0017f1991a0babfd510d588fd3c670cc76f1c537ebd9",
+      "source_sha256": "4b5fc3f51e70698d318b0017f1991a0babfd510d588fd3c670cc76f1c537ebd9",
+      "export_sha256": "4b5fc3f51e70698d318b0017f1991a0babfd510d588fd3c670cc76f1c537ebd9",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/twap_diag.json",
+      "source_path": "research/showcase_v1/results/twap_diag.json",
+      "tracked": true,
+      "bytes": 342,
+      "sha256": "3e0d2649965800abbdab31d92eaeecb0678c2df4a3f94ff5e000675dee5fc7ac",
+      "source_sha256": "3e0d2649965800abbdab31d92eaeecb0678c2df4a3f94ff5e000675dee5fc7ac",
+      "export_sha256": "3e0d2649965800abbdab31d92eaeecb0678c2df4a3f94ff5e000675dee5fc7ac",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/twap_exec.json",
+      "source_path": "research/showcase_v1/results/twap_exec.json",
+      "tracked": true,
+      "bytes": 529,
+      "sha256": "ca6d81cfd7086a6c41babe8d82378d8981160ffab0974b75ee804d11489c5f91",
+      "source_sha256": "ca6d81cfd7086a6c41babe8d82378d8981160ffab0974b75ee804d11489c5f91",
+      "export_sha256": "ca6d81cfd7086a6c41babe8d82378d8981160ffab0974b75ee804d11489c5f91",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/twap_matrix.csv",
+      "source_path": "research/showcase_v1/results/twap_matrix.csv",
+      "tracked": true,
+      "bytes": 847,
+      "sha256": "5317e6ec722924b28d73f1bf3a93e69eefc30e2162b512fbc1f1c2081d0ea613",
+      "source_sha256": "5317e6ec722924b28d73f1bf3a93e69eefc30e2162b512fbc1f1c2081d0ea613",
+      "export_sha256": "5317e6ec722924b28d73f1bf3a93e69eefc30e2162b512fbc1f1c2081d0ea613",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/twap_matrix.json",
+      "source_path": "research/showcase_v1/results/twap_matrix.json",
+      "tracked": true,
+      "bytes": 2289,
+      "sha256": "89ac9a2c2b6ccf6ed98a634bb796b4b8a446e25fa6752c4bc2ea33aafee0198b",
+      "source_sha256": "89ac9a2c2b6ccf6ed98a634bb796b4b8a446e25fa6752c4bc2ea33aafee0198b",
+      "export_sha256": "89ac9a2c2b6ccf6ed98a634bb796b4b8a446e25fa6752c4bc2ea33aafee0198b",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/results/validation_line.json",
+      "source_path": "research/showcase_v1/results/validation_line.json",
+      "tracked": true,
+      "bytes": 625,
+      "sha256": "1785c822f2549f139cd49d6cd645914987e646905f2179a3370954464a6e3622",
+      "source_sha256": "1785c822f2549f139cd49d6cd645914987e646905f2179a3370954464a6e3622",
+      "export_sha256": "1785c822f2549f139cd49d6cd645914987e646905f2179a3370954464a6e3622",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/retrain_ladder.py",
+      "source_path": "research/showcase_v1/retrain_ladder.py",
+      "tracked": true,
+      "bytes": 2087,
+      "sha256": "d3dfd9502652125591eaf295fad2af1759acbbec480036cdd8b661b8f3a44678",
+      "source_sha256": "f626876c04244d6091499faf0f13a68c52424f9b9ec7b3f8f6cb5da454259c75",
+      "export_sha256": "d3dfd9502652125591eaf295fad2af1759acbbec480036cdd8b661b8f3a44678",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/rolling_train.py",
+      "source_path": "research/showcase_v1/rolling_train.py",
+      "tracked": true,
+      "bytes": 7018,
+      "sha256": "2b1d4d1639298b005f35df9761ec2795fc6b70837429f30ccb866fd348a30276",
+      "source_sha256": "570f6750a31927091c38602f9143cf307aa39bc5793df4c987e300d22bf6b749",
+      "export_sha256": "2b1d4d1639298b005f35df9761ec2795fc6b70837429f30ccb866fd348a30276",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/seq_models.py",
+      "source_path": "research/showcase_v1/seq_models.py",
+      "tracked": true,
+      "bytes": 25327,
+      "sha256": "402ae5df8f967e9eeb77b925d15b8930c3ae37b2c5d82994640d9dd3d9c7e55a",
+      "source_sha256": "05002e08afc54f482280b55e47dc9efdd14143ce0613e5b3362de3f985a0dc57",
+      "export_sha256": "402ae5df8f967e9eeb77b925d15b8930c3ae37b2c5d82994640d9dd3d9c7e55a",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/seq_saliency.py",
+      "source_path": "research/showcase_v1/seq_saliency.py",
+      "tracked": true,
+      "bytes": 5374,
+      "sha256": "c47cd56ed36cdc56270a0fa15de6f002ab337dbe4822d3a3a6b8431acefdced1",
+      "source_sha256": "b30b84140248d9baf68b0190fe77075464271d0807ba740f9b9ec5aaf7bcd2e0",
+      "export_sha256": "c47cd56ed36cdc56270a0fa15de6f002ab337dbe4822d3a3a6b8431acefdced1",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/sweep_dial.py",
+      "source_path": "research/showcase_v1/sweep_dial.py",
+      "tracked": true,
+      "bytes": 3981,
+      "sha256": "7a33212f0cad1f1c224ebf67dc204d1886a00f496b2dcc1aa24677aa49ff90aa",
+      "source_sha256": "7a33212f0cad1f1c224ebf67dc204d1886a00f496b2dcc1aa24677aa49ff90aa",
+      "export_sha256": "7a33212f0cad1f1c224ebf67dc204d1886a00f496b2dcc1aa24677aa49ff90aa",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/sweep_n.py",
+      "source_path": "research/showcase_v1/sweep_n.py",
+      "tracked": true,
+      "bytes": 3295,
+      "sha256": "9c90b3817649b3a66de74454d0d0eb2f81d9ee8fbe5bcd682cba9f9af51beed2",
+      "source_sha256": "9ad42034d0924c43fce51389443dbcebd34d4230de183c354f7aa6abca4a5716",
+      "export_sha256": "9c90b3817649b3a66de74454d0d0eb2f81d9ee8fbe5bcd682cba9f9af51beed2",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/tail_1445.py",
+      "source_path": "research/showcase_v1/tail_1445.py",
+      "tracked": true,
+      "bytes": 3896,
+      "sha256": "3ea5acd43a3084e25b8a30354ab8f9fe02ba7b9af3c1dccf1af6a9d9244da966",
+      "source_sha256": "b2d34d58cccecc143e8e5a4944734e340e78554a3562193d1bc22fe867bafdbc",
+      "export_sha256": "3ea5acd43a3084e25b8a30354ab8f9fe02ba7b9af3c1dccf1af6a9d9244da966",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/train_models.py",
+      "source_path": "research/showcase_v1/train_models.py",
+      "tracked": true,
+      "bytes": 7487,
+      "sha256": "1488c7dfdcab95c1413c420780569bd0d8ecdc76a93b09fd4794127241de17f8",
+      "source_sha256": "1488c7dfdcab95c1413c420780569bd0d8ecdc76a93b09fd4794127241de17f8",
+      "export_sha256": "1488c7dfdcab95c1413c420780569bd0d8ecdc76a93b09fd4794127241de17f8",
+      "export_modified": false
+    },
+    {
+      "path": "research/showcase_v1/twap_decay.py",
+      "source_path": "research/showcase_v1/twap_decay.py",
+      "tracked": true,
+      "bytes": 3692,
+      "sha256": "2e04e0a6f63ca6d18e60b2fa6c0300031242f3315129d324d199e6a31acae945",
+      "source_sha256": "f9ec38f3e5e4ec4b368ef560213b5f34571605516fb64f32cc0640b62e359235",
+      "export_sha256": "2e04e0a6f63ca6d18e60b2fa6c0300031242f3315129d324d199e6a31acae945",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/twap_diag.py",
+      "source_path": "research/showcase_v1/twap_diag.py",
+      "tracked": true,
+      "bytes": 3635,
+      "sha256": "a9f4ad5238085d76e444e70fac434be829c8dfe233219c94661999152795dbfd",
+      "source_sha256": "e7bc802a68e2c3734daad1a9636406d1c045b1ed5406361679ae7a24e63005f5",
+      "export_sha256": "a9f4ad5238085d76e444e70fac434be829c8dfe233219c94661999152795dbfd",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/twap_exec.py",
+      "source_path": "research/showcase_v1/twap_exec.py",
+      "tracked": true,
+      "bytes": 4951,
+      "sha256": "478dae09279dfc71c296e861ac371d44b7e7b4846d778f034bb2dc579df1a9cf",
+      "source_sha256": "22a730fb1a297242162afa8e4fa7a9e727d83301b327f56e261cb51eb6ad936f",
+      "export_sha256": "478dae09279dfc71c296e861ac371d44b7e7b4846d778f034bb2dc579df1a9cf",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/twap_matrix.py",
+      "source_path": "research/showcase_v1/twap_matrix.py",
+      "tracked": true,
+      "bytes": 5656,
+      "sha256": "15a0118aea73a2ede6a9bc51abdbc711e359acf9b5d8c0fde9a3d15d8ee69b6b",
+      "source_sha256": "dd3b606d0814aa5b0aacded125917970c12bef599af78f7503f85978c3b3c227",
+      "export_sha256": "15a0118aea73a2ede6a9bc51abdbc711e359acf9b5d8c0fde9a3d15d8ee69b6b",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/validation_charts.py",
+      "source_path": "research/showcase_v1/validation_charts.py",
+      "tracked": true,
+      "bytes": 8152,
+      "sha256": "e6ee0c8f12fda10a8f0cd1bc748fab02d8f42fad8a9ede1c97e590ad7b914c71",
+      "source_sha256": "406157c5486ff6c5c6e1656cab74de9bb4173621ae01c96c6e05e0091ed4eff0",
+      "export_sha256": "e6ee0c8f12fda10a8f0cd1bc748fab02d8f42fad8a9ede1c97e590ad7b914c71",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 1
+    },
+    {
+      "path": "research/showcase_v1/validation_line.py",
+      "source_path": "research/showcase_v1/validation_line.py",
+      "tracked": true,
+      "bytes": 4714,
+      "sha256": "a8e4a04cc512a079d732004234a5f9e9f1f97a0229d27bd40116a9e7a562422a",
+      "source_sha256": "dc5fa5dde99317b9eae07796b7749cbdaf69559c31552ddf4194fd9e9e74d558",
+      "export_sha256": "a8e4a04cc512a079d732004234a5f9e9f1f97a0229d27bd40116a9e7a562422a",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/showcase_v1/validation_report_data.py",
+      "source_path": "research/showcase_v1/validation_report_data.py",
+      "tracked": true,
+      "bytes": 6786,
+      "sha256": "f5559cb9c9146181366a4571bbc277dbac0bfbee9777322365b99119fd429d93",
+      "source_sha256": "c1ff0bfb955db576f5b16b4496d84bb84e315bb852701bb26641172841bc60d9",
+      "export_sha256": "f5559cb9c9146181366a4571bbc277dbac0bfbee9777322365b99119fd429d93",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/source_manifest.yml",
+      "source_path": "research/source_manifest.yml",
+      "tracked": true,
+      "bytes": 829,
+      "sha256": "7981ba1897c2bae166c421b2b24944983373fd960ce5c4834ef21bc3ea5b3aa4",
+      "source_sha256": "20492bed505ca121a8280198820f05a306efd25373f45f4ff7cf37ed660617b6",
+      "export_sha256": "7981ba1897c2bae166c421b2b24944983373fd960ce5c4834ef21bc3ea5b3aa4",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/zoo_v1/README.md",
+      "source_path": "research/zoo_v1/README.md",
+      "tracked": true,
+      "bytes": 2054,
+      "sha256": "a2a53dd1ca185f22e8181b01538af7b4985ff7b1a461ae5ffd19c1f2ed604e54",
+      "source_sha256": "a2a53dd1ca185f22e8181b01538af7b4985ff7b1a461ae5ffd19c1f2ed604e54",
+      "export_sha256": "a2a53dd1ca185f22e8181b01538af7b4985ff7b1a461ae5ffd19c1f2ed604e54",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/build_minute_allasset.py",
+      "source_path": "research/zoo_v1/build_minute_allasset.py",
+      "tracked": true,
+      "bytes": 5118,
+      "sha256": "58c4bb2ce0ede74af88a26672485fa58f9614b23d970413445797003df63d204",
+      "source_sha256": "042c6b7ccd6dbb0f85f8f5de29b23aade31f1ec740d09fe263e2c5dc48fc6a8c",
+      "export_sha256": "58c4bb2ce0ede74af88a26672485fa58f9614b23d970413445797003df63d204",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 2
+    },
+    {
+      "path": "research/zoo_v1/composite/deflation.json",
+      "source_path": "research/zoo_v1/composite/deflation.json",
+      "tracked": true,
+      "bytes": 870,
+      "sha256": "68faff7e0c261446916478c6ee6f51d2b97860e8422a9ced150c1c8b075ff0aa",
+      "source_sha256": "68faff7e0c261446916478c6ee6f51d2b97860e8422a9ced150c1c8b075ff0aa",
+      "export_sha256": "68faff7e0c261446916478c6ee6f51d2b97860e8422a9ced150c1c8b075ff0aa",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/composite/final_leg_corr.csv",
+      "source_path": "research/zoo_v1/composite/final_leg_corr.csv",
+      "tracked": true,
+      "bytes": 977,
+      "sha256": "da615e4b32bf3519db339bf10d59b9b2cdb4d6a4a597ad013811bba8f7602ec0",
+      "source_sha256": "da615e4b32bf3519db339bf10d59b9b2cdb4d6a4a597ad013811bba8f7602ec0",
+      "export_sha256": "da615e4b32bf3519db339bf10d59b9b2cdb4d6a4a597ad013811bba8f7602ec0",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/composite/registry_corr.csv",
+      "source_path": "research/zoo_v1/composite/registry_corr.csv",
+      "tracked": true,
+      "bytes": 1155,
+      "sha256": "753ec2003cca112c5cedc7dceedd447f1aa5d4b9dc18a6a0f0752ebdd5ef87c4",
+      "source_sha256": "753ec2003cca112c5cedc7dceedd447f1aa5d4b9dc18a6a0f0752ebdd5ef87c4",
+      "export_sha256": "753ec2003cca112c5cedc7dceedd447f1aa5d4b9dc18a6a0f0752ebdd5ef87c4",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/composite/smoke_result.json",
+      "source_path": "research/zoo_v1/composite/smoke_result.json",
+      "tracked": true,
+      "bytes": 833,
+      "sha256": "acaa549bd27961b3b66e8878d2f44c729a6174a3b5d567d31600d8a00e4328bd",
+      "source_sha256": "acaa549bd27961b3b66e8878d2f44c729a6174a3b5d567d31600d8a00e4328bd",
+      "export_sha256": "acaa549bd27961b3b66e8878d2f44c729a6174a3b5d567d31600d8a00e4328bd",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/composite/summary.json",
+      "source_path": "research/zoo_v1/composite/summary.json",
+      "tracked": true,
+      "bytes": 18517,
+      "sha256": "9e7fcd23187e4124a88d1adec3c7eadc65d146fb1580434cefdae358f17bb5c9",
+      "source_sha256": "9e7fcd23187e4124a88d1adec3c7eadc65d146fb1580434cefdae358f17bb5c9",
+      "export_sha256": "9e7fcd23187e4124a88d1adec3c7eadc65d146fb1580434cefdae358f17bb5c9",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/deflate.py",
+      "source_path": "research/zoo_v1/deflate.py",
+      "tracked": true,
+      "bytes": 2300,
+      "sha256": "7158171086efb135ad67475980b025c23c310e5bca73c420ebfeb3f65ce13e92",
+      "source_sha256": "7158171086efb135ad67475980b025c23c310e5bca73c420ebfeb3f65ce13e92",
+      "export_sha256": "7158171086efb135ad67475980b025c23c310e5bca73c420ebfeb3f65ce13e92",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/harness.py",
+      "source_path": "research/zoo_v1/harness.py",
+      "tracked": true,
+      "bytes": 14982,
+      "sha256": "35c0376cc34cd2bd08a9ed07e0c5b261994c1551ca0bae15302577a002887205",
+      "source_sha256": "eaa08363f94398a00d9990b0d9a32671e2b1d57315cf04959afbf7458b98acb2",
+      "export_sha256": "35c0376cc34cd2bd08a9ed07e0c5b261994c1551ca0bae15302577a002887205",
+      "export_modified": true,
+      "export_edits": [
+        "个人绝对路径替换为可配置占位路径；原始研究文件未修改"
+      ],
+      "path_placeholder_replacements": 3
+    },
+    {
+      "path": "research/zoo_v1/results/anchor.json",
+      "source_path": "research/zoo_v1/results/anchor.json",
+      "tracked": true,
+      "bytes": 190,
+      "sha256": "11bcf444ab72240577241b44d40ca9d394bde6c8eaabaf15358ed03be2d570de",
+      "source_sha256": "11bcf444ab72240577241b44d40ca9d394bde6c8eaabaf15358ed03be2d570de",
+      "export_sha256": "11bcf444ab72240577241b44d40ca9d394bde6c8eaabaf15358ed03be2d570de",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/flow_h1.json",
+      "source_path": "research/zoo_v1/results/flow_h1.json",
+      "tracked": true,
+      "bytes": 19559,
+      "sha256": "2e9189f35db0caf7d7325e2c332164c4277231563243e0cf483251c6788c0113",
+      "source_sha256": "2e9189f35db0caf7d7325e2c332164c4277231563243e0cf483251c6788c0113",
+      "export_sha256": "2e9189f35db0caf7d7325e2c332164c4277231563243e0cf483251c6788c0113",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/flow_h3.json",
+      "source_path": "research/zoo_v1/results/flow_h3.json",
+      "tracked": true,
+      "bytes": 19540,
+      "sha256": "266543188e653ba0da6755b75bef1debf8bd002c6be88959cae97c983e7a496d",
+      "source_sha256": "266543188e653ba0da6755b75bef1debf8bd002c6be88959cae97c983e7a496d",
+      "export_sha256": "266543188e653ba0da6755b75bef1debf8bd002c6be88959cae97c983e7a496d",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/flow_q10.json",
+      "source_path": "research/zoo_v1/results/flow_q10.json",
+      "tracked": true,
+      "bytes": 19723,
+      "sha256": "f8551a10e0d722db06695a8e3f12ce25c6caa1ac438288096d684f032854760e",
+      "source_sha256": "f8551a10e0d722db06695a8e3f12ce25c6caa1ac438288096d684f032854760e",
+      "export_sha256": "f8551a10e0d722db06695a8e3f12ce25c6caa1ac438288096d684f032854760e",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/flow_xa.json",
+      "source_path": "research/zoo_v1/results/flow_xa.json",
+      "tracked": true,
+      "bytes": 4602,
+      "sha256": "d69a6700f1d0846b590ae282eae90f18254a1861927817913cc27188e19b602e",
+      "source_sha256": "d69a6700f1d0846b590ae282eae90f18254a1861927817913cc27188e19b602e",
+      "export_sha256": "d69a6700f1d0846b590ae282eae90f18254a1861927817913cc27188e19b602e",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/micro.json",
+      "source_path": "research/zoo_v1/results/micro.json",
+      "tracked": true,
+      "bytes": 10375,
+      "sha256": "1078ba2cdc1076c80a0c290fe97fb4feab9574ef720bad906d24714332bccb35",
+      "source_sha256": "1078ba2cdc1076c80a0c290fe97fb4feab9574ef720bad906d24714332bccb35",
+      "export_sha256": "1078ba2cdc1076c80a0c290fe97fb4feab9574ef720bad906d24714332bccb35",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/mom.json",
+      "source_path": "research/zoo_v1/results/mom.json",
+      "tracked": true,
+      "bytes": 11376,
+      "sha256": "974e4d1f528446114086a292c141725d5300c8f40f89d9ae42260002793b1d1d",
+      "source_sha256": "974e4d1f528446114086a292c141725d5300c8f40f89d9ae42260002793b1d1d",
+      "export_sha256": "974e4d1f528446114086a292c141725d5300c8f40f89d9ae42260002793b1d1d",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/onid.json",
+      "source_path": "research/zoo_v1/results/onid.json",
+      "tracked": true,
+      "bytes": 6231,
+      "sha256": "7f3065d1431f45ff841f87cce66cbdacfa61696b8c062b373c67b02b2661964b",
+      "source_sha256": "7f3065d1431f45ff841f87cce66cbdacfa61696b8c062b373c67b02b2661964b",
+      "export_sha256": "7f3065d1431f45ff841f87cce66cbdacfa61696b8c062b373c67b02b2661964b",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/sess.json",
+      "source_path": "research/zoo_v1/results/sess.json",
+      "tracked": true,
+      "bytes": 4959,
+      "sha256": "c03e805d7b0633496da14a66f7d26a5e95576ab3357fbd958332af0ea25e6171",
+      "source_sha256": "c03e805d7b0633496da14a66f7d26a5e95576ab3357fbd958332af0ea25e6171",
+      "export_sha256": "c03e805d7b0633496da14a66f7d26a5e95576ab3357fbd958332af0ea25e6171",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/shape.json",
+      "source_path": "research/zoo_v1/results/shape.json",
+      "tracked": true,
+      "bytes": 4729,
+      "sha256": "37352f203d9bbaf822d2806827ddeb43ff86f13ea0d6ca6e99adf4fac4985bc8",
+      "source_sha256": "37352f203d9bbaf822d2806827ddeb43ff86f13ea0d6ca6e99adf4fac4985bc8",
+      "export_sha256": "37352f203d9bbaf822d2806827ddeb43ff86f13ea0d6ca6e99adf4fac4985bc8",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/sleeve.json",
+      "source_path": "research/zoo_v1/results/sleeve.json",
+      "tracked": true,
+      "bytes": 3157,
+      "sha256": "7b2a6d776767a680ab6384beeb9187c68d91b8020ed2da85c13ad96c7f1d73ae",
+      "source_sha256": "7b2a6d776767a680ab6384beeb9187c68d91b8020ed2da85c13ad96c7f1d73ae",
+      "export_sha256": "7b2a6d776767a680ab6384beeb9187c68d91b8020ed2da85c13ad96c7f1d73ae",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/sleeve_ix.json",
+      "source_path": "research/zoo_v1/results/sleeve_ix.json",
+      "tracked": true,
+      "bytes": 1717,
+      "sha256": "f58ae0d484136305c3bfb835dcd92531531c3fc19b9e26aefd26265c12b8d919",
+      "source_sha256": "f58ae0d484136305c3bfb835dcd92531531c3fc19b9e26aefd26265c12b8d919",
+      "export_sha256": "f58ae0d484136305c3bfb835dcd92531531c3fc19b9e26aefd26265c12b8d919",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/sleeve_v2.json",
+      "source_path": "research/zoo_v1/results/sleeve_v2.json",
+      "tracked": true,
+      "bytes": 3235,
+      "sha256": "a6e50f1fdab8e6471510e93e6ac3c608f0e0d7d28d1c2146ddca46d653038d21",
+      "source_sha256": "a6e50f1fdab8e6471510e93e6ac3c608f0e0d7d28d1c2146ddca46d653038d21",
+      "export_sha256": "a6e50f1fdab8e6471510e93e6ac3c608f0e0d7d28d1c2146ddca46d653038d21",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/results/vol.json",
+      "source_path": "research/zoo_v1/results/vol.json",
+      "tracked": true,
+      "bytes": 9392,
+      "sha256": "007ccb4e1edf120d3646dc28d216575cb0e923dfe856f29e1da1355c91546c3a",
+      "source_sha256": "007ccb4e1edf120d3646dc28d216575cb0e923dfe856f29e1da1355c91546c3a",
+      "export_sha256": "007ccb4e1edf120d3646dc28d216575cb0e923dfe856f29e1da1355c91546c3a",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/run_axis.py",
+      "source_path": "research/zoo_v1/run_axis.py",
+      "tracked": true,
+      "bytes": 5211,
+      "sha256": "273233955038ef52f76e82df974ce9aef0c25a3888c3a47dfc973f4b1eeed580",
+      "source_sha256": "273233955038ef52f76e82df974ce9aef0c25a3888c3a47dfc973f4b1eeed580",
+      "export_sha256": "273233955038ef52f76e82df974ce9aef0c25a3888c3a47dfc973f4b1eeed580",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/smoke.py",
+      "source_path": "research/zoo_v1/smoke.py",
+      "tracked": true,
+      "bytes": 3414,
+      "sha256": "b130a64a7bd9bb9df7ffa4a7dfae4566ff55b230bf83d0a8b5319df74457f9dd",
+      "source_sha256": "b130a64a7bd9bb9df7ffa4a7dfae4566ff55b230bf83d0a8b5319df74457f9dd",
+      "export_sha256": "b130a64a7bd9bb9df7ffa4a7dfae4566ff55b230bf83d0a8b5319df74457f9dd",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/walkforward.py",
+      "source_path": "research/zoo_v1/walkforward.py",
+      "tracked": true,
+      "bytes": 14737,
+      "sha256": "2e0e1869c479e208f59a1c9bf6595ac5d46b32fbd1876417edf908034f4231e3",
+      "source_sha256": "2e0e1869c479e208f59a1c9bf6595ac5d46b32fbd1876417edf908034f4231e3",
+      "export_sha256": "2e0e1869c479e208f59a1c9bf6595ac5d46b32fbd1876417edf908034f4231e3",
+      "export_modified": false
+    },
+    {
+      "path": "research/zoo_v1/zoo_axes.py",
+      "source_path": "research/zoo_v1/zoo_axes.py",
+      "tracked": true,
+      "bytes": 8982,
+      "sha256": "6d1331a7d0daa8693c49bab8b8cbc83279c652706c15e6b5a9f888d52137e198",
+      "source_sha256": "6d1331a7d0daa8693c49bab8b8cbc83279c652706c15e6b5a9f888d52137e198",
+      "export_sha256": "6d1331a7d0daa8693c49bab8b8cbc83279c652706c15e6b5a9f888d52137e198",
+      "export_modified": false
+    },
+    {
+      "path": "scripts/bootstrap.sh",
+      "source_path": "scripts/bootstrap.sh",
+      "tracked": true,
+      "bytes": 349,
+      "sha256": "50e309b29b4d7574fa8f232e1bc7ed4b82f382e27363153f569378bcf0581cd7",
+      "source_sha256": "50e309b29b4d7574fa8f232e1bc7ed4b82f382e27363153f569378bcf0581cd7",
+      "export_sha256": "50e309b29b4d7574fa8f232e1bc7ed4b82f382e27363153f569378bcf0581cd7",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/__init__.py",
+      "source_path": "src/index_timing/__init__.py",
+      "tracked": true,
+      "bytes": 273,
+      "sha256": "caa597f5d788d3edf01e1b1736c6a682fb0f58b9e32f845a15ca7813c86beeb3",
+      "source_sha256": "caa597f5d788d3edf01e1b1736c6a682fb0f58b9e32f845a15ca7813c86beeb3",
+      "export_sha256": "caa597f5d788d3edf01e1b1736c6a682fb0f58b9e32f845a15ca7813c86beeb3",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/artifacts.py",
+      "source_path": "src/index_timing/artifacts.py",
+      "tracked": true,
+      "bytes": 19481,
+      "sha256": "dbc6d4fe1949af8de7e97bcd84a7f9bec3fa87c1d7a544fbdd17a74e2fd8877c",
+      "source_sha256": "dbc6d4fe1949af8de7e97bcd84a7f9bec3fa87c1d7a544fbdd17a74e2fd8877c",
+      "export_sha256": "dbc6d4fe1949af8de7e97bcd84a7f9bec3fa87c1d7a544fbdd17a74e2fd8877c",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/backtest.py",
+      "source_path": "src/index_timing/backtest.py",
+      "tracked": true,
+      "bytes": 13061,
+      "sha256": "144044bd725ecd937877e12c53edc7ad9ab92d7511415ee91d91ee5d407a1ecc",
+      "source_sha256": "144044bd725ecd937877e12c53edc7ad9ab92d7511415ee91d91ee5d407a1ecc",
+      "export_sha256": "144044bd725ecd937877e12c53edc7ad9ab92d7511415ee91d91ee5d407a1ecc",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/baselines.py",
+      "source_path": "src/index_timing/baselines.py",
+      "tracked": true,
+      "bytes": 1571,
+      "sha256": "2183d4b20b03caa1a2c4e1c9f3be391e4663b83985b13aa69ca300a0b23fadf2",
+      "source_sha256": "2183d4b20b03caa1a2c4e1c9f3be391e4663b83985b13aa69ca300a0b23fadf2",
+      "export_sha256": "2183d4b20b03caa1a2c4e1c9f3be391e4663b83985b13aa69ca300a0b23fadf2",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/cli.py",
+      "source_path": "src/index_timing/cli.py",
+      "tracked": true,
+      "bytes": 22544,
+      "sha256": "d03839430da066b18948fb0d9b1a80206cb4e1c083aa26fda88b3a7d2ddb2396",
+      "source_sha256": "d03839430da066b18948fb0d9b1a80206cb4e1c083aa26fda88b3a7d2ddb2396",
+      "export_sha256": "d03839430da066b18948fb0d9b1a80206cb4e1c083aa26fda88b3a7d2ddb2396",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/config.py",
+      "source_path": "src/index_timing/config.py",
+      "tracked": true,
+      "bytes": 1719,
+      "sha256": "c5a177f5f17296526971f8c6dda6ad68472f3b12b06b7a0b509047fbaa3e7b38",
+      "source_sha256": "c5a177f5f17296526971f8c6dda6ad68472f3b12b06b7a0b509047fbaa3e7b38",
+      "export_sha256": "c5a177f5f17296526971f8c6dda6ad68472f3b12b06b7a0b509047fbaa3e7b38",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/data/__init__.py",
+      "source_path": "src/index_timing/data/__init__.py",
+      "tracked": true,
+      "bytes": 1021,
+      "sha256": "8c6428083353eaf90dabe706ef090e45bf8e2a138872d6859cc35d7c4983054b",
+      "source_sha256": "8c6428083353eaf90dabe706ef090e45bf8e2a138872d6859cc35d7c4983054b",
+      "export_sha256": "8c6428083353eaf90dabe706ef090e45bf8e2a138872d6859cc35d7c4983054b",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/data/base.py",
+      "source_path": "src/index_timing/data/base.py",
+      "tracked": true,
+      "bytes": 5088,
+      "sha256": "14a6c09a27d878dd7c3f3b6b82a7e171c29c7bc0e74bcb1b8c5bbda62a72cf37",
+      "source_sha256": "14a6c09a27d878dd7c3f3b6b82a7e171c29c7bc0e74bcb1b8c5bbda62a72cf37",
+      "export_sha256": "14a6c09a27d878dd7c3f3b6b82a7e171c29c7bc0e74bcb1b8c5bbda62a72cf37",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/data/calendar.py",
+      "source_path": "src/index_timing/data/calendar.py",
+      "tracked": true,
+      "bytes": 2537,
+      "sha256": "ffb3b32bb5606d822d97e2fb567a16a2571a34baa9394b5e982179c1828eee0e",
+      "source_sha256": "ffb3b32bb5606d822d97e2fb567a16a2571a34baa9394b5e982179c1828eee0e",
+      "export_sha256": "ffb3b32bb5606d822d97e2fb567a16a2571a34baa9394b5e982179c1828eee0e",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/data/point_in_time.py",
+      "source_path": "src/index_timing/data/point_in_time.py",
+      "tracked": true,
+      "bytes": 3359,
+      "sha256": "eec192136af69958a195d1e76b6450577a550b27db207b8444e09f3073aa7116",
+      "source_sha256": "eec192136af69958a195d1e76b6450577a550b27db207b8444e09f3073aa7116",
+      "export_sha256": "eec192136af69958a195d1e76b6450577a550b27db207b8444e09f3073aa7116",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/data/providers.py",
+      "source_path": "src/index_timing/data/providers.py",
+      "tracked": true,
+      "bytes": 19370,
+      "sha256": "5b7601118a1a86540f15fb2bcac78cf41569fd9cd24380f7ea779037e2dc20d4",
+      "source_sha256": "5b7601118a1a86540f15fb2bcac78cf41569fd9cd24380f7ea779037e2dc20d4",
+      "export_sha256": "5b7601118a1a86540f15fb2bcac78cf41569fd9cd24380f7ea779037e2dc20d4",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/data/snapshot.py",
+      "source_path": "src/index_timing/data/snapshot.py",
+      "tracked": true,
+      "bytes": 4419,
+      "sha256": "8a2ef6484d074b4f44d3b2ef36f7e6127dee255ae06edea468a3d11397b04514",
+      "source_sha256": "8a2ef6484d074b4f44d3b2ef36f7e6127dee255ae06edea468a3d11397b04514",
+      "export_sha256": "8a2ef6484d074b4f44d3b2ef36f7e6127dee255ae06edea468a3d11397b04514",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/experiments/__init__.py",
+      "source_path": "src/index_timing/experiments/__init__.py",
+      "tracked": true,
+      "bytes": 46,
+      "sha256": "a711456eec0deb1d74967bab285375009f6d49908e2e7c40229b5e16abbfdddf",
+      "source_sha256": "a711456eec0deb1d74967bab285375009f6d49908e2e7c40229b5e16abbfdddf",
+      "export_sha256": "a711456eec0deb1d74967bab285375009f6d49908e2e7c40229b5e16abbfdddf",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/experiments/caitong.py",
+      "source_path": "src/index_timing/experiments/caitong.py",
+      "tracked": true,
+      "bytes": 15910,
+      "sha256": "6f596fec167cf15d185ccda14912375aa8d9f8a280c130e362e6d77c25fb68ce",
+      "source_sha256": "6f596fec167cf15d185ccda14912375aa8d9f8a280c130e362e6d77c25fb68ce",
+      "export_sha256": "6f596fec167cf15d185ccda14912375aa8d9f8a280c130e362e6d77c25fb68ce",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/experiments/zhongyou.py",
+      "source_path": "src/index_timing/experiments/zhongyou.py",
+      "tracked": true,
+      "bytes": 10655,
+      "sha256": "10652854708baf50a4483dda82b2596b933887d0c0e7472f4a5162c55ca4d016",
+      "source_sha256": "10652854708baf50a4483dda82b2596b933887d0c0e7472f4a5162c55ca4d016",
+      "export_sha256": "10652854708baf50a4483dda82b2596b933887d0c0e7472f4a5162c55ca4d016",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/features/__init__.py",
+      "source_path": "src/index_timing/features/__init__.py",
+      "tracked": true,
+      "bytes": 66,
+      "sha256": "75a146f928b45bd0d01f49eaac13abe5402aa5c3c47b1161e73a1e1488e435f9",
+      "source_sha256": "75a146f928b45bd0d01f49eaac13abe5402aa5c3c47b1161e73a1e1488e435f9",
+      "export_sha256": "75a146f928b45bd0d01f49eaac13abe5402aa5c3c47b1161e73a1e1488e435f9",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/features/caitong.py",
+      "source_path": "src/index_timing/features/caitong.py",
+      "tracked": true,
+      "bytes": 12710,
+      "sha256": "adf3347d7cc3764341a7e1bca552a78fdd9b22d8cef6984349f1f41f2616d0a4",
+      "source_sha256": "adf3347d7cc3764341a7e1bca552a78fdd9b22d8cef6984349f1f41f2616d0a4",
+      "export_sha256": "adf3347d7cc3764341a7e1bca552a78fdd9b22d8cef6984349f1f41f2616d0a4",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/features/zhongyou.py",
+      "source_path": "src/index_timing/features/zhongyou.py",
+      "tracked": true,
+      "bytes": 12328,
+      "sha256": "0cfa661ed1dd71240541bf3ca83890d1f1860392f2b9bd74f8b77009eea14d62",
+      "source_sha256": "0cfa661ed1dd71240541bf3ca83890d1f1860392f2b9bd74f8b77009eea14d62",
+      "export_sha256": "0cfa661ed1dd71240541bf3ca83890d1f1860392f2b9bd74f8b77009eea14d62",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/models/__init__.py",
+      "source_path": "src/index_timing/models/__init__.py",
+      "tracked": true,
+      "bytes": 61,
+      "sha256": "6bd5d86889bbe73aa56c0a4347af9b0d30f264bdceb3ed924293977d0c5aa5ef",
+      "source_sha256": "6bd5d86889bbe73aa56c0a4347af9b0d30f264bdceb3ed924293977d0c5aa5ef",
+      "export_sha256": "6bd5d86889bbe73aa56c0a4347af9b0d30f264bdceb3ed924293977d0c5aa5ef",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/models/caitong.py",
+      "source_path": "src/index_timing/models/caitong.py",
+      "tracked": true,
+      "bytes": 19683,
+      "sha256": "9fb3e89e30918d69643083ab059ecbf38bf09846a1471a2327d0aff12d10ab1f",
+      "source_sha256": "9fb3e89e30918d69643083ab059ecbf38bf09846a1471a2327d0aff12d10ab1f",
+      "export_sha256": "9fb3e89e30918d69643083ab059ecbf38bf09846a1471a2327d0aff12d10ab1f",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/models/zhongyou.py",
+      "source_path": "src/index_timing/models/zhongyou.py",
+      "tracked": true,
+      "bytes": 37334,
+      "sha256": "2980d2948082d2d7502020158180de483e8c0f6ce441f97fa22c85edcc742f8f",
+      "source_sha256": "2980d2948082d2d7502020158180de483e8c0f6ce441f97fa22c85edcc742f8f",
+      "export_sha256": "2980d2948082d2d7502020158180de483e8c0f6ce441f97fa22c85edcc742f8f",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/paths.py",
+      "source_path": "src/index_timing/paths.py",
+      "tracked": true,
+      "bytes": 836,
+      "sha256": "4229798333a75a975158b46f8e4c1488fbdda92ccd30db196553f9690d8f2835",
+      "source_sha256": "4229798333a75a975158b46f8e4c1488fbdda92ccd30db196553f9690d8f2835",
+      "export_sha256": "4229798333a75a975158b46f8e4c1488fbdda92ccd30db196553f9690d8f2835",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/reporting.py",
+      "source_path": "src/index_timing/reporting.py",
+      "tracked": true,
+      "bytes": 17832,
+      "sha256": "7cd0b9fdcd4842c82a0232904a08ba102f11fbf1ee96ee93a8c30b614fe803d4",
+      "source_sha256": "7cd0b9fdcd4842c82a0232904a08ba102f11fbf1ee96ee93a8c30b614fe803d4",
+      "export_sha256": "7cd0b9fdcd4842c82a0232904a08ba102f11fbf1ee96ee93a8c30b614fe803d4",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/runner.py",
+      "source_path": "src/index_timing/runner.py",
+      "tracked": true,
+      "bytes": 39387,
+      "sha256": "1f7ca3a6ed624097e212aadda8a2cd79081639fcc33f0b6346aeaaa619f90406",
+      "source_sha256": "1f7ca3a6ed624097e212aadda8a2cd79081639fcc33f0b6346aeaaa619f90406",
+      "export_sha256": "1f7ca3a6ed624097e212aadda8a2cd79081639fcc33f0b6346aeaaa619f90406",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/runner_zhongyou.py",
+      "source_path": "src/index_timing/runner_zhongyou.py",
+      "tracked": true,
+      "bytes": 21559,
+      "sha256": "13307d5cabfa6f288de16d0142f5fbeacb2b413bed5b1f2b427322f5dd8368c8",
+      "source_sha256": "13307d5cabfa6f288de16d0142f5fbeacb2b413bed5b1f2b427322f5dd8368c8",
+      "export_sha256": "13307d5cabfa6f288de16d0142f5fbeacb2b413bed5b1f2b427322f5dd8368c8",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/signal_ledger.py",
+      "source_path": "src/index_timing/signal_ledger.py",
+      "tracked": true,
+      "bytes": 8556,
+      "sha256": "3ab72ca8221dfc5bc410380472e19416eb0da4cb337945528b3e47cfb6fba0f3",
+      "source_sha256": "3ab72ca8221dfc5bc410380472e19416eb0da4cb337945528b3e47cfb6fba0f3",
+      "export_sha256": "3ab72ca8221dfc5bc410380472e19416eb0da4cb337945528b3e47cfb6fba0f3",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/statistics.py",
+      "source_path": "src/index_timing/statistics.py",
+      "tracked": true,
+      "bytes": 23367,
+      "sha256": "2036deed2964d4f6e1184957fbd0d506c61ea874163e35cd642883ab004cfc84",
+      "source_sha256": "2036deed2964d4f6e1184957fbd0d506c61ea874163e35cd642883ab004cfc84",
+      "export_sha256": "2036deed2964d4f6e1184957fbd0d506c61ea874163e35cd642883ab004cfc84",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/types.py",
+      "source_path": "src/index_timing/types.py",
+      "tracked": true,
+      "bytes": 3442,
+      "sha256": "ee9c51a55e3f321b46f0b1aefee08a6fb4d1e890df038a7a053acbc420239dc7",
+      "source_sha256": "ee9c51a55e3f321b46f0b1aefee08a6fb4d1e890df038a7a053acbc420239dc7",
+      "export_sha256": "ee9c51a55e3f321b46f0b1aefee08a6fb4d1e890df038a7a053acbc420239dc7",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/validation.py",
+      "source_path": "src/index_timing/validation.py",
+      "tracked": true,
+      "bytes": 13101,
+      "sha256": "839a5277595e9dc60347eaca7269674f376997d83ab641263f5853b011182c31",
+      "source_sha256": "839a5277595e9dc60347eaca7269674f376997d83ab641263f5853b011182c31",
+      "export_sha256": "839a5277595e9dc60347eaca7269674f376997d83ab641263f5853b011182c31",
+      "export_modified": false
+    },
+    {
+      "path": "src/index_timing/validation_reporting.py",
+      "source_path": "src/index_timing/validation_reporting.py",
+      "tracked": true,
+      "bytes": 6256,
+      "sha256": "ed2137c69dbb1accede9b09a1ac98e9a8ab743b5c84e91c9d80cfe790643ead0",
+      "source_sha256": "ed2137c69dbb1accede9b09a1ac98e9a8ab743b5c84e91c9d80cfe790643ead0",
+      "export_sha256": "ed2137c69dbb1accede9b09a1ac98e9a8ab743b5c84e91c9d80cfe790643ead0",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_artifacts_reporting.py",
+      "source_path": "tests/test_artifacts_reporting.py",
+      "tracked": true,
+      "bytes": 7700,
+      "sha256": "6df46d8f0e0aa00ce7b102c4af197f8fa7de99b5c284c379e90d10dbb50fbfef",
+      "source_sha256": "6df46d8f0e0aa00ce7b102c4af197f8fa7de99b5c284c379e90d10dbb50fbfef",
+      "export_sha256": "6df46d8f0e0aa00ce7b102c4af197f8fa7de99b5c284c379e90d10dbb50fbfef",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_backtest.py",
+      "source_path": "tests/test_backtest.py",
+      "tracked": true,
+      "bytes": 4824,
+      "sha256": "2d32193e2c00f53ffb90bf94faf24e5b51afdbb5d795d6ce91a062194ab11820",
+      "source_sha256": "2d32193e2c00f53ffb90bf94faf24e5b51afdbb5d795d6ce91a062194ab11820",
+      "export_sha256": "2d32193e2c00f53ffb90bf94faf24e5b51afdbb5d795d6ce91a062194ab11820",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_baselines.py",
+      "source_path": "tests/test_baselines.py",
+      "tracked": true,
+      "bytes": 787,
+      "sha256": "58405b2570e356befba71082a0c77800f0d85730d064f64def87d49240a899ee",
+      "source_sha256": "58405b2570e356befba71082a0c77800f0d85730d064f64def87d49240a899ee",
+      "export_sha256": "58405b2570e356befba71082a0c77800f0d85730d064f64def87d49240a899ee",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_caitong_features.py",
+      "source_path": "tests/test_caitong_features.py",
+      "tracked": true,
+      "bytes": 4379,
+      "sha256": "dd22cc2d32b7e5488c42828321fd1fdd0cc0dc111a9b0af0dc2138d0eef6510a",
+      "source_sha256": "dd22cc2d32b7e5488c42828321fd1fdd0cc0dc111a9b0af0dc2138d0eef6510a",
+      "export_sha256": "dd22cc2d32b7e5488c42828321fd1fdd0cc0dc111a9b0af0dc2138d0eef6510a",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_caitong_model.py",
+      "source_path": "tests/test_caitong_model.py",
+      "tracked": true,
+      "bytes": 5037,
+      "sha256": "1424376a1078b19305682dcc9f253594b3c3d317c838077a06a2d54812800e61",
+      "source_sha256": "1424376a1078b19305682dcc9f253594b3c3d317c838077a06a2d54812800e61",
+      "export_sha256": "1424376a1078b19305682dcc9f253594b3c3d317c838077a06a2d54812800e61",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_calendar.py",
+      "source_path": "tests/test_calendar.py",
+      "tracked": true,
+      "bytes": 2867,
+      "sha256": "2d9a73289af0a778b96fcf76a097c67fa1aaaf552193c00529fc191767d880bc",
+      "source_sha256": "2d9a73289af0a778b96fcf76a097c67fa1aaaf552193c00529fc191767d880bc",
+      "export_sha256": "2d9a73289af0a778b96fcf76a097c67fa1aaaf552193c00529fc191767d880bc",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_cash_rates.py",
+      "source_path": "tests/test_cash_rates.py",
+      "tracked": true,
+      "bytes": 5351,
+      "sha256": "7c129fcd8afe8f4959e28141187df956543a5a69783f18627ff3ed9922cbad64",
+      "source_sha256": "7c129fcd8afe8f4959e28141187df956543a5a69783f18627ff3ed9922cbad64",
+      "export_sha256": "7c129fcd8afe8f4959e28141187df956543a5a69783f18627ff3ed9922cbad64",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_cli.py",
+      "source_path": "tests/test_cli.py",
+      "tracked": true,
+      "bytes": 4932,
+      "sha256": "c927cf88c0ae57ee4a598a3282682cfbc82c8f94ce63f4fa93b0164d1113a3e7",
+      "source_sha256": "c927cf88c0ae57ee4a598a3282682cfbc82c8f94ce63f4fa93b0164d1113a3e7",
+      "export_sha256": "c927cf88c0ae57ee4a598a3282682cfbc82c8f94ce63f4fa93b0164d1113a3e7",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_data.py",
+      "source_path": "tests/test_data.py",
+      "tracked": true,
+      "bytes": 9898,
+      "sha256": "c50a485b47c15c0c846c794aa9d5a4684706f2800339b89f470a8d4a0cc5e5c8",
+      "source_sha256": "c50a485b47c15c0c846c794aa9d5a4684706f2800339b89f470a8d4a0cc5e5c8",
+      "export_sha256": "c50a485b47c15c0c846c794aa9d5a4684706f2800339b89f470a8d4a0cc5e5c8",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_end_to_end_markets.py",
+      "source_path": "tests/test_end_to_end_markets.py",
+      "tracked": true,
+      "bytes": 1841,
+      "sha256": "dba1030693bbbe4f9ded31962088a8dbba103c174fd0f11a32aabea6734de2a6",
+      "source_sha256": "dba1030693bbbe4f9ded31962088a8dbba103c174fd0f11a32aabea6734de2a6",
+      "export_sha256": "dba1030693bbbe4f9ded31962088a8dbba103c174fd0f11a32aabea6734de2a6",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_statistics.py",
+      "source_path": "tests/test_statistics.py",
+      "tracked": true,
+      "bytes": 6903,
+      "sha256": "5e6129a25125f4b3f92b2ebb5a8465c6cc88e3cfdf47cfaf784b39b67351280a",
+      "source_sha256": "5e6129a25125f4b3f92b2ebb5a8465c6cc88e3cfdf47cfaf784b39b67351280a",
+      "export_sha256": "5e6129a25125f4b3f92b2ebb5a8465c6cc88e3cfdf47cfaf784b39b67351280a",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_trial_ledger.py",
+      "source_path": "tests/test_trial_ledger.py",
+      "tracked": true,
+      "bytes": 3506,
+      "sha256": "e40cf10ebd3c37c28c488fbe070e6d50d2a0e3810e3008b02d1c162984c9feb0",
+      "source_sha256": "e40cf10ebd3c37c28c488fbe070e6d50d2a0e3810e3008b02d1c162984c9feb0",
+      "export_sha256": "e40cf10ebd3c37c28c488fbe070e6d50d2a0e3810e3008b02d1c162984c9feb0",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_zhongyou_features.py",
+      "source_path": "tests/test_zhongyou_features.py",
+      "tracked": true,
+      "bytes": 3968,
+      "sha256": "a062c9b05bbba0062011cdc9bacecd94b9030afdb77ff4bbfa0c78bdc27c807d",
+      "source_sha256": "a062c9b05bbba0062011cdc9bacecd94b9030afdb77ff4bbfa0c78bdc27c807d",
+      "export_sha256": "a062c9b05bbba0062011cdc9bacecd94b9030afdb77ff4bbfa0c78bdc27c807d",
+      "export_modified": false
+    },
+    {
+      "path": "tests/test_zhongyou_model.py",
+      "source_path": "tests/test_zhongyou_model.py",
+      "tracked": true,
+      "bytes": 8988,
+      "sha256": "1510965379a4ce98d96eaf7bfc76ad6374ee73b42f3305c650656d82c99bd0af",
+      "source_sha256": "1510965379a4ce98d96eaf7bfc76ad6374ee73b42f3305c650656d82c99bd0af",
+      "export_sha256": "1510965379a4ce98d96eaf7bfc76ad6374ee73b42f3305c650656d82c99bd0af",
+      "export_modified": false
+    },
+    {
+      "path": "uv.lock",
+      "source_path": "uv.lock",
+      "tracked": true,
+      "bytes": 202188,
+      "sha256": "6470d55f10870b6f6c888cb39dcfd82a49c00b591f05437b45e891cef557f60c",
+      "source_sha256": "6470d55f10870b6f6c888cb39dcfd82a49c00b591f05437b45e891cef557f60c",
+      "export_sha256": "6470d55f10870b6f6c888cb39dcfd82a49c00b591f05437b45e891cef557f60c",
+      "export_modified": false
+    }
+  ],
+  "excluded": [
+    {
+      "path": ".env.example",
+      "reason": "认证或本机配置文件名"
+    },
+    {
+      "path": "CLAUDE.md",
+      "reason": "本机Agent操作约定"
+    },
+    {
+      "path": "artifacts/industry_rotation_v3/.quick-v3-db62386e16a23c08.working/.official.partial/checkpoint-01590-c19d6b4c2781/manifest.json",
+      "reason": "运行产物与检查点目录"
+    },
+    {
+      "path": "artifacts/industry_rotation_v4/rotation-v4-7e2c4f38f4a0d8ce/incremental_contributions.csv",
+      "reason": "运行产物与检查点目录"
+    },
+    {
+      "path": "artifacts/industry_rotation_v4/rotation-v4-7e2c4f38f4a0d8ce/report/incremental_contributions.csv",
+      "reason": "运行产物与检查点目录"
+    },
+    {
+      "path": "artifacts/models/.gitkeep",
+      "reason": "运行产物与检查点目录"
+    },
+    {
+      "path": "artifacts/runs/.gitkeep",
+      "reason": "运行产物与检查点目录"
+    },
+    {
+      "path": "artifacts/trial_ledger.jsonl",
+      "reason": "运行产物与检查点目录"
+    },
+    {
+      "path": "data/processed/.gitkeep",
+      "reason": "数据缓存环境或第三方目录"
+    },
+    {
+      "path": "data/raw/.gitkeep",
+      "reason": "数据缓存环境或第三方目录"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-1.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-10.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-11.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-2.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-3.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-4.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-5.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-6.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-7.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-8.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/page-9.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727/七只ETF择时研究_当前结论与数据需求_20260727.pdf",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/page-1.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/page-2.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/page-3.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/page-4.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/page-5.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/page-6.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/page-7.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v2/七只ETF择时研究_当前结论与数据需求_20260727.pdf",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/page-1.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/page-2.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/page-3.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/page-4.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/page-5.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/page-6.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/page-7.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "reports/.qa_etf_brief_20260727_v3/七只ETF择时研究_当前结论与数据需求_20260727.pdf",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "reports/generated/.gitkeep",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/active_system_v1/regime_signal.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/close_sweep.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/decay.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/deopen.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/exec_grid.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/factory.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/factory_pre2024.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/ladder.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/oof_gbdt.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/oof_mlp.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/oof_rank.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/rebuild.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/deciles.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/deciles_showcase.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_open_open.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_open_twap15.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_p1015_open.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_p1300_open.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_p1300_p1300.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_twap15_open.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_twap15_twap15.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/exec_twap_last5_twap_last5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/explainer_charts.svg",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/results/explainer_contrib.csv",
+      "reason": "因子全量明细逐标的贡献或非必要结果"
+    },
+    {
+      "path": "research/showcase_v1/results/explainer_nav.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_clean_curve.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_clean_curve_pre2024.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_clean_nav.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_clean_nav_pre2024.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_curve.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_curve_pre2024.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_factors.csv",
+      "reason": "因子全量明细逐标的贡献或非必要结果"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_factors_pre2024.csv",
+      "reason": "因子全量明细逐标的贡献或非必要结果"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_nav.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/factory_nav_pre2024.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/figs/fig_contrib_eq10.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/results/figs/fig_contrib_iv10.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/results/figs/fig_contrib_main.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/results/figs/fig_holding.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/results/figs/fig_nav.png",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/results/ladder_every_21d_seeds1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/ladder_every_5d_seeds1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/ladder_every_63d_seeds1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/ladder_every_63d_seeds2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_gbdt.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_gbdt_oof.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_gbdt_rank.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_gbdt_rank_oof.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_mlp.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_mlp_oof.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_showcase.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/nav_stack.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_A.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_B.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_C.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_D.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/rolling_Dgate.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/seq_attention.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/seq_attention.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/seq_charts.svg",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/results/seq_curves.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/seq_nav.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/seq_saliency.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/seq_saliency_matrix.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_close_twap1_base.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_close_twap1_buf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_close_twap5_base.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_close_twap5_buf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_open_print_base.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_open_print_buf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_open_twap1_base.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_open_twap1_buf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_open_twap5_base.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/tm_open_twap5_buf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/twap_open.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/twap_twap.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_frozen.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_frozen_312.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_frozen_gated.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_frozen_gated_312.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_report_navs.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_report_pack.json",
+      "reason": "全量规格中间数组或非必要结果JSON"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_rolling.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_rolling_312.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_rolling_gated.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_rolling_gated_312.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/roll_A.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/roll_B.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/roll_C.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/saliency.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/seq_models.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/showcase_report.html",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/showcase_v1/step6.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/tail_1445.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/train_gbdt.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/train_mlp.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/train_rank.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/twap.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/twap_matrix.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/showcase_v1/validation_report.html",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/zoo_v1/composite/families.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/smoke_used.lock",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/trail126_thr0.0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/trail126_thr0.3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/trail252_thr0.0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/trail252_thr0.3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v2_in03.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v2_k16.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v2_k8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v2_primary.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v3_exit63.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v3_in03.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v3_k12.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v3_primary.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v_final.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v_registry.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/composite/v_struct.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/minute_agg.log",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/anchor_04cd5ea307.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_019d1a0b6c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_041881b85d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_0f8170f202.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_12652d33b4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_144ebba54b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_1532cbd8fb.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_16c1ef457d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_1a3407a539.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_1ee0b743cf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_1f2fff0b11.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_1ff694c7ba.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_20a3431e9d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_24ec03a310.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_288dd3bd6c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_28b5097f77.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_2abd829f62.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_2f188450e3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_2f5ed2d079.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_2fe44b0b23.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_3118583abf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_316033d997.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_38e4e6f575.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_42c49385a6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_452f733678.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_46e3b36dc4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_47dd4b5f71.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_4f46d6831a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_506bf13737.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_514f2f4749.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_52c0014f44.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_5394e05df7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_565f9c81ed.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_56d174bcd3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_575558d893.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_5909c587a6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_5a54833384.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_5b3bb6b317.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_5bdab3fe89.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_5e0f7611ec.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_5efef84944.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_6256e12b9e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_6634061fdc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_692c22aaf9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_6ac80aa2fd.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_6bbdd58d6d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_6dbfff4b46.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_6e0e9611ef.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_724024be8b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_7622818a64.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_7ac733215d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_7bba33ca7d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_83c6aebfae.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_8401e3b364.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_8616f8f1b2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_861bf998e0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_8637634bae.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_8713eb1b18.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_87ce5e4e8a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_8de6fb1f55.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_927899bf37.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_9325b10632.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_9698a7a391.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_a1c1871d54.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_a2baf8ca82.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_a36169fdac.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_a67a53e863.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_aaddffe1f4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_ae43ec0097.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_ae5ca8264c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_b23cd6d089.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_b3ea86899a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_b4522f6c77.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_b50753636f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_b526b19955.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_b543bbbc58.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_b7b07fdfda.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_be7d530425.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_bf76c46a5a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_c3f20b1ada.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_c4efd67184.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_c553918914.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_c66763b713.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_c6cf623c8b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_ca69d4bb5a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_ca7d64ffd2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_cd5dbfbad4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_cdb6563774.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_cf397905b7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_d2ab354dbc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_d3e9c61e37.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_d4efa471d2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_dc4bc47034.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_dde5f06c09.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_e32a8be456.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_e52a8bd854.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_e7400ccfd6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_e9413065d5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_ea1b2b6b7d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_eafc54a3af.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_f41afdc5d5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_f80a325307.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h1_fe167fdbb4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_02637d00dd.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_068e781996.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_0a343488d1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_100cd3968f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_108d231c9a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_140ec7e824.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_14fa80b670.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_18045e4af6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_18f3b3f2e6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_192e1dea95.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_1a5215fbc8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_1e9dc45eb5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_1fa152cce1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_20c16cf84e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_29a4b4f2a3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_2cab2a8b16.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_2f60825525.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3030450c15.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_30e9f3f17b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_344e6c844f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3453fda9fe.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3a38b7be11.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3bfa13360d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3c53cdcdc2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3d320f0d8d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3d59c6c880.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_3de44857e1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_41e5679358.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_426d0ffde0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_44f5b57405.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_484d67142f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_4ef1bbdbe4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_53345e7468.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_53fb58c148.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_54591081d7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_57ce2f4917.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_5d7a998122.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_601db21a06.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_64c02d62ef.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6735919a71.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6947ea680e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6b24c90412.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6cd986dc83.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6d0dc768a2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6e08bbac7b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6f441e0255.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_6fc3acb675.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_741128dac6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_79e2e4232e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_7c9b0caa1d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_7e96fe72d6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_7f938ed0ec.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_81aa174d97.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_82a7a19c13.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_88c3494313.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_88d43580b6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_898943bdf2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_8aa87b24de.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_8bec4518d7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_8dc027eb8a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_9164fa73ec.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_92cdcca044.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_95ae56bc79.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_9d494baf80.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_9d94182965.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_9eac23b884.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_a104d9e31a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_a1ee122063.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_a25ada13f3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_a37a92491c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_aaea47d919.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_ad1d4e95b7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_ae432185ab.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_af8ca28608.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_afb2125fc4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_b3ccf7007b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_b400336d8f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_ba9bacb06e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_bba50a0919.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_bd2386acbf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_c8bd75decb.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_c9099142a5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_cd7283668b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_cf3b52e018.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_cf9d1e06c7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_cfd7f6e1bf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_d0ca0d676a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_d3f24d6d90.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_d66ba5ffc0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_d6c4bc5175.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_d6d226bdae.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_d992bf4591.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_da493d4af9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_dd7e50ae5c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_de4b991425.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_dfc336197f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_e00cc1c72b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_e8a2864234.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_eda51fb254.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_ef52de5c95.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_f5b1c7758d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_h3_f9291dbb02.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_004fb4e98b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_0a9cb2d320.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_0b3daa464d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_0b78d68d47.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_0bce67137f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_11de6efb89.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_12389fdedf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_152eed1005.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_161191d1d6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_1817aab524.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_18f3070dd5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_1adbd099e7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_1bc6a8c331.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_202d5b1d50.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_22430ac287.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_27ed035e4b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_2a3e08e85a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_2dac0da909.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_32d24699e6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_33d71065e2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_358e7173e1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_3aefa35b47.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_4281447545.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_489f9e6c9c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_491b259ead.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_4943526451.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_494cca5fb0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_4bbf8920b1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_504dbb6e87.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_50848df3f3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_510c8529ee.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_51682563f2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_53d09b1e00.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_55dd7b7054.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_5eb6656dc2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_5fc62b3f25.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_626d87dbbd.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_63a2fb8a05.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_6a1afd7ff3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_6fc6cb872e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_704e2c0d26.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_7085e13478.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_71ca25f420.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_765b8fa31f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_7a4da5c1bf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_7efc032dd4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_85cc6c03fe.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_86a322820e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_87b6f72336.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_8a7bf4fdf2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_8d704c111e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_8ff487de7f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_92ec2b1e96.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_934db2c61d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_9368ae07d1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_95b6f2adf2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_97651e44fd.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_9940c331ed.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_a0db0cfd75.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_a5446e03ab.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_a69d9503e3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_a7f3149bb4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_a863aad2b4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_aea1d3616a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_b0ef84f5ae.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_b8691ad35c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_b9b854f0e3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_bbd75b7981.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_befaa9414e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_bf2c53965a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_c062afbdd3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_c33b74cd24.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_c46f80d938.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_c720e0ddf0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_c9d6ed8a50.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_cab194c004.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_cba68b8f15.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_cfec2b8c69.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_d00343e41e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_d0b769fbde.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_d2463d706d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_d401351330.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_d72d31ea62.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_d81da03a95.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_d98d55d6da.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_de9f285701.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_dee03800b2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_e1d6c5c1c3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_e465ceb590.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_e6608f3d95.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_ea64da3dbc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_eb0cf15b28.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_ecdf806fb2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_ef25517a8e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_eff367bb1b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_f19796f143.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_f66c240fce.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_f80e21acf9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_f8624a0932.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_fc9e396f77.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_fd0f4dc0d1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_q10_fe74ae32c3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_00b110b108.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_06cb71288d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_141f5f6948.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_1490a0b723.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_3434a66847.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_356d4de654.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_3bf7211da6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_41099b7131.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_43cc5fe0e3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_4723cfb556.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_51e0a12d5c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_754f1f7af5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_762d278899.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_767a51fc5a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_80b70ae7e2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_a4a3a48a1c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_a731c6f450.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_b168d53749.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_b4b15d04da.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_b6aa793f99.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_efcb470c2b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_f052529ac6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_f51cbfe641.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/flow_xa_f6222231da.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_0280140ef3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_070a783dad.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_07c2cac8df.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_0996f209dd.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_0b14e37f61.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_1b0c1393fb.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_1cdfec2955.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_1cf32d88d9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_260477f9bf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_2cca567b39.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_3251910fb6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_40c4fd7a32.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_47289e2870.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_4b6b476d2f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_4cb4685ca2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_4ea0013866.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_538feae902.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_61cf49813e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_6ded4620a0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_6e2029e9ed.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_767955b842.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_7a4db830d8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_7c61224ab5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_7d3b45d28d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_7fe66f24ee.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_843b24b531.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_8ee170e943.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_92638fbcf1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_96af96bc95.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_96b56c4be3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_9d1d298731.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_aead0d7ace.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_af5b99bae7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_b71c029d17.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_ba5f36e060.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_c48320d2e0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_c5192a0d9f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_c5b1c44ab8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_c648843308.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_d46dd3c4fa.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_d4ffa49802.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_d745d2bd1d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_d89d8c5c2b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_daed81272e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_e7a8220a03.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_ecc0840787.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_ef3af423c6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/micro_fceae9f1c4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_00ba455f39.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_120e91a48d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_1249d97fe6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_13ae5ac544.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_1520970472.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_195f30e2fa.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_19c94aa7ff.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_1e2e582c63.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_21371c4948.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_289bafeae8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_319c4fe866.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_31cca86247.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_35da490348.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_36a4625ec0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_37979779e7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_3c81d8c2e6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_44a5abb767.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_4e038f8ae1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_4fdf720227.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_53a47a6d64.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_55f5e9720d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_5b1ac1ef1b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_5c6f7e6662.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_5de9dc03d0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_5e043a9a0b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_5fed6bc6c1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_62a4cc7a62.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_64c29d2fc2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_65606f5a1a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_6996342b7d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_69cf3f16f5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_6ae3c014a5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_75af97336b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_7f37b320d0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_81d366192e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_828eb622b9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_82f22a20d7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_83cfc38de9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_89f24be492.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_8e4ccc1259.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_8e50ae188f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_90bdf04de6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_957cf783d5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_9c0353b395.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_a3a89268ef.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_a5cca5f81a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_b656e7b851.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_b749cfedb1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_b76f971e1d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_bb470aadcb.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_c0b5a6b35e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_c4956c79f6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_c54c397693.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_cd685dffb6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_cd743f498f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_d02b056d25.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_d4e074bb0c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_dd0a20fd9f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_dd57d65d46.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_e36a1673b7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_e3ba2696ea.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_eee9f8f7f8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_f419685953.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_f4c6f9f69e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_f52dd08e4c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/mom_fb6876c57f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_0a19f3a1ad.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_116f485101.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_18bb140c64.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_35eb211ce3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_3d2880159b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_488a12b7b2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_508addeb6d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_5163225ce2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_52ef18ef9e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_54b5994eb4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_5b0936a35f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_608a4dba87.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_63ee0277cd.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_6fc75f205d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_7458b4b016.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_7bf5a5176c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_7ff6f764c3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_93644f64c0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_9717e18606.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_9ed88f98e4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_a65e4288de.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_aea38cf91f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_b8f6ad7187.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_c50e9df385.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_d14821689b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_d21125486b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_d81ed8c433.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_e5fda367d2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_ea231c3113.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/onid_edb9a259e5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_04d2e719fa.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_09ba52a23a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_0f3fe68f59.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_1840ad28c5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_330b98c493.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_3c8b83603e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_40449e9daa.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_4df8294a37.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_4f3fcaeb50.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_59b4b0370d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_6daabe4444.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_7ab7cf1f6b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_830b1ac649.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_98a2f2b362.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_9f866c850c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_a31e2e6258.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_a7232d238a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_b21289b569.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_c2b6a92d9c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_cb55b9285c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_d12ec3ab46.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_d3459777ea.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_f6ebf3473c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sess_fac22cdda9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_0d2d685450.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_104566eb29.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_13a57f39c0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_19308a29f2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_1e158d001b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_22fa83a4b7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_381f643493.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_46db191800.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_485812ba4e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_5570881651.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_598ebf75cc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_67706a44a0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_75f8ffd34b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_76e60ebb75.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_7c293d3114.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_90bb8defb8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_9f6905a9f7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_b9c0e4e872.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_c776ba8775.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_cda903ec18.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_d4798fd489.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_d5f9dc7daa.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_e627c83465.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/shape_f898af6bd0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_062bd527ec.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_1d101850cf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_3447d55217.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_40ecf4f519.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_4200ff2d3c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_5134b7c0a0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_55569897cc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_5a01f0df62.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_69138cd044.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_6facec6627.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_76b2156431.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_78acf67b92.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_8e04580b6b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_903fb42b64.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_a4ab0a1361.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_b3c880c202.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_b3e339a2a6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_c2490e4b33.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_c28d2c54bb.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_c91fbc4368.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_e72dddd36d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ec25dd67b4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_fa9abd7fff.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_fe04170879.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_3447d55217.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_40ecf4f519.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_4200ff2d3c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_5134b7c0a0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_5a01f0df62.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_69138cd044.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_6facec6627.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_78acf67b92.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_8e04580b6b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_a4ab0a1361.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_b3e339a2a6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_e72dddd36d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_ix_fa9abd7fff.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_062bd527ec.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_1d101850cf.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_3447d55217.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_40ecf4f519.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_4200ff2d3c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_5134b7c0a0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_55569897cc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_5a01f0df62.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_69138cd044.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_6facec6627.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_76b2156431.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_78acf67b92.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_8e04580b6b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_903fb42b64.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_a4ab0a1361.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_b3c880c202.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_b3e339a2a6.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_c2490e4b33.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_c28d2c54bb.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_c91fbc4368.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_e72dddd36d.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_ec25dd67b4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_fa9abd7fff.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/sleeve_v2_fe04170879.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_025767c4bc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_0324133e21.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_0483916f2e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_19494c1c6c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_1c6b369e4b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_2d344d2bff.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_2fcff327ad.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_39537ae7dd.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_3c9951de76.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_46d403f836.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_4dd7eb178f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_542497be02.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_59cf077513.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_68a62dc739.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_6b1cb64721.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_6f9bf4c3c0.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_7969b43ce9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_7bd706eda8.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_7d09ae5a18.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_8006f7f255.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_821c86eba4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_93bdcffc45.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_941b836463.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_96a50cb209.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_9bdb2b60f2.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_9d8b9029a4.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_9eb1c6876c.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_9f17d24e4a.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_a23c44f556.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_a46943a65e.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_ae625aa2da.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_b2b800ffd3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_b47be1db40.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_bc9891b5e9.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_bd4813e267.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_cf3c7e22c3.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_d3de257ee5.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_d67a215ede.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_dd5ea4abec.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_dd80a74161.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_e09bf906dc.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_eea4afa524.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_f2cf2cc469.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_f45bacbdb7.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_fad073104f.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_fbaffb0bd1.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_fdd783894b.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/module_returns/vol_fdfbf91490.parquet",
+      "reason": "数据数组模型日志或二进制格式"
+    },
+    {
+      "path": "research/zoo_v1/report.html",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "research/zoo_v1/trial_ledger.jsonl",
+      "reason": "非精选格式或报告图片副本"
+    },
+    {
+      "path": "src/index_timing/data_service.py",
+      "reason": "数据缓存环境或第三方目录"
+    },
+    {
+      "path": "tests/test_macro_data.py",
+      "reason": "静态凭据模式命中，保守排除"
+    },
+    {
+      "path": "README.md",
+      "reason": "重复历史说明或含曲线的非必要指标包"
+    },
+    {
+      "path": "research/showcase_v1/results/showcase_metrics.json",
+      "reason": "重复历史说明或含曲线的非必要指标包"
+    },
+    {
+      "path": "research/showcase_v1/results/validation_line_312.json",
+      "reason": "重复历史说明或含曲线的非必要指标包"
+    }
+  ],
+  "exclusion_counts": {
+    "认证或本机配置文件名": 1,
+    "本机Agent操作约定": 1,
+    "运行产物与检查点目录": 6,
+    "数据缓存环境或第三方目录": 3,
+    "非精选格式或报告图片副本": 37,
+    "数据数组模型日志或二进制格式": 733,
+    "因子全量明细逐标的贡献或非必要结果": 3,
+    "全量规格中间数组或非必要结果JSON": 8,
+    "静态凭据模式命中，保守排除": 1,
+    "重复历史说明或含曲线的非必要指标包": 3
+  },
+  "path_portability_edit": {
+    "date": "2026-10-30",
+    "scope": "仅当前公开导出副本",
+    "description": "个人绝对路径改为明确占位路径；实际使用前需按运行环境配置。未改原项目，未重新运行研究。",
+    "placeholders": [
+      "/path/to/user/",
+      "/path/to/archive/"
+    ],
+    "changed_files": 34,
+    "replacement_occurrences": 59,
+    "hash_fields": {
+      "source_sha256": "源文件哈希，保留编辑前导出清单的源记录",
+      "export_sha256": "当前导出文件哈希",
+      "sha256": "兼容字段，与 export_sha256 相同"
+    },
+    "python_ast_checked": 81,
+    "python_ast_errors": [],
+    "manifest_missing_export_files": []
+  }
+}

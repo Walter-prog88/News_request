@@ -1,0 +1,51 @@
+{
+  "schema_version": "1",
+  "lens": "buffett",
+  "card_version": "synthetic-demo-v1",
+  "question": "Does the fictional EXAMPLE company have enough evidence for a quality assessment?",
+  "asked_at": "2026-10-01T12:00:00Z",
+  "applicability": {
+    "status": "applicable",
+    "reason": "Synthetic workflow demonstration only",
+    "redirect": ""
+  },
+  "required_inputs": [
+    {
+      "name": "audited_operating_cash_flow",
+      "status": "missing",
+      "value": null,
+      "as_of": null,
+      "source": "synthetic fixture"
+    }
+  ],
+  "evidence_reading": "No real company, financial statement, price, or position is included.",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Evidence availability",
+      "status": "insufficient",
+      "finding": "Required input is absent",
+      "evidence": []
+    }
+  ],
+  "vetoes": [],
+  "verdict": "Abstain: missing required input",
+  "confidence": {
+    "value": null,
+    "least_certain_gate": "G1",
+    "note": "No conclusion from missing data"
+  },
+  "abstain": {
+    "is": true,
+    "scope": [
+      "overall assessment"
+    ],
+    "reason": "missing_required_input"
+  },
+  "falsifiers": [],
+  "conflicts_noted": [],
+  "quotes": [],
+  "snapshots": [],
+  "data_staleness_warning": "No financial data was loaded",
+  "disclaimer": "Synthetic software example; not a statement by a named investor."
+}

@@ -1,0 +1,56 @@
+experiments:
+  - experiment_id: caitong_paper_proxy
+    study: caitong
+    asset_ids:
+      - wind_all_a_proxy
+      - csi_dividend_tr_proxy
+      - hang_seng_tech
+      - star50
+      - wind_microcap_proxy
+      - cni2000
+    model: mlp_128_64
+    feature_set: full
+    train_end: 2023-05-31
+    test_start: 2023-06-01
+    test_end: 2026-02-27
+    seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assumptions:
+      - 原文未披露神经网络类型；两层MLP是代理规格，不代表作者原模型。
+      - 原文未披露标签；主标签代理为未来5交易日收益大于0。
+      - 原文未披露阈值；MA5概率以0.5划分看多与调整。
+      - 免费数据缺失的Wind专属因子不使用最终值回填。
+    parameters:
+      horizons: [5, 1, 10, 20]
+      technical_windows: [5, 10, 20, 60]
+      hidden_sizes: [128, 64]
+      learning_rate: 0.001
+      l2: 0.0001
+      max_epochs: 100
+      patience: 10
+      probability_ma: 5
+      threshold: 0.5
+      robustness_thresholds: [0.45, 0.50, 0.55]
+      class_weight: null
+
+  - experiment_id: caitong_us_frozen
+    study: caitong
+    asset_ids: [sp500, nasdaq100]
+    model: mlp_128_64
+    feature_set: full
+    train_end: 2020-12-31
+    test_start: 2021-01-01
+    seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assumptions:
+      - 窗口、网络、阈值在观察美股测试结果之前冻结。
+      - ETF成交量用于财通量价扩展；指数仅作价格参考。
+    parameters:
+      horizons: [5, 1, 10, 20]
+      technical_windows: [5, 10, 20, 60]
+      hidden_sizes: [128, 64]
+      learning_rate: 0.001
+      l2: 0.0001
+      max_epochs: 100
+      patience: 10
+      probability_ma: 5
+      threshold: 0.5
+      robustness_thresholds: [0.45, 0.50, 0.55]

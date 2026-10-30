@@ -1,0 +1,202 @@
+[
+ {
+  "minutes": 1,
+  "window": "14:59-15:00",
+  "rule": "基线",
+  "ann%": 79.3,
+  "sharpe": 2.21,
+  "mdd%": -17.9,
+  "calmar": 4.43,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 1,
+  "window": "14:59-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 83.1,
+  "sharpe": 2.31,
+  "mdd%": -16.9,
+  "calmar": 4.93,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 2,
+  "window": "14:58-15:00",
+  "rule": "基线",
+  "ann%": 70.9,
+  "sharpe": 2.05,
+  "mdd%": -18.2,
+  "calmar": 3.89,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 2,
+  "window": "14:58-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 75.0,
+  "sharpe": 2.15,
+  "mdd%": -17.2,
+  "calmar": 4.38,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 3,
+  "window": "14:57-15:00",
+  "rule": "基线",
+  "ann%": 66.9,
+  "sharpe": 1.96,
+  "mdd%": -18.4,
+  "calmar": 3.63,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 3,
+  "window": "14:57-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 71.2,
+  "sharpe": 2.07,
+  "mdd%": -17.3,
+  "calmar": 4.11,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 4,
+  "window": "14:56-15:00",
+  "rule": "基线",
+  "ann%": 63.9,
+  "sharpe": 1.9,
+  "mdd%": -18.6,
+  "calmar": 3.44,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 4,
+  "window": "14:56-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 68.3,
+  "sharpe": 2.01,
+  "mdd%": -17.5,
+  "calmar": 3.9,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 5,
+  "window": "14:55-15:00",
+  "rule": "基线",
+  "ann%": 61.3,
+  "sharpe": 1.85,
+  "mdd%": -18.7,
+  "calmar": 3.27,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 5,
+  "window": "14:55-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 65.6,
+  "sharpe": 1.96,
+  "mdd%": -17.6,
+  "calmar": 3.72,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 6,
+  "window": "14:54-15:00",
+  "rule": "基线",
+  "ann%": 58.9,
+  "sharpe": 1.8,
+  "mdd%": -18.8,
+  "calmar": 3.13,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 6,
+  "window": "14:54-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 63.3,
+  "sharpe": 1.91,
+  "mdd%": -17.8,
+  "calmar": 3.57,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 7,
+  "window": "14:53-15:00",
+  "rule": "基线",
+  "ann%": 56.8,
+  "sharpe": 1.75,
+  "mdd%": -19.0,
+  "calmar": 2.99,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 7,
+  "window": "14:53-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 61.4,
+  "sharpe": 1.87,
+  "mdd%": -17.9,
+  "calmar": 3.42,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 8,
+  "window": "14:52-15:00",
+  "rule": "基线",
+  "ann%": 54.9,
+  "sharpe": 1.71,
+  "mdd%": -19.2,
+  "calmar": 2.86,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 8,
+  "window": "14:52-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 59.4,
+  "sharpe": 1.83,
+  "mdd%": -18.1,
+  "calmar": 3.28,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 9,
+  "window": "14:51-15:00",
+  "rule": "基线",
+  "ann%": 53.2,
+  "sharpe": 1.67,
+  "mdd%": -19.3,
+  "calmar": 2.75,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 9,
+  "window": "14:51-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 57.7,
+  "sharpe": 1.79,
+  "mdd%": -18.3,
+  "calmar": 3.16,
+  "one_way_turnover": 0.72
+ },
+ {
+  "minutes": 10,
+  "window": "14:50-15:00",
+  "rule": "基线",
+  "ann%": 51.8,
+  "sharpe": 1.64,
+  "mdd%": -19.5,
+  "calmar": 2.66,
+  "one_way_turnover": 0.86
+ },
+ {
+  "minutes": 10,
+  "window": "14:50-15:00",
+  "rule": "缓冲带B30",
+  "ann%": 56.2,
+  "sharpe": 1.76,
+  "mdd%": -18.4,
+  "calmar": 3.05,
+  "one_way_turnover": 0.72
+ }
+]

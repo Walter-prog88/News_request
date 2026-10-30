@@ -1,0 +1,116 @@
+{
+ "created": "2026-08-20 20:35:57",
+ "modes": [
+  "open",
+  "tail"
+ ],
+ "single_factors": [
+  "ivol_20",
+  "id_ret_intraday_m60",
+  "lit_vola_vov_w5",
+  "lit_cn_b_apb_5d_short_w5_w20",
+  "lit_vola_rskew_w60",
+  "lit_volu_time_centroid_shift",
+  "id_amt_openauc_share_m5",
+  "amt_vol_5",
+  "id_v_ac1_m5",
+  "mx_zero_min_ratio_tsrank60",
+  "amt_vol_20",
+  "ix_id_smart_money_m20__P__turn_20",
+  "id_up_amt_share_m60"
+ ],
+ "composite_members": [
+  "max_ret_5",
+  "lit_intr_intraday_cum_rev_w40",
+  "id_ret_intraday_m60",
+  "ivol_20",
+  "ix_rev_20__P__rvol_20",
+  "lit_volu_amt_ordering_trend",
+  "amt_vol_5",
+  "id_gap_share_m5",
+  "lit_volu_head_share_std_w5",
+  "mx_amt_first30_share_std20",
+  "mx_amt_gini_std60",
+  "ix_id_smart_money_m20__P__turn_20",
+  "ix_rev_20__X__turn_20",
+  "lit_cn_b_apb_5d_short_w5_w20",
+  "id_amt_openauc_share_m5",
+  "lit_volu_dlogamt_vol_w20",
+  "lit_mome_ideal_rev_bigmove",
+  "lit_volu_time_centroid_shift"
+ ],
+ "composite_signs": {
+  "max_ret_5": 1.0,
+  "lit_intr_intraday_cum_rev_w40": -1.0,
+  "id_ret_intraday_m60": 1.0,
+  "ivol_20": 1.0,
+  "ix_rev_20__P__rvol_20": 1.0,
+  "lit_volu_amt_ordering_trend": -1.0,
+  "amt_vol_5": 1.0,
+  "id_gap_share_m5": -1.0,
+  "lit_volu_head_share_std_w5": -1.0,
+  "mx_amt_first30_share_std20": -1.0,
+  "mx_amt_gini_std60": -1.0,
+  "ix_id_smart_money_m20__P__turn_20": 1.0,
+  "ix_rev_20__X__turn_20": -1.0,
+  "lit_cn_b_apb_5d_short_w5_w20": 1.0,
+  "id_amt_openauc_share_m5": 1.0,
+  "lit_volu_dlogamt_vol_w20": -1.0,
+  "lit_mome_ideal_rev_bigmove": -1.0,
+  "lit_volu_time_centroid_shift": 1.0
+ },
+ "is_ic": {
+  "ivol_20": {
+   "open": 0.06254330095657537
+  },
+  "id_ret_intraday_m60": {
+   "open": 0.041282120957140386,
+   "tail": 0.04153345931412492
+  },
+  "lit_vola_vov_w5": {
+   "open": 0.03961280758857583
+  },
+  "lit_cn_b_apb_5d_short_w5_w20": {
+   "open": 0.04046084862287481,
+   "tail": 0.04257743631782176
+  },
+  "lit_vola_rskew_w60": {
+   "open": 0.03439073340310264
+  },
+  "lit_volu_time_centroid_shift": {
+   "open": 0.02539873757061429,
+   "tail": 0.028777512288637393
+  },
+  "id_amt_openauc_share_m5": {
+   "open": 0.02616775719580658
+  },
+  "amt_vol_5": {
+   "open": 0.028106038782997937
+  },
+  "id_v_ac1_m5": {
+   "tail": 0.070973308099955
+  },
+  "mx_zero_min_ratio_tsrank60": {
+   "tail": 0.032572470232595054
+  },
+  "amt_vol_20": {
+   "tail": 0.0365758293937167
+  },
+  "ix_id_smart_money_m20__P__turn_20": {
+   "tail": 0.031986945460718216
+  },
+  "id_up_amt_share_m60": {
+   "tail": 0.028924246120708662
+  },
+  "COMP_final": {
+   "open": 0.06483897673121043,
+   "tail": 0.07400482942233333
+  }
+ },
+ "usage_schemes": [
+  "选优 top100",
+  "选优 top10%",
+  "排雷 剔最差30%"
+ ],
+ "frozen_note": "2020-2025内定稿;封存期仅评估,不得据结果回改"
+}

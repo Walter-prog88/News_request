@@ -1,0 +1,463 @@
+{
+  "review_date": "2026-10-30",
+  "source_repository_url": "https://github.com/Walter-prog88/RAG_for_report",
+  "source_subdirectory": "Fin-RAG-Knowledge-Base",
+  "source_git_tree_sha": "d6619b28d93c18fc46120735d160e53a777548b9",
+  "source_branch_when_reviewed": "main",
+  "source_files": [
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/README.md",
+      "source_blob_sha": "5f834019618cb975b25c94a9a99b20c2778ea3a5",
+      "export_path": "docs/原始项目说明.md",
+      "modified": true,
+      "notes": "Renamed original README and added historical-document banner.",
+      "export_sha256": "ed42a36528fbeaa474e8bb87a363ae0182bd45732db6b98cf7d8deccdc16e2e4"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/app/streamlit_app.py",
+      "source_blob_sha": "8de61f7f87db39e971894704f796b6ac41effb7d",
+      "export_path": "app/streamlit_app.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "3276ee9d7e80076bbd6aaaedf0e42f8ffcdab4adf9e47de147352bddb3686331"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/configs/sources.yaml",
+      "source_blob_sha": "7522b6efb5d5edee1fb1af15b10926495aa80ca4",
+      "export_path": "configs/sources.example.yaml",
+      "modified": true,
+      "notes": "Converted source configuration to example-only YAML: disabled all sources, cleared stock/note lists, default local Ollama; runtime sources.yaml is ignored.",
+      "export_sha256": "a5eea165f3f7f67fb5b6537805d75897afce963b4f71f05c96fb5ee9554e72ce"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/docs/LANGCHAIN_USAGE.md",
+      "source_blob_sha": "6440a6a33521b6b3688c5f64435cd973f248910e",
+      "export_path": "docs/LANGCHAIN_USAGE.md",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "591ba80979d94c285cc220fa2c4b912623dbc3dff6e2bff962f11857f5691f2b"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/docs/OPTIMIZATION_LOG.md",
+      "source_blob_sha": "f3a2034ce38d661a00f2d53ce62a9d1c9b49e13b",
+      "export_path": "docs/OPTIMIZATION_LOG.md",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "e923080c5814629aa76d8a3ad50a54c269bde1f9bbf63f08d55d597a2b3ac464"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/docs/Ollama本地化部署项目文档.md",
+      "source_blob_sha": "605fc4ecdeb03aa49b657a6b11d7321a2be9b34b",
+      "export_path": "docs/Ollama本地化部署项目文档.md",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "b323c858f295ace2e8d098368718803659838445dc3fa583349f617bcfe674ee"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/docs/PROJECT_STATUS_AND_HISTORY.md",
+      "source_blob_sha": "2a5e504157603faee6ba5d792043de73f3085ba8",
+      "export_path": "docs/PROJECT_STATUS_AND_HISTORY.md",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "74bb7949c2948e9b93e14d05987f0ebbb79cde5e4c6cf05c203d1cc88a646492"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/docs/REACT_AGENT_UPGRADE.md",
+      "source_blob_sha": "e52cc1ad05d96908fd762b2d7cb98096cbe0f3c9",
+      "export_path": "docs/REACT_AGENT_UPGRADE.md",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "3ccafc4df4c7d716afb9e47b1bccc2c6ec9325a2628c2fe1fc57a2391622de5c"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/docs/答辩展示手册.md",
+      "source_blob_sha": "0290f320276be9eeea86272fac2e2fcb5c688061",
+      "export_path": "docs/答辩展示手册.md",
+      "modified": true,
+      "notes": "Replaced personal absolute path/account marker.",
+      "export_sha256": "31a08c1cadef0252cb9a6f3640e937396d75c2ed01d4f11966b8e048bfa0055e"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/requirements.txt",
+      "source_blob_sha": "ae99d516c325dde70862e427392eef836c5fbc20",
+      "export_path": "requirements.txt",
+      "modified": true,
+      "notes": "Added PyArrow, required by existing pandas Parquet readers.",
+      "export_sha256": "85c9ea465c9dc62dadd93340d1f960955249dd9fe0d6d074fa894a6519b52eda"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/backtest_factor_model.py",
+      "source_blob_sha": "81dfc08218c184d9997316755831d3f6fcfb18a6",
+      "export_path": "scripts/backtest_factor_model.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "6e249dbcc18835fc5d7bdce9003b8c23086acf5f17c820bf4118b16a704028f6"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/build_eval_set.py",
+      "source_blob_sha": "dca677315c04db0415d344c9583bf077b1b8eb40",
+      "export_path": "scripts/build_eval_set.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "80116d3b6d411539691505a934543ebd72d16dbed1429c49f315afc1da7c1694"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/build_index.py",
+      "source_blob_sha": "117cbc08a37ed8532c6dac8755aa674d922c7a67",
+      "export_path": "scripts/build_index.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "06564dc26ca7381e9c35900f7813f7722e1c8b1f0b6d4d145711d1f4af4fdfdc"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/convert_to_markdown.py",
+      "source_blob_sha": "83aaf6aa8b73af18e4e4aaebe7938df6574d580d",
+      "export_path": "scripts/convert_to_markdown.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "0c2a5fd6845b5a2ad0398594bef5c6398af13eaa3a1e75bd92840eddbad35bd5"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/crawl_policies.py",
+      "source_blob_sha": "b8fb7ccb2876acf49b4fa34aa2d4e7bf8c96b0e2",
+      "export_path": "scripts/crawl_policies.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "1efcb62ac6e1d78ce1edac539064b9391318d4f6e5adcb2c563e53b9de2c0341"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/evaluate_retrieval.py",
+      "source_blob_sha": "85b456ff260f73f57c11a28b6532ad2de270f968",
+      "export_path": "scripts/evaluate_retrieval.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "f4863f92b776984bec8f1af5ebf15cbedfa99542eb953f5c08c9f7c4e45890e8"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/extract_report_facts.py",
+      "source_blob_sha": "a603dda0508ff4670d9f652bddfaaa2082dd176c",
+      "export_path": "scripts/extract_report_facts.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "e1560d1455c9344ba7cc184a2b59cde1981667cd3551fe4bcabb3abf354e13cc"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/fetch_news_daily.py",
+      "source_blob_sha": "1c9bd13a850b727d53d12384f6d7d93e86f9c892",
+      "export_path": "scripts/fetch_news_daily.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "dd42153f7426192328a913f5db6b2fb17051af5f087e1713eafe228ad55ac891"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/import_research_reports.py",
+      "source_blob_sha": "296c86c8e800cccef46e4d9e56dbfc71579854a3",
+      "export_path": "scripts/import_research_reports.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "4c3dcc2d1319d0c533584ab1e2669aba08e314f6fa540e884d8fdba26f19f4bb"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/ollama_benchmark.py",
+      "source_blob_sha": "3376250b369b1b230d48cc3f220ca19f1feaeb8d",
+      "export_path": "scripts/ollama_benchmark.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "5d9faf83d19bab755b9ff95849c67e54d97064445c212eba3ba36b7d97e58ab7"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/rag_cloud_vs_local.py",
+      "source_blob_sha": "be8d1411b36e38bb21a60afd4452ff27a2f52632",
+      "export_path": "scripts/rag_cloud_vs_local.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "ed717080d2121be86008df7f80ead5a09d91368e4c8f6481e34e37081d2099b9"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/run_eval.py",
+      "source_blob_sha": "5432743a812c861d57360f0504f946c74f32eedd",
+      "export_path": "scripts/run_eval.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "d6c585668da3f851a844ea544bdaf0b2d00b8d9674a9e15980426f4ac28043aa"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/run_research.py",
+      "source_blob_sha": "f1069b02f7f8f301b1e5ab05f77f27261f2c61e0",
+      "export_path": "scripts/run_research.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "81fa5a25d60ccf2005ca50edb33c0938f35fee15cd8711f937faee5f4ba38060"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/test_retrieval.py",
+      "source_blob_sha": "9dc97011eb738597087bb16863acf1a1263dc667",
+      "export_path": "scripts/test_retrieval.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "5b5cb7ed842435a925d633b83b9cb5d56f3859652ae20f7582476b86d9f8da6b"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/scripts/update_index_incremental.py",
+      "source_blob_sha": "a3baa6056e23f5e636453e8988829e0be41562dd",
+      "export_path": "scripts/update_index_incremental.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "b22d180e94923f837ff48e49e44ebbae0b31cbc1ad4bca6b82ecfdb4c1d6de66"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/__init__.py",
+      "source_blob_sha": "76e517fe69c802fd9d6f2f8edd30880c94c19c81",
+      "export_path": "src/__init__.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "bb63a9a8b4185b17ac35b3d6403ba47df8ea6d08cf3092a72f2ea9101d871236"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/__init__.py",
+      "source_blob_sha": "9295bdc5061d4703cfc5723c2fc243ce148d749a",
+      "export_path": "src/agent/__init__.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "6783fbc64bb804a265f903ad2085be8a5300846eedc3e370cf489e8a01741dba"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/evidence_synthesizer.py",
+      "source_blob_sha": "f1a340f7030ce863b14762081db055651844ee16",
+      "export_path": "src/agent/evidence_synthesizer.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "8bf6b6ea61d8bf3756a3c892a44d639c7a4d155a1d634aa76facbd70cf8d7097"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/llm_synthesizer.py",
+      "source_blob_sha": "2fade60b01d54e5b7825e3245ad8f2ba92349d71",
+      "export_path": "src/agent/llm_synthesizer.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "066e00c0c9faf955ff2c1b2e575f35a34a1cb9bd0a528297e765e6bd869451e5"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/python_executor.py",
+      "source_blob_sha": "fe8022053bee9af0875bd1e1c180ba1648bf7538",
+      "export_path": "src/agent/python_executor.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "f83aa4e9d5343f9b338ccdd6492affa8e17f32b179325fc6ee2baa25cbdfb78a"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/research_workflow.py",
+      "source_blob_sha": "9a8e95ae8e69af77e4080bdacef1a7723a731751",
+      "export_path": "src/agent/research_workflow.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "77003fe62b0e19ea685ac7a18f0962aec1928f08f13a94855b122637655ac83f"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/structured_decision.py",
+      "source_blob_sha": "7b8824ba038e4fdae4536505c571802f8e308989",
+      "export_path": "src/agent/structured_decision.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "413f2b6f0d9f6881a65325fbaf5163665551dc0ba9b87d93997c7a64675266f5"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/tools.py",
+      "source_blob_sha": "aa7f136b9f3f96e9236c85839b4b388b859094b9",
+      "export_path": "src/agent/tools.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "507a213241a07e177959e492ed0dbd878512b0800700e86e6777a6eb10baa5ae"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/agent/trace.py",
+      "source_blob_sha": "82d4b6be9b6ebfec58856c1428ff0e1bfa411931",
+      "export_path": "src/agent/trace.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "ce454abf2cc82a6320ba70132e9d14689a4914842a9d95505306e9dbebed799a"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/crawler/__init__.py",
+      "source_blob_sha": "58bf9ba3e4e0e0106650de860b0b17897b29e6a7",
+      "export_path": "src/crawler/__init__.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "3daeb45fb6d43e3fea560fd2a142995ca585ff24682b06beb385cb9a8ef539ea"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/crawler/base_crawler.py",
+      "source_blob_sha": "75d70f6f891771ccd9917b720b1dc805dedcf58f",
+      "export_path": "src/crawler/base_crawler.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "3e4c37b302dab80b315c0690e7fad98daadd4381aa12e3df4fe8b94e78057176"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/crawler/exchange_announcement_crawler.py",
+      "source_blob_sha": "2330e2eaced3b1dc2c1d5912e2c8ee129a0f9d72",
+      "export_path": "src/crawler/exchange_announcement_crawler.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "5c28b2056513ba84f1ad49265472992216885b251f93edfa149eee55d5c439b8"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/crawler/generic_policy_crawler.py",
+      "source_blob_sha": "2e7dd08a01ffd5762ba78e09ef076ce0d7a53293",
+      "export_path": "src/crawler/generic_policy_crawler.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "5efb8f651107e8d0a0903710c57075ea7e3687b9d3ed3ab61a6237329a4c203e"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/crawler/gov_policy_crawler.py",
+      "source_blob_sha": "5d10d8547a5643de9a48be2bd04ac9c228d33ff0",
+      "export_path": "src/crawler/gov_policy_crawler.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "56bd59b7d8bd569df56b36c735a20f051f831654850f308ba3fca4da863dfe86"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/crawler/ndrc_crawler.py",
+      "source_blob_sha": "ce31adf57cc300d089e785e1ab0209f512ee0122",
+      "export_path": "src/crawler/ndrc_crawler.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "3707de8b9aff1f664650aafc4e1f04908b6e12923c2ae2e63d7c95bc8ea6f18c"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/indexer/__init__.py",
+      "source_blob_sha": "53ef49a779f282ee8adc17207b0f2c0dd86b2c10",
+      "export_path": "src/indexer/__init__.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "23d2274e925478ce7004c00c632efc64fbacc78c66b4b469dfb3547ecb2d2850"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/indexer/build_vectorstore.py",
+      "source_blob_sha": "f0dd6accedf34b79652b1f3ae0e0493994153918",
+      "export_path": "src/indexer/build_vectorstore.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "46c0b576246cd60c8d6e3d5fedfb34b649193c4c0b1c7fa79f0a00f6db8f1d4f"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/indexer/lexical_retriever.py",
+      "source_blob_sha": "99a4189827c4b1f1f51bd973f540c65a59d63784",
+      "export_path": "src/indexer/lexical_retriever.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "0945d07db3faba0797482f098516647db0606dd5a7c86e649d84bf6da5b3bd52"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/indexer/retriever.py",
+      "source_blob_sha": "9df07b77d2a8e5c8724a5ab0bb727a9ebbd025f9",
+      "export_path": "src/indexer/retriever.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "3cf735c0f574c51696166546a0768436cb5d24b6e2f064b93620c72325212146"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/market/__init__.py",
+      "source_blob_sha": "b8605ce2712c29a0c672bc97d1685a60aa7c94e4",
+      "export_path": "src/market/__init__.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "c72221da3270db2bbb5f24c7bdef5cec0da1df5521644420b4dd47bb0b8b8c8e"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/market/analyst_consensus.py",
+      "source_blob_sha": "5ff09bd8739e86ed88dddb279f1e9018cbaf12ed",
+      "export_path": "src/market/analyst_consensus.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "994de420351b8e4935860ad85053e931498b854a515cc15c57b4e9845778a8bd"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/market/data_loader.py",
+      "source_blob_sha": "ab5c256b9fe461e20da46e9686d0c82e00077227",
+      "export_path": "src/market/data_loader.py",
+      "modified": true,
+      "notes": "Added RAG_MARKET_DATA_DIR environment override while retaining original relative data directory fallback.",
+      "export_sha256": "c7f27670d4dfb3bcb9678feedb405df8ac4d688632e275f1d74e66e9bc8bf4b8"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/market/factor_signal.py",
+      "source_blob_sha": "ccbc941ed463fa9043900fffc3aa4135ff4159fe",
+      "export_path": "src/market/factor_signal.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "38309fddd224cbf736310477bcf90453842c972217d751f4c17242645cf2d6fb"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/market/risk.py",
+      "source_blob_sha": "2028cc6a995166ba29fe24c5bb628eac91c31493",
+      "export_path": "src/market/risk.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "0f4efe4d9ac42a232db22a57b9030f1ec193a151ae18cc3ce0845b11a4df7b89"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/market/technical.py",
+      "source_blob_sha": "9127973014e247582ce73e13d9c632ffcdff636e",
+      "export_path": "src/market/technical.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "c043ebeb234fae95977aa17f2c4fe439662fe42e9db1538a437f42c22a6c2808"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/parser/__init__.py",
+      "source_blob_sha": "8aff8c42992858f6b4d115505e784a499302bff9",
+      "export_path": "src/parser/__init__.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "629d7d45afd89d11a8e8e2d355275738c8208e3089f2b37d3de0fccec23444c0"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/parser/html_parser.py",
+      "source_blob_sha": "83b9a681a9e27f3e612cb83a4e346174ce1a1794",
+      "export_path": "src/parser/html_parser.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "147b677697851dc7c2bfe027e604f10f622e9b0a67cb8939d1b5e8f2a3ba7672"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/parser/markdown_cleaner.py",
+      "source_blob_sha": "14bf8937c7e88f0bc395e8409dc1f9c0a5a876ca",
+      "export_path": "src/parser/markdown_cleaner.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "bdccae177732a0caf04801235d2fbc1f57c0bb5f553595fc602e3ed6e99321c9"
+    },
+    {
+      "source_path": "Fin-RAG-Knowledge-Base/src/parser/pdf_parser.py",
+      "source_blob_sha": "70093cbb8d936d2918f4cd3c3d8d02903b1ec46a",
+      "export_path": "src/parser/pdf_parser.py",
+      "modified": false,
+      "notes": "Unchanged source text.",
+      "export_sha256": "700f369f798454056ecf231deca9475d39d8913ee3e2b95b9e035e27bbd73ce3"
+    }
+  ],
+  "excluded": [
+    "data/** including original documents, evaluation prompts/results, financial panels and facts",
+    "models, vector index, embeddings cache, logs and generated reports",
+    "local settings, credentials, root scripts outside the original Fin-RAG-Knowledge-Base directory"
+  ],
+  "export_notes": [
+    "Full engineering source export, not a complete repository mirror.",
+    "No MIT or other new license has been added.",
+    "No model/API call, crawl, retrieval evaluation or benchmark has been run during this export."
+  ],
+  "static_checks": {
+    "python_files": 45,
+    "ast_parse": "passed",
+    "credential_and_personal_path_scan": "passed",
+    "runtime_inference_evaluation_or_crawl": "not_run"
+  },
+  "generated_files": [
+    "README.md",
+    ".env.example",
+    ".gitignore",
+    "来源与整理记录.json"
+  ]
+}

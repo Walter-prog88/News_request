@@ -1,0 +1,6 @@
+{
+ "entry_day_fade_bp": 10.9,
+ "exit_day_fade_bp": -1.0,
+ "held_intraday_leg_bp_per_day": 30.0,
+ "held_overnight_leg_bp_per_day": -3.9
+}

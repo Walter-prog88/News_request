@@ -1,0 +1,10 @@
+,flow_q10.prev_all.q10,flow_q10.same_am.q10,flow_q10.prev_am.q10,mom.mom.mom.s1.dom,shape.rollmean.high_time_ordinal_continuous.s1.all,onid.rollsum.overnight_ret_continuous.s-1.all,sleeve_v2.tsmom_vol,sleeve_v2.risk_parity_all,sleeve_v2.month_turn
+flow_q10.prev_all.q10,1.0,0.605,0.923,-0.286,0.171,-0.028,-0.046,-0.038,0.06
+flow_q10.same_am.q10,0.605,1.0,0.688,0.178,0.564,0.132,0.064,0.014,0.027
+flow_q10.prev_am.q10,0.923,0.688,1.0,-0.186,0.24,-0.007,-0.059,-0.065,0.016
+mom.mom.mom.s1.dom,-0.286,0.178,-0.186,1.0,0.41,0.182,0.178,0.113,0.008
+shape.rollmean.high_time_ordinal_continuous.s1.all,0.171,0.564,0.24,0.41,1.0,0.278,0.147,-0.033,0.001
+onid.rollsum.overnight_ret_continuous.s-1.all,-0.028,0.132,-0.007,0.182,0.278,1.0,-0.012,0.058,0.249
+sleeve_v2.tsmom_vol,-0.046,0.064,-0.059,0.178,0.147,-0.012,1.0,0.791,0.368
+sleeve_v2.risk_parity_all,-0.038,0.014,-0.065,0.113,-0.033,0.058,0.791,1.0,0.467
+sleeve_v2.month_turn,0.06,0.027,0.016,0.008,0.001,0.249,0.368,0.467,1.0

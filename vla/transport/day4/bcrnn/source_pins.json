@@ -1,0 +1,32 @@
+{
+  "repositories": {
+    "dexmimicgen": {
+      "commit": "940e8a1b3ad70eb1925ada6b364b197de6bb2af9",
+      "url": "https://github.com/NVlabs/dexmimicgen",
+      "files_sha256": {
+        "scripts/generate_training_config.py": "74d8f6eb906093136617f0cfae7de5549bf1d1101bcf4935c019c804573c5914",
+        "dexmimicgen/utils/config_utils.py": "8f135420bb556c316ff0ee7a1f9ee6801470f22b2053a927f124ae5d1f21c7b6",
+        "README.md": "a681ec8b9ed19b75da890e590373896c6be9a6221b4b4d8ad9c842fd0eefd1c1",
+        "LICENSE": "c61872e27a1c33a016491dfd9145211deb46230ec4e94338e022df23ea81b9b5"
+      }
+    },
+    "robomimic": {
+      "commit": "9ce065180dbcc38ddf8fa4218daa2e75b5fdc28a",
+      "url": "https://github.com/ARISE-Initiative/robomimic",
+      "files_sha256": {
+        "robomimic/exps/templates/bc.json": "afc5cc3b7825a30cd6f8f5ada86c9e8ce88cd36144b977ea56221421f6fff8aa",
+        "robomimic/utils/hyperparam_utils.py": "9dd43259e0d9a5b13c1d39fdd18a4ab58d67042d04596044ed17e6d7206630b1",
+        "robomimic/scripts/train.py": "724d4df239a660f5c96a63c666173785b609aeb3f7056b800661482a9ede5f1e",
+        "robomimic/scripts/run_trained_agent.py": "8485f93f66c371dcc1426e8c4a69c5f597af4de5fc31cd577be6dc302031fca2",
+        "robomimic/algo/algo.py": "94aa85f2a0a4bb1b5449caacdcb0e05b59730c8ab97c49675b477d80dd6abc06",
+        "robomimic/algo/bc.py": "8ddbc4addd4d48b8cdda5e0bfc07de0f407a203b22c4780c8c080ed7e9e88942",
+        "robomimic/utils/dataset.py": "f80eb90817f8bca75dbc8ca1d7a657cf062aa74b918909c6b6fd7a667e0f80a7",
+        "robomimic/utils/train_utils.py": "34c1c489f662e73d760d4e0af075138f15be1414e3e770f1fc51ae9dae8dcf40",
+        "robomimic/utils/file_utils.py": "75460b13020bbfd355b39e4dd836e3c5c1d6e534a1cf3e172e9bc794ea486f6e",
+        "robomimic/envs/env_robosuite.py": "1bf1f173fa0e96f8d1da5b473747aaf071f4e0d5a7bd1190a50c862c802c1867",
+        "setup.py": "ddaf9e33fbaa8e27a948221122f358b3d20a478b33b155e4986a9983a1aaa542",
+        "LICENSE": "7cdbfab482b23a4d925d59ff169ab0bc5f8c97ceb0db79f9fd5bf46ef8aa1556"
+      }
+    }
+  }
+}

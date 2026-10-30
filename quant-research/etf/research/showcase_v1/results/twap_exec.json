@@ -1,0 +1,32 @@
+{
+ "开盘价成交": {
+  "stats": {
+   "ann%": 88.1,
+   "sharpe": 2.25,
+   "mdd%": -16.7,
+   "calmar": 5.27
+  },
+  "one_way_turnover": 0.86,
+  "final_nav": 4.197447493863676
+ },
+ "TWAP 09:30-09:45": {
+  "stats": {
+   "ann%": 38.6,
+   "sharpe": 1.35,
+   "mdd%": -22.2,
+   "calmar": 1.74
+  },
+  "one_way_turnover": 0.86,
+  "final_nav": 2.0972973409257976
+ },
+ "_twap_vs_open_bp": {
+  "mean": 6.87,
+  "median": -1.02,
+  "std": 365.27
+ },
+ "_config": {
+  "K": 10,
+  "cost_bp_per_side": 1.0,
+  "twap_bars": "1..15 (09:31-09:45)"
+ }
+}

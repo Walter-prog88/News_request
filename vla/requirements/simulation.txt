@@ -1,0 +1,19 @@
+# Historical simulator stack: isolated Python 3.10 environment.
+# Install robosuite, dexmimicgen and openpi-client from the pinned checkouts
+# described in docs/REPRODUCTION.md; upstream packages are not vendored here.
+numpy==1.23.3
+numba==0.56.4
+scipy==1.10.1
+mujoco==3.2.7
+mink==0.0.5
+opencv-python==4.10.0.84
+h5py==3.12.1
+imageio==2.36.1
+imageio-ffmpeg==0.5.1
+termcolor==2.5.0
+huggingface_hub==0.29.1
+pyarrow==17.0.0
+Pillow==11.0.0
+pynput
+pytest
+tqdm

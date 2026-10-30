@@ -1,0 +1,82 @@
+[
+ {
+  "exec": "开盘/开盘(基线)",
+  "entry": "open",
+  "exit": "open",
+  "ann%": 88.1,
+  "sharpe": 2.25,
+  "mdd%": -16.7,
+  "calmar": 5.27,
+  "final_nav": 4.2
+ },
+ {
+  "exec": "双边 TWAP15",
+  "entry": "twap15",
+  "exit": "twap15",
+  "ann%": 38.6,
+  "sharpe": 1.35,
+  "mdd%": -22.2,
+  "calmar": 1.74,
+  "final_nav": 2.1
+ },
+ {
+  "exec": "卖@开盘 买@TWAP15",
+  "entry": "twap15",
+  "exit": "open",
+  "ann%": 43.3,
+  "sharpe": 1.49,
+  "mdd%": -15.1,
+  "calmar": 2.87,
+  "final_nav": 2.26
+ },
+ {
+  "exec": "卖@开盘 买@10:15",
+  "entry": "p1015",
+  "exit": "open",
+  "ann%": 25.0,
+  "sharpe": 1.06,
+  "mdd%": -13.8,
+  "calmar": 1.81,
+  "final_nav": 1.66
+ },
+ {
+  "exec": "卖@开盘 买@13:00",
+  "entry": "p1300",
+  "exit": "open",
+  "ann%": 1.6,
+  "sharpe": 0.18,
+  "mdd%": -24.6,
+  "calmar": 0.07,
+  "final_nav": 1.04
+ },
+ {
+  "exec": "双边 13:00",
+  "entry": "p1300",
+  "exit": "p1300",
+  "ann%": 29.9,
+  "sharpe": 1.16,
+  "mdd%": -25.4,
+  "calmar": 1.18,
+  "final_nav": 1.81
+ },
+ {
+  "exec": "双边 尾盘TWAP5",
+  "entry": "twap_last5",
+  "exit": "twap_last5",
+  "ann%": 23.7,
+  "sharpe": 0.93,
+  "mdd%": -29.6,
+  "calmar": 0.8,
+  "final_nav": 1.62
+ },
+ {
+  "exec": "卖@TWAP15 买@开盘(反向对照)",
+  "entry": "open",
+  "exit": "twap15",
+  "ann%": 81.8,
+  "sharpe": 2.13,
+  "mdd%": -17.9,
+  "calmar": 4.56,
+  "final_nav": 3.89
+ }
+]

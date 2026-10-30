@@ -1,0 +1,40 @@
+{
+  "videos": [
+    {
+      "path": "assets/pi05_autonomous_development.mp4",
+      "bytes": 263900,
+      "sha256": "16d5a8c8e5a1543237f4548327d62eb5adb5c2fd636c6a42c0060a74313b4463",
+      "model": "pi05_B16000",
+      "evaluation_scope": "paired_development_regression",
+      "case_id": "demo_483_seed201",
+      "expert_prefix": false,
+      "original_task_success": true,
+      "first_success_control_step": 393,
+      "termination_note": "First original success or fixed horizon; post-success stability not measured."
+    },
+    {
+      "path": "assets/bcrnn_autonomous_training_state.mp4",
+      "bytes": 870926,
+      "sha256": "089813bb07429964341a634d47d0a30c462517fbc7b140e3e9029c9c2be90739",
+      "model": "bcrnn_final50000",
+      "evaluation_scope": "bounded_development_train",
+      "case_id": "demo_226_seed301",
+      "expert_prefix": false,
+      "original_task_success": true,
+      "first_success_control_step": 423,
+      "termination_note": "First original success or fixed horizon; post-success stability not measured."
+    },
+    {
+      "path": "assets/pi05_contact_loss_failure.mp4",
+      "bytes": 1144114,
+      "sha256": "be1c26ea5165166ff7a5a5ec0ad21d4514810334030112f980d0cba80abd39c7",
+      "model": "pi05_B16000_plus_small3_2000",
+      "evaluation_scope": "smallset_training_state_diagnostic",
+      "case_id": "demo_255_seed301",
+      "expert_prefix": false,
+      "original_task_success": false,
+      "first_success_control_step": null,
+      "termination_note": "First original success or fixed horizon; post-success stability not measured."
+    }
+  ]
+}

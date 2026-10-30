@@ -1,0 +1,47 @@
+{
+  "as_of": "2026-10-30",
+  "vla": {
+    "demonstrations": 200,
+    "frames": 82036,
+    "cameras": 5,
+    "latest_development_rollouts": 60,
+    "B0_successes": 0,
+    "U_successes": 1,
+    "M_successes": 1,
+    "cases_per_condition": 20,
+    "stable_improvement_established": false,
+    "scope": "Previously exposed development scenes; one training seed. No real robot."
+  },
+  "world_model": {
+    "actions": 3,
+    "paired_seeds": 2,
+    "generated_videos": 6,
+    "frames_per_video": 17,
+    "closed_loop_benefit_established": false
+  },
+  "rag": {
+    "processed_markdown_file_count": 3031,
+    "deduplicated_document_count_verified": false,
+    "synthetic_retrieval_questions": 60,
+    "cloud_local_comparison_questions": 10,
+    "recall_improvement_verified": false
+  },
+  "small_model_lora": {
+    "architecture": "8x8 digits; MLP 64-100-100-10",
+    "rank": 8,
+    "trainable_parameters": 3792,
+    "full_trainable_parameters": 17610,
+    "parameter_reduction_percent": 78.46678023850086,
+    "flip_new_task_accuracy": 0.964,
+    "full_flip_new_task_accuracy": 0.969,
+    "flip_old_task_accuracy": 0.432,
+    "full_flip_old_task_accuracy": 0.637,
+    "language_model_result": false
+  },
+  "quant": {
+    "etf_ledger_rows": 669,
+    "etf_unique_trial_ids": 632,
+    "engine_consistency_gold_cases": 18,
+    "profitability_established": false
+  }
+}

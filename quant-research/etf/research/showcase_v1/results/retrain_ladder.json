@@ -1,0 +1,38 @@
+{
+ "every_63d_seeds1": {
+  "n_fits": 10,
+  "2024-2026": {
+   "ann%": 24.4,
+   "sharpe": 0.84,
+   "mdd%": -20.6,
+   "calmar": 1.18
+  }
+ },
+ "every_63d_seeds2": {
+  "n_fits": 10,
+  "2024-2026": {
+   "ann%": 22.9,
+   "sharpe": 0.8,
+   "mdd%": -19.1,
+   "calmar": 1.2
+  }
+ },
+ "every_21d_seeds1": {
+  "n_fits": 28,
+  "2024-2026": {
+   "ann%": 2.3,
+   "sharpe": 0.23,
+   "mdd%": -33.4,
+   "calmar": 0.07
+  }
+ },
+ "every_5d_seeds1": {
+  "n_fits": 115,
+  "2024-2026": {
+   "ann%": 19.5,
+   "sharpe": 0.69,
+   "mdd%": -26.5,
+   "calmar": 0.74
+  }
+ }
+}

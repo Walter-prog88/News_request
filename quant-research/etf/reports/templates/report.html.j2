@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>指数择时研报复现与独立验证</title>
+  <script>{{ plotly_js | safe }}</script>
+  <style>
+    :root { color-scheme: light dark; --bg:#f5f6f8; --card:#fff; --fg:#172033; --muted:#687386; --line:#d9dee7; --accent:#2367d1; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#11151c; --card:#1a202b; --fg:#edf2fa; --muted:#aab4c4; --line:#303947; --accent:#75a7ff; } }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif; }
+    main { max-width:1180px; margin:0 auto; padding:40px 22px 80px; }
+    header { margin-bottom:30px; }
+    h1 { font-size:30px; margin:0 0 8px; font-weight:600; }
+    h2 { margin:0 0 8px; font-size:22px; font-weight:600; }
+    p { margin:6px 0; }
+    .muted { color:var(--muted); }
+    .notice { border-left:4px solid var(--accent); padding:12px 16px; margin:20px 0 30px; background:color-mix(in srgb,var(--accent) 8%,var(--card)); }
+    article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; margin:22px 0; }
+    .run-detail { background:var(--card); border:1px solid var(--line); border-radius:12px; margin:12px 0; }
+    .run-detail > summary { cursor:pointer; padding:14px 18px; font-weight:600; }
+    .run-body { padding:0 20px 20px; }
+    .status { display:inline-block; padding:3px 10px; border:1px solid var(--line); border-radius:999px; font-weight:600; }
+    .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin:18px 0; }
+    .metric { padding:10px 12px; border-top:2px solid var(--line); }
+    .metric span { display:block; color:var(--muted); font-size:12px; }
+    .metric strong { display:block; font-size:18px; margin-top:2px; }
+    details { margin-top:14px; }
+    pre { white-space:pre-wrap; overflow-wrap:anywhere; padding:12px; border:1px solid var(--line); border-radius:8px; color:var(--muted); }
+    ul { padding-left:20px; }
+    .empty { padding:44px 20px; text-align:center; color:var(--muted); }
+    .table-wrap { overflow-x:auto; margin:18px 0 30px; }
+    table { width:100%; border-collapse:collapse; background:var(--card); }
+    th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); white-space:nowrap; }
+    th { color:var(--muted); font-size:12px; font-weight:600; }
+    @media(max-width:600px) { main{padding:24px 12px 50px} article{padding:14px} h1{font-size:25px} }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>指数择时研报复现与独立验证</h1>
+    <p class="muted">生成于 {{ generated_at }}</p>
+  </header>
+  <div class="notice">
+    结论只来自无前视、含成本的独立验证。研报区间胜率、LSTM重建误差和GHMM状态稳定性均不单独构成有效性证据。
+  </div>
+  <article>
+    <h2>证据链状态</h2>
+    <p>试验台账：{{ trial_audit.total }} 项（执行成功 {{ trial_audit.success }}、执行失败 {{ trial_audit.failed }}、跳过 {{ trial_audit.skipped }}、具备正式证据资格 {{ trial_audit.formal_eligible }}）；哈希链校验：{{ "通过" if trial_audit.verified else "失败" }}。</p>
+    <p>前瞻信号日志：{{ signal_audit.total }} 条；满足登记时点/规格条件 {{ signal_audit.prospective }} 条，唯一“模型×交易日” {{ signal_audit.unique_run_sessions }} 个，单模型最多 {{ signal_audit.maximum_sessions_per_run }} 日，达到252日成熟门槛的模型 {{ signal_audit.mature_run_count }} 个；链尾 {{ signal_audit.chain_tip }}。</p>
+    <p>本页按实验规格展示最新不可变 artifact；磁盘共保留 {{ immutable_artifact_versions }} 个历史版本，旧版本及失败试验不会被覆盖。</p>
+    <p class="muted">历史 artifact 的最后一行不自动成为“发表后信号”。只有在信号交易日收盘后、下一可执行开盘前生成并记录，且规格、现金和哈希链检查均通过，才登记为前瞻记录；满252个唯一交易日且收益实现后才能评价，登记本身不是有效性证据。</p>
+  </article>
+  {% if not runs %}
+    <div class="empty">尚无运行产物。执行 <code>index-timing demo</code> 或复现命令后重新生成。</div>
+  {% endif %}
+  {% if comparison_rows %}
+  <section>
+    <h2>横向结果总表</h2>
+    <p class="muted">“正式证据=否”的快速、单种子或研报口径结果只用于工程验收和方向观察。</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>运行</th><th>资产</th><th>证据层级</th><th>正式证据</th><th>CAGR</th><th>Sharpe</th><th>最大回撤</th><th>对等敞口回归Alpha</th><th>结论</th></tr></thead>
+      <tbody>{% for row in comparison_rows %}<tr><td>{{ row.run_id }}</td><td>{{ row.asset }}</td><td>{{ row.evidence }}</td><td>{{ row.formal }}</td><td>{{ row.cagr }}</td><td>{{ row.sharpe }}</td><td>{{ row.drawdown }}</td><td>{{ row.alpha }}</td><td>{{ row.status }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+  </section>
+  {% endif %}
+  {% if increment_rows %}
+  <section>
+    <h2>神经网络相对简单基线的增量</h2>
+    <p class="muted">经济门槛为年化Alpha增量≥0.5%且Sharpe增量≥0.10；仍须通过10%显著性检验才能认定神经网络有独立价值。</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>比较</th><th>资产</th><th>Alpha增量</th><th>Sharpe增量</th><th>经济门槛</th><th>显著性</th></tr></thead>
+      <tbody>{% for row in increment_rows %}<tr><td>{{ row.comparison }}</td><td>{{ row.asset }}</td><td>{{ row.delta_alpha }}</td><td>{{ row.delta_sharpe }}</td><td>{{ row.economic_pass }}</td><td>{{ row.significance }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+  </section>
+  {% endif %}
+  <section>
+  <h2>逐运行净值、仓位与审计信息</h2>
+  {% for run in runs %}
+  <details class="run-detail"{% if run.expanded %} open{% endif %}>
+    <summary>{{ run.run_id }} · {{ run.status }}</summary>
+    <div class="run-body">
+    <h2>{{ run.run_id }}</h2>
+    <p class="muted">{{ run.study }} · {{ run.asset }}</p>
+    <p><span class="status">{{ run.status }}</span></p>
+    <div class="metrics">
+      {% for metric in run.metrics %}
+      <div class="metric"><span>{{ metric.label }}</span><strong>{{ metric.value }}</strong></div>
+      {% endfor %}
+    </div>
+    {{ run.figure | safe }}
+    {% if run.assumptions %}
+    <details><summary>代理假设与限制</summary><ul>{% for item in run.assumptions %}<li>{{ item }}</li>{% endfor %}</ul></details>
+    {% endif %}
+    <details><summary>完整运行元数据</summary><pre>{{ run.metadata_json | safe }}</pre></details>
+    </div>
+  </details>
+  {% endfor %}
+  </section>
+</main>
+</body>
+</html>

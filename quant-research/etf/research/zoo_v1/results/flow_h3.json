@@ -1,0 +1,1226 @@
+[
+ {
+  "id": "flow_h3_c9099142a5",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_active_share63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.735,
+  "full": -1.367
+ },
+ {
+  "id": "flow_h3_426d0ffde0",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_cal10",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.233,
+  "full": 0.172
+ },
+ {
+  "id": "flow_h3_cfd7f6e1bf",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_cal21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.063,
+  "full": 0.506
+ },
+ {
+  "id": "flow_h3_a1ee122063",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_cal42",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.928,
+  "full": 0.053
+ },
+ {
+  "id": "flow_h3_44f5b57405",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_cal5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.364,
+  "full": -0.912
+ },
+ {
+  "id": "flow_h3_3030450c15",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_cal63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.438,
+  "full": 0.037
+ },
+ {
+  "id": "flow_h3_cf3b52e018",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_chg21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.399,
+  "full": 0.069
+ },
+ {
+  "id": "flow_h3_3d320f0d8d",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_chg5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.191,
+  "full": -2.109
+ },
+ {
+  "id": "flow_h3_af8ca28608",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_chg63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": 0.017,
+  "full": 0.313
+ },
+ {
+  "id": "flow_h3_6e08bbac7b",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_slope21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.463,
+  "full": 0.124
+ },
+ {
+  "id": "flow_h3_6947ea680e",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_valid21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.069,
+  "full": 0.467
+ },
+ {
+  "id": "flow_h3_eda51fb254",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_valid21_liq10m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.01,
+  "full": 0.529
+ },
+ {
+  "id": "flow_h3_d66ba5ffc0",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_valid21_liq1m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.069,
+  "full": 0.467
+ },
+ {
+  "id": "flow_h3_81aa174d97",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_valid21_liq20m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.224,
+  "full": 0.343
+ },
+ {
+  "id": "flow_h3_64c02d62ef",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_valid21_liq2m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.069,
+  "full": 0.467
+ },
+ {
+  "id": "flow_h3_20c16cf84e",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_valid21_liq5m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.069,
+  "full": 0.467
+ },
+ {
+  "id": "flow_h3_3d59c6c880",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_all_z63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": 0.04,
+  "full": 0.235
+ },
+ {
+  "id": "flow_h3_3de44857e1",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_cal10",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.531,
+  "full": 0.087
+ },
+ {
+  "id": "flow_h3_e00cc1c72b",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_cal21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.127,
+  "full": 0.579
+ },
+ {
+  "id": "flow_h3_898943bdf2",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_cal42",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.067,
+  "full": 0.082
+ },
+ {
+  "id": "flow_h3_8bec4518d7",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_cal5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.702,
+  "full": -1.036
+ },
+ {
+  "id": "flow_h3_da493d4af9",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_cal63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.509,
+  "full": 0.113
+ },
+ {
+  "id": "flow_h3_140ec7e824",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_chg21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.52,
+  "full": -0.015
+ },
+ {
+  "id": "flow_h3_601db21a06",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_chg5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.171,
+  "full": -2.166
+ },
+ {
+  "id": "flow_h3_741128dac6",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_chg63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.18,
+  "full": 0.24
+ },
+ {
+  "id": "flow_h3_95ae56bc79",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_slope21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.545,
+  "full": 0.088
+ },
+ {
+  "id": "flow_h3_2cab2a8b16",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_valid21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.129,
+  "full": 0.557
+ },
+ {
+  "id": "flow_h3_ba9bacb06e",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_valid21_liq10m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.017,
+  "full": 0.562
+ },
+ {
+  "id": "flow_h3_1a5215fbc8",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_valid21_liq1m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.129,
+  "full": 0.557
+ },
+ {
+  "id": "flow_h3_de4b991425",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_valid21_liq20m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.178,
+  "full": 0.461
+ },
+ {
+  "id": "flow_h3_9eac23b884",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_valid21_liq2m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.129,
+  "full": 0.557
+ },
+ {
+  "id": "flow_h3_ae432185ab",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_valid21_liq5m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.129,
+  "full": 0.557
+ },
+ {
+  "id": "flow_h3_53345e7468",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_am_z63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": 0.022,
+  "full": 0.157
+ },
+ {
+  "id": "flow_h3_192e1dea95",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_amount_accel21_252",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.747,
+  "full": -0.593
+ },
+ {
+  "id": "flow_h3_88c3494313",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_amount_median_rank21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.29,
+  "full": -0.714
+ },
+ {
+  "id": "flow_h3_afb2125fc4",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_amount_median_rank252",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.797,
+  "full": -0.665
+ },
+ {
+  "id": "flow_h3_18f3b3f2e6",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_amount_median_rank63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.939,
+  "full": -0.476
+ },
+ {
+  "id": "flow_h3_4ef1bbdbe4",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_ampm_diff",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.814,
+  "full": -1.059
+ },
+ {
+  "id": "flow_h3_82a7a19c13",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_cal10",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -4.278,
+  "full": -2.351
+ },
+ {
+  "id": "flow_h3_02637d00dd",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_cal21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.858,
+  "full": -1.447
+ },
+ {
+  "id": "flow_h3_92cdcca044",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_cal42",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.837,
+  "full": -1.046
+ },
+ {
+  "id": "flow_h3_ad1d4e95b7",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_cal5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -6.327,
+  "full": -4.217
+ },
+ {
+  "id": "flow_h3_5d7a998122",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_cal63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.936,
+  "full": -0.717
+ },
+ {
+  "id": "flow_h3_8dc027eb8a",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_chg21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -3.626,
+  "full": -1.9
+ },
+ {
+  "id": "flow_h3_a104d9e31a",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_chg5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -7.174,
+  "full": -5.363
+ },
+ {
+  "id": "flow_h3_f5b1c7758d",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_chg63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -3.468,
+  "full": -1.41
+ },
+ {
+  "id": "flow_h3_6735919a71",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_slope21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -3.398,
+  "full": -1.289
+ },
+ {
+  "id": "flow_h3_79e2e4232e",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_valid21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.875,
+  "full": -1.473
+ },
+ {
+  "id": "flow_h3_068e781996",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_valid21_liq10m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.781,
+  "full": -1.117
+ },
+ {
+  "id": "flow_h3_7c9b0caa1d",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_valid21_liq1m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.875,
+  "full": -1.473
+ },
+ {
+  "id": "flow_h3_9164fa73ec",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_valid21_liq20m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.285,
+  "full": -1.147
+ },
+ {
+  "id": "flow_h3_18045e4af6",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_valid21_liq2m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.875,
+  "full": -1.473
+ },
+ {
+  "id": "flow_h3_e8a2864234",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_valid21_liq5m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.875,
+  "full": -1.473
+ },
+ {
+  "id": "flow_h3_6b24c90412",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_last30_z63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -3.918,
+  "full": -1.581
+ },
+ {
+  "id": "flow_h3_d3f24d6d90",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_cal10",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.753,
+  "full": -0.209
+ },
+ {
+  "id": "flow_h3_3c53cdcdc2",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_cal21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.089,
+  "full": 0.247
+ },
+ {
+  "id": "flow_h3_a25ada13f3",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_cal42",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.61,
+  "full": -0.186
+ },
+ {
+  "id": "flow_h3_d992bf4591",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_cal5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -3.245,
+  "full": -1.567
+ },
+ {
+  "id": "flow_h3_6fc3acb675",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_cal63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.838,
+  "full": -0.137
+ },
+ {
+  "id": "flow_h3_d6d226bdae",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_chg21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.648,
+  "full": -0.163
+ },
+ {
+  "id": "flow_h3_a37a92491c",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_chg5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -3.744,
+  "full": -3.188
+ },
+ {
+  "id": "flow_h3_6f441e0255",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_chg63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.874,
+  "full": 0.131
+ },
+ {
+  "id": "flow_h3_3a38b7be11",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_slope21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.189,
+  "full": 0.362
+ },
+ {
+  "id": "flow_h3_7e96fe72d6",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_valid21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.119,
+  "full": 0.226
+ },
+ {
+  "id": "flow_h3_0a343488d1",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_valid21_liq10m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.994,
+  "full": 0.142
+ },
+ {
+  "id": "flow_h3_14fa80b670",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_valid21_liq1m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.119,
+  "full": 0.226
+ },
+ {
+  "id": "flow_h3_f9291dbb02",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_valid21_liq20m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.714,
+  "full": 0.148
+ },
+ {
+  "id": "flow_h3_b400336d8f",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_valid21_liq2m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.119,
+  "full": 0.226
+ },
+ {
+  "id": "flow_h3_53fb58c148",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_valid21_liq5m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.119,
+  "full": 0.226
+ },
+ {
+  "id": "flow_h3_cd7283668b",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_open30_z63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.822,
+  "full": 0.007
+ },
+ {
+  "id": "flow_h3_41e5679358",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_openam_diff",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -2.923,
+  "full": -1.929
+ },
+ {
+  "id": "flow_h3_bba50a0919",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_openlast_diff",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.001,
+  "full": -0.42
+ },
+ {
+  "id": "flow_h3_dd7e50ae5c",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_cal10",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.503,
+  "full": -0.608
+ },
+ {
+  "id": "flow_h3_57ce2f4917",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_cal21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.092,
+  "full": -0.041
+ },
+ {
+  "id": "flow_h3_1e9dc45eb5",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_cal42",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.424,
+  "full": -0.152
+ },
+ {
+  "id": "flow_h3_9d94182965",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_cal5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.827,
+  "full": -1.652
+ },
+ {
+  "id": "flow_h3_aaea47d919",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_cal63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.217,
+  "full": -0.194
+ },
+ {
+  "id": "flow_h3_c8bd75decb",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_chg21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.649,
+  "full": -0.445
+ },
+ {
+  "id": "flow_h3_54591081d7",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_chg5",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -3.701,
+  "full": -3.558
+ },
+ {
+  "id": "flow_h3_484d67142f",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_chg63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.545,
+  "full": -0.088
+ },
+ {
+  "id": "flow_h3_100cd3968f",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_slope21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.456,
+  "full": -0.083
+ },
+ {
+  "id": "flow_h3_3453fda9fe",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_valid21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.092,
+  "full": -0.065
+ },
+ {
+  "id": "flow_h3_7f938ed0ec",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_valid21_liq10m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.243,
+  "full": 0.096
+ },
+ {
+  "id": "flow_h3_ef52de5c95",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_valid21_liq1m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.092,
+  "full": -0.065
+ },
+ {
+  "id": "flow_h3_d0ca0d676a",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_valid21_liq20m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.515,
+  "full": -0.048
+ },
+ {
+  "id": "flow_h3_b3ccf7007b",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_valid21_liq2m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.092,
+  "full": -0.065
+ },
+ {
+  "id": "flow_h3_108d231c9a",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_valid21_liq5m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.092,
+  "full": -0.065
+ },
+ {
+  "id": "flow_h3_1fa152cce1",
+  "spec": {
+   "kind": "flow",
+   "name": "prev_pm_z63",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.468,
+  "full": -0.175
+ },
+ {
+  "id": "flow_h3_30e9f3f17b",
+  "spec": {
+   "kind": "flow",
+   "name": "same_am_cal21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.067,
+  "full": 0.697
+ },
+ {
+  "id": "flow_h3_9d494baf80",
+  "spec": {
+   "kind": "flow",
+   "name": "same_am_valid21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.081,
+  "full": 0.674
+ },
+ {
+  "id": "flow_h3_29a4b4f2a3",
+  "spec": {
+   "kind": "flow",
+   "name": "same_am_valid21_liq10m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.007,
+  "full": 0.672
+ },
+ {
+  "id": "flow_h3_6d0dc768a2",
+  "spec": {
+   "kind": "flow",
+   "name": "same_am_valid21_liq1m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.081,
+  "full": 0.674
+ },
+ {
+  "id": "flow_h3_344e6c844f",
+  "spec": {
+   "kind": "flow",
+   "name": "same_am_valid21_liq20m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.175,
+  "full": 0.563
+ },
+ {
+  "id": "flow_h3_88d43580b6",
+  "spec": {
+   "kind": "flow",
+   "name": "same_am_valid21_liq2m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.081,
+  "full": 0.674
+ },
+ {
+  "id": "flow_h3_dfc336197f",
+  "spec": {
+   "kind": "flow",
+   "name": "same_am_valid21_liq5m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.081,
+  "full": 0.674
+ },
+ {
+  "id": "flow_h3_2f60825525",
+  "spec": {
+   "kind": "flow",
+   "name": "same_open30_cal21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.048,
+  "full": 0.3
+ },
+ {
+  "id": "flow_h3_cf9d1e06c7",
+  "spec": {
+   "kind": "flow",
+   "name": "same_open30_valid21",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.077,
+  "full": 0.298
+ },
+ {
+  "id": "flow_h3_8aa87b24de",
+  "spec": {
+   "kind": "flow",
+   "name": "same_open30_valid21_liq10m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.985,
+  "full": 0.122
+ },
+ {
+  "id": "flow_h3_3bfa13360d",
+  "spec": {
+   "kind": "flow",
+   "name": "same_open30_valid21_liq1m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.077,
+  "full": 0.298
+ },
+ {
+  "id": "flow_h3_bd2386acbf",
+  "spec": {
+   "kind": "flow",
+   "name": "same_open30_valid21_liq20m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -0.739,
+  "full": 0.124
+ },
+ {
+  "id": "flow_h3_6cd986dc83",
+  "spec": {
+   "kind": "flow",
+   "name": "same_open30_valid21_liq2m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.077,
+  "full": 0.298
+ },
+ {
+  "id": "flow_h3_d6c4bc5175",
+  "spec": {
+   "kind": "flow",
+   "name": "same_open30_valid21_liq5m",
+   "domain": "dom",
+   "hold": 3,
+   "q": 5
+  },
+  "worst_clean": -1.077,
+  "full": 0.298
+ }
+]

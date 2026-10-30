@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "audited": true,
+  "audit_source": "Full pinned-source SHA256 and data_audit.json; initialized controller and observation_parity.json; train_action_replay.json; frozen transport_subset.manifest.json. Evidence SHA256 values are embedded below.",
+  "action_dim": 14,
+  "action_representation": "relative_eef_controller_command",
+  "action_key": "action",
+  "arm_order": [
+    "robot0",
+    "robot1"
+  ],
+  "fps": 20,
+  "action_description": "Raw HDF5 actions cast float32, ordered robot0[0:7], robot1[7:14]. Per arm: OSC_POSE translation inputs x/y/z, rotation axis-angle inputs x/y/z, then one Panda gripper command. Actual initialized OSC: input_type=delta, input_ref_frame=base, input range [-1,1], controller output ranges translation +/-0.05 and rotation +/-0.5; do not reinterpret raw inputs as metres/radians or subtract state. PandaGripper source maps -1 to open and +1 to closed via incremental sign-based format_action; raw gripper command is preserved.",
+  "cameras": {
+    "base_0_rgb": "observation.images.agentview",
+    "left_wrist_0_rgb": "observation.images.robot0_eye_in_hand",
+    "right_wrist_0_rgb": "observation.images.robot1_eye_in_hand"
+  },
+  "state_fields": [
+    {
+      "key": "observation.state",
+      "size": 3,
+      "arm": "robot0",
+      "meaning": "Recorded robot0 end-effector position from obs/robot0_eef_pos, unchanged float32",
+      "indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "key": "observation.state",
+      "size": 4,
+      "arm": "robot0",
+      "meaning": "Recorded robot0 end-effector quaternion from obs/robot0_eef_quat; robosuite API xyzw, unchanged float32",
+      "indices": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "key": "observation.state",
+      "size": 2,
+      "arm": "robot0",
+      "meaning": "Recorded robot0 two finger joint positions from obs/robot0_gripper_qpos, unchanged float32",
+      "indices": [
+        7,
+        8
+      ]
+    },
+    {
+      "key": "observation.state",
+      "size": 3,
+      "arm": "robot1",
+      "meaning": "Recorded robot1 end-effector position from obs/robot1_eef_pos, unchanged float32",
+      "indices": [
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "key": "observation.state",
+      "size": 4,
+      "arm": "robot1",
+      "meaning": "Recorded robot1 end-effector quaternion from obs/robot1_eef_quat; robosuite API xyzw, unchanged float32",
+      "indices": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "key": "observation.state",
+      "size": 2,
+      "arm": "robot1",
+      "meaning": "Recorded robot1 two finger joint positions from obs/robot1_gripper_qpos, unchanged float32",
+      "indices": [
+        16,
+        17
+      ]
+    }
+  ],
+  "prompt_key": "prompt",
+  "runtime": {
+    "cameras": {
+      "observation.images.agentview": "agentview",
+      "observation.images.robot0_eye_in_hand": "robot0_eye_in_hand",
+      "observation.images.robot1_eye_in_hand": "robot1_eye_in_hand"
+    },
+    "combined_state_key": "observation.state",
+    "image_transform": "flipud",
+    "diagnostics_boundary": "Current DexMimicGen TwoArmTransport may omit base robosuite object-observation vectors; missing optional distances remain null. Finger-pad contact predicate does not prove stable holding or handover."
+  },
+  "evidence": {
+    "partial_range_probe": true,
+    "full_source_sha256_verified": true,
+    "real_demo_control_replay_verified": true,
+    "source_revision": "181967e10c6277a653e7c9761f3978312af3646a",
+    "partial_header_sha256": "aedd8d5f45c7d8658d8b923ca4155b67c1abb149c22b38fa6b06b74046451eb4",
+    "partial_action_replay_sha256": "86b1a660ed3680856800d419eb4b9c63da3343033c57d5233fa9bfdabfeccf98",
+    "image_orientation_status": "Real demo_0 initial-state parity: source RGB equals vertical flip of env observation RGB; keep converted source pixels unchanged and flip live env obs vertically.",
+    "selected_images_hwc": [
+      84,
+      84,
+      3
+    ],
+    "observation_parity_sha256": "4b5b504fa03e63e600ac12f105f520c821af0cb933499876d31e9f1ace4cc334",
+    "full_source_sha256": "8eea65271eb21eabe6de1310cbc04b15f8f21343b59efc26b1f5cb4d54795f57",
+    "full_source_bytes": 15177869792,
+    "source_episode_count": 1029,
+    "source_total_frames": 419712,
+    "train_episodes": 200,
+    "train_frames_expected": 82036,
+    "valid_episodes": 50,
+    "test_episodes": 50,
+    "split_seed": 20261014,
+    "formal_train_control_replay_episodes": [
+      "demo_255",
+      "demo_226",
+      "demo_879"
+    ],
+    "train_conversion_complete_required_before_normalization": true,
+    "files_sha256": {
+      "source_integrity.json": "5e64aa00da345432aceb343af82302516dd34b0bcf88ecb68f196c076c8b25e2",
+      "data_audit.json": "eadbee1c50c9d10e692ab103eadf4cb7354342d57b2857ce37ace0fa51861fb1",
+      "transport_subset.manifest.json": "2acb16699c6c2fb0801575a3838b659a82fa0482690784805f02ee8fbde191a3",
+      "partial_action_replay.json": "86b1a660ed3680856800d419eb4b9c63da3343033c57d5233fa9bfdabfeccf98",
+      "observation_parity.json": "4b5b504fa03e63e600ac12f105f520c821af0cb933499876d31e9f1ace4cc334",
+      "train_action_replay.json": "43168709abd6ab5caa2adccc88c7278d87ea3b78f1382e40c7b71890e151d254",
+      "test_integrity_qa_note.json": "b3d48a4c9489979832030a56c3fcb8923070e4e1d0c68893855770aa6626a90d"
+    },
+    "test_integrity_qa_boundary": "Source demo_0 through demo_4 received dimensions/finiteness/numeric integrity QA before training; this QA was not used for normalization, model selection, policy inference, or held-out videos. The frozen split is unchanged. Demo_0 was excluded from all splits because its control-replay video was inspected."
+  }
+}

@@ -1,0 +1,16 @@
+{
+ "generated": 18880,
+ "evaluated": 6456,
+ "passed_ic": 2888,
+ "after_dedup": 350,
+ "ic_min": 0.02,
+ "ic_floor": 0.012,
+ "dedup_rho": 0.7,
+ "dev_end_day": 1400,
+ "dev_end_date": "2024-10-16",
+ "pop": 400,
+ "gens": 12,
+ "islands": 4,
+ "immigrant_frac": 0.12,
+ "max_depth": 3
+}

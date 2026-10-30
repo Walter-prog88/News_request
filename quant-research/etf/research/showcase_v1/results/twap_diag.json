@@ -1,0 +1,18 @@
+{
+ "tradable_cells": 496116,
+ "gap_bp": {
+  "p0.1": -402.4,
+  "p1": -180.2,
+  "p25": -33.1,
+  "p50": 0.0,
+  "p75": 33.4,
+  "p99": 175.0,
+  "p99.9": 307.4
+ },
+ "gap_mean_bp": -0.1,
+ "gap_std_bp": 67.73,
+ "basket_open_to_twap_bp_per_day": 10.9,
+ "pool_open_to_twap_bp_per_day": 1.12,
+ "excess_bp_per_day": 9.78,
+ "excess_annualised_pct": 24.7
+}

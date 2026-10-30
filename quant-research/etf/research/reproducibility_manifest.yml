@@ -1,0 +1,61 @@
+schema_version: 1
+verified_at: 2026-07-14T02:56:22+09:00
+research_cutoff: 2026-07-13
+
+runtime:
+  python: 3.11.15
+  uv: 0.11.28
+  source_tree_sha256: d56b4b4ff3338ac1a3fc2d6eaef28c6d16e0cd4664fe047968f5c2fed9c6562c
+  uv_lock_sha256: 6470d55f10870b6f6c888cb39dcfd82a49c00b591f05437b45e891cef557f60c
+  note: Experiment artifacts were produced before the delivery commit and bind to source_tree_sha256.
+
+source_reports:
+  caitong_20260303_sha256: 5885783c882362da277814f26d50058bce660737355c32f5baf4c92f26de585b
+  zhongyou_20260709_sha256: 4b0fb0915d7634f9e493fd1c7314a355532205d78a76affe9cd02af91311ced4
+  source_manifest_sha256: 20492bed505ca121a8280198820f05a306efd25373f45f4ff7cf37ed660617b6
+
+data:
+  immutable_snapshots: 34
+  unique_content_hashes: 33
+  manifest: data/raw/manifest.jsonl
+  manifest_git_policy: ignored_with_raw_data
+  hash_verification: passed
+
+artifacts:
+  preferred_experiment_specs: 120
+  immutable_historical_versions: 194
+  trial_ledger:
+    records: 43
+    successful: 37
+    failed: 6
+    formal_evidence_eligible: 0
+    chain_tip: 8e5e3c66d40ff8b0790e9c672af9c95ad6bcdb742725f7c5fab24d449e3f81cf
+    verification: passed
+  prospective_signal_ledger:
+    records: 140
+    legacy_prefix_records: 19
+    chained_records: 121
+    prospective_evidence_eligible: 0
+    chain_tip: 1ab967cf25a08170004bdffced20cb3d63491980a469550f27971405e19859cd
+    verification: passed
+
+quality:
+  pytest:
+    passed: 91
+    failed: 0
+  ruff: passed
+  git_diff_check: passed
+
+generated_outputs:
+  html_report:
+    path: reports/generated/index-timing-report.html
+    sha256: a6b6ca3963e1751d6d7dd12cc052bbeb08f8ee9fe7b1eaef708737f5bdc3727c
+  markdown_summary:
+    path: reports/generated/index-timing-report.md
+    sha256: c0573098dc8663baee71adae47957be7e5e2f36c646739e0b3612a1232d49f88
+
+evidence_conclusion:
+  validated_count: 0
+  positive_alpha_surviving_bh_fdr: 0
+  neural_network_independent_value: not_proven
+  china_hk_reproduction_level: method_reconstruction_only

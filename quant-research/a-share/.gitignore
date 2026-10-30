@@ -1,0 +1,38 @@
+# ============ 数据(一律不入库)============
+# 分钟原始数据、日频面板缓存、外部数据源
+new_data/
+cache/
+data_8:21/
+data_*/
+*.parquet
+*.pkl
+*.pkl.gz
+stock_sw_industry.csv
+
+# 派生数据:IC 序列、模型打分面板(数百 MB,可由代码重算)
+research/ic_series/
+research/ledger/scores/
+research/ledger/votes_panel.pkl
+
+# 逐因子试验原始日志(11MB × 103 个,结论已汇总进 factor_summary_all.csv)
+research/ledger/trials_*.jsonl
+research/ledger/_voided/
+
+# 运行日志
+research/*.log
+*.log
+
+# 打包产物
+*.zip
+astock-factor-layer-*.zip
+
+# ============ 环境 ============
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ============ 系统 ============
+.DS_Store
+.notified_*

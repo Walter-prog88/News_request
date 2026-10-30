@@ -1,0 +1,66 @@
+[
+ {
+  "variant": "A 换标签模型 双边TWAP15",
+  "ann%": 34.7,
+  "sharpe": 1.25,
+  "mdd%": -28.5,
+  "calmar": 1.22,
+  "one_way_turnover": 0.749
+ },
+ {
+  "variant": "A 换标签模型 卖@开盘 买@TWAP15",
+  "ann%": 31.7,
+  "sharpe": 1.18,
+  "mdd%": -20.3,
+  "calmar": 1.56,
+  "one_way_turnover": 0.749
+ },
+ {
+  "variant": "A 换标签模型 开盘/开盘(对照)",
+  "ann%": 63.4,
+  "sharpe": 1.83,
+  "mdd%": -19.3,
+  "calmar": 3.28,
+  "one_way_turnover": 0.749
+ },
+ {
+  "variant": "原模型 双边TWAP15(参照)",
+  "ann%": 38.5,
+  "sharpe": 1.35,
+  "mdd%": -22.2,
+  "calmar": 1.73,
+  "one_way_turnover": 0.86
+ },
+ {
+  "variant": "B 原模型+缓冲带B30 开盘/开盘",
+  "ann%": 93.6,
+  "sharpe": 2.39,
+  "mdd%": -15.8,
+  "calmar": 5.93,
+  "one_way_turnover": 0.72
+ },
+ {
+  "variant": "B 原模型+缓冲带B30 双边TWAP15",
+  "ann%": 41.7,
+  "sharpe": 1.44,
+  "mdd%": -24.2,
+  "calmar": 1.72,
+  "one_way_turnover": 0.72
+ },
+ {
+  "variant": "C 原模型 5日调仓 开盘/开盘",
+  "ann%": 33.7,
+  "sharpe": 1.16,
+  "mdd%": -22.0,
+  "calmar": 1.53,
+  "one_way_turnover": 0.181
+ },
+ {
+  "variant": "C 原模型 5日调仓 双边TWAP15",
+  "ann%": 28.5,
+  "sharpe": 1.1,
+  "mdd%": -23.0,
+  "calmar": 1.24,
+  "one_way_turnover": 0.181
+ }
+]

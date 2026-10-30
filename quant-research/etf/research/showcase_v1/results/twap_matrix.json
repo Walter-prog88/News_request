@@ -1,0 +1,122 @@
+[
+ {
+  "exec": "参照 开盘单点价(集合竞价)",
+  "rule": "基线",
+  "price": "open_print",
+  "entry_offset": 1,
+  "ann%": 88.2,
+  "sharpe": 2.25,
+  "mdd%": -16.7,
+  "calmar": 5.28,
+  "one_way_turnover": 0.86,
+  "final_nav": 4.2
+ },
+ {
+  "exec": "参照 开盘单点价(集合竞价)",
+  "rule": "缓冲带B30",
+  "price": "open_print",
+  "entry_offset": 1,
+  "ann%": 93.6,
+  "sharpe": 2.39,
+  "mdd%": -15.8,
+  "calmar": 5.93,
+  "one_way_turnover": 0.72,
+  "final_nav": 4.48
+ },
+ {
+  "exec": "开盘TWAP 1分钟",
+  "rule": "基线",
+  "price": "open_twap1",
+  "entry_offset": 1,
+  "ann%": 42.0,
+  "sharpe": 1.39,
+  "mdd%": -20.9,
+  "calmar": 2.01,
+  "one_way_turnover": 0.86,
+  "final_nav": 2.22
+ },
+ {
+  "exec": "开盘TWAP 1分钟",
+  "rule": "缓冲带B30",
+  "price": "open_twap1",
+  "entry_offset": 1,
+  "ann%": 46.4,
+  "sharpe": 1.52,
+  "mdd%": -22.2,
+  "calmar": 2.09,
+  "one_way_turnover": 0.72,
+  "final_nav": 2.38
+ },
+ {
+  "exec": "开盘TWAP 5分钟",
+  "rule": "基线",
+  "price": "open_twap5",
+  "entry_offset": 1,
+  "ann%": 40.0,
+  "sharpe": 1.37,
+  "mdd%": -22.3,
+  "calmar": 1.8,
+  "one_way_turnover": 0.86,
+  "final_nav": 2.15
+ },
+ {
+  "exec": "开盘TWAP 5分钟",
+  "rule": "缓冲带B30",
+  "price": "open_twap5",
+  "entry_offset": 1,
+  "ann%": 43.1,
+  "sharpe": 1.47,
+  "mdd%": -24.0,
+  "calmar": 1.8,
+  "one_way_turnover": 0.72,
+  "final_nav": 2.26
+ },
+ {
+  "exec": "收盘TWAP 1分钟",
+  "rule": "基线",
+  "price": "close_twap1",
+  "entry_offset": 0,
+  "ann%": 79.3,
+  "sharpe": 2.21,
+  "mdd%": -17.9,
+  "calmar": 4.43,
+  "one_way_turnover": 0.86,
+  "final_nav": 3.76
+ },
+ {
+  "exec": "收盘TWAP 1分钟",
+  "rule": "缓冲带B30",
+  "price": "close_twap1",
+  "entry_offset": 0,
+  "ann%": 83.1,
+  "sharpe": 2.31,
+  "mdd%": -16.9,
+  "calmar": 4.93,
+  "one_way_turnover": 0.72,
+  "final_nav": 3.95
+ },
+ {
+  "exec": "收盘TWAP 5分钟",
+  "rule": "基线",
+  "price": "close_twap5",
+  "entry_offset": 0,
+  "ann%": 61.3,
+  "sharpe": 1.85,
+  "mdd%": -18.7,
+  "calmar": 3.27,
+  "one_way_turnover": 0.86,
+  "final_nav": 2.96
+ },
+ {
+  "exec": "收盘TWAP 5分钟",
+  "rule": "缓冲带B30",
+  "price": "close_twap5",
+  "entry_offset": 0,
+  "ann%": 65.6,
+  "sharpe": 1.96,
+  "mdd%": -17.6,
+  "calmar": 3.72,
+  "one_way_turnover": 0.72,
+  "final_nav": 3.14
+ }
+]

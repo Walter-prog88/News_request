@@ -1,0 +1,404 @@
+[
+ {
+  "id": "onid_93644f64c0",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 21,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.475,
+  "full": -0.87
+ },
+ {
+  "id": "onid_54b5994eb4",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 21,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": 0.068,
+  "full": -0.396
+ },
+ {
+  "id": "onid_e5fda367d2",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 21,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": 0.293,
+  "full": -0.153
+ },
+ {
+  "id": "onid_aea38cf91f",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 21,
+   "sign": -1,
+   "domain": "all",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.864,
+  "full": -0.395
+ },
+ {
+  "id": "onid_5163225ce2",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 21,
+   "sign": -1,
+   "domain": "all",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": -0.534,
+  "full": 0.026
+ },
+ {
+  "id": "onid_c50e9df385",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 21,
+   "sign": -1,
+   "domain": "all",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": 0.166,
+  "full": 0.222
+ },
+ {
+  "id": "onid_ea231c3113",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 63,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": 0.083,
+  "full": -0.132
+ },
+ {
+  "id": "onid_3d2880159b",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 63,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": 0.538,
+  "full": 0.219
+ },
+ {
+  "id": "onid_9ed88f98e4",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 63,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": 0.277,
+  "full": 0.044
+ },
+ {
+  "id": "onid_508addeb6d",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 63,
+   "sign": -1,
+   "domain": "all",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": 0.035,
+  "full": 0.347
+ },
+ {
+  "id": "onid_0a19f3a1ad",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 63,
+   "sign": -1,
+   "domain": "all",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": 0.165,
+  "full": 0.518
+ },
+ {
+  "id": "onid_7ff6f764c3",
+  "spec": {
+   "kind": "rollsum",
+   "col": "overnight_ret_continuous",
+   "w": 63,
+   "sign": -1,
+   "domain": "all",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": 0.029,
+  "full": 0.383
+ },
+ {
+  "id": "onid_488a12b7b2",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 21,
+   "domain": "dom",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.527,
+  "full": -0.112
+ },
+ {
+  "id": "onid_116f485101",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 21,
+   "domain": "dom",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": -0.264,
+  "full": 0.272
+ },
+ {
+  "id": "onid_b8f6ad7187",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 21,
+   "domain": "dom",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": -0.798,
+  "full": -0.012
+ },
+ {
+  "id": "onid_d21125486b",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 21,
+   "domain": "all",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.37,
+  "full": -0.041
+ },
+ {
+  "id": "onid_d81ed8c433",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 21,
+   "domain": "all",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": 0.016,
+  "full": 0.423
+ },
+ {
+  "id": "onid_edb9a259e5",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 21,
+   "domain": "all",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": -0.501,
+  "full": 0.212
+ },
+ {
+  "id": "onid_18bb140c64",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 63,
+   "domain": "dom",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.396,
+  "full": -0.26
+ },
+ {
+  "id": "onid_a65e4288de",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 63,
+   "domain": "dom",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": -0.133,
+  "full": 0.015
+ },
+ {
+  "id": "onid_52ef18ef9e",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 63,
+   "domain": "dom",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": -0.136,
+  "full": 0.064
+ },
+ {
+  "id": "onid_9717e18606",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 63,
+   "domain": "all",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.555,
+  "full": -0.271
+ },
+ {
+  "id": "onid_63ee0277cd",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 63,
+   "domain": "all",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": -0.24,
+  "full": 0.031
+ },
+ {
+  "id": "onid_5b0936a35f",
+  "spec": {
+   "kind": "rollsum",
+   "col": "ret_oc_continuous",
+   "w": 63,
+   "domain": "all",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": -0.283,
+  "full": 0.053
+ },
+ {
+  "id": "onid_7458b4b016",
+  "spec": {
+   "kind": "on_minus_id",
+   "w": 21,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.515,
+  "full": -0.154
+ },
+ {
+  "id": "onid_608a4dba87",
+  "spec": {
+   "kind": "on_minus_id",
+   "w": 21,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": -0.179,
+  "full": 0.23
+ },
+ {
+  "id": "onid_6fc75f205d",
+  "spec": {
+   "kind": "on_minus_id",
+   "w": 21,
+   "sign": -1,
+   "domain": "dom",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": -0.653,
+  "full": -0.009
+ },
+ {
+  "id": "onid_d14821689b",
+  "spec": {
+   "kind": "on_minus_id",
+   "w": 21,
+   "sign": -1,
+   "domain": "all",
+   "hold": 1,
+   "q": 5
+  },
+  "worst_clean": -0.626,
+  "full": -0.06
+ },
+ {
+  "id": "onid_35eb211ce3",
+  "spec": {
+   "kind": "on_minus_id",
+   "w": 21,
+   "sign": -1,
+   "domain": "all",
+   "hold": 5,
+   "q": 5
+  },
+  "worst_clean": -0.211,
+  "full": 0.366
+ },
+ {
+  "id": "onid_7bf5a5176c",
+  "spec": {
+   "kind": "on_minus_id",
+   "w": 21,
+   "sign": -1,
+   "domain": "all",
+   "hold": 21,
+   "q": 5
+  },
+  "worst_clean": -0.556,
+  "full": 0.235
+ }
+]
