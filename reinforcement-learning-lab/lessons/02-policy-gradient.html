@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>强化学习 · 第 2 课:怎么让 J 变大</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{--paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;--gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;--grn:#1e6b3a;--grn-bg:#e6f4ea;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.95;}
+  .wrap{max-width:730px;margin:0 auto;padding:54px 26px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:12px;}
+  h1{font-size:27px;margin:0 0 10px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:21px;margin:56px 0 14px;padding-top:28px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  p{margin:0 0 16px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 26px;line-height:1.85;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .contract{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ac);
+    border-radius:0 6px 6px 0;padding:18px 22px;margin:0 0 34px;font-size:15.5px;line-height:1.8;}
+  .contract b{color:var(--ac);}
+
+  .formula{text-align:center;padding:22px 10px;margin:20px 0;background:#fff;
+    border:1px solid var(--rule);border-radius:6px;font-size:19px;overflow-x:auto;}
+  .formula.plain{background:var(--paper);border:none;}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15.5px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:11px 13px;text-align:left;line-height:1.7;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+  td.up{color:var(--grn);font-weight:600;}
+  td.dn{color:var(--rose);font-weight:600;}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:17px 21px;margin:26px 0;
+    border-radius:0 5px 5px 0;font-size:16.5px;line-height:1.9;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin-bottom:0;}
+
+  .decode{background:#fff;border:1px solid var(--rule);border-radius:7px;padding:6px 24px 18px;margin:22px 0;}
+  .decode dl{margin:0;}
+  .decode dt{font-weight:600;padding:16px 0 4px;font-size:16.5px;border-top:1px dashed var(--rule);}
+  .decode dt:first-of-type{border-top:none;}
+  .decode dd{margin:0 0 6px;color:var(--soft);font-size:15.5px;line-height:1.8;}
+  .decode dd strong{color:var(--ink);}
+
+  .path{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:14px 18px;margin:14px 0;
+    font-size:15.5px;line-height:2.1;}
+  .step{display:inline-block;padding:2px 9px;background:var(--paper);border:1px solid var(--rule);
+    border-radius:4px;margin:2px 1px;font-weight:600;font-size:14.5px;}
+  .arr{color:var(--soft);margin:0 3px;}
+  .rtag{float:right;font-weight:600;font-size:15px;}
+  .rtag.p{color:var(--grn);}
+  .rtag.n{color:var(--rose);}
+
+  ol.q{padding-left:22px;}
+  ol.q li{margin-bottom:24px;line-height:1.9;}
+  ul.b{padding-left:20px;margin:0 0 16px;}
+  ul.b li{margin-bottom:9px;}
+  .katex{font-size:1.04em;}
+  .big{font-size:15px;color:var(--soft);text-align:center;margin:-8px 0 22px;}
+  footer{margin-top:60px;padding-top:24px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.85;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 2 课:怎么让 J 变大</h1>
+  <p class="sub">策略梯度 · 沿用同一个格子世界</p>
+</header>
+
+<div class="contract">
+  <b>这一课的范围(严格限定)</b><br>
+  只回答一个问题:<strong>知道了目标是最大化 J,具体该怎么调参数?</strong><br>
+  <span style="color:var(--soft)">不讲:基线、优势函数、TD、GAE、PPO、on-policy/off-policy。全部往后排。</span>
+</div>
+
+<p>上一课我们确定了目标:</p>
+<div class="formula plain">\[ J(\theta) \;=\; \mathbb{E}_{\tau \sim \pi_\theta}\big[R(\tau)\big] \qquad \text{越大越好} \]</div>
+
+<p>而"让一个函数变大"的标准做法你早就会——梯度上升:</p>
+<div class="formula plain">\[ \theta \;\leftarrow\; \theta + \alpha \nabla_\theta J(\theta) \]</div>
+
+<p>所以问题只剩一个:<strong>那个 <span>\(\nabla_\theta J(\theta)\)</span> 怎么算?</strong></p>
+
+<div class="key">
+<p style="margin:0"><b>这一课全部内容就是回答这一个问题。</b></p>
+</div>
+
+<h2><span class="n">一</span>坏消息:这个梯度算不出来</h2>
+
+<p><span>\(J\)</span> 是一个期望,也就是<strong>所有可能轨迹的加权平均</strong>。要精确算它,就得把每一条可能的轨迹都列出来、算出各自的概率和回报,再加权求和。</p>
+
+<p>问题是轨迹有多少条?</p>
+
+<table>
+  <tr><th>场景</th><th style="width:42%">可能的轨迹数量</th></tr>
+  <tr><td>3×3 格子世界(允许来回走)</td><td>无穷多</td></tr>
+  <tr><td>LLM:词表 15 万,生成 1000 个 token</td><td><span>\(150000^{1000} \approx 10^{5000}\)</span></td></tr>
+</table>
+
+<p class="big">作为对比,可观测宇宙的原子总数大约是 <span>\(10^{80}\)</span>。</p>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>在这里讨论的大规模任务中，直接枚举轨迹来精确计算 <span>\(\nabla J\)</span> 通常不可行。</strong>小型已知模型可能直接求解；复杂任务常用采样近似，此外还需处理探索、信用分配与分布变化。</p>
+</div>
+
+<h2><span class="n">二</span>出路:算不了,但可以试</h2>
+
+<p>虽然不能穷举所有轨迹,但我们能做一件很朴素的事:<strong>让机器人真的去跑几趟,看看结果。</strong></p>
+
+<p>这就是上一课那个结论的用处——<em>期望可以用采样平均来估计</em>。想知道骰子的期望是 3.5,你不必推导,扔一千次求平均也能逼近它。</p>
+
+<p><strong>策略梯度定理</strong>做的事情,正是把那个算不出来的梯度,改写成一个<em>可以用采样来估计</em>的形式:</p>
+
+<div class="formula">\[ \nabla_\theta J(\theta) \;=\; \mathbb{E}_{\tau \sim \pi_\theta}\Big[\; \sum_t \nabla_\theta \log \pi_\theta(a_t \mid s_t)\;\cdot\; R(\tau) \;\Big] \]</div>
+
+<div class="note">
+<p style="margin-bottom:0"><strong>请注意等号右边最外层是什么:又是一个 <span>\(\mathbb{E}\)</span>。</strong><em>这就是这个定理的全部价值所在。</em>它把"必须穷举"变成了"可以抽样"——跑 N 趟,把括号里的东西算出来求平均,就得到了梯度的估计。</p>
+</div>
+
+<h2><span class="n">三</span>把这个式子读开</h2>
+
+<div class="decode">
+<dl>
+  <dt><span>\(\pi_\theta(a_t \mid s_t)\)</span></dt>
+  <dd>第 1 课讲过:<strong>在状态 <span>\(s_t\)</span> 选动作 <span>\(a_t\)</span> 的概率</strong>。比如 <span>\(\pi(\text{上}\mid\text{A1}) = 0.7\)</span>。</dd>
+
+  <dt><span>\(\nabla_\theta \log \pi_\theta(a_t \mid s_t)\)</span></dt>
+  <dd>一个<strong>方向</strong>:参数往这边挪,"在 <span>\(s_t\)</span> 选 <span>\(a_t\)</span>"这件事就会变得<strong>更容易发生</strong>。<br>
+  <span style="font-size:14.5px">(至于为什么是 log 不是概率本身——那纯粹是数学推导的产物,不影响理解。先把 <span>\(\log\)</span> 当成记号的一部分。)</span></dd>
+
+  <dt><span>\(\cdot\; R(\tau)\)</span></dt>
+  <dd>乘上<strong>这一整趟的回报</strong>。这是整个式子的灵魂:<em>回报是这个方向的放大倍数,而且带正负号。</em></dd>
+
+  <dt><span>\(\sum_t\)</span></dt>
+  <dd>对这趟里<strong>每一步</strong>都做一次上面的事。</dd>
+
+  <dt><span>\(\mathbb{E}[\;\cdot\;]\)</span></dt>
+  <dd>对多趟取平均 —— 实践中就是<strong>真的跑 N 趟,然后求平均</strong>。</dd>
+</dl>
+</div>
+
+<div class="key">
+<p><b>用一句人话概括整个式子:</b></p>
+<p style="margin:8px 0 0"><em>把这一趟里做过的所有动作,按这一趟的总回报,成比例地调高或调低它们的概率。</em></p>
+<p style="margin:8px 0 0">回报是正的且很大 → 这些动作大幅调高。<br>回报是负的 → 这些动作被调低。</p>
+</div>
+
+<h2><span class="n">四</span>在格子世界里真跑一遍</h2>
+
+<p>假设机器人用当前策略跑了两趟:</p>
+
+<div class="path">
+  <span class="rtag p">R = +7</span>
+  <span class="step">A1</span><span class="arr">—上→</span><span class="step">A2</span><span class="arr">—上→</span>
+  <span class="step">A3</span><span class="arr">—右→</span><span class="step">B3</span><span class="arr">—右→</span><span class="step">C3</span>
+</div>
+
+<div class="path">
+  <span class="rtag n">R = −11</span>
+  <span class="step">A1</span><span class="arr">—右→</span><span class="step">B1</span><span class="arr">—上→</span>
+  <span class="step">B2</span> <span style="color:var(--soft);font-size:14px">掉坑</span>
+</div>
+
+<p>按上面那句人话,更新会这样发生:</p>
+
+<table>
+  <tr><th>这一趟</th><th>里面的动作</th><th style="width:30%">概率怎么变</th></tr>
+  <tr>
+    <td><strong>第一趟</strong><br><span style="color:var(--grn)">R = +7</span></td>
+    <td>A1→上,A2→上,<br>A3→右,B3→右</td>
+    <td class="up">全部调高 ↑<br><span style="font-weight:400;font-size:14px;color:var(--soft)">力度正比于 7</span></td>
+  </tr>
+  <tr>
+    <td><strong>第二趟</strong><br><span style="color:var(--rose)">R = −11</span></td>
+    <td>A1→右,B1→上</td>
+    <td class="dn">全部调低 ↓<br><span style="font-weight:400;font-size:14px;color:var(--soft)">力度正比于 11</span></td>
+  </tr>
+</table>
+
+<p>落到 A1 这一个格子上,那张策略表的变化大致是:</p>
+
+<table>
+  <tr><th>在 A1 选</th><th style="text-align:right">更新前</th><th style="text-align:right">更新后</th><th style="width:22%">原因</th></tr>
+  <tr><td>上</td><td class="num">0.70</td><td class="num up">0.76 ↑</td><td>第一趟走了它,R 为正</td></tr>
+  <tr><td>右</td><td class="num">0.20</td><td class="num dn">0.14 ↓</td><td>第二趟走了它,R 为负</td></tr>
+  <tr><td>下</td><td class="num">0.05</td><td class="num">0.05</td><td>两趟都没走到</td></tr>
+  <tr><td>左</td><td class="num">0.05</td><td class="num">0.05</td><td>两趟都没走到</td></tr>
+</table>
+<p class="big">(具体数值取决于学习率 α,这里只是示意方向)</p>
+
+<div class="key">
+<p style="margin:0"><b>这就是强化学习的全部学习过程。</b>反复跑、反复按回报调整概率。跑得足够多之后,好的走法概率越来越高,坏的越来越低——<em>机器人就"学会"了,尽管从头到尾没有任何人告诉过它正确答案是什么。</em></p>
+</div>
+
+<h2><span class="n">五</span>检查(3 题)</h2>
+<p class="lead">前两题基于本课内容,第 3 题是推理题,答错完全没关系——请把想的过程写出来。</p>
+
+<ol class="q">
+  <li>机器人跑出了这样一趟:<br>
+  <span class="path" style="display:block;margin-top:10px">
+  <span class="rtag n">R = −11</span>
+  <span class="step">A1</span><span class="arr">—上→</span><span class="step">A2</span><span class="arr">—右→</span><span class="step">B2</span>
+  <span style="color:var(--soft);font-size:14px">掉坑</span></span>
+  这一趟里<strong>第一步走的"A1→上"其实是个好动作</strong>(第一课里最优路线的第一步就是它)。但按本课的规则,它的概率会被调高还是调低?<strong>为什么?</strong></li>
+
+  <li>用你自己的话回答:<strong>为什么说"期望可以用采样平均来估计"这件事,是整个策略梯度能成立的关键?</strong>(提示:回到第一节那个 <span>\(10^{5000}\)</span>)</li>
+
+  <li><strong>推理题。</strong>假设我们把格子世界的奖励规则整体加 100 分:走一步得 <strong>+99</strong>(原来 −1),拿到宝藏 <strong>+110</strong>(原来 +10),掉坑 <strong>+90</strong>(原来 −10)。<br>
+  各个结局之间的<strong>相对好坏完全没变</strong>(宝藏依然最好,掉坑依然最差)。<br>
+  但现在<strong>所有轨迹的 R 都是很大的正数</strong>。<br>
+  <strong>按本课的更新规则,训练会出什么问题?</strong></li>
+</ol>
+
+<footer>
+<strong>第 3 题就是下一课的入口。</strong>如果你能感觉到"这里不太对劲",哪怕说不清为什么,也已经到位了。<br>
+下一课只讲一件事:怎么修这个问题——也就是"减基线"。
+</footer>
+
+</div>
+<script>
+function render(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body,{
+      delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],
+      throwOnError:false});
+  }
+}
+document.addEventListener("DOMContentLoaded",render);
+window.addEventListener("load",render);
+</script>
+</body>
+</html>

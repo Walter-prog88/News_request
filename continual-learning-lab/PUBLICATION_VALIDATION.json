@@ -1,0 +1,17 @@
+{
+  "validation_date": "2026-10-30",
+  "checks": {
+    "cli_help_entries": 4,
+    "regression_forward_shape": true,
+    "digits_forward_shape": true,
+    "grokking_forward_shape": true,
+    "lora_rank8_trainable_parameters": 3792,
+    "zero_adapter_merge_output_invariant": true,
+    "python_syntax_files": 17,
+    "digits_reconstruction_equals_original_arrays": true,
+    "td_terminal_step_update": true
+  },
+  "training_rerun": false,
+  "gpu_validated": false,
+  "summary_figures_regenerated_from_existing_csv": true
+}

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 8 课 · 扔掉 Critic:GRPO</title>
+<style>
+  :root{
+    --paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;
+    --blue:#2a78d6;--blue-bg:#e8f1fd;
+    --good:#0ca30c;--good-bg:#e9f7e9;
+    --crit:#d03b3b;--crit-bg:#fbebeb;
+    --gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;
+    --vio:#4a3aa7;--vio-bg:#eeecf9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.9;}
+  .wrap{max-width:840px;margin:0 auto;padding:52px 24px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:20px;}
+  h1{font-size:25px;margin:0 0 9px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:20px;margin:52px 0 12px;padding-top:26px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:16.5px;margin:26px 0 9px;font-weight:600;}
+  p{margin:0 0 15px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 22px;line-height:1.8;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14.5px;background:#fff;
+    border:1px solid var(--rule);border-radius:4px;padding:1px 5px;}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:16px 20px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin:0;}
+
+  .scope{background:#fff;border:1.5px solid var(--ink);border-radius:9px;padding:18px 22px;margin:22px 0;font-size:15.5px;}
+  .scope b.y{color:var(--ac);} .scope b.n2{color:var(--soft);}
+  .setup{background:#fff;border:1.5px solid var(--ac);border-radius:9px;padding:20px 22px;margin:20px 0;}
+  .setup h4{margin:0 0 12px;font-size:15px;color:var(--ac);font-weight:600;letter-spacing:.05em;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:8px 10px;text-align:center;line-height:1.6;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.l,th.l{text-align:left;}
+  td.num{font-variant-numeric:tabular-nums;}
+  tr.hot td{background:var(--crit-bg);font-weight:600;}
+  tr.hot td:first-child{color:var(--crit);}
+  tr.ok td{background:var(--good-bg);}
+  .small th,.small td{font-size:14px;padding:7px 8px;}
+  .scroll{overflow-x:auto;}
+
+  .formula{text-align:center;padding:20px 14px;margin:16px 0;background:#fff;border:1px solid var(--rule);
+    border-radius:8px;font-size:19px;line-height:2.2;}
+  .mth{font-family:Georgia,"Times New Roman",serif;font-style:italic;}
+  .formula .op{color:var(--soft);margin:0 3px;font-style:normal;}
+  .pE{color:var(--ac);font-weight:600;}
+  .pR{color:var(--blue);font-weight:600;}
+  .pA{color:var(--gold);font-weight:700;}
+  .pNew{color:var(--crit);font-weight:700;}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;font-size:14px;color:var(--soft);margin:12px 0 0;}
+  .eq{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:13px 18px;margin:14px 0;
+    text-align:center;font-size:17px;font-variant-numeric:tabular-nums;overflow-x:auto;}
+  .eq .hl{color:var(--crit);font-weight:700;}
+  .eq.left{text-align:left;}
+
+  .vocab td{font-size:14.5px;text-align:left;}
+  footer{margin-top:52px;padding-top:22px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.8;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 8 课 · 扔掉 Critic:GRPO</h1>
+  <p class="sub">一个真实任务从头做到尾:训练模型解数学题</p>
+</header>
+
+<div class="scope">
+  <p style="margin:0 0 8px"><b class="y">本课只讲一件事:</b>优势 <span class="mth">A</span> 不用 Critic 网络,怎么算出来。
+  上一课的 clip 和 min <strong>一个字都不改</strong>,原样搬过来用。</p>
+  <p style="margin:0 0 8px"><b class="n2">明确不讲:</b>奖励 R 是怎么来的(下下课 RLHF/奖励模型)、
+  一条回答内部 token 级怎么拆(下一课)、KL 惩罚项(仍是黑盒,RLHF 课拆)。</p>
+  <p style="margin:0;font-size:14.5px;color:var(--soft)">本课按你要求的方式写:围绕一个真实问题,公式直接给,零互动组件,全部数字落在纸面上。</p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">〇</span>先结上一课的账</h2>
+
+<div class="setup">
+  <h4>先摊开这一节在说的场景</h4>
+  <p style="margin:0;font-size:15.5px">同一道题,<strong>让模型答 G 遍</strong>(上一课题 3 里是 8 遍),程序给每一遍判个分,
+  得到 G 个分数 R₁ … R<sub>G</sub>。然后拿<strong>这 G 个分数的平均</strong>当基线。第一节会把这个场景完整展开,这里先够用。</p>
+</div>
+
+<p>上一课题 3 我埋了一个矛盾,提示了"你可能会抗议",你没抗议。先把它结清,因为它就是本课的地基。</p>
+
+<p><strong>矛盾在哪:</strong>第 3 课的规矩是"基线 <span class="mth">b</span> 不能依赖动作"。
+可组均值 <span class="mth">b</span> = (R₁+…+R₈)/8 里,明明装着第 1 条回答自己的分数。凭什么合格?</p>
+
+<div class="warn">
+<p style="margin:0"><strong>先认个账:</strong>我在上一课题面里写的"抗议成立"说得太满了。
+准确的说法是——<em>你看到的现象是真的</em>(基线里确实装着 R<sub>i</sub>),<em>但它不构成问题</em>。下面是原因。</p>
+</div>
+
+<h3>答案:在条件独立的简化设定下，可写成留一基线优势的 7/8</h3>
+
+<p>把式子拆开就看见了。设一组 <span class="mth">G</span> 条回答(这里 G=8),第 <span class="mth">i</span> 条的优势是:</p>
+
+<div class="eq left">
+<span class="mth">A<sub>i</sub></span> = <span class="mth">R<sub>i</sub></span> − (R₁+…+R<sub>G</sub>)/G<br>
+&nbsp;&nbsp;&nbsp;&nbsp;= <span class="mth">R<sub>i</sub></span> − <span class="mth">R<sub>i</sub></span>/G − (其他 G−1 条之和)/G<br>
+&nbsp;&nbsp;&nbsp;&nbsp;= (1 − 1/G) × [ <span class="mth">R<sub>i</sub></span> − <strong>其他 G−1 条的平均分</strong> ]
+</div>
+
+<p>第三行括号里那个基线 —— <em>"除了我以外那 7 条的平均分"</em> —— <strong>在同一道题、固定策略下，各回答条件独立采样的假设下，不依赖第 i 个动作。</strong>
+括号外面只是乘了个常数 (1 − 1/8) = 7/8,<strong>对这两个未归一化的优势估计，固定正系数只产生缩放；这不表示对原梯度严格无偏，也不保证有限样本的方向正确。</strong></p>
+
+<div class="key">
+<p style="margin:0"><b>因此，未除标准差时的这个优势等于“减去其他样本均值”的优势乘以 7/8。</b>G 越大这个系数越接近 1(G=64 时是 63/64)。
+这说明组均值的自身依赖会产生一个缩放系数；另一个需要检查的问题在<strong>第五节的"除以 std"</strong>。</p>
+</div>
+
+<p style="font-size:15px;color:var(--soft)">(练习 2 会让你用具体数字把这个等式验一遍。)</p>
+
+<!-- ================================================================ -->
+<h2><span class="n">一</span>真实问题:训练一个模型解数学题</h2>
+
+<div class="setup">
+  <h4>任务设定</h4>
+  <table class="small">
+    <tr><th class="l" style="width:22%">项</th><th class="l">具体是什么</th></tr>
+    <tr><td class="l"><strong>状态 s</strong></td><td class="l">一道数学题的题面</td></tr>
+    <tr><td class="l"><strong>动作 a</strong></td><td class="l"><strong>一整条回答</strong>(本课先这样,token 级下一课拆)</td></tr>
+    <tr><td class="l"><strong>策略 π<sub>θ</sub>(a|s)</strong></td><td class="l">语言模型:给一道题,吐出一条回答。θ 是模型参数</td></tr>
+    <tr><td class="l"><strong>奖励 R</strong></td><td class="l">题库自带标准答案 → 程序自动判:<strong>答对 = 1,答错 = 0</strong></td></tr>
+    <tr><td class="l"><strong>本轮的题</strong></td><td class="l">小明有 5 盒铅笔,每盒 12 支,送给同学 18 支,还剩多少支?(答案 42)</td></tr>
+  </table>
+  <p style="margin:12px 0 0;font-size:14.5px;color:var(--soft)">
+  这种"用程序判对错、不需要人打分"的奖励,论文里叫 <strong style="color:var(--ink)">RLVR</strong>
+  (Reinforcement Learning with Verifiable Rewards,可验证奖励强化学习)。数学题和代码题都属于这类。</p>
+</div>
+
+<p><strong>注意这个世界的形状:</strong>一个状态(题目),多个可选动作(各种回答),答完一条就结束。
+和第 7 课那个"一个状态、四个动作"的例子是<em>同一个形状</em>,只是动作从 4 个变成了无穷多个。
+(第 1 课的格子世界是多状态、要走很多步的,不是这个形状。)</p>
+
+<h3>用上一课的 PPO,卡在哪一步?</h3>
+
+<p>PPO 的目标你已经会写了:</p>
+<div class="formula">
+  <span class="mth">J</span> <span class="op">=</span> <span class="pE">E</span><span class="op">[</span>
+  <span class="pNew">min</span><span class="op">(</span><span class="pR"><span class="mth">r</span></span><span class="op">·</span><span class="pA"><span class="mth">A</span></span><span class="op">,</span>
+  <span class="pNew">clip</span><span class="op">(</span><span class="pR"><span class="mth">r</span></span><span class="op">,</span> 1−<span class="mth">ε</span><span class="op">,</span> 1+<span class="mth">ε</span><span class="op">)</span><span class="op">·</span><span class="pA"><span class="mth">A</span></span><span class="op">)</span><span class="op">]</span>
+</div>
+<p>ratio 好办:<code>r = exp(logp_new − logp_old)</code>,两个 logp 模型都能给。
+(这里的 logp 是<strong>整条回答</strong>的对数概率;它怎么由 200 个 token 各自的 logp 拼出来,下一课讲。)<br>
+<strong>卡在 A。</strong>第 3 课:<span class="mth">A</span> = <span class="mth">R</span> − <span class="mth">V(s)</span>,而 V 要一个 <strong>Critic 网络</strong>来估(第 4 课)。在 LLM 上这个 Critic 有三个具体麻烦:</p>
+
+<table>
+  <tr><th style="width:6%"></th><th class="l">麻烦</th><th class="l">具体后果</th></tr>
+  <tr><td>1</td><td class="l">Critic 通常和策略模型同样大</td><td class="l">训一个 7B 模型,要再养一个 7B 的 Critic。显存和算力接近翻倍</td></tr>
+  <tr><td>2</td><td class="l">它要学的东西极难学</td><td class="l">V(s) 是"这道题<em>还没开始答</em>时,预期能得几分"。信号只在整条回答结束时才有一个 0 或 1,中间全是空白</td></tr>
+  <tr><td>3</td><td class="l">它学歪了,策略跟着歪</td><td class="l">V 估错 → A = R − V 全错 → Actor 被推向错误方向,而且你很难发现</td></tr>
+</table>
+
+<div class="note">
+<p style="margin:0"><strong>所以真正要解决的问题是:</strong>
+<em>能不能不训 Critic,直接算出一个能用的 A?</em></p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">二</span>GRPO 的解法:一行</h2>
+
+<p><strong>GRPO</strong>(Group Relative Policy Optimization,组相对策略优化)的答案很朴素:</p>
+
+<div class="key">
+<p style="margin:0"><b>同一道题采 G 条回答,让它们互相比较。比这一组平均水平好的,A 为正;差的,A 为负。</b></p>
+</div>
+
+<p>不需要任何网络去估 V —— <strong>这一组同门师兄弟的平均分,就是这道题的水平线。</strong>公式:</p>
+
+<div class="formula">
+  <span class="pA"><span class="mth">A<sub>i</sub></span></span> <span class="op">=</span>
+  <span style="display:inline-block;text-align:center;vertical-align:middle">
+    <span style="display:block;padding:0 8px 3px;border-bottom:1.5px solid var(--ink)"><span class="mth">R<sub>i</sub></span> <span class="op">−</span> mean(<span class="mth">R</span>₁…<span class="mth">R</span><sub>G</sub>)</span>
+    <span style="display:block;padding-top:3px">std(<span class="mth">R</span>₁…<span class="mth">R</span><sub>G</sub>)</span>
+  </span>
+  <div class="legend">
+    <span><b>R<sub>i</sub></b> 第 i 条回答的得分</span>
+    <span><b>mean</b> 这一组 G 条的平均分</span>
+    <span><b>std</b> 这一组的标准差</span>
+    <span><b>G</b> 一道题采几条(常见 8、16、64)</span>
+  </div>
+</div>
+
+<p style="font-size:15px;color:var(--soft)"><strong style="color:var(--ink)">口径说明(手算时要用):</strong>
+方差 = Σ(R<sub>i</sub> − mean)² <strong>÷ G</strong>(除以 G,不是 G−1),std = √方差。</p>
+
+<h3>分母那个 std 是干什么的</h3>
+<p><strong>为什么要除:</strong>不同的题难易差很远。简单题一组分数可能是 (1,1,1,1,1,1,1,0),难题可能是 (1,0,0,0,0,0,0,0),
+光减均值的话,两组 A 的<em>大小量级</em>差得很多。除以 std 相当于<strong>把每组 A 拉到差不多的尺度上</strong>,
+好让同一个学习率对所有题都适用——不至于在某些题上步子巨大、另一些题上几乎不动。</p>
+<p><strong>但它也是本课唯一有争议的部分</strong>(第五节会看到它具体惹了什么祸)。先看只有分子的版本,更容易看清在干什么:</p>
+<div class="eq"><span class="mth">A<sub>i</sub></span> = <span class="mth">R<sub>i</sub></span> − 这一组的平均分</div>
+
+<div class="note">
+<p style="margin:0"><strong>和第 4 课接上:</strong>"这一组的平均分"其实就是 <span class="mth">V(s)</span> 的一个
+<strong>蒙特卡洛估计</strong>——第 4 课 MC vs TD 里的 MC,原封不动。
+所以 GRPO 删掉的不是 V,是<strong>那个用来估 V 的网络</strong>:改成每道题现场采 G 条、取平均,当场估一个 V 就用。</p>
+</div>
+
+<p>然后把这个 <span class="mth">A<sub>i</sub></span> 塞回上一课的 PPO 公式。<strong>本课的简化目标（省略 token 级细节与 KL 项）是:</strong></p>
+
+<div class="formula">
+  <span class="mth">J</span><sup style="font-size:13px">GRPO</sup> <span class="op">=</span> <span class="pE">E</span><span class="op">[</span>
+  <span style="font-size:15px">1/G</span> <span style="font-size:21px">Σ</span><sub style="font-size:13px">i=1..G</sub>
+  <span class="pNew">min</span><span class="op">(</span><span class="pR"><span class="mth">r<sub>i</sub></span></span><span class="op">·</span><span class="pA"><span class="mth">A<sub>i</sub></span></span><span class="op">,</span>
+  <span class="pNew">clip</span><span class="op">(</span><span class="pR"><span class="mth">r<sub>i</sub></span></span><span class="op">,</span> 1−<span class="mth">ε</span><span class="op">,</span> 1+<span class="mth">ε</span><span class="op">)</span><span class="op">·</span><span class="pA"><span class="mth">A<sub>i</sub></span></span><span class="op">)</span><span class="op">]</span>
+</div>
+
+<p><strong>那个 Σ 是本课第一次出现,先把它拆开</strong>(其余部分上一课全见过):</p>
+<table class="small">
+  <tr><th style="width:22%">零件</th><th class="l">读作什么</th><th class="l">在这道铅笔题里就是</th></tr>
+  <tr><td class="num">Σ<sub>i=1..G</sub></td><td class="l">把 i 从 1 数到 G,每个 i 算一个值,<strong>全部加起来</strong></td><td class="l">8 条回答各算一个 min(…),加成一个总和</td></tr>
+  <tr><td class="num">1/G ×</td><td class="l">加完再<strong>除以 G</strong></td><td class="l">除以 8</td></tr>
+  <tr class="ok"><td class="num">1/G Σ<sub>i=1..G</sub></td><td class="l">两个合起来只是一件事:<strong>求平均</strong></td><td class="l">这 8 条的平均值</td></tr>
+  <tr><td class="num">外层 E[·]</td><td class="l">对<strong>一道又一道题</strong>求平均</td><td class="l">铅笔题只是其中一道,还有成千上万道</td></tr>
+</table>
+<p style="font-size:15px;color:var(--soft)">所以这个公式有<strong style="color:var(--ink)">两层平均</strong>:里层 Σ 在<em>同一道题的 8 条回答</em>之间平均,外层 E 在<em>不同题目</em>之间平均。
+这是 GRPO 和 PPO 在写法上唯一真正的新意——PPO 只有一层。</p>
+
+<p><strong>把它和上一课的 PPO 逐字对一遍,只有两处不同:</strong></p>
+
+<table>
+  <tr><th style="width:20%"></th><th class="l">PPO(上一课)</th><th class="l">GRPO(本课)</th></tr>
+  <tr><td class="l">A 从哪来</td><td class="l">A = R − V(s),V 由 <strong>Critic 网络</strong>估</td><td class="l"><strong>A = (R − 组均值)/组标准差</strong>,没有网络</td></tr>
+  <tr><td class="l">怎么采样</td><td class="l">随便抽一批样本就行</td><td class="l"><strong>必须同一道题采 G 条</strong> —— A 靠组内互比才算得出来,散着抽就没有"组"了</td></tr>
+  <tr class="ok"><td class="l">min、clip、ε</td><td class="l" colspan="2">完全一样,一个字没改</td></tr>
+</table>
+
+<p style="font-size:15px;color:var(--soft)">(真实论文里的 GRPO 目标后面还挂一项 KL 惩罚,和 TRPO 那个 KL 是同一个东西。仍然当黑盒,RLHF 课正式拆开。)</p>
+
+<!-- ================================================================ -->
+<h2><span class="n">三</span>完整走一遍</h2>
+
+<p class="lead">下面是这道铅笔题的一轮完整更新,每个数字都算给你看。取 G = 8,ε = 0.2。</p>
+
+<h3>第 1 步:采 8 条回答,程序判分</h3>
+
+<div class="scroll">
+<table class="small">
+  <tr><th style="width:5%">#</th><th class="l" style="width:42%">回答里的算式</th><th style="width:11%">答案</th><th style="width:9%">R</th>
+      <th style="width:16%">A = R − 均值</th><th style="width:17%">A =(R−均值)/std</th></tr>
+  <tr class="ok"><td>1</td><td class="l">5×12 = 60,60−18 = 42</td><td>42 ✓</td><td class="num">1</td><td class="num">+0.625</td><td class="num">+1.291</td></tr>
+  <tr><td>2</td><td class="l">5×12 = 60,60−18 = 32</td><td>32 ✗</td><td class="num">0</td><td class="num">−0.375</td><td class="num">−0.775</td></tr>
+  <tr><td>3</td><td class="l">5+12 = 17,17−18 = −1</td><td>−1 ✗</td><td class="num">0</td><td class="num">−0.375</td><td class="num">−0.775</td></tr>
+  <tr class="ok"><td>4</td><td class="l">一共 60 支,60−18 = 42</td><td>42 ✓</td><td class="num">1</td><td class="num">+0.625</td><td class="num">+1.291</td></tr>
+  <tr><td>5</td><td class="l">5×12 = 60,60+18 = 78</td><td>78 ✗</td><td class="num">0</td><td class="num">−0.375</td><td class="num">−0.775</td></tr>
+  <tr class="ok"><td>6</td><td class="l">12×5 = 60,再减 18 得 42</td><td>42 ✓</td><td class="num">1</td><td class="num">+0.625</td><td class="num">+1.291</td></tr>
+  <tr><td>7</td><td class="l">12−5 = 7,7×18 = 126</td><td>126 ✗</td><td class="num">0</td><td class="num">−0.375</td><td class="num">−0.775</td></tr>
+  <tr><td>8</td><td class="l">5×12−18 = 40</td><td>40 ✗</td><td class="num">0</td><td class="num">−0.375</td><td class="num">−0.775</td></tr>
+</table>
+</div>
+
+<h3>第 2 步:算 A(这就是本课的全部新内容)</h3>
+
+<div class="eq left">
+均值 = (1+0+0+1+0+1+0+0) / 8 = 3/8 = <strong>0.375</strong><br><br>
+方差 = [ 3×(1−0.375)² + 5×(0−0.375)² ] / 8 = [ 3×0.390625 + 5×0.140625 ] / 8 = 1.875 / 8 = <strong>0.234375</strong><br>
+std = √0.234375 = <strong>0.4841</strong><br><br>
+答对的:A = (1 − 0.375) / 0.4841 = 0.625 / 0.4841 = <strong>+1.291</strong><br>
+答错的:A = (0 − 0.375) / 0.4841 = −0.375 / 0.4841 = <strong>−0.775</strong>
+</div>
+
+<div class="note">
+<p style="margin:0"><strong>一个随手可做的检查</strong>(用没除 std 的那版,数最干净):
+3×(+0.625) + 5×(−0.375) = 1.875 − 1.875 = <strong>0</strong>。
+减掉均值以后,一组 A 加起来必然是 0 —— 这是"相对好坏"的字面含义:<em>有人在平均线上,就必然有人在平均线下。</em><br>
+<span style="font-size:14.5px;color:var(--soft)">(除 std 的那版加起来同样是 0,但你用表里四舍五入过的 ±1.291/−0.775 去加会得到 −0.002,那是舍入尾差,不是算错了。)</span></p>
+</div>
+
+<h3>第 3 步:算 ratio,套进 clip 和 min</h3>
+
+<p>假设这批数据已经被更新过几遍(第 7 课那条注:同一批数据反复练),8 条回答的 logp 都漂了一点。
+<strong>下面只挑其中 4 条做示范</strong>(另外 4 条同理),因为这 4 条恰好把上一课 clip/min 的几种情况都演了一遍:</p>
+
+<div class="scroll">
+<table class="small">
+  <tr><th style="width:5%">#</th><th style="width:8%">R</th><th style="width:11%">A</th>
+      <th style="width:15%">logp<sub>new</sub>−logp<sub>old</sub></th><th style="width:12%">r = exp(…)</th>
+      <th style="width:11%">r·A</th><th style="width:12%">clip(r)·A</th><th class="l">min 取谁 → 结果</th></tr>
+  <tr class="hot"><td>1</td><td>1</td><td class="num">+1.291</td><td class="num">+0.26</td><td class="num">1.297</td>
+      <td class="num">+1.674</td><td class="num">+1.549</td><td class="l">取<strong>裁过的</strong> → 好动作已加过头,<strong>封顶,梯度 0</strong></td></tr>
+  <tr><td>2</td><td>0</td><td class="num">−0.775</td><td class="num">−0.15</td><td class="num">0.861</td>
+      <td class="num">−0.667</td><td class="num">−0.667</td><td class="l">区间内,两者相同 → 正常出力,继续压低</td></tr>
+  <tr><td>4</td><td>1</td><td class="num">+1.291</td><td class="num">+0.10</td><td class="num">1.105</td>
+      <td class="num">+1.427</td><td class="num">+1.427</td><td class="l">区间内,两者相同 → 正常出力,继续推高</td></tr>
+  <tr class="hot"><td>5</td><td>0</td><td class="num">−0.775</td><td class="num">+0.30</td><td class="num">1.350</td>
+      <td class="num">−1.046</td><td class="num">−0.930</td><td class="l">取<strong>没裁的</strong> → 错答案概率反被推高,<strong>全额罚单拉回来</strong></td></tr>
+</table>
+</div>
+
+<p><strong>第 5 行就是上一课 min 存在的理由,在真实数据上出现了。</strong>
+一条答错的回答(A 是负的),概率却涨了 35%——多半是别的样本的更新顺带把它抬上去的(参数是共享的)。
+只用 clip 时，这条样本会进入 −0.930 的平台，对 r 的局部梯度为零；其他样本仍可能改变它的概率。
+min 选了 −1.046，保留这条样本的修正激励；总更新仍取决于共享网络中的全部梯度。</p>
+
+<h3>第 4 步:backward</h3>
+
+<div class="eq left" style="font-family:ui-monospace,Menlo,monospace;font-size:14.5px;line-height:2">
+# 本课唯一的新代码,就这一行(unbiased=False 即除以 G)<br>
+A = (R - R.mean()) / (R.std(unbiased=False) + 1e-8)<br><br>
+# 以下全部来自上一课,一个字没改<br>
+r = torch.exp(logp_new - logp_old)<br>
+loss = -torch.min(r*A, torch.clamp(r, 1-eps, 1+eps)*A).mean()<br>
+loss.backward()
+</div>
+
+<p>整个 Critic 网络消失了,换成了第一行的一次减法和一次除法。<strong>这是本课简化的相对优势与裁剪目标。</strong>真实 GRPO 还包含 token 级概率比、序列聚合、KL 处理与训练工程细节。</p>
+
+<!-- ================================================================ -->
+<h2><span class="n">四</span>立刻会撞到的坑:整组同分</h2>
+
+<p>接着刚才的设定,把 8 条回答换一下:</p>
+
+<table>
+  <tr><th class="l" style="width:26%">这一组的情况</th><th style="width:14%">R</th><th style="width:14%">均值</th><th style="width:14%">std</th><th class="l">每条的 A</th></tr>
+  <tr><td class="l">3 对 5 错(上面那组)</td><td class="num">1,0,…</td><td class="num">0.375</td><td class="num">0.484</td><td class="l">+1.291 / −0.775,<strong>有信号</strong></td></tr>
+  <tr class="hot"><td class="l">题太简单,8 条全对</td><td class="num">全是 1</td><td class="num">1.000</td><td class="num">0</td><td class="l">R − 均值 = 0,<strong>八条全是 0</strong></td></tr>
+  <tr class="hot"><td class="l">题太难,8 条全错</td><td class="num">全是 0</td><td class="num">0.000</td><td class="num">0</td><td class="l">R − 均值 = 0,<strong>八条全是 0</strong></td></tr>
+</table>
+
+<p>A 全是 0,意味着什么?接口课那道题的答案:<strong>本课的奖励代理目标乘了 0，这些样本对此项不提供梯度。</strong>
+如果还包含 KL、其他损失、优化器动量或其他样本，网络仍可能更新；这里仅讨论该组的奖励代理目标。</p>
+
+<div class="key">
+<p style="margin:0"><b>GRPO 只在"组内有差异"时才有信号。</b>同分组的奖励优势项为零；完整训练是否更新还取决于其他项。</p>
+<p style="margin:9px 0 0">这是它和 PPO 的一个硬区别:<strong>PPO 只采 1 条也能算出 A</strong>——它的 V 是跨着成千上万道题学出来的,
+哪怕这道题只答一遍,V 也能给个数。<strong>GRPO 的 A 完全依赖组内差异</strong>:G=1 时 A 恒等于 0(自己减自己),
+整组同分时 A 全是 0。<em>它省掉 Critic 的代价,就是必须靠"同一道题多答几遍"来换信息。</em></p>
+</div>
+
+<div class="note">
+<p style="margin:0"><strong>工程上怎么办(论文里能看到的做法):</strong>
+训练前或训练中把这类题<strong>过滤掉</strong>,只保留"有对有错"的题;
+采样时发现整组同分就<strong>重采一批题补上</strong>,保证每个 batch 里有效样本数量。
+论文里叫 <strong>dynamic sampling</strong>(动态采样),DAPO 那篇的主要改动之一就是这个。</p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">五</span>除以 std:2025 年还在吵的一个点</h2>
+
+<div class="note">
+<p style="margin:0"><strong>这一节降压说明:</strong>你只需要看懂<strong>那个 −2.646 是怎么来的</strong>。
+后面的 Dr. GRPO 是词汇卡,认得名字、知道它在吵什么就够了,不用现在掌握。</p>
+</div>
+
+<p>第〇节在固定组大小、同题条件独立采样且未除标准差的设定下，说明了组均值的缩放关系。<strong>除以随样本变化的 std 后，又会引入额外的重加权问题。</strong>
+拿两道题对比,同样是"答错的那一条":</p>
+
+<div class="scroll">
+<table>
+  <tr><th class="l" style="width:26%">题目</th><th style="width:14%">R</th><th style="width:11%">均值</th><th style="width:11%">std</th>
+      <th style="width:19%">A(除 std)</th><th style="width:19%">A(不除 std)</th></tr>
+  <tr><td class="l"><strong>简单题</strong><br><span style="font-size:13.5px;color:var(--soft)">7 对 1 错</span></td>
+      <td class="num">1×7, 0×1</td><td class="num">0.875</td><td class="num">0.331</td>
+      <td class="num">对 +0.378<br><strong style="color:var(--crit)">错 −2.646</strong></td><td class="num">对 +0.125<br>错 −0.875</td></tr>
+  <tr><td class="l"><strong>难题</strong><br><span style="font-size:13.5px;color:var(--soft)">4 对 4 错</span></td>
+      <td class="num">1×4, 0×4</td><td class="num">0.500</td><td class="num">0.500</td>
+      <td class="num">对 +1.000<br>错 −1.000</td><td class="num">对 +0.500<br>错 −0.500</td></tr>
+</table>
+</div>
+
+<p><strong>看那个 −2.646。</strong>简单题上偶尔失手的那一条,拿到的惩罚是难题上任何一条的 <strong>2.6 倍</strong>。
+原因很机械:那一组 std 只有 0.331,<em>除以一个小数就是放大</em>。</p>
+<p><strong>可从训练的角度看,该多花力气的恰恰是难题:</strong>简单题模型 8 次里对 7 次,说明基本已经会了,
+再猛推收益很低;4 对 4 错的题才是它正在学的边界,力度该给在那儿。
+现在 std 把两者的力度<em>调反了</em>。</p>
+
+<div class="warn">
+<p style="margin:0"><strong>这就是 Dr. GRPO(2025)那篇的靶子。</strong>它的结论很直接:<strong>把分母的 std 去掉</strong>,只减均值。
+不除 std 时,同一条错答案在简单题上是 −0.875、难题上是 −0.500,倍数是 1.75 而不是 2.6,而且这个差距来自分数本身,不是被分母放大出来的。
+读 2025–2026 的论文时,你会看到 <code>norm_adv=False</code>、"remove std normalization"、"Dr. GRPO" 这些字样,说的都是这一件事。</p>
+</div>
+
+<p style="font-size:15px;color:var(--soft)">另外一类同源的批评针对 GRPO 原式里按 token 数取平均的方式(长回答被系统性地轻看或重看),
+统称 <strong style="color:var(--ink)">length bias</strong>。那个要等下一课讲清 token 级之后才能说明白。</p>
+
+<!-- ================================================================ -->
+<h2><span class="n">六</span>旧概念用在哪</h2>
+
+<div class="scroll">
+<table>
+  <tr><th style="width:36%" class="l">零件</th><th style="width:16%">来自</th><th class="l">在 GRPO 里的位置</th></tr>
+  <tr><td class="l">一个状态 + 多个可选动作的世界</td><td>第 1 课</td><td class="l">一道题 + G 条回答,同一个形状</td></tr>
+  <tr><td class="l">E[·]:期望用采样平均代替</td><td>第 1、2 课</td><td class="l">那个 1/G Σ 就是"采 G 条求平均"</td></tr>
+  <tr><td class="l">A = R − b：动作无关基线不改变梯度期望</td><td>第 3 课</td><td class="l"><strong>本课的核心:b 换成了组均值</strong></td></tr>
+  <tr><td class="l">b 不能依赖动作</td><td>第 3 课</td><td class="l">第〇节的简化条件下:未除 std 的优势 = 留一基线优势 × (1−1/G)</td></tr>
+  <tr><td class="l">V 由 Critic 用 MC/TD 学</td><td>第 4 课</td><td class="l"><strong>网络被删掉,V 本身没删</strong>:改成每道题现场采 G 条取平均,做一次 MC 估计</td></tr>
+  <tr><td class="l">策略一变数据就过期</td><td>第 5 课</td><td class="l">为什么每轮要重新采 G 条</td></tr>
+  <tr><td class="l">ratio = π<sub>new</sub>/π<sub>old</sub>,实现用 exp(Δlogp)</td><td>第 6、7 课</td><td class="l">第三步表格里的 r</td></tr>
+  <tr><td class="l">clip、min、ε</td><td>第 7 课</td><td class="l">原样搬来,一个字没改</td></tr>
+  <tr><td class="l">A = 0 时该样本奖励项不提供梯度</td><td>接口课</td><td class="l">第四节"整组同分 = 白采"的机制</td></tr>
+  <tr><td class="l">Actor 的 loss 是凑出来的</td><td>接口课</td><td class="l">第 4 步那四行代码</td></tr>
+  <tr><td class="l"><strong>组内相对比较代替 V</strong></td><td><strong>本课</strong></td><td class="l">唯一的新东西:一次减法(+ 一次有争议的除法)</td></tr>
+</table>
+</div>
+
+<h3>读论文用的词汇卡</h3>
+<table class="vocab">
+  <tr><th style="width:34%" class="l">论文里的写法</th><th class="l">就是本课的</th></tr>
+  <tr><td class="l">GRPO,group relative advantage</td><td class="l">A = (R − 组均值)/组标准差</td></tr>
+  <tr><td class="l">group size G / rollouts per prompt</td><td class="l">一道题采几条回答(8、16、64)</td></tr>
+  <tr><td class="l">critic-free / value-free</td><td class="l">不训 Critic 网络这件事本身</td></tr>
+  <tr><td class="l">RLVR,verifiable reward</td><td class="l">程序判对错给 0/1,不用人打分</td></tr>
+  <tr><td class="l">Dr. GRPO,remove std normalization</td><td class="l">第五节:把分母的 std 去掉</td></tr>
+  <tr><td class="l">dynamic sampling(DAPO)</td><td class="l">第四节:整组同分的题过滤掉、重采</td></tr>
+  <tr><td class="l">length bias</td><td class="l">长回答被系统性看轻/看重(下一课)</td></tr>
+</table>
+
+<!-- ================================================================ -->
+<h2><span class="n">七</span>练习(3 题)</h2>
+
+<div class="setup">
+  <h4>题 1 · 手算一组 A(必须写过程)</h4>
+  <p style="font-size:15.5px;margin:0 0 6px">这次奖励不是 0/1,而是带过程分的连续值。一道题采 G = 6 条,得分:</p>
+  <p style="font-size:16px;margin:0 0 8px;text-align:center"><strong>R = [ 0.2, 0.9, 0.5, 0.9, 0.1, 0.4 ]</strong></p>
+  <p style="font-size:15.5px;margin:0">依次写出:① 均值;② 方差和 std(<strong>方差除以 G,不是 G−1</strong>);
+  ③ 六条的 A(减均值版);④ 六条的 A(再除 std 版,保留四位小数);
+  ⑤ 用第三节那个随手检查:③ 的六个数加起来是不是 0?</p>
+</div>
+
+<div class="setup">
+  <h4>题 2 · 把第〇节的等式验一遍(必须写过程)</h4>
+  <p style="font-size:15.5px;margin:0">还是题 1 那组数。只看<strong>第 1 条</strong>(R₁ = 0.2):<br>
+  ① 算出"<strong>除了第 1 条以外,其他 5 条的平均分</strong>";<br>
+  ② 算出 (1 − 1/6) × [ 0.2 − 那个平均分 ],即 (5/6) × [ 0.2 − 那个平均分 ];<br>
+  ③ 把结果和你在题 1 ③ 里算的 A₁ 对一下,是否相等?</p>
+</div>
+
+<div class="setup">
+  <h4>题 3 · 超纲推理(下一课的门)</h4>
+  <p style="font-size:15.5px;margin:0">第三节里,回答 #5 整条拿到 A = −0.775。
+  但这条回答有 200 个 token,前面 <code>5×12 = 60</code> 那一步<strong>是对的</strong>,只有最后一步 <code>60+18</code> 用错了运算符。
+  <br><br>
+  按本课的做法,这 200 个 token <strong>全部</strong>用同一个 A = −0.775 —— 包括那些算对的步骤,也一起被压低了概率。<br><br>
+  <strong>① 用一两句话说清这么做的具体害处是什么。② 这个问题在 RL 里有个专有名字,你能猜到它大概叫什么吗?(想不出名字就描述它。)</strong></p>
+</div>
+
+<footer>
+<strong>下一课:RL 怎么真正搬到 LLM 上。</strong>把"一条回答 = 一个动作"拆开:token = 动作,已生成的前缀 = 状态。
+题 3 就是它的门 —— 过了这一关,前沿论文的方法部分基本就能读了。
+</footer>
+
+</div>
+</body>
+</html>

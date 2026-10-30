@@ -1,0 +1,96 @@
+episode,country,city,price_series,peak,is_primary,lag_name,lag_months,event_date,status,episode_status,subject,source_urls
+"JP-1991-tokyo-condo (t0=1990-09 月次锚, 主用)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1990-09,True,① 峰值→首次实质宽松,14.0,1991-11-14,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.boj.or.jp/statistics/boj/other/discount/discount.htm
+"JP-1991-tokyo-condo (t0=1990-09 月次锚, 主用)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1990-09,True,② 峰值→不良资产处置启动,90.0,1998-03-31,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/frtc/kenkyu/event/20080404-1/05j.pdf | https://www.fsa.go.jp/common/about/omonadekigoto.pdf
+"JP-1991-tokyo-condo (t0=1990-09 月次锚, 主用)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1990-09,True,③ 峰值→不良资产处置达成,174.0,2005-03,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/danwa/danwa/20050525-1.html | https://www.fsa.go.jp/status/npl/20060808.html
+"JP-1991-tokyo-condo (t0=1990-09 月次锚, 主用)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1990-09,True,④ 峰值→触底（恢复①）,129.0,2001-06,已完成,completed,企业银行端（企业土地投机 + 银行不良）,
+"JP-1991-tokyo-condo (t0=1990-09 月次锚, 主用)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1990-09,True,⑤ 峰值→名义回前高（恢复②）,381.0,2022-06,已完成,completed,企业银行端（企业土地投机 + 银行不良）,
+"JP-1991-tokyo-condo (t0=CY1991 派生峰, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1991-06,False,① 峰值→首次实质宽松,5.0,1991-11-14,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.boj.or.jp/statistics/boj/other/discount/discount.htm
+"JP-1991-tokyo-condo (t0=CY1991 派生峰, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1991-06,False,② 峰值→不良资产处置启动,81.0,1998-03-31,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/frtc/kenkyu/event/20080404-1/05j.pdf | https://www.fsa.go.jp/common/about/omonadekigoto.pdf
+"JP-1991-tokyo-condo (t0=CY1991 派生峰, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1991-06,False,③ 峰值→不良资产处置达成,165.0,2005-03,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/danwa/danwa/20050525-1.html | https://www.fsa.go.jp/status/npl/20060808.html
+"JP-1991-tokyo-condo (t0=CY1991 派生峰, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1991-06,False,④ 峰值→触底（恢复①）,120.0,2001-06,已完成,completed,企业银行端（企业土地投机 + 银行不良）,
+"JP-1991-tokyo-condo (t0=CY1991 派生峰, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1991-06,False,⑤ 峰值→名义回前高（恢复②）,372.0,2022-06,已完成,completed,企业银行端（企业土地投机 + 银行不良）,
+"JP-1991-tokyo-condo (t0=CY1992 观测起点, phase1 主口径, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1992-06,False,① 峰值→首次实质宽松,-7.0,1991-11-14,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.boj.or.jp/statistics/boj/other/discount/discount.htm
+"JP-1991-tokyo-condo (t0=CY1992 观测起点, phase1 主口径, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1992-06,False,② 峰值→不良资产处置启动,69.0,1998-03-31,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/frtc/kenkyu/event/20080404-1/05j.pdf | https://www.fsa.go.jp/common/about/omonadekigoto.pdf
+"JP-1991-tokyo-condo (t0=CY1992 观测起点, phase1 主口径, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1992-06,False,③ 峰值→不良资产处置达成,153.0,2005-03,已完成,completed,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/danwa/danwa/20050525-1.html | https://www.fsa.go.jp/status/npl/20060808.html
+"JP-1991-tokyo-condo (t0=CY1992 观测起点, phase1 主口径, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1992-06,False,④ 峰值→触底（恢复①）,108.0,2001-06,已完成,completed,企业银行端（企业土地投机 + 银行不良）,
+"JP-1991-tokyo-condo (t0=CY1992 观测起点, phase1 主口径, 敏感性)",JP,東京23区,REINS 東京都区部 中古マンション 成約㎡単価（暦年）,1992-06,False,⑤ 峰值→名义回前高（恢复②）,348.0,2021-06,已完成,completed,企业银行端（企业土地投机 + 银行不良）,
+JP-land-1988-tokyo23 (地价峰 1988),JP,東京23区（住宅地）,国交省 地価公示 東京23区 住宅地（1 月 1 日時点）,1988-01,True,① 峰值→首次实质宽松,46.0,1991-11-14,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,https://www.boj.or.jp/statistics/boj/other/discount/discount.htm
+JP-land-1988-tokyo23 (地价峰 1988),JP,東京23区（住宅地）,国交省 地価公示 東京23区 住宅地（1 月 1 日時点）,1988-01,True,② 峰值→不良资产处置启动,122.0,1998-03-31,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/frtc/kenkyu/event/20080404-1/05j.pdf | https://www.fsa.go.jp/common/about/omonadekigoto.pdf
+JP-land-1988-tokyo23 (地价峰 1988),JP,東京23区（住宅地）,国交省 地価公示 東京23区 住宅地（1 月 1 日時点）,1988-01,True,③ 峰值→不良资产处置达成,206.0,2005-03,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/danwa/danwa/20050525-1.html | https://www.fsa.go.jp/status/npl/20060808.html
+JP-land-1988-tokyo23 (地价峰 1988),JP,東京23区（住宅地）,国交省 地価公示 東京23区 住宅地（1 月 1 日時点）,1988-01,True,④ 峰值→触底（恢复①）,192.0,2004-01,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,
+JP-land-1988-tokyo23 (地价峰 1988),JP,東京23区（住宅地）,国交省 地価公示 東京23区 住宅地（1 月 1 日時点）,1988-01,True,⑤ 峰值→名义回前高（恢复②）,缺失,缺失,缺失/不适用,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,
+JP-land-1991-6city (地价峰 1991),JP,六大都市（住宅地）,日本不動産研究所 市街地価格指数 六大都市 住宅地,1991-03,True,① 峰值→首次实质宽松,8.0,1991-11-14,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,https://www.boj.or.jp/statistics/boj/other/discount/discount.htm
+JP-land-1991-6city (地价峰 1991),JP,六大都市（住宅地）,日本不動産研究所 市街地価格指数 六大都市 住宅地,1991-03,True,② 峰值→不良资产处置启动,84.0,1998-03-31,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/frtc/kenkyu/event/20080404-1/05j.pdf | https://www.fsa.go.jp/common/about/omonadekigoto.pdf
+JP-land-1991-6city (地价峰 1991),JP,六大都市（住宅地）,日本不動産研究所 市街地価格指数 六大都市 住宅地,1991-03,True,③ 峰值→不良资产处置达成,168.0,2005-03,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,https://www.fsa.go.jp/danwa/danwa/20050525-1.html | https://www.fsa.go.jp/status/npl/20060808.html
+JP-land-1991-6city (地价峰 1991),JP,六大都市（住宅地）,日本不動産研究所 市街地価格指数 六大都市 住宅地,1991-03,True,④ 峰值→触底（恢复①）,252.0,2012-03,已完成,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,
+JP-land-1991-6city (地价峰 1991),JP,六大都市（住宅地）,日本不動産研究所 市街地価格指数 六大都市 住宅地,1991-03,True,⑤ 峰值→名义回前高（恢复②）,缺失,缺失,缺失/不适用,trough_confirmed_rec2_not_reached,企业银行端（企业土地投机 + 银行不良）,
+JP-2008-osaka (大阪公寓小周期),JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,True,① 峰值→首次实质宽松,22.0,2010-10-05,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,https://www.boj.or.jp/mopo/mpmdeci/mpr_2010/k101005.pdf | https://www.boj.or.jp/mopo/measures/term_cond/yoryo52.htm | https://www.boj.or.jp/mopo/mpmdeci/mpr_2008/k081219.pdf | https://www.boj.or.jp/mopo/mpmdeci/mpr_2009/k090122.pdf | https://www.boj.or.jp/mopo/outline/cfc.htm
+JP-2008-osaka (大阪公寓小周期),JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,True,② 峰值→不良资产处置启动,0.0,2008-12-17,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,https://www.fsa.go.jp/access/20/200812c.html
+JP-2008-osaka (大阪公寓小周期),JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,True,③ 峰值→不良资产处置达成,缺失,缺失,缺失/不适用,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,
+JP-2008-osaka (大阪公寓小周期),JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,True,④ 峰值→触底（恢复①）,48.0,2012-12,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,
+JP-2008-osaka (大阪公寓小周期),JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,True,⑤ 峰值→名义回前高（恢复②）,60.0,2013-12,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,
+"JP-2008-osaka (§3-b 宽口径 easing=2008-12-19, 稳健性)",JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,False,① 峰值→首次实质宽松,0.0,2008-12-19,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,https://www.boj.or.jp/mopo/mpmdeci/mpr_2008/k081219.pdf | https://www.boj.or.jp/mopo/mpmdeci/mpr_2009/k090122.pdf
+"JP-2008-osaka (§3-b 宽口径 easing=2008-12-19, 稳健性)",JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,False,② 峰值→不良资产处置启动,0.0,2008-12-17,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,https://www.fsa.go.jp/access/20/200812c.html
+"JP-2008-osaka (§3-b 宽口径 easing=2008-12-19, 稳健性)",JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,False,③ 峰值→不良资产处置达成,缺失,缺失,缺失/不适用,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,
+"JP-2008-osaka (§3-b 宽口径 easing=2008-12-19, 稳健性)",JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,False,④ 峰值→触底（恢复①）,48.0,2012-12,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,
+"JP-2008-osaka (§3-b 宽口径 easing=2008-12-19, 稳健性)",JP,大阪市,近畿レインズ 大阪市 中古マンション 成約単価（暦年）,2008-12,False,⑤ 峰值→名义回前高（恢复②）,60.0,2013-12,已完成,completed_but_not_a_domestic_credit_bust,无本国信用主体（外生冲击：GFC 输入型；居民与企业双双去杠杆中）,
+US-2006-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,① 峰值→首次实质宽松,19.0,2007-12-11,已完成,completed,居民端（按揭）,https://www.federalreserve.gov/newsevents/pressreleases/monetary20071211a.htm
+US-2006-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,② 峰值→不良资产处置启动,29.0,2008-10-03,已完成,completed,居民端（按揭）,https://home.treasury.gov/data/troubled-assets-relief-program/about-tarp | https://home.treasury.gov/news/press-releases/hp1207 | https://home.treasury.gov/news/press-releases/hp1129
+US-2006-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,③ 峰值→不良资产处置达成,89.0,2013-10,已完成,completed,居民端（按揭）,https://fred.stlouisfed.org/series/QBPLNTLNNCUR
+US-2006-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,④ 峰值→触底（恢复①）,70.0,2012-03,已完成,completed,居民端（按揭）,
+US-2006-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,⑤ 峰值→名义回前高（恢复②）,174.0,2020-11,已完成,completed,居民端（按揭）,
+US-2006-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-03,True,① 峰值→首次实质宽松,21.0,2007-12-11,已完成,completed,居民端（按揭）,https://www.federalreserve.gov/newsevents/pressreleases/monetary20071211a.htm
+US-2006-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-03,True,② 峰值→不良资产处置启动,31.0,2008-10-03,已完成,completed,居民端（按揭）,https://home.treasury.gov/data/troubled-assets-relief-program/about-tarp | https://home.treasury.gov/news/press-releases/hp1207 | https://home.treasury.gov/news/press-releases/hp1129
+US-2006-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-03,True,③ 峰值→不良资产处置达成,91.0,2013-10,已完成,completed,居民端（按揭）,https://fred.stlouisfed.org/series/QBPLNTLNNCUR
+US-2006-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-03,True,④ 峰值→触底（恢复①）,38.0,2009-05,已完成,completed,居民端（按揭）,
+US-2006-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-03,True,⑤ 峰值→名义回前高（恢复②）,116.0,2015-11,已完成,completed,居民端（按揭）,
+US-2006-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-04,True,① 峰值→首次实质宽松,20.0,2007-12-11,已完成,completed,居民端（按揭）,https://www.federalreserve.gov/newsevents/pressreleases/monetary20071211a.htm
+US-2006-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-04,True,② 峰值→不良资产处置启动,30.0,2008-10-03,已完成,completed,居民端（按揭）,https://home.treasury.gov/data/troubled-assets-relief-program/about-tarp | https://home.treasury.gov/news/press-releases/hp1207 | https://home.treasury.gov/news/press-releases/hp1129
+US-2006-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-04,True,③ 峰值→不良资产处置达成,90.0,2013-10,已完成,completed,居民端（按揭）,https://fred.stlouisfed.org/series/QBPLNTLNNCUR
+US-2006-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-04,True,④ 峰值→触底（恢复①）,37.0,2009-05,已完成,completed,居民端（按揭）,
+US-2006-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-04,True,⑤ 峰值→名义回前高（恢复②）,140.0,2017-12,已完成,completed,居民端（按揭）,
+US-2006-phx,US,菲尼克斯,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,① 峰值→首次实质宽松,19.0,2007-12-11,已完成,completed,居民端（按揭）,https://www.federalreserve.gov/newsevents/pressreleases/monetary20071211a.htm
+US-2006-phx,US,菲尼克斯,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,② 峰值→不良资产处置启动,29.0,2008-10-03,已完成,completed,居民端（按揭）,https://home.treasury.gov/data/troubled-assets-relief-program/about-tarp | https://home.treasury.gov/news/press-releases/hp1207 | https://home.treasury.gov/news/press-releases/hp1129
+US-2006-phx,US,菲尼克斯,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,③ 峰值→不良资产处置达成,89.0,2013-10,已完成,completed,居民端（按揭）,https://fred.stlouisfed.org/series/QBPLNTLNNCUR
+US-2006-phx,US,菲尼克斯,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,④ 峰值→触底（恢复①）,63.0,2011-08,已完成,completed,居民端（按揭）,
+US-2006-phx,US,菲尼克斯,S&P CoreLogic Case-Shiller 单城指数 (SA),2006-05,True,⑤ 峰值→名义回前高（恢复②）,175.0,2020-12,已完成,completed,居民端（按揭）,
+US-1990-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),1988-05,True,① 峰值→首次实质宽松,17.0,1989-10-19,已完成,completed,企业银行端（储贷机构 / 商业地产）,https://fred.stlouisfed.org/series/DFEDTAR
+US-1990-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),1988-05,True,② 峰值→不良资产处置启动,15.0,1989-08-09,已完成,completed,企业银行端（储贷机构 / 商业地产）,https://fraser.stlouisfed.org/title/financial-institutions-reform-recovery-enforcement-act-1989-firrea-1046/fulltext
+US-1990-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),1988-05,True,③ 峰值→不良资产处置达成,71.0,1994-04,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),1988-05,True,④ 峰值→触底（恢复①）,35.0,1991-04,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-ny,US,纽约,S&P CoreLogic Case-Shiller 单城指数 (SA),1988-05,True,⑤ 峰值→名义回前高（恢复②）,118.0,1998-03,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-04,True,① 峰值→首次实质宽松,8.0,1990-12-07,已完成,completed,企业银行端（储贷机构 / 商业地产）,https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm
+US-1990-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-04,True,② 峰值→不良资产处置启动,-8.0,1989-08-09,已完成,completed,企业银行端（储贷机构 / 商业地产）,https://fraser.stlouisfed.org/title/financial-institutions-reform-recovery-enforcement-act-1989-firrea-1046/fulltext
+US-1990-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-04,True,③ 峰值→不良资产处置达成,48.0,1994-04,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-04,True,④ 峰值→触底（恢复①）,44.0,1993-12,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-sf,US,旧金山,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-04,True,⑤ 峰值→名义回前高（恢复②）,91.0,1997-11,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-03,True,① 峰值→首次实质宽松,9.0,1990-12-07,已完成,completed,企业银行端（储贷机构 / 商业地产）,https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm
+US-1990-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-03,True,② 峰值→不良资产处置启动,-7.0,1989-08-09,已完成,completed,企业银行端（储贷机构 / 商业地产）,https://fraser.stlouisfed.org/title/financial-institutions-reform-recovery-enforcement-act-1989-firrea-1046/fulltext
+US-1990-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-03,True,③ 峰值→不良资产处置达成,49.0,1994-04,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-03,True,④ 峰值→触底（恢复①）,71.0,1996-02,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+US-1990-la,US,洛杉矶,S&P CoreLogic Case-Shiller 单城指数 (SA),1990-03,True,⑤ 峰值→名义回前高（恢复②）,118.0,2000-01,已完成,completed,企业银行端（储贷机构 / 商业地产）,
+CN-深圳,CN,深圳,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2021-04,True,① 峰值→首次实质宽松,28.0,2023-08-25,已完成,in_progress,开发商端（开发商债务 + 政策触发）,http://www.news.cn/fortune/2023-08/25/c_1129823822.htm
+CN-深圳,CN,深圳,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2021-04,True,② 峰值→不良资产处置启动,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-深圳,CN,深圳,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2021-04,True,③ 峰值→不良资产处置达成,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-深圳,CN,深圳,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2021-04,True,④ 峰值→触底（恢复①）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-深圳,CN,深圳,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2021-04,True,⑤ 峰值→名义回前高（恢复②）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-杭州,CN,杭州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-06,True,① 峰值→首次实质宽松,14.0,2023-08-25,已完成,in_progress,开发商端（开发商债务 + 政策触发）,http://www.news.cn/fortune/2023-08/25/c_1129823822.htm
+CN-杭州,CN,杭州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-06,True,② 峰值→不良资产处置启动,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-杭州,CN,杭州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-06,True,③ 峰值→不良资产处置达成,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-杭州,CN,杭州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-06,True,④ 峰值→触底（恢复①）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-杭州,CN,杭州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-06,True,⑤ 峰值→名义回前高（恢复②）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-广州,CN,广州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-07,True,① 峰值→首次实质宽松,13.0,2023-08-25,已完成,in_progress,开发商端（开发商债务 + 政策触发）,http://www.news.cn/fortune/2023-08/25/c_1129823822.htm
+CN-广州,CN,广州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-07,True,② 峰值→不良资产处置启动,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-广州,CN,广州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-07,True,③ 峰值→不良资产处置达成,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-广州,CN,广州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-07,True,④ 峰值→触底（恢复①）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-广州,CN,广州,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2022-07,True,⑤ 峰值→名义回前高（恢复②）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-上海,CN,上海,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-03,True,① 峰值→首次实质宽松,5.0,2023-08-25,已完成,in_progress,开发商端（开发商债务 + 政策触发）,http://www.news.cn/fortune/2023-08/25/c_1129823822.htm
+CN-上海,CN,上海,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-03,True,② 峰值→不良资产处置启动,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-上海,CN,上海,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-03,True,③ 峰值→不良资产处置达成,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-上海,CN,上海,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-03,True,④ 峰值→触底（恢复①）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-上海,CN,上海,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-03,True,⑤ 峰值→名义回前高（恢复②）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-北京,CN,北京,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-04,True,① 峰值→首次实质宽松,4.0,2023-08-25,已完成,in_progress,开发商端（开发商债务 + 政策触发）,http://www.news.cn/fortune/2023-08/25/c_1129823822.htm
+CN-北京,CN,北京,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-04,True,② 峰值→不良资产处置启动,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-北京,CN,北京,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-04,True,③ 峰值→不良资产处置达成,缺失,缺失,未完成（截至 2026-09-08：§3 三判据均未满足——未动用公共资金注资/收购不良、无官方不良率减半目标、商业银行不良率无自峰值减半的确认）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-北京,CN,北京,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-04,True,④ 峰值→触底（恢复①）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,
+CN-北京,CN,北京,国家统计局 70 城 二手住宅价格指数（定基，phase1 主口径）,2023-04,True,⑤ 峰值→名义回前高（恢复②）,缺失,缺失,未完成（截至 2026-09-08 触底/回前高均未发生，y 无定义；不作恢复年限判断）,in_progress,开发商端（开发商债务 + 政策触发）,

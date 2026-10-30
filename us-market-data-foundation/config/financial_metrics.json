@@ -1,0 +1,1349 @@
+{
+  "version": 2,
+  "scope": "US-GAAP consolidated entity facts. Dimensions, custom tags, IFRS and segment facts require separate mappings. Missing is never zero.",
+  "tag_policy": "Ordered explicit tags only, with documented profile/CIK overrides. Unequal alternatives within the same filing and period are flagged. A conflicted input emits a flagged derived vintage to invalidate older clean subtractions; default queries exclude it. Semantically different scopes are separate metrics.",
+  "period_policy": "Inclusive dates classify durations, allowing 16/17-week retailer quarters. Twelve-month figures in annual forms are annual; twelve-month values from quarterly forms are reported_12m, not presumed fiscal-year totals. SEC fy/fp remain filing labels only.",
+  "availability_policy": "available_at is filed date plus one day at America/New_York midnight converted to UTC. acceptance_at is separate evidence; no claim of exact public availability.",
+  "units_policy": "USD, shares or USD/shares only as specified per metric. Other units remain available in raw facts.",
+  "derivation_policy": "Additive flows only. Same fiscal start, source tag and unit; adjacent cumulative periods. All input vintages retained. Cross-filing differences are explicitly unverified.",
+  "metrics": [
+    {
+      "metric_id": "revenue",
+      "label_zh": "营业收入（明确来源口径）",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "Revenues",
+        "SalesRevenueNet"
+      ],
+      "definition_note": "General-company reported revenue/net-sales mapping, with source tag retained and unequal aliases flagged. Insurance and bank profiles use Revenues only; net-interest-after revenue and contract-only revenue are separate metrics. Verified retailer/payment/energy scope exceptions are explicitly pinned by CIK. This is not a guarantee of identical accounting scope across industries.",
+      "sign_policy": "as_reported",
+      "tag_overrides_by_profile": {
+        "bank": [
+          "Revenues"
+        ],
+        "insurance": [
+          "Revenues"
+        ]
+      },
+      "tag_overrides_by_cik": {
+        "0001067983": [
+          "Revenues"
+        ],
+        "0000019617": [
+          "Revenues"
+        ],
+        "0000070858": [
+          "Revenues"
+        ],
+        "0000104169": [
+          "Revenues"
+        ],
+        "0000909832": [
+          "Revenues"
+        ],
+        "0001141391": [
+          "Revenues"
+        ],
+        "0000093410": [
+          "Revenues"
+        ]
+      },
+      "override_evidence": {
+        "reviewed_on": "2026-09-19",
+        "source": "Archived SEC Company Facts; exact CIK/tag/period observations retained in raw lake archives.",
+        "observations": [
+          "BRK-B 2026H1: Revenues 195483m vs contracts 133252m; contract revenue excludes other business scopes.",
+          "WMT 2026H1: Revenues 365688m vs contracts 361784m; preserve separate reported totals.",
+          "CVX 2026H1: Revenues 118662m vs contracts 114755m.",
+          "MA 2018-2022: simultaneous Revenues and contracts differ; total/net Revenues retained, contracts separately exposed.",
+          "COST Revenues currently ends 2026-02-15; contracts extends 2026-05-10. Do not silently fill the total-revenue gap.",
+          "JPM Revenues historically available; RevenuesNetOfInterestExpense separately reported in 2026. Do not silently splice these scopes."
+        ]
+      }
+    },
+    {
+      "metric_id": "revenue_including_assessed_tax",
+      "label_zh": "含代收税合同收入",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "RevenueFromContractWithCustomerIncludingAssessedTax"
+      ],
+      "definition_note": "Not a fallback for revenue excluding assessed tax.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "cost_of_revenue",
+      "label_zh": "营业成本",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "CostOfRevenue",
+        "CostOfGoodsAndServicesSold"
+      ],
+      "definition_note": "Full reported cost of revenue or goods and services. CostOfGoodsSold and CostOfServices alone are not total-cost fallbacks.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "gross_profit",
+      "label_zh": "毛利润",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "GrossProfit"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "operating_expenses",
+      "label_zh": "营业费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "OperatingExpenses"
+      ],
+      "definition_note": "Use reported scope; do not assume this includes cost of revenue.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "selling_general_administrative",
+      "label_zh": "销售及管理费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "SellingGeneralAndAdministrativeExpense"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "research_development",
+      "label_zh": "研发费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ResearchAndDevelopmentExpense"
+      ],
+      "definition_note": "Software development capitalized as assets is separate.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "operating_income",
+      "label_zh": "营业利润",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "OperatingIncomeLoss"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "net_income",
+      "label_zh": "归属母公司净利润",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "NetIncomeLoss"
+      ],
+      "definition_note": "ProfitLoss including noncontrolling interests is a separate metric.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "net_income_consolidated",
+      "label_zh": "含少数股东损益净利润",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ProfitLoss"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "net_income_common",
+      "label_zh": "普通股股东净利润",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "NetIncomeLossAvailableToCommonStockholdersBasic"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "pretax_income",
+      "label_zh": "持续经营税前利润",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "income_tax",
+      "label_zh": "所得税费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "IncomeTaxExpenseBenefit"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "interest_expense",
+      "label_zh": "利息费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "InterestExpense"
+      ],
+      "definition_note": "Do not replace with nonoperating interest expense silently.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "interest_expense_nonoperating",
+      "label_zh": "非营业利息费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "InterestAndDebtExpense"
+      ],
+      "definition_note": "Separate reporting scope from total interest expense.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "operating_cash_flow",
+      "label_zh": "经营现金流",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "NetCashProvidedByUsedInOperatingActivities"
+      ],
+      "definition_note": "Consolidated total operating cash flow. Continuing-operations tags are excluded unless an exact CIK, accession, period, unit and value have original-statement evidence of the consolidated total; original source_tag is retained. Unverified later reclassifications are not imported.",
+      "sign_policy": "as_reported",
+      "verified_fact_equivalences": [
+        {
+          "id": "ocf-original-statement-0001193125-13-409855",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0000789019",
+          "accn": "0001193125-13-409855",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-07-01",
+              "end": "2013-09-30",
+              "value": 8205000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/789019/000119312513409855/d594455d10q.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        },
+        {
+          "id": "ocf-original-statement-0001193125-14-018634",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0000789019",
+          "accn": "0001193125-14-018634",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-07-01",
+              "end": "2013-12-31",
+              "value": 12618000000
+            },
+            {
+              "start": "2013-10-01",
+              "end": "2013-12-31",
+              "value": 4413000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/789019/000119312514018634/d635047d10q.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        },
+        {
+          "id": "ocf-original-statement-0001193125-14-157088",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0000789019",
+          "accn": "0001193125-14-157088",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-07-01",
+              "end": "2014-03-31",
+              "value": 22717000000
+            },
+            {
+              "start": "2014-01-01",
+              "end": "2014-03-31",
+              "value": 10099000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/789019/000119312514157088/d695543d10q.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        },
+        {
+          "id": "ocf-original-statement-0001193125-14-289961",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0000789019",
+          "accn": "0001193125-14-289961",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-07-01",
+              "end": "2014-06-30",
+              "value": 32231000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/789019/000119312514289961/d722626d10k.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        },
+        {
+          "id": "ocf-original-statement-0001193125-13-373455",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0001341439",
+          "accn": "0001193125-13-373455",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-06-01",
+              "end": "2013-08-31",
+              "value": 6292000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/1341439/000119312513373455/d587382d10q.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        },
+        {
+          "id": "ocf-original-statement-0001193125-13-481081",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0001341439",
+          "accn": "0001193125-13-481081",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-06-01",
+              "end": "2013-11-30",
+              "value": 7438000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/1341439/000119312513481081/d626279d10q.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        },
+        {
+          "id": "ocf-original-statement-0001193125-14-108126",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0001341439",
+          "accn": "0001193125-14-108126",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-06-01",
+              "end": "2014-02-28",
+              "value": 10465000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/1341439/000119312514108126/d669179d10q.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        },
+        {
+          "id": "ocf-original-statement-0001193125-14-251351",
+          "verified": true,
+          "reviewed_on": "2026-10-04",
+          "cik": "0001341439",
+          "accn": "0001193125-14-251351",
+          "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+          "unit": "USD",
+          "facts": [
+            {
+              "start": "2013-06-01",
+              "end": "2014-05-31",
+              "value": 14921000000
+            }
+          ],
+          "official_sources": [
+            "https://www.sec.gov/Archives/edgar/data/1341439/000119312514251351/d725622d10k.htm"
+          ],
+          "evidence_note": "Original consolidated cash flow statement reports these exact amounts as the sole total net operating cash flow. This does not authorize other continuing-operation facts, comparison periods, amendments, future filings or later amounts."
+        }
+      ]
+    },
+    {
+      "metric_id": "investing_cash_flow",
+      "label_zh": "投资现金流",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "NetCashProvidedByUsedInInvestingActivities"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "financing_cash_flow",
+      "label_zh": "融资现金流",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "NetCashProvidedByUsedInFinancingActivities"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "capital_expenditures",
+      "label_zh": "固定资产购建现金支出",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PaymentsToAcquirePropertyPlantAndEquipment"
+      ],
+      "definition_note": "Positive payments as reported; not maintenance capex and not acquisitions or all intangible investment.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "acquisitions_cash",
+      "label_zh": "收购现金支出（净额）",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PaymentsToAcquireBusinessesNetOfCashAcquired"
+      ],
+      "definition_note": "Net of acquired cash; no fallback to gross acquisition payments.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "depreciation_amortization",
+      "label_zh": "折旧折耗摊销",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "DepreciationDepletionAndAmortization"
+      ],
+      "definition_note": "Total DDA; property-only depreciation is separate.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "depreciation_ppe",
+      "label_zh": "固定资产折旧折耗摊销",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "DepreciationDepletionAndAmortizationPropertyPlantAndEquipment"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "stock_based_compensation",
+      "label_zh": "股权激励费用",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ShareBasedCompensation"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "dividends",
+      "label_zh": "股利现金支出（总计）",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PaymentsOfDividends"
+      ],
+      "definition_note": "Common-stock-only dividends are separate.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "dividends_common",
+      "label_zh": "普通股股利现金支出",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PaymentsOfDividendsCommonStock"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "share_repurchases",
+      "label_zh": "普通股回购现金支出",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PaymentsForRepurchaseOfCommonStock"
+      ],
+      "definition_note": "Positive payments as reported; not net of issuance.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "long_term_debt_proceeds",
+      "label_zh": "长期借款发行现金流入",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ProceedsFromIssuanceOfLongTermDebt"
+      ],
+      "definition_note": "Not total debt issuance.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "long_term_debt_repayments",
+      "label_zh": "长期债务偿还现金支出",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "RepaymentsOfLongTermDebt"
+      ],
+      "definition_note": "Not total debt repayment.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "cash_change",
+      "label_zh": "现金及现金等价物变动",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "CashAndCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect"
+      ],
+      "definition_note": "Excludes restricted-cash reconciliation when separately tagged.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "cash",
+      "label_zh": "现金及现金等价物",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "CashAndCashEquivalentsAtCarryingValue"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "cash_including_restricted",
+      "label_zh": "现金及受限现金",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+      ],
+      "definition_note": "Separate scope from unrestricted cash.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "total_assets",
+      "label_zh": "总资产",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "Assets"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "current_assets",
+      "label_zh": "流动资产",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "AssetsCurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "noncurrent_assets",
+      "label_zh": "非流动资产",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "AssetsNoncurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "total_liabilities",
+      "label_zh": "总负债",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "Liabilities"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "current_liabilities",
+      "label_zh": "流动负债",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "LiabilitiesCurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "noncurrent_liabilities",
+      "label_zh": "非流动负债",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "LiabilitiesNoncurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "equity",
+      "label_zh": "归属母公司股东权益",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "StockholdersEquity"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "equity_including_noncontrolling",
+      "label_zh": "含少数股东权益",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "liabilities_and_equity",
+      "label_zh": "负债及股东权益合计",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "LiabilitiesAndStockholdersEquity"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "accounts_receivable",
+      "label_zh": "应收账款净额（流动）",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "AccountsReceivableNetCurrent"
+      ],
+      "definition_note": "Current trade receivables; not all finance receivables.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "inventory",
+      "label_zh": "存货净额",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "InventoryNet"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "accounts_payable",
+      "label_zh": "应付账款（流动）",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "AccountsPayableCurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "property_plant_equipment",
+      "label_zh": "固定资产净额",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PropertyPlantAndEquipmentNet"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "goodwill",
+      "label_zh": "商誉",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "Goodwill"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "intangibles_excluding_goodwill",
+      "label_zh": "不含商誉的无形资产净额",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "IntangibleAssetsNetExcludingGoodwill"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "short_term_investments",
+      "label_zh": "短期投资",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ShortTermInvestments"
+      ],
+      "definition_note": "Marketable-securities subsets are not silently treated as total investments.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "long_term_investments",
+      "label_zh": "长期投资",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "LongTermInvestments"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "short_term_borrowings",
+      "label_zh": "短期借款",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ShortTermBorrowings"
+      ],
+      "definition_note": "Separate from current portion of long-term debt.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "long_term_debt_current",
+      "label_zh": "一年内到期长期债务",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "LongTermDebtCurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "long_term_debt_noncurrent",
+      "label_zh": "长期债务非流动部分",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "LongTermDebtNoncurrent"
+      ],
+      "definition_note": "LongTermDebt has a different possible current/noncurrent scope and is not an alias.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "commercial_paper",
+      "label_zh": "商业票据",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "CommercialPaper"
+      ],
+      "definition_note": "May overlap short-term borrowings; do not add blindly.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "operating_lease_liability_current",
+      "label_zh": "流动经营租赁负债",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "OperatingLeaseLiabilityCurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "operating_lease_liability_noncurrent",
+      "label_zh": "非流动经营租赁负债",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "OperatingLeaseLiabilityNoncurrent"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "deferred_revenue_current",
+      "label_zh": "流动合同负债",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ContractWithCustomerLiabilityCurrent"
+      ],
+      "definition_note": "Old deferred revenue tags can include different scope and remain raw.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "retained_earnings",
+      "label_zh": "留存收益",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "RetainedEarningsAccumulatedDeficit"
+      ],
+      "definition_note": "",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "weighted_average_shares_basic",
+      "label_zh": "基本加权平均股数",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "shares"
+      ],
+      "tags": [
+        "WeightedAverageNumberOfSharesOutstandingBasic"
+      ],
+      "definition_note": "Never derive quarterly weighted-average shares by subtraction.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "weighted_average_shares_diluted",
+      "label_zh": "稀释加权平均股数",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "shares"
+      ],
+      "tags": [
+        "WeightedAverageNumberOfDilutedSharesOutstanding"
+      ],
+      "definition_note": "Never derive quarterly weighted-average shares by subtraction.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "shares_outstanding",
+      "label_zh": "普通股期末发行在外股数",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "shares"
+      ],
+      "tags": [
+        "CommonStockSharesOutstanding"
+      ],
+      "definition_note": "Not an alias for weighted-average shares or DEI cover-page shares on another date.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "eps_basic",
+      "label_zh": "基本每股收益",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD/shares"
+      ],
+      "tags": [
+        "EarningsPerShareBasic"
+      ],
+      "definition_note": "Quarterly EPS cannot be obtained by subtracting annual/YTD EPS.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "eps_diluted",
+      "label_zh": "稀释每股收益",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD/shares"
+      ],
+      "tags": [
+        "EarningsPerShareDiluted"
+      ],
+      "definition_note": "Quarterly EPS cannot be obtained by subtracting annual/YTD EPS.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "net_interest_income",
+      "label_zh": "净利息收入",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "InterestIncomeExpenseNet"
+      ],
+      "definition_note": "Sector-specific; not equivalent to nonfinancial revenue.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "insurance_premiums",
+      "label_zh": "已赚保费净额",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PremiumsEarnedNet"
+      ],
+      "definition_note": "Sector-specific; not equivalent to total revenue.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "revenue_from_contracts",
+      "label_zh": "客户合同收入（不含代收税）",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "RevenueFromContractWithCustomerExcludingAssessedTax"
+      ],
+      "definition_note": "ASC 606 contract-only scope. May exclude insurance, investment, interest, memberships or other revenue depending on filing; do not assume entity-wide total.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "bank_revenue_net_interest_expense",
+      "label_zh": "扣除利息费用后收入",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "RevenuesNetOfInterestExpense"
+      ],
+      "definition_note": "Explicit net-of-interest-expense scope; not silently appended to gross Revenues history.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "noninterest_income",
+      "label_zh": "非利息收入",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "NoninterestIncome"
+      ],
+      "definition_note": "Aggregate noninterest income; separate from net interest income.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "noninterest_expense",
+      "label_zh": "非利息费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "NoninterestExpense"
+      ],
+      "definition_note": "Aggregate noninterest expense; not nonfinancial-company cost of revenue.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "loan_lease_loss_provision",
+      "label_zh": "贷款租赁及其他损失准备费用",
+      "statement": "income",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "ProvisionForLoanLeaseAndOtherLosses"
+      ],
+      "definition_note": "Specific loan/lease/other-loss provision tag, not assumed equivalent to every credit-loss expense scope.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "productive_asset_purchases",
+      "label_zh": "生产性资产购置现金支出",
+      "statement": "cash_flow",
+      "period_type": "duration",
+      "additive": true,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PaymentsToAcquireProductiveAssets"
+      ],
+      "definition_note": "Includes property, plant, equipment and software/productive assets under this taxonomy scope. Separate from PPE-only capital_expenditures; AMZN uses this tag.",
+      "sign_policy": "as_reported"
+    },
+    {
+      "metric_id": "ppe_including_finance_lease_assets",
+      "label_zh": "含融资租赁使用权的固定资产净额",
+      "statement": "balance_sheet",
+      "period_type": "instant",
+      "additive": false,
+      "taxonomy": "us-gaap",
+      "units": [
+        "USD"
+      ],
+      "tags": [
+        "PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization"
+      ],
+      "definition_note": "Includes finance-lease right-of-use assets; do not silently replace PPE-only balance.",
+      "sign_policy": "as_reported"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看懂那 5 个数字:ratio 与方差</title>
+<style>
+  :root{
+    --paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;
+    --blue:#2a78d6;--blue-bg:#e8f1fd;
+    --good:#0ca30c;--good-bg:#e9f7e9;
+    --crit:#d03b3b;--crit-bg:#fbebeb;
+    --gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;
+    --vio:#4a3aa7;--vio-bg:#eeecf9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.9;}
+  .wrap{max-width:800px;margin:0 auto;padding:52px 24px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:20px;}
+  h1{font-size:25px;margin:0 0 9px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:20px;margin:52px 0 12px;padding-top:26px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:16.5px;margin:26px 0 9px;font-weight:600;}
+  p{margin:0 0 15px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 22px;line-height:1.8;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:16px 20px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin:0;}
+
+  .setup{background:#fff;border:1.5px solid var(--ac);border-radius:9px;padding:20px 22px;margin:20px 0;}
+  .setup h4{margin:0 0 12px;font-size:15px;color:var(--ac);font-weight:600;letter-spacing:.05em;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:9px 11px;text-align:center;line-height:1.6;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.l,th.l{text-align:left;}
+  td.num{font-variant-numeric:tabular-nums;}
+  tr.hot td{background:var(--crit-bg);font-weight:600;}
+  tr.hot td:first-child{color:var(--crit);}
+
+  .panel{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:22px 24px;margin:22px 0;}
+  .panel h4{margin:0 0 4px;font-size:16px;font-weight:600;}
+  .panel .hint{color:var(--soft);font-size:14.5px;margin:0 0 16px;line-height:1.7;}
+
+  .runs{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:12px 0 0;}
+  .run{border:1.5px solid var(--rule);border-radius:7px;padding:11px 6px;text-align:center;background:var(--paper);}
+  .run .i{font-size:11.5px;color:var(--soft);}
+  .run .k{font-size:13px;font-weight:600;margin:3px 0 1px;}
+  .run .v{font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.3;}
+  .run.k0{border-color:#c9c7c0;} .run.k0 .k{color:var(--soft);}
+  .run.k1{border-color:#93c4f0;background:#f4f9fe;} .run.k1 .k{color:var(--blue);}
+  .run.k2{border-color:var(--good);background:var(--good-bg);} .run.k2 .k{color:var(--good);}
+  .run.k3{border-color:var(--crit);background:var(--crit-bg);} .run.k3 .k{color:var(--crit);}
+  @media(max-width:640px){.runs{grid-template-columns:repeat(2,1fr);}}
+
+  .truthbar{display:flex;align-items:center;gap:10px;margin:16px 0 0;font-size:15px;
+    background:var(--vio-bg);border-left:3px solid var(--vio);padding:11px 16px;border-radius:0 5px 5px 0;}
+  .truthbar b{color:var(--vio);font-variant-numeric:tabular-nums;font-size:18px;}
+
+  .ctl{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;}
+  button{background:var(--ac);color:#fff;border:none;padding:9px 18px;font-size:14.5px;
+    font-family:inherit;border-radius:5px;cursor:pointer;font-weight:500;}
+  button:hover{opacity:.86;}
+  button.ghost{background:#fff;color:var(--ac);border:1px solid var(--ac);}
+
+  .eq{background:var(--paper);border-radius:6px;padding:14px 18px;margin:14px 0;text-align:center;
+    font-size:17px;font-variant-numeric:tabular-nums;}
+  .eq .hl{color:var(--crit);font-weight:700;}
+  footer{margin-top:52px;padding-top:22px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.8;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>看懂那 5 个数字:ratio 与方差</h1>
+  <p class="sub">这次先把世界设定完整摆出来,再玩</p>
+</header>
+
+<!-- ===== 设定 ===== -->
+<h2><span class="n">一</span>先说清楚:这个世界长什么样</h2>
+
+<div class="setup">
+  <h4>世界设定</h4>
+  <p style="margin-bottom:10px;font-size:15.5px">只有<strong>一个状态</strong>、<strong>四个动作</strong>。每个动作的回报固定已知:</p>
+  <table>
+    <tr><th class="l">动作</th><th>上</th><th>下</th><th>左</th><th>右</th></tr>
+    <tr><td class="l"><strong>回报 R</strong></td><td class="num"><strong>+10</strong></td><td class="num">−5</td><td class="num">0</td><td class="num">+2</td></tr>
+  </table>
+  <p style="margin:14px 0 0;font-size:15px;color:var(--soft)">
+  <strong style="color:var(--ink)">任务:</strong>只用<strong>旧策略</strong>采来的样本,估计出<strong>新策略</strong>的平均回报。
+  </p>
+</div>
+
+<p>下面两种情形,<em>用的是完全相同的方法</em>,唯一区别是新旧策略差多远。</p>
+
+<h3>情形 A:新旧策略比较接近</h3>
+<table>
+  <tr><th class="l">动作</th><th>上</th><th>下</th><th>左</th><th>右</th></tr>
+  <tr><td class="l">回报 R</td><td class="num">+10</td><td class="num">−5</td><td class="num">0</td><td class="num">+2</td></tr>
+  <tr><td class="l">旧策略 <span style="color:var(--soft)">(采样用)</span></td><td class="num">0.40</td><td class="num">0.20</td><td class="num">0.15</td><td class="num">0.25</td></tr>
+  <tr><td class="l">新策略 <span style="color:var(--soft)">(想估计)</span></td><td class="num">0.55</td><td class="num">0.13</td><td class="num">0.10</td><td class="num">0.22</td></tr>
+  <tr><td class="l"><strong>ratio</strong></td><td class="num"><strong>1.38</strong></td><td class="num">0.65</td><td class="num">0.67</td><td class="num">0.88</td></tr>
+</table>
+<p style="font-size:15px;color:var(--soft)">所有 ratio 都在 1 附近 —— <strong style="color:var(--ink)">最多把一条样本当 1.4 条用。</strong></p>
+
+<h3>情形 B:新旧策略差距极大</h3>
+<table>
+  <tr><th class="l">动作</th><th>上</th><th>下</th><th>左</th><th>右</th></tr>
+  <tr><td class="l">回报 R</td><td class="num">+10</td><td class="num">−5</td><td class="num">0</td><td class="num">+2</td></tr>
+  <tr><td class="l">旧策略 <span style="color:var(--soft)">(采样用)</span></td><td class="num">0.01</td><td class="num">0.33</td><td class="num">0.33</td><td class="num">0.33</td></tr>
+  <tr><td class="l">新策略 <span style="color:var(--soft)">(想估计)</span></td><td class="num">0.90</td><td class="num">0.04</td><td class="num">0.03</td><td class="num">0.03</td></tr>
+  <tr class="hot"><td class="l"><strong>ratio</strong></td><td class="num"><strong>90</strong></td><td class="num">0.12</td><td class="num">0.09</td><td class="num">0.09</td></tr>
+</table>
+
+<div class="key">
+<p style="margin:0"><b>请盯住 B 里"上"这一列。</b></p>
+<p style="margin:9px 0 0">旧策略选"上"的概率只有 <strong>0.01</strong> —— <em>采 200 条,平均只能碰到 2 次</em>。<br>
+可新策略选"上"的概率是 <strong>0.90</strong> —— <em>新策略几乎只走这一步。</em></p>
+<p style="margin:9px 0 0"><b>ratio = 0.90 ÷ 0.01 = 90</b>,意思是:<strong>每采到一次"上",这一条样本要当成 90 条来算。</strong></p>
+</div>
+
+<div class="note">
+<p style="margin-bottom:0"><strong>换成民调来说:</strong>全市 90% 是年轻人,可你的样本里年轻人只占 1%。那你抽到的<em>每一个</em>年轻人,都得代表 90 个人发言。<strong>而你总共只抽了 200 人,里面平均只有 2 个年轻人。</strong></p>
+</div>
+
+<!-- ===== 交互 ===== -->
+<h2><span class="n">二</span>动手跑:同样的方法,各跑 5 组</h2>
+<p class="lead">每组独立采 200 条。<strong>这次我把"这组抽到了几次上"也显示出来</strong>——你会看到估计值完全被它决定。</p>
+
+<div class="panel">
+  <h4>情形 A(ratio 都接近 1)</h4>
+  <p class="hint">5 组结果应该挤在一起。</p>
+  <div class="runs" id="rA"></div>
+  <div class="truthbar">真值 <b id="tA">—</b> · 5 组最大差距 <b id="sA" style="color:var(--good)">—</b></div>
+
+  <h4 style="margin-top:30px">情形 B(有个 ratio = 90)</h4>
+  <p class="hint">看每张卡片上"抽到几次上"那一行,再看下面的数字。</p>
+  <div class="runs" id="rB"></div>
+  <div class="truthbar">真值 <b id="tB">—</b> · 5 组最大差距 <b id="sB" style="color:var(--crit)">—</b></div>
+
+  <div class="ctl">
+    <button onclick="go()">再跑一次</button>
+    <button class="ghost" onclick="go();go();go()">连跑 3 次</button>
+  </div>
+</div>
+
+<!-- ===== 解释 ===== -->
+<h2><span class="n">三</span>那 5 个数字是怎么来的</h2>
+
+<p>情形 B 里,每采到一次"上",给估计值的贡献是:</p>
+
+<div class="eq">
+  ratio × 回报 ÷ 组内条数 &nbsp;=&nbsp; <span class="hl">90</span> × 10 ÷ 200 &nbsp;=&nbsp; <strong>4.5</strong>
+</div>
+
+<p>而其余三个动作(下/左/右)加起来的贡献大约是 <strong>−0.14</strong>。所以整组的估计值就是:</p>
+
+<div class="eq">
+  估计值 ≈ −0.14 + 4.5 × <span class="hl">(这 200 条里抽到"上"的次数)</span>
+</div>
+
+<p><strong>把这个式子和上面跑出来的结果对一下:</strong></p>
+
+<table>
+  <tr><th>抽到"上"的次数</th><th>0 次</th><th>1 次</th><th>2 次</th><th>3 次</th><th>4 次</th></tr>
+  <tr><td class="l"><strong>估计值会是</strong></td><td class="num">−0.14</td><td class="num">4.36</td><td class="num"><strong style="color:var(--good)">8.86</strong></td><td class="num">13.36</td><td class="num">17.86</td></tr>
+</table>
+
+<div class="key">
+<p style="margin:0"><b>真值是 8.86,只有恰好抽到 2 次的那一组会蒙对。</b></p>
+<p style="margin:9px 0 0">抽到几次,<em>纯粹是运气</em>——平均 2 次,但 0 次、1 次、4 次都很常见。<strong>于是估计值在 −0.14 到 17.86 之间乱跳。</strong></p>
+</div>
+
+<h2><span class="n">四</span>"无偏 ≠ 可用"是什么意思</h2>
+
+<table>
+  <tr><th style="width:26%" class="l"></th><th class="l">说的是什么</th></tr>
+  <tr><td class="l"><strong style="color:var(--good)">无偏</strong></td><td class="l">如果跑<strong>无穷多组</strong>,这些数的平均值确实等于 8.86。<em>这一点是真的。</em></td></tr>
+  <tr><td class="l"><strong style="color:var(--crit)">但不可用</strong></td><td class="l">你实际<strong>只跑一组</strong>。它可能给你 −0.14,也可能给你 13.36。<em>你没有第二次机会。</em></td></tr>
+</table>
+
+<div class="warn">
+<p><strong>拿这个数去更新神经网络会发生什么?</strong></p>
+<p style="margin-bottom:0">模型会朝一个<em>纯粹由运气决定的方向</em>猛冲一大步。下一轮它带着这个错误继续采样、继续更新——<strong>几步之内就崩了,而且救不回来。</strong></p>
+</div>
+
+<div class="key">
+<p style="margin:0"><b>所以 PPO 的对策非常直白:不许 ratio 变成 90。</b></p>
+<p style="margin:9px 0 0">强行把它裁到比如 <strong>[0.8, 1.2]</strong> 之间。<em>宁可估得有点偏,也不要估得满天飞。</em></p>
+<p style="margin:9px 0 0">这就是下一课的 <strong>clip</strong>,而它的全部动机,就是你在上面亲眼看到的那 5 个乱跳的数字。</p>
+</div>
+
+<footer>
+<strong>下一课:TRPO → PPO → GRPO。</strong>只讲一件事:怎么强制新旧策略不许差太远。
+</footer>
+
+</div>
+
+<script>
+const R=[10,-5,0,2];
+const A_OLD=[0.40,0.20,0.15,0.25], A_NEW=[0.55,0.13,0.10,0.22];
+const B_OLD=[0.01,0.33,0.33,0.33], B_NEW=[0.90,0.04,0.03,0.03];
+const N=200;
+
+function dot(p){return p.reduce((s,v,i)=>s+v*R[i],0);}
+function pick(p){const r=Math.random();let c=0;for(let i=0;i<4;i++){c+=p[i];if(r<=c)return i;}return 3;}
+
+function runOnce(pOld,pNew){
+  let s=0,k=0;
+  for(let t=0;t<N;t++){
+    const a=pick(pOld);
+    if(a===0) k++;
+    s+=(pNew[a]/pOld[a])*R[a];
+  }
+  return {est:s/N, k:k};
+}
+
+function cards(el,res,showK){
+  el.innerHTML=res.map((r,i)=>{
+    const cls = r.k>=3?"k3":(r.k===2?"k2":(r.k===1?"k1":"k0"));
+    const kline = showK ? `<div class="k">抽到「上」${r.k} 次</div>` : `<div class="k" style="color:var(--soft)">&nbsp;</div>`;
+    return `<div class="run ${showK?cls:''}"><div class="i">第 ${i+1} 组</div>${kline}<div class="v">${r.est.toFixed(2)}</div></div>`;
+  }).join("");
+}
+
+function go(){
+  const A=[],B=[];
+  for(let i=0;i<5;i++){ A.push(runOnce(A_OLD,A_NEW)); B.push(runOnce(B_OLD,B_NEW)); }
+  cards(document.getElementById("rA"),A,false);
+  cards(document.getElementById("rB"),B,true);
+  const sp=x=>Math.max(...x.map(v=>v.est))-Math.min(...x.map(v=>v.est));
+  document.getElementById("tA").textContent=dot(A_NEW).toFixed(2);
+  document.getElementById("tB").textContent=dot(B_NEW).toFixed(2);
+  document.getElementById("sA").textContent=sp(A).toFixed(2);
+  document.getElementById("sB").textContent=sp(B).toFixed(2);
+}
+go();
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "prepared_on": "2026-10-30",
+  "purpose": "Frozen research snapshots; no market facts updated during public export.",
+  "files": [
+    {
+      "source_filename": "14_企业购买AI后的效率与财务兑现.md",
+      "published_filename": "enterprise-ai-roi.md",
+      "research_cutoff": "2026-10-04",
+      "source_sha256": "3ea588932ed4f5c66b18aed989a8bf034179a1c20c332d44dc9bf638b4a0d97f",
+      "published_sha256": "3ea588932ed4f5c66b18aed989a8bf034179a1c20c332d44dc9bf638b4a0d97f",
+      "source_lines": 226,
+      "published_lines": 226,
+      "edits": [
+        {
+          "change": "Byte-identical copy; no body edits."
+        }
+      ],
+      "privacy_pattern_findings": {
+        "private_paths": [],
+        "credential_values": [],
+        "email": [],
+        "personal_trading": []
+      },
+      "quotation_review": "No blockquote passages or appended raw articles; narrative and source lists retained. Short source terms and numeric disclosures remain."
+    },
+    {
+      "source_filename": "13_AI终端需求与商业模式演化.md",
+      "published_filename": "consumer-ai-demand-and-compute-return.md",
+      "research_cutoff": "2026-10-03",
+      "source_sha256": "dbc5a8f5fd5df10a3cf6faa13b89949d900eefd7b2f46b009368699db7896c41",
+      "published_sha256": "bb3072105e15449bd10f3b55d9d196d44f5d7d5b77bbf3bb1ba2ee0fd0705d62",
+      "source_lines": 823,
+      "published_lines": 819,
+      "edits": [
+        {
+          "section": "### 本地交付与复核资料",
+          "reason": "References unpublished internal review files and source-document copies.",
+          "original_start_line": 821,
+          "original_end_line": 823
+        }
+      ],
+      "privacy_pattern_findings": {
+        "private_paths": [],
+        "credential_values": [],
+        "email": [],
+        "personal_trading": []
+      },
+      "quotation_review": "No blockquote passages or appended raw articles; narrative and source lists retained. Short source terms and numeric disclosures remain."
+    }
+  ]
+}

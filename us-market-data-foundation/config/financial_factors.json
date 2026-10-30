@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "scope": "Reported-input factors for general-company canonical financial panels; not valuation or owner earnings.",
+  "allowed_profiles": [
+    "general"
+  ],
+  "excluded_profiles": [
+    "bank",
+    "insurance"
+  ],
+  "excluded_sectors": [
+    "Financials"
+  ],
+  "period_policy": "annual or single-quarter flows only; exact period_start and period_end match",
+  "quarter_policy": "reported direct quarters and proved same-filing derived quarters may pair; each input_accessions set must equal its top-level accession",
+  "vintage_policy": "Latest panel values only; never search older filings to complete a pair",
+  "factors": [
+    {
+      "factor_id": "operating_margin_pct",
+      "label_zh": "报告口径营业利润率",
+      "operation": "ratio_percent",
+      "inputs": [
+        "operating_income",
+        "revenue"
+      ],
+      "formula": "100 * operating_income / revenue",
+      "nonnegative_inputs": [],
+      "definition_note": "Reported operating income divided by the explicitly mapped reported revenue. No cross-company accounting-scope reconciliation."
+    },
+    {
+      "factor_id": "parent_net_margin_pct",
+      "label_zh": "报告口径归母净利率",
+      "operation": "ratio_percent",
+      "inputs": [
+        "net_income",
+        "revenue"
+      ],
+      "formula": "100 * net_income / revenue",
+      "nonnegative_inputs": [],
+      "definition_note": "Parent-attributable net_income only. Do not replace with consolidated or common-shareholder-specific profit."
+    },
+    {
+      "factor_id": "operating_cash_flow_margin_pct",
+      "label_zh": "经营现金流与收入比",
+      "operation": "ratio_percent",
+      "inputs": [
+        "operating_cash_flow",
+        "revenue"
+      ],
+      "formula": "100 * operating_cash_flow / revenue",
+      "nonnegative_inputs": [],
+      "definition_note": "Reported operating cash flow divided by reported revenue; negative operating cash flow remains negative."
+    },
+    {
+      "factor_id": "research_development_to_revenue_pct",
+      "label_zh": "报告研发费用与收入比",
+      "operation": "ratio_percent",
+      "inputs": [
+        "research_development",
+        "revenue"
+      ],
+      "formula": "100 * research_development / revenue",
+      "nonnegative_inputs": [
+        "research_development"
+      ],
+      "definition_note": "Reported expensed R&D, excluding separately capitalized software/development. Negative reported expense is excluded for review, not converted to its absolute value."
+    },
+    {
+      "factor_id": "stock_based_compensation_to_revenue_pct",
+      "label_zh": "报告股权激励金额与收入比",
+      "operation": "ratio_percent",
+      "inputs": [
+        "stock_based_compensation",
+        "revenue"
+      ],
+      "formula": "100 * stock_based_compensation / revenue",
+      "nonnegative_inputs": [
+        "stock_based_compensation"
+      ],
+      "definition_note": "Reported ShareBasedCompensation, normally a noncash item. This is not a cash-spending share. Negative reversals are excluded for review."
+    },
+    {
+      "factor_id": "ppe_capex_to_revenue_pct",
+      "label_zh": "PPE购置现金支出与收入比",
+      "operation": "ratio_percent",
+      "inputs": [
+        "capital_expenditures",
+        "revenue"
+      ],
+      "formula": "100 * capital_expenditures / revenue",
+      "nonnegative_inputs": [
+        "capital_expenditures"
+      ],
+      "definition_note": "Explicitly mapped PPE purchase cash outflow; not acquisitions, all intangible investment or maintenance capex. Never substitute broader productive_asset_purchases."
+    },
+    {
+      "factor_id": "free_cash_flow_ppe_proxy",
+      "label_zh": "PPE口径自由现金流代理",
+      "operation": "difference",
+      "inputs": [
+        "operating_cash_flow",
+        "capital_expenditures"
+      ],
+      "formula": "operating_cash_flow - capital_expenditures",
+      "nonnegative_inputs": [
+        "capital_expenditures"
+      ],
+      "definition_note": "Operating cash flow less reported PPE cash purchases. Not owner earnings, maintenance cash flow, all capital investment, or a fully adjusted free-cash-flow measure. Negative PPE payments are excluded; no abs() sign conversion."
+    },
+    {
+      "factor_id": "productive_asset_purchases_to_revenue_pct",
+      "label_zh": "较宽生产性资产购置支出与收入比",
+      "operation": "ratio_percent",
+      "inputs": [
+        "productive_asset_purchases",
+        "revenue"
+      ],
+      "formula": "100 * productive_asset_purchases / revenue",
+      "nonnegative_inputs": [
+        "productive_asset_purchases"
+      ],
+      "definition_note": "Broader reported productive-asset purchase cash outflow. A separate metric, never a fallback for PPE capex; its exact scope follows the source tag. Not maintenance capex or all economic investment."
+    },
+    {
+      "factor_id": "free_cash_flow_productive_assets_proxy",
+      "label_zh": "较宽生产性资产购置口径自由现金流代理",
+      "operation": "difference",
+      "inputs": [
+        "operating_cash_flow",
+        "productive_asset_purchases"
+      ],
+      "formula": "operating_cash_flow - productive_asset_purchases",
+      "nonnegative_inputs": [
+        "productive_asset_purchases"
+      ],
+      "definition_note": "Operating cash flow less broader reported productive-asset purchases. Kept separate from the PPE proxy; not owner earnings, maintenance cash flow, a reconciled all-investment measure or a substitute for missing PPE data."
+    }
+  ],
+  "default_factors": [
+    "operating_margin_pct",
+    "parent_net_margin_pct",
+    "operating_cash_flow_margin_pct",
+    "research_development_to_revenue_pct",
+    "stock_based_compensation_to_revenue_pct",
+    "ppe_capex_to_revenue_pct",
+    "free_cash_flow_ppe_proxy"
+  ]
+}

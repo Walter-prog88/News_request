@@ -1,0 +1,76 @@
+{
+  "original_research_date": "2026-09-09",
+  "export_date": "2026-10-30",
+  "files": [
+    {
+      "file": "EXPORT_SCOPE.md",
+      "bytes": 1723,
+      "sha256": "7aae9aed56780959fbd50e3251b268991b7c2b1e69e256cd8c4c555a2a51e311"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3581,
+      "sha256": "6cae4a61cba6ba8aad8bc70503c85575e4c5a0611e9ddcf6885be6cbc82b1249"
+    },
+    {
+      "file": "RESEARCH_DESIGN.md",
+      "bytes": 3407,
+      "sha256": "b021ce3a9a8972ca17cc43aee4eb1acca3903b8d5a2139eeb9aa820c1bfa1bf2"
+    },
+    {
+      "file": "VALIDATION.md",
+      "bytes": 1951,
+      "sha256": "dba1386c8cb1cf81f7aa954ce0d1f01e675f8da9c34652cfd87e8223c7fa1335"
+    },
+    {
+      "file": "phase2/DEFINITIONS.md",
+      "bytes": 7394,
+      "sha256": "5c0dd360d4ffb58a9d762445c959ac62389d9e13a8ca2764f12dad563894bcff"
+    },
+    {
+      "file": "phase2/output/table_C_h2.csv",
+      "bytes": 43734,
+      "sha256": "a6a0485752cf6209e687afd6c9f56b59691e61f0e62f7072a452cad4057c95cb"
+    },
+    {
+      "file": "phase2/output/table_E_h3.csv",
+      "bytes": 25599,
+      "sha256": "087fba2f52c305e554ed3d3b65630149aba7f09b8ea31be98fc1fe139e3b5717"
+    },
+    {
+      "file": "phase2/output/table_F_cn_state.csv",
+      "bytes": 7214,
+      "sha256": "50db2be62f1060d81d488982618abea545982d8aba5b3f8069203869051c4995"
+    },
+    {
+      "file": "phase3/output/table_B_lags.csv",
+      "bytes": 30186,
+      "sha256": "d630d764b9f30c2d195a6f8c78a4d87cf2a2e8071f8db6e4679ef2378b487a38"
+    },
+    {
+      "file": "phase6/DEFINITIONS.md",
+      "bytes": 6483,
+      "sha256": "ac8234dcddffe325e80450f80330823b975e54f4d7397d3fbdfabee32abeeafe"
+    },
+    {
+      "file": "phase6/output/PHASE6_假设裁决与情景.md",
+      "bytes": 15532,
+      "sha256": "39b8c51bb5789c1fc60f450052cc686f4039af399a7eb4b2528664ae6fdd3236"
+    },
+    {
+      "file": "phase6/output/table_C_scenarios.csv",
+      "bytes": 45453,
+      "sha256": "8e69325f43903f9722e82b3e1f38ea89c05c9ca18d409f4ae709c37eb7cf6825"
+    },
+    {
+      "file": "phase6/output/table_C_scenarios.md",
+      "bytes": 51842,
+      "sha256": "24a31cdb8086083d64f8dd5f82700c27af87578a588c8b59928e340b959e2659"
+    },
+    {
+      "file": "phase6/scripts/p6_h2_recount.py",
+      "bytes": 2354,
+      "sha256": "2f0d3d2d7c37f1108bc792e5e4542dc69aa8f4817c7d52a1bd29900a8285aeaa"
+    }
+  ]
+}

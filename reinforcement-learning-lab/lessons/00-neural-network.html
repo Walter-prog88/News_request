@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神经网络到底是怎么被"训练"的 · 可交互</title>
+<style>
+  :root{
+    --paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;--gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;
+    /* viz roles */
+    --bar:#2a78d6;          /* sequential/magnitude hue */
+    --bar-soft:#cde2fb;
+    --good:#0ca30c;         /* status: increase */
+    --crit:#d03b3b;         /* status: decrease */
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.9;}
+  .wrap{max-width:780px;margin:0 auto;padding:52px 26px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:14px;}
+  h1{font-size:26px;margin:0 0 10px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:21px;margin:54px 0 12px;padding-top:28px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:17px;margin:28px 0 10px;font-weight:600;}
+  p{margin:0 0 15px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 24px;line-height:1.8;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:15px 19px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.8;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:15px 19px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.8;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:17px 21px;margin:24px 0;
+    border-radius:0 5px 5px 0;font-size:16.5px;line-height:1.85;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin:0;}
+
+  /* ===== panel ===== */
+  .panel{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:24px 26px;margin:24px 0;}
+  .panel h4{margin:0 0 4px;font-size:16px;font-weight:600;}
+  .panel .hint{color:var(--soft);font-size:14.5px;margin:0 0 18px;line-height:1.7;}
+
+  /* ===== bars ===== */
+  .bars{margin:6px 0 4px;}
+  .row{display:grid;grid-template-columns:44px 1fr 128px;align-items:center;gap:12px;margin-bottom:9px;}
+  .row .nm{font-weight:600;font-size:15.5px;text-align:right;}
+  .row.sel .nm{color:var(--bar);}
+  .track{height:22px;background:#f1efeb;border-radius:4px;position:relative;overflow:hidden;}
+  .fill{height:100%;background:var(--bar);border-radius:0 4px 4px 0;transition:width .45s cubic-bezier(.4,0,.2,1);}
+  .row.sel .track{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--bar);}
+  .val{font-variant-numeric:tabular-nums;font-size:14.5px;color:var(--soft);white-space:nowrap;}
+  .val .pct{color:var(--ink);font-weight:600;font-size:15.5px;display:inline-block;min-width:52px;}
+  .delta{font-weight:600;font-size:13.5px;margin-left:4px;}
+  .delta.u{color:var(--good);}
+  .delta.d{color:var(--crit);}
+
+  /* ===== controls ===== */
+  .ctl{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:18px 0 0;}
+  button{background:var(--ac);color:#fff;border:none;padding:10px 20px;font-size:15px;
+    font-family:inherit;border-radius:5px;cursor:pointer;font-weight:500;transition:opacity .15s;}
+  button:hover{opacity:.85;}
+  button.ghost{background:#fff;color:var(--ac);border:1px solid var(--ac);}
+  button.small{padding:7px 14px;font-size:14px;}
+  button:disabled{opacity:.35;cursor:not-allowed;}
+
+  .pick{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0;}
+  .pick button{background:#fff;color:var(--ink);border:1px solid var(--rule);font-weight:600;min-width:58px;}
+  .pick button.on{background:var(--bar);color:#fff;border-color:var(--bar);}
+
+  .slider{margin:18px 0 6px;}
+  .slider label{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px;align-items:baseline;}
+  .slider label b{font-variant-numeric:tabular-nums;font-size:17px;}
+  input[type=range]{width:100%;accent-color:var(--ac);margin:0;}
+  .lgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:10px 0 0;}
+  .lgrid .li label{font-size:13.5px;color:var(--soft);display:flex;justify-content:space-between;margin-bottom:3px;}
+  .lgrid .li label b{color:var(--ink);font-variant-numeric:tabular-nums;}
+  @media(max-width:600px){.lgrid{grid-template-columns:repeat(2,1fr);}}
+
+  .readout{background:var(--paper);border-radius:6px;padding:14px 16px;margin:16px 0 0;
+    font-size:15px;line-height:1.9;font-variant-numeric:tabular-nums;}
+  .readout .lbl{color:var(--soft);}
+  .readout b{font-size:16px;}
+  .steps{color:var(--soft);font-size:14px;margin-top:8px;}
+
+  pre{background:#1f2328;color:#e8e6e1;padding:16px 18px;border-radius:6px;overflow-x:auto;
+    font-size:14px;line-height:1.75;margin:16px 0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+  pre .c{color:#8b98a5;}
+  pre .k{color:#7fd1c1;}
+  pre .hl{background:#3d3427;color:#ffd88a;padding:1px 3px;border-radius:2px;}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15.5px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:11px 13px;text-align:left;line-height:1.7;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+
+  .formula{text-align:center;padding:20px 12px;margin:16px 0;background:var(--paper);
+    border-radius:5px;font-size:19px;overflow-x:auto;line-height:1.7;}
+  .mth{font-family:Georgia,"Times New Roman",serif;font-style:italic;}
+  .formula .op{color:var(--soft);margin:0 3px;}
+  .formula .hi{color:var(--bar);font-weight:600;font-style:normal;}
+  .formula .hiA{color:var(--gold);font-weight:700;}
+
+  .flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;
+    padding:22px 12px;margin:16px 0;background:var(--paper);border-radius:5px;}
+  .flow .node{font-size:15px;text-align:center;line-height:1.4;padding:8px 12px;}
+  .flow .node.box{background:#fff;border:1.5px solid var(--ac);border-radius:5px;
+    color:var(--ac);font-weight:600;}
+  .flow .node small{color:var(--soft);font-size:12.5px;}
+  .flow .ar{color:var(--soft);font-size:18px;}
+  footer{margin-top:60px;padding-top:24px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.8;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>神经网络到底是怎么被"训练"的</h1>
+  <p class="sub">可交互 · 请动手拖和点 · 这一页只讲这一件事</p>
+</header>
+
+<p class="lead">
+你问的是:<strong>RL 怎么和神经网络接上?是拿 MSE 当损失函数吗?梯度到底怎么更新?</strong><br>
+这一页会把这件事从头演一遍。<em>请务必动手点,光看没用。</em>
+</p>
+
+<!-- ============ ACT 1 ============ -->
+<h2><span class="n">一</span>先看清:网络到底吐出来什么</h2>
+
+<p>机器人站在 A1,要决定往哪走。神经网络做的事情非常朴素:</p>
+
+<div class="flow">
+  <span class="node">状态<br><strong>A1</strong></span><span class="ar">→</span>
+  <span class="node box">神经网络</span><span class="ar">→</span>
+  <span class="node">4 个数字<br><small>logits</small></span><span class="ar">→</span>
+  <span class="node box">softmax</span><span class="ar">→</span>
+  <span class="node">4 个概率<br><small>加起来 = 1</small></span>
+</div>
+
+<p>那 4 个原始数字叫 <strong>logits</strong>,可以是任意实数(正的负的都行)。softmax 负责把它们挤成一组<strong>加起来正好等于 1</strong> 的概率。</p>
+
+<div class="panel">
+  <h4>动手试试:拖动 logits,看概率怎么变</h4>
+  <p class="hint">随便拖。注意两件事:概率永远加起来等于 100%;某个 logit 越大,它的概率越高。</p>
+
+  <div class="lgrid" id="lgrid"></div>
+  <div class="bars" id="bars1" style="margin-top:22px"></div>
+  <div class="ctl"><button class="ghost small" onclick="resetLogits()">恢复初始值</button></div>
+</div>
+
+<div class="note">
+<p style="margin-bottom:0"><strong>这就是第 1 课那张"策略表"的真身。</strong><span class="mth">π<sub>θ</sub>(a|s)</span> 说白了就是:<em>网络吃进状态,吐出这 4 根条的高度。</em>所谓"训练策略",就是想办法让这几根条的高度变得更合理。</p>
+</div>
+
+<!-- ============ ACT 2 ============ -->
+<h2><span class="n">二</span>监督学习:有标准答案的时候</h2>
+
+<p>先看你熟悉的情况。假设有个老师直接告诉机器人:<strong>"在 A1,正确答案就是往上走。"</strong></p>
+
+<p>那损失函数就是标准的交叉熵——<em>只盯着正确答案那一项</em>:</p>
+
+<div class="formula">
+  <span class="mth">loss</span> <span class="op">=</span> − log <span class="mth">π</span>(<span class="hi">正确答案</span>)
+</div>
+
+<p>如果正确答案的概率已经很高(接近 1),log 接近 0,loss 很小;如果概率很低,loss 就很大。<strong>训练就是把它压小。</strong></p>
+
+<div class="panel">
+  <h4>动手试试:选一个"正确答案",然后连续点更新</h4>
+  <p class="hint">看那根被选中的条怎么一步步涨上去,其他三根怎么一起退下来。</p>
+
+  <div class="pick" id="pick2"></div>
+  <div class="bars" id="bars2" style="margin-top:20px"></div>
+  <div class="readout" id="read2"></div>
+
+  <div class="ctl">
+    <button onclick="step2()">更新一步</button>
+    <button class="ghost" onclick="run2()">连点 15 步</button>
+    <button class="ghost small" onclick="reset2()">重置</button>
+  </div>
+</div>
+
+<div class="note">
+<p style="margin-bottom:0">这就是监督学习的全部:<strong>有人给答案 → 算 loss → 反向传播 → 正确答案的概率上升。</strong>这个流程把预测、损失与参数更新连接起来。</p>
+</div>
+
+<!-- ============ ACT 3 ============ -->
+<h2><span class="n">三</span>强化学习:没有标准答案的时候</h2>
+
+<div class="key">
+<p style="margin:0"><b>现在把老师赶走。</b>没有人知道 A1 该往哪走。<em>那 loss 里的"正确答案"该填什么?</em></p>
+</div>
+
+<p>RL 的办法是:<strong>先随便按当前概率抽一个动作去试,试完看结果好不好,再回来调。</strong></p>
+
+<p>"结果好不好"这个数字,就是你已经学过的<strong>优势 A</strong>(第 3 课):比平均水平好就是正的,差就是负的。于是 loss 写成:</p>
+
+<div class="formula">
+  <span class="mth">loss</span> <span class="op">=</span> − log <span class="mth">π</span>(<span class="hi">实际选的动作</span>) <span class="op">×</span> <span class="hiA">A</span>
+</div>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>请对比一下这两个式子——它们只差一个 <span class="mth" style="color:var(--gold);font-weight:700">× A</span>。</strong>监督学习盯着"正确答案",RL 盯着"这次实际选的动作",然后<em>用 A 决定要不要鼓励它、鼓励多用力</em>。</p>
+</div>
+
+<div class="panel">
+  <h4>动手试试:抽一个动作,给它打分,然后更新</h4>
+  <p class="hint">重点玩这个:<strong>把 A 拖成负数再更新</strong>,看看会发生什么。</p>
+
+  <div class="ctl" style="margin:0 0 4px">
+    <button class="ghost small" onclick="sample3()">🎲 按当前概率抽一个动作</button>
+    <span style="font-size:15px;color:var(--soft)">当前抽到:<b id="act3" style="color:var(--bar);font-size:17px">—</b></span>
+  </div>
+
+  <div class="slider">
+    <label><span>优势 A(这次结果比平均好多少)</span><b id="aval">+3.0</b></label>
+    <input type="range" id="aslider" min="-10" max="10" step="0.5" value="3" oninput="onA()">
+  </div>
+
+  <div class="bars" id="bars3" style="margin-top:18px"></div>
+  <div class="readout" id="read3"></div>
+
+  <div class="ctl">
+    <button onclick="step3()">更新一步</button>
+    <button class="ghost" onclick="run3()">连点 10 步</button>
+    <button class="ghost small" onclick="reset3()">重置</button>
+  </div>
+</div>
+
+<table>
+  <tr><th style="width:30%">你把 A 设成</th><th>被抽中的那个动作</th><th>其他动作</th></tr>
+  <tr><td><b style="color:var(--good)">正数(结果好)</b></td><td>概率 <b style="color:var(--good)">↑ 上升</b></td><td>下降</td></tr>
+  <tr><td><b style="color:var(--crit)">负数(结果差)</b></td><td>概率 <b style="color:var(--crit)">↓ 下降</b></td><td>上升</td></tr>
+  <tr><td>0</td><td colspan="2">什么都不动 —— <em>loss 整个变成 0,梯度也是 0</em></td></tr>
+</table>
+
+<div class="note">
+<p style="margin-bottom:0"><strong>把 A 拖到 0 那一行值得多想一秒。</strong>它说明这个 loss 完全没有"越小越准确"的含义——<em>它只是一个把"该往哪推、推多用力"翻译给自动求导用的中间量。</em>这就是我说的"凑出来的 loss"。</p>
+</div>
+
+<!-- ============ ACT 4 ============ -->
+<h2><span class="n">四</span>揭晓:其实是同一段代码</h2>
+
+<p>现在把两段真实代码并排放在一起:</p>
+
+<pre><span class="c"># 监督学习(有标签)</span>
+logp = log_softmax(logits)[<span class="k">label</span>]
+loss = -logp
+
+<span class="c"># 强化学习(没标签)</span>
+logp = log_softmax(logits)[<span class="k">action</span>]
+loss = -logp <span class="hl">* A</span>
+
+loss.backward()      <span class="c"># 这两行完全一样</span>
+optimizer.step()</pre>
+
+<div class="key">
+<p><b>差别只有一处:RL 多乘了一个 A。</b></p>
+<p style="margin:10px 0 0">换句话说 —— <em>监督学习就是"A 恒等于 1、动作恒等于标签"的强化学习。</em></p>
+<p style="margin:10px 0 0">你在上面第三节里,只要把 A 拖到 <b>+1</b>、并且让抽到的动作正好是标签,得到的行为<strong>和第二节一模一样</strong>。可以回去试。</p>
+</div>
+
+<h3>那 MSE 到底在哪?</h3>
+
+<p>你猜的 MSE 是对的,只是它<strong>不属于 Actor,属于 Critic</strong>:</p>
+
+<table>
+  <tr><th style="width:24%">网络</th><th style="width:26%">有标准答案吗</th><th>loss</th></tr>
+  <tr>
+    <td><strong>Actor</strong><br><span style="font-size:14px;color:var(--soft)">输出动作概率</span></td>
+    <td><strong style="color:var(--crit)">没有</strong></td>
+    <td>凑出来的 <code>−logπ(a) × A</code><br><span style="font-size:14px;color:var(--soft)">不是真误差</span></td>
+  </tr>
+  <tr>
+    <td><strong>Critic</strong><br><span style="font-size:14px;color:var(--soft)">输出 V(s)</span></td>
+    <td><strong style="color:var(--good)">有</strong><br><span style="font-size:14px;color:var(--soft)">TD 目标 r+γV(s′)</span></td>
+    <td><strong>MSE</strong><br><span style="font-size:14px;color:var(--soft)">标准的监督学习</span></td>
+  </tr>
+</table>
+
+<div class="note">
+<p style="margin-bottom:0"><strong>所以一个 Actor-Critic 里有两个网络、两个 loss。</strong>Critic 那半边是彻头彻尾的监督学习(它有答案);Actor 那半边才是 RL 特有的(它没答案,只有 A 这个"打分")。</p>
+</div>
+
+<h2><span class="n">五</span>确认一下</h2>
+<p class="lead">不用写长答案,一两句话就行。答完我们再往下走。</p>
+
+<ol style="padding-left:22px">
+  <li style="margin-bottom:18px">在第三节里把 <strong>A 拖成负数</strong>再更新,你看到了什么?用一句话描述。</li>
+  <li style="margin-bottom:18px">在本页只用这一条样本、这一项损失与普通梯度更新的设定下，如果 <strong>A = 0</strong>,它不提供更新梯度。<strong>为什么?</strong>(看那个 loss 的式子)</li>
+  <li style="margin-bottom:0">用你自己的话说:<strong>监督学习和强化学习,喂给神经网络的东西差在哪?</strong></li>
+</ol>
+
+<footer>
+这一页只讲了"网络怎么被推动"。<strong>等你确认这层通了,我们再回头补重要性采样</strong>——那个我上一课讲砸了,会重做成同样可交互的形式。
+</footer>
+
+</div>
+
+<script>
+const NAMES = ["上","下","左","右"];
+const INIT  = [1.0, -0.5, -0.2, 0.4];
+const LR    = 0.35;
+
+function softmax(z){
+  const m = Math.max(...z);
+  const e = z.map(v => Math.exp(v - m));
+  const s = e.reduce((a,b)=>a+b,0);
+  return e.map(v => v/s);
+}
+// 通用更新:loss = -log p[a] * A   →   dL/dz_i = A*(p_i - 1{i==a})
+function update(z, a, A, lr){
+  const p = softmax(z);
+  return z.map((v,i) => v - lr * A * (p[i] - (i===a?1:0)));
+}
+
+function renderBars(el, p, prev, sel){
+  el.innerHTML = p.map((v,i)=>{
+    let d = "";
+    if(prev){
+      const diff = (v - prev[i])*100;
+      if(Math.abs(diff) >= 0.05){
+        const up = diff > 0;
+        d = `<span class="delta ${up?'u':'d'}">${up?'↑':'↓'} ${up?'+':'−'}${Math.abs(diff).toFixed(1)}</span>`;
+      }
+    }
+    return `<div class="row ${sel===i?'sel':''}">
+      <div class="nm">${NAMES[i]}</div>
+      <div class="track"><div class="fill" style="width:${(v*100).toFixed(2)}%"></div></div>
+      <div class="val"><span class="pct">${(v*100).toFixed(1)}%</span>${d}</div>
+    </div>`;
+  }).join("");
+}
+
+/* ---------- ACT 1 ---------- */
+let z1 = [...INIT];
+function drawLgrid(){
+  document.getElementById("lgrid").innerHTML = z1.map((v,i)=>
+    `<div class="li"><label><span>${NAMES[i]}</span><b id="lz${i}">${v.toFixed(1)}</b></label>
+     <input type="range" min="-3" max="3" step="0.1" value="${v}" oninput="onLogit(${i},this.value)"></div>`
+  ).join("");
+}
+function onLogit(i,v){
+  z1[i] = parseFloat(v);
+  document.getElementById("lz"+i).textContent = z1[i].toFixed(1);
+  renderBars(document.getElementById("bars1"), softmax(z1), null, null);
+}
+function resetLogits(){ z1=[...INIT]; drawLgrid(); renderBars(document.getElementById("bars1"), softmax(z1), null, null); }
+
+/* ---------- ACT 2 ---------- */
+let z2 = [...INIT], label2 = 0, n2 = 0;
+function drawPick(){
+  document.getElementById("pick2").innerHTML =
+    `<span style="font-size:15px;color:var(--soft);align-self:center;margin-right:4px">正确答案是:</span>` +
+    NAMES.map((n,i)=>`<button class="${label2===i?'on':''}" onclick="setLabel(${i})">${n}</button>`).join("");
+}
+function setLabel(i){ label2=i; drawPick(); draw2(); }
+function draw2(prev){
+  const p = softmax(z2);
+  renderBars(document.getElementById("bars2"), p, prev, label2);
+  document.getElementById("read2").innerHTML =
+    `<span class="lbl">正确答案「${NAMES[label2]}」的概率:</span> <b>${(p[label2]*100).toFixed(1)}%</b><br>
+     <span class="lbl">loss = −log(${p[label2].toFixed(3)}) =</span> <b>${(-Math.log(p[label2])).toFixed(3)}</b>
+     <div class="steps">已更新 ${n2} 步</div>`;
+}
+function step2(){
+  const prev = softmax(z2);
+  z2 = update(z2, label2, 1.0, LR);   // A = 1
+  n2++; draw2(prev);
+}
+function run2(){ let k=0; const t=setInterval(()=>{ step2(); if(++k>=15) clearInterval(t); }, 170); }
+function reset2(){ z2=[...INIT]; n2=0; draw2(); }
+
+/* ---------- ACT 3 ---------- */
+let z3 = [...INIT], act3 = null, A3 = 3.0, n3 = 0;
+function sample3(){
+  const p = softmax(z3);
+  let r = Math.random(), c = 0, pick = 3;
+  for(let i=0;i<4;i++){ c += p[i]; if(r <= c){ pick = i; break; } }
+  act3 = pick;
+  document.getElementById("act3").textContent = NAMES[pick];
+  draw3();
+}
+function onA(){
+  A3 = parseFloat(document.getElementById("aslider").value);
+  document.getElementById("aval").textContent = (A3>=0?"+":"−") + Math.abs(A3).toFixed(1);
+  document.getElementById("aval").style.color = A3>0 ? "var(--good)" : (A3<0 ? "var(--crit)" : "var(--soft)");
+  draw3();
+}
+function draw3(prev){
+  const p = softmax(z3);
+  renderBars(document.getElementById("bars3"), p, prev, act3);
+  const el = document.getElementById("read3");
+  if(act3 === null){
+    el.innerHTML = `<span class="lbl">还没抽动作 —— 先点上面那个 🎲 按钮。</span>`;
+    return;
+  }
+  const lg = Math.log(p[act3]);
+  const loss = -lg * A3;
+  const dir = A3 > 0 ? `<b style="color:var(--good)">↑ 会被调高</b>`
+            : A3 < 0 ? `<b style="color:var(--crit)">↓ 会被调低</b>`
+            : `<b>不动</b>`;
+  el.innerHTML =
+    `<span class="lbl">抽到的动作「${NAMES[act3]}」概率:</span> <b>${(p[act3]*100).toFixed(1)}%</b><br>
+     <span class="lbl">loss = −log(${p[act3].toFixed(3)}) × ${(A3<0?"(−"+Math.abs(A3).toFixed(1)+")":A3.toFixed(1))} =</span> <b>${(loss<0?"−":"")+Math.abs(loss).toFixed(3)}</b><br>
+     <span class="lbl">下一步「${NAMES[act3]}」:</span> ${dir}
+     <div class="steps">已更新 ${n3} 步</div>`;
+}
+function step3(){
+  if(act3 === null){ sample3(); return; }
+  const prev = softmax(z3);
+  z3 = update(z3, act3, A3, LR);
+  n3++; draw3(prev);
+}
+function run3(){ if(act3===null){sample3();} let k=0; const t=setInterval(()=>{ step3(); if(++k>=10) clearInterval(t); }, 190); }
+function reset3(){ z3=[...INIT]; n3=0; act3=null; document.getElementById("act3").textContent="—"; draw3(); }
+
+/* init */
+drawLgrid(); renderBars(document.getElementById("bars1"), softmax(z1), null, null);
+drawPick(); draw2();
+onA(); draw3();
+</script>
+</body>
+</html>

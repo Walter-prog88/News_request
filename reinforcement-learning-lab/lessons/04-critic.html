@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>强化学习 · 第 4 课:V 从哪来</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{--paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;--gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;--grn:#1e6b3a;--grn-bg:#e6f4ea;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.95;}
+  .wrap{max-width:730px;margin:0 auto;padding:54px 26px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:12px;}
+  h1{font-size:27px;margin:0 0 10px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:21px;margin:56px 0 14px;padding-top:28px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:17.5px;margin:32px 0 10px;font-weight:600;}
+  p{margin:0 0 16px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 26px;line-height:1.85;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .contract{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ac);
+    border-radius:0 6px 6px 0;padding:18px 22px;margin:0 0 34px;font-size:15.5px;line-height:1.8;}
+  .contract b{color:var(--ac);}
+
+  .formula{text-align:center;padding:22px 10px;margin:20px 0;background:#fff;
+    border:1px solid var(--rule);border-radius:6px;font-size:19px;overflow-x:auto;}
+  .formula.plain{background:var(--paper);border:none;}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15.5px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:11px 13px;text-align:left;line-height:1.7;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+  td.blank{background:var(--gold-bg);text-align:center;color:var(--gold);font-weight:600;}
+  td.up{color:var(--grn);font-weight:600;}
+  td.dn{color:var(--rose);font-weight:600;}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:17px 21px;margin:26px 0;
+    border-radius:0 5px 5px 0;font-size:16.5px;line-height:1.9;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin-bottom:0;}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+  .two .box{background:#fff;border:1px solid var(--rule);border-radius:7px;padding:20px 22px;}
+  .two .box.a{border-top:3px solid var(--ac);}
+  .two .box.b{border-top:3px solid var(--gold);}
+  .two .box h4{margin:0 0 10px;font-size:16.5px;font-weight:600;}
+  .two .box p{font-size:15px;line-height:1.8;margin:0 0 10px;}
+  .two .box p:last-child{margin:0;}
+  @media(max-width:620px){.two{grid-template-columns:1fr;}}
+
+  .actor{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+  .actor .r{background:#fff;border:1px solid var(--rule);border-radius:7px;padding:20px 22px;text-align:center;}
+  .actor .r .nm{font-size:18px;font-weight:600;margin-bottom:4px;}
+  .actor .r .en{font-size:13px;color:var(--soft);letter-spacing:.08em;margin-bottom:12px;}
+  .actor .r .dsc{font-size:14.5px;line-height:1.75;color:var(--soft);text-align:left;}
+  @media(max-width:620px){.actor{grid-template-columns:1fr;}}
+
+  ol.q{padding-left:22px;}
+  ol.q li{margin-bottom:26px;line-height:1.9;}
+  ul.b{padding-left:20px;margin:0 0 16px;}
+  ul.b li{margin-bottom:9px;}
+  .katex{font-size:1.04em;}
+  .big{font-size:15px;color:var(--soft);text-align:center;margin:-8px 0 22px;}
+  footer{margin-top:60px;padding-top:24px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.85;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 4 课:V 从哪来</h1>
+  <p class="sub">你上一题猜到的两条路,都是真的</p>
+</header>
+
+<div class="contract">
+  <b>这一课的范围(严格限定)</b><br>
+  只回答一个问题:<strong>基线 <span>\(V(s)\)</span> 没人告诉我们,那它怎么得到?</strong><br>
+  <span style="color:var(--soft)">不讲:PPO、重要性采样、on-policy/off-policy、GAE 的完整形式。下一课再说。</span>
+</div>
+
+<h2><span class="n">一</span>答案:它是学出来的</h2>
+
+<p><span>\(V(s)\)</span> 不是给定的,也不是推出来的。<strong>它是又一个被训练出来的东西</strong>——在格子世界里是一张表(9 个格子各存一个数),在 LLM 里就是另一个神经网络。</p>
+
+<div class="key">
+<p style="margin:0"><b>先明确一个概念:<span>\(V(s)\)</span> 是相对<em>当前策略</em>定义的,不是相对最优解。</b></p>
+<p style="margin:10px 0 0"><span>\(V(\text{A1}) = 3.2\)</span> 的意思是:<em>按机器人现在这个(可能还很笨的)策略</em>走下去,平均能拿 3.2 分。策略变好,V 才跟着涨。<strong>它是一个会移动的靶子。</strong></p>
+</div>
+
+<p>那怎么训练它?下面比较两种常见做法。</p>
+
+<div class="two">
+  <div class="box a">
+    <h4>方法一:蒙特卡洛(MC)</h4>
+    <p>直觉:<em>通过多次试验估计平均水平</em>。</p>
+    <p>做法极其朴素:<strong>从 A1 出发跑 100 趟,把 100 个实际回报平均一下</strong>,那就是 <span>\(V(\text{A1})\)</span> 的估计。</p>
+  </div>
+  <div class="box b">
+    <h4>方法二:自举(TD)</h4>
+    <p>直觉:<em>用下一步的估值更新当前估值</em>。</p>
+    <p>做法:<strong>只走一步,用"这一步的奖励 + 下一格的估值"来更新当前格的估值。</strong></p>
+  </div>
+</div>
+
+<h2><span class="n">二</span>方法一:蒙特卡洛</h2>
+
+<p>从 A1 跑 5 趟,得到 5 个回报:</p>
+
+<table>
+  <tr><th>趟次</th><th>结局</th><th style="text-align:right;width:20%">回报 R</th></tr>
+  <tr><td>1</td><td>拿到宝藏</td><td class="num">+7</td></tr>
+  <tr><td>2</td><td>掉进陷阱</td><td class="num">−11</td></tr>
+  <tr><td>3</td><td>拿到宝藏</td><td class="num">+7</td></tr>
+  <tr><td>4</td><td>拿到宝藏</td><td class="num">+5</td></tr>
+  <tr><td>5</td><td>拿到宝藏</td><td class="num">+7</td></tr>
+</table>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>请动手算一下:这 5 个数的平均值是多少?</strong>这就是 <span>\(V(\text{A1})\)</span> 的蒙特卡洛估计。<em>算出来再往下看。</em></p>
+</div>
+
+<p style="margin-top:26px">优点是显然的:<strong>在固定策略、有限期望且按正确分布采到完整回合的条件下，样本回报的均值是价值的无偏估计。</strong>截断、策略漂移或数据选择都可能改变这个结论。</p>
+
+<p>缺点也很实在:</p>
+<ul class="b">
+  <li><strong>必须等回合结束</strong>才能更新。如果一个回合要走 1000 步(或者 LLM 要生成 5000 个 token),就得全部生成完才拿得到一次学习信号。</li>
+  <li><strong>方差大。</strong>看那 5 个数字——+7、−11、+7、+5、+7,抖得很厉害。要平均掉这种抖动需要大量样本。</li>
+</ul>
+
+<h2><span class="n">三</span>方法二:TD(自举)</h2>
+
+<p>换个思路。<span>\(V(\text{A1})\)</span> 的定义是"从 A1 出发平均能拿多少"。那么如果机器人从 A1 往上走一步到了 A2,收到奖励 −1,我们可以这样估:</p>
+
+<div class="formula">\[ V(\text{A1}) \;\approx\; \underbrace{r}_{\text{这一步实际拿到的}} \;+\; \underbrace{V(\text{A2})}_{\text{到了 A2 之后的估值}} \]</div>
+
+<p>也就是:<em>"从 A1 能拿多少"</em> = <em>"走这一步拿到多少"</em> + <em>"从下一格开始还能拿多少"</em>。</p>
+
+<p>假设当前表里存着 <span>\(V(\text{A2}) = 5.0\)</span>,那么这次的估计目标就是 <span>\(-1 + 5.0 = 4.0\)</span>。如果表里 <span>\(V(\text{A1})\)</span> 原本是 3.2,那它就该往 4.0 的方向挪一点。</p>
+
+<div class="key">
+<p><b>注意这里发生了一件有点奇怪的事:</b></p>
+<p style="margin:10px 0 0">我们用 <span>\(V(\text{A2})\)</span> 去更新 <span>\(V(\text{A1})\)</span> ——<em>而 <span>\(V(\text{A2})\)</span> 本身也只是一个还不准的估计值。</em></p>
+<p style="margin:10px 0 0"><strong>用估计值去改进估计值,这就叫「自举」(bootstrapping)。</strong>名字来自"拽着自己的鞋带把自己提起来"。</p>
+</div>
+
+<p>听起来像空中楼阁,但它是有效的——因为<strong>链条的末端是真实的</strong>:走到 C3 时拿到的 +10 是世界给的真数字,不是估计。这个真值会沿着链条一格一格往回渗透,逐步把所有估值校准。<em>这正是你说的"从终点倒推"。</em></p>
+
+<div class="note">
+<p style="margin-bottom:0">补一句:实际公式里 <span>\(V(s')\)</span> 前面还有个折扣因子 <span>\(\gamma\)</span>,作用是给未来的奖励打点折。它不影响这一课的任何逻辑,以后单独讲。</p>
+</div>
+
+<h2><span class="n">四</span>两条路的取舍</h2>
+
+<table>
+  <tr><th style="width:22%"></th><th>蒙特卡洛(MC)</th><th>时序差分(TD)</th></tr>
+  <tr><td><strong>更新时机</strong></td><td>回合结束后</td><td class="up">走一步就能更新</td></tr>
+  <tr><td><strong>用的是什么</strong></td><td class="up">真实回报</td><td>真实奖励 + 自己的估计</td></tr>
+  <tr><td><strong>偏差</strong></td><td class="up">无偏</td><td class="dn">有偏(因为借了不准的估计)</td></tr>
+  <tr><td><strong>方差</strong></td><td class="dn">大</td><td class="up">小</td></tr>
+</table>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>这是一对典型的偏差—方差权衡,而且没有免费的午餐。</strong>MC 诚实但吵闹,TD 安静但会自欺。<em>现代方法(包括 PPO 用的 GAE)基本都是在这两者之间做混合</em>——这也是为什么它有个参数可以调。</p>
+</div>
+
+<h2><span class="n">五</span>合起来:Actor-Critic</h2>
+
+<p>现在我们手上有两个要训练的东西了:</p>
+
+<div class="actor">
+  <div class="r">
+    <div class="nm">Actor 演员</div>
+    <div class="en">POLICY &nbsp;\(\pi_\theta(a\mid s)\)</div>
+    <div class="dsc">负责<strong>做决定</strong>:在每个状态该怎么走。<br>用第 2、3 课的策略梯度来训练。</div>
+  </div>
+  <div class="r">
+    <div class="nm">Critic 评论家</div>
+    <div class="en">VALUE &nbsp;\(V(s)\)</div>
+    <div class="dsc">负责<strong>打分</strong>:这个状态大概值多少。<br>用本课的 MC 或 TD 来训练。</div>
+  </div>
+</div>
+
+<p>两者的配合是这样一个循环:</p>
+
+<table>
+  <tr><th style="width:14%">步骤</th><th>发生了什么</th></tr>
+  <tr><td><strong>1</strong></td><td>Actor 按当前策略跑一趟,得到轨迹和回报 R</td></tr>
+  <tr><td><strong>2</strong></td><td>Critic 给出基线 <span>\(V(s)\)</span></td></tr>
+  <tr><td><strong>3</strong></td><td>算出优势 <span>\(A = R - V(s)\)</span>,即"比 Critic 预期的好多少"</td></tr>
+  <tr><td><strong>4</strong></td><td>Actor 按 A 的正负调整策略</td></tr>
+  <tr><td><strong>5</strong></td><td>Critic 也用这趟的真实数据修正自己的估计</td></tr>
+  <tr><td colspan="2" style="text-align:center;color:var(--soft)">↻ 回到第 1 步</td></tr>
+</table>
+
+<div class="key">
+<p style="margin:0"><b>PPO 就是一个 Actor-Critic 算法。</b>你现在已经拿到了它的全部零件:策略梯度(第 2 课)、基线与优势(第 3 课)、Critic 怎么训(本课)。<em>下一课只剩最后一块:怎么让这个更新过程不崩。</em></p>
+</div>
+
+<h2><span class="n">六</span>检查(3 题)</h2>
+<p class="lead">第 1、2 题<strong>必须写出计算过程</strong>——这次我要看到数字。</p>
+
+<ol class="q">
+  <li><strong>把上面第二节那 5 个回报的平均值算出来</strong>(+7、−11、+7、+5、+7),这就是 <span>\(V(\text{A1})\)</span> 的 MC 估计。<br>
+  然后:如果第 6 趟跑出 <span>\(R = +7\)</span>,<strong>这一趟的优势 <span>\(A\)</span> 是多少?</strong>(用你刚算出的 V 当基线)</li>
+
+  <li>用 TD 的方式估 <span>\(V(\text{A2})\)</span>。已知:从 A2 往上走一步到 A3,奖励 <span>\(r = -1\)</span>,而表里当前存着 <span>\(V(\text{A3}) = 6.0\)</span>。<br>
+  <strong>这次的 TD 目标值是多少?</strong>如果表里 <span>\(V(\text{A2})\)</span> 原本是 4.5,它应该往上调还是往下调?</li>
+
+  <li><strong>推理题。</strong>本课说 <span>\(V\)</span> 是"相对当前策略"的,策略一变,<span>\(V\)</span> 就得跟着变。<br>
+  但训练时,Actor 和 Critic 是<strong>同时</strong>在变的:Actor 在改策略,Critic 在追这个不断移动的靶子。<br>
+  <strong>你觉得这会带来什么麻烦?</strong></li>
+</ol>
+
+<footer>
+<strong>下一课:PPO。</strong>它要解决的是最后一个问题——如果一次更新迈得太大,策略会直接崩掉。<br>
+第 3 题就是那节课的背景之一。
+</footer>
+
+</div>
+<script>
+function render(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body,{
+      delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],
+      throwOnError:false});
+  }
+}
+document.addEventListener("DOMContentLoaded",render);
+window.addEventListener("load",render);
+</script>
+</body>
+</html>

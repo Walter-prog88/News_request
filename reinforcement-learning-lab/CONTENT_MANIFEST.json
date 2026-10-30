@@ -1,0 +1,61 @@
+{
+  "export_date": "2026-10-30",
+  "pages": [
+    {
+      "file": "lessons/00-neural-network.html",
+      "title": "神经网络怎样被训练",
+      "sha256": "b561f38628689392a0ccfdf6708e2441b9b1b2a206e2a099f72e6b365a606c3f"
+    },
+    {
+      "file": "lessons/01-gridworld.html",
+      "title": "格子世界与策略",
+      "sha256": "8df2fb60790e1d514596978b3651b6eaf311234e22ee84b0119783fde1e8e54e"
+    },
+    {
+      "file": "lessons/02-policy-gradient.html",
+      "title": "策略梯度",
+      "sha256": "dfb89c9107f0288c43d3b82e0ce39c1696706bd454f7c08a146f5e0c0319a582"
+    },
+    {
+      "file": "lessons/03-baseline-advantage.html",
+      "title": "基线与优势",
+      "sha256": "fc631bd3765a98396a9b6b28a84cfa196f50acf1077668b27f99af70a9af9274"
+    },
+    {
+      "file": "lessons/04-critic.html",
+      "title": "状态价值与 Critic",
+      "sha256": "9bd119304d0032d3ca5c536ab87cf42f4e38a14fee3116aca03fc0f66daf92cd"
+    },
+    {
+      "file": "lessons/05-stale-data.html",
+      "title": "旧策略数据为什么会过期",
+      "sha256": "dde69fbc4eee08180cda550d569a8cda594eee99596431dde7ae088c28c85d04"
+    },
+    {
+      "file": "lessons/06-importance-sampling.html",
+      "title": "重要性采样",
+      "sha256": "a1d490e2603f4e42c67b74711f050bd0802c3a55917e0d455b6ed2c2f6fbb9ba"
+    },
+    {
+      "file": "lessons/06b-ratio-variance.html",
+      "title": "概率比与方差",
+      "sha256": "87f2b644a8a809f67226260043d3f542f0dd8fe561f7f856093814932395c494"
+    },
+    {
+      "file": "lessons/07-ppo-clip.html",
+      "title": "TRPO 与 PPO 的 clip",
+      "sha256": "f9929ec401575b33108a8713c099335e880441506b17b5895f385649dc012ce9"
+    },
+    {
+      "file": "lessons/08-grpo.html",
+      "title": "GRPO 的组内比较",
+      "sha256": "79c61c2b48bb5dac2809398200666c7293a2ab27c080c623877cb089b5aad69e"
+    },
+    {
+      "file": "lessons/09-td-monte-carlo.html",
+      "title": "TD 与蒙特卡洛逐步计算",
+      "sha256": "a3176ab8b58d001f179c39893c3ce97aa382482d316fb96625dcb4886381626b"
+    }
+  ],
+  "editing_scope": "Added common navigation; removed personal learning progress and conversation references; clarified PPO clipping, importance-sampling assumptions, MC estimation conditions and GRPO toy-model limits."
+}

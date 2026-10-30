@@ -1,0 +1,10 @@
+{
+  "project_id": "your-research-lake",
+  "external_mount": "/path/to/your/external/mount",
+  "external_data_root": "/path/to/your/external/mount/lake",
+  "external_volume_uuid": "REPLACE_WITH_YOUR_VOLUME_UUID",
+  "identity_file": "_lake_identity.json",
+  "external_minimum_free_gib": 10,
+  "external_phase1_budget_gib": 5,
+  "external_allocation_bytes_observed": 4096
+}

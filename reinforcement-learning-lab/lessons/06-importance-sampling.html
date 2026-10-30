@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 6 课:重要性采样 · 可交互</title>
+<style>
+  :root{
+    --paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;
+    --blue:#2a78d6;--blue-bg:#e8f1fd;
+    --good:#0ca30c;--good-bg:#e9f7e9;
+    --crit:#d03b3b;--crit-bg:#fbebeb;
+    --gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;
+    --vio:#4a3aa7;--vio-bg:#eeecf9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.9;}
+  .wrap{max-width:790px;margin:0 auto;padding:52px 24px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:14px;}
+  h1{font-size:26px;margin:0 0 9px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:21px;margin:54px 0 12px;padding-top:28px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:17px;margin:28px 0 10px;font-weight:600;}
+  p{margin:0 0 15px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 24px;line-height:1.8;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .contract{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ac);
+    border-radius:0 6px 6px 0;padding:17px 21px;margin:0 0 30px;font-size:15.5px;line-height:1.8;}
+  .contract b{color:var(--ac);}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:16px 20px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin:0;}
+
+  .panel{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:22px 24px;margin:22px 0;}
+  .panel h4{margin:0 0 4px;font-size:16px;font-weight:600;}
+  .panel .hint{color:var(--soft);font-size:14.5px;margin:0 0 16px;line-height:1.7;}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:10px 12px;text-align:left;line-height:1.65;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+
+  /* policy bars */
+  .prow{display:grid;grid-template-columns:34px 1fr 62px 1fr 62px;align-items:center;gap:9px;margin-bottom:7px;font-size:14.5px;}
+  .prow .nm{font-weight:600;text-align:right;}
+  .trk{height:17px;background:#f1efeb;border-radius:3px;overflow:hidden;}
+  .fl{height:100%;border-radius:0 3px 3px 0;transition:width .3s;}
+  .fl.old{background:#9aa3ad;}
+  .fl.new{background:var(--blue);}
+  .pv{font-variant-numeric:tabular-nums;color:var(--soft);text-align:right;}
+  .phead{display:grid;grid-template-columns:34px 1fr 62px 1fr 62px;gap:9px;font-size:12.5px;
+    color:var(--soft);margin-bottom:6px;letter-spacing:.04em;}
+  .phead span:nth-child(2){grid-column:2/4;}
+  .phead span:nth-child(3){grid-column:4/6;}
+
+  .lgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 4px;}
+  .lgrid label{font-size:13px;color:var(--soft);display:flex;justify-content:space-between;margin-bottom:2px;}
+  .lgrid label b{color:var(--ink);font-variant-numeric:tabular-nums;}
+  input[type=range]{width:100%;accent-color:var(--blue);margin:0;}
+  @media(max-width:600px){.lgrid{grid-template-columns:repeat(2,1fr);}}
+
+  /* estimate cards */
+  .ests{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 0;}
+  .est{border:1.5px solid;border-radius:7px;padding:14px 15px;text-align:center;}
+  .est .lb{font-size:12.5px;font-weight:600;letter-spacing:.03em;margin-bottom:2px;}
+  .est .vv{font-size:25px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.25;}
+  .est .er{font-size:12.5px;color:var(--soft);margin-top:2px;}
+  .est.truth{border-color:var(--vio);background:var(--vio-bg);}
+  .est.truth .lb{color:var(--vio);}
+  .est.naive{border-color:var(--crit);background:var(--crit-bg);}
+  .est.naive .lb{color:var(--crit);}
+  .est.is{border-color:var(--good);background:var(--good-bg);}
+  .est.is .lb{color:var(--good);}
+  @media(max-width:600px){.ests{grid-template-columns:1fr;}}
+
+  .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 0;}
+  button{background:var(--ac);color:#fff;border:none;padding:9px 18px;font-size:14.5px;
+    font-family:inherit;border-radius:5px;cursor:pointer;font-weight:500;}
+  button:hover{opacity:.86;}
+  button.ghost{background:#fff;color:var(--ac);border:1px solid var(--ac);}
+  .cnt{font-size:14px;color:var(--soft);margin-left:4px;}
+
+  .runs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0;}
+  .run{flex:1;min-width:78px;border:1px solid var(--rule);border-radius:6px;padding:9px 6px;
+    text-align:center;font-variant-numeric:tabular-nums;background:var(--paper);}
+  .run .i{font-size:11.5px;color:var(--soft);}
+  .run .v{font-size:19px;font-weight:600;}
+
+  /* formula */
+  .fml{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:26px 20px;
+    margin:20px 0;text-align:center;font-size:20px;line-height:2.4;overflow-x:auto;}
+  .fml .mth{font-family:Georgia,serif;font-style:italic;}
+  .pc{padding:3px 6px;border-radius:4px;font-weight:600;font-style:normal;}
+  .pc.c1{background:var(--ac-bg);color:var(--ac);}
+  .pc.c2{background:var(--blue-bg);color:var(--blue);}
+  .pc.c3{background:var(--gold-bg);color:var(--gold);}
+  .pc.c4{background:var(--vio-bg);color:var(--vio);}
+  .sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:-1px;}
+  footer{margin-top:56px;padding-top:22px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.8;}
+  ol.q{padding-left:22px;} ol.q li{margin-bottom:22px;line-height:1.85;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 6 课:重要性采样</h1>
+  <p class="sub">通过动手验证理解概率比 · 末尾附概念的用处对照表</p>
+</header>
+
+<div class="contract">
+  <b>这一课干两件事</b><br>
+  一、<strong>让你亲手验证重要性采样真的成立</strong>(不是听我说成立)。<br>
+  二、<strong>把前面学的所有概念,一个个安放到 PPO 公式里</strong>——你会看到它们各自的用处。
+</div>
+
+<h2><span class="n">一</span>要解决的问题,一句话</h2>
+
+<p>手上有一批<strong>旧策略</strong>采来的数据。策略已经更新了。<em>能不能不重新采样,直接用这批旧数据来评估新策略?</em></p>
+
+<div class="note">
+<p style="margin-bottom:0">为什么非要这么做:LLM 采一批数据要几小时,做一次更新只要几秒。<strong>不复用就是巨大的浪费。</strong></p>
+</div>
+
+<h2><span class="n">二</span>动手验证:它到底行不行</h2>
+
+<p class="lead">下面这个世界只有一个状态、四个动作,每个动作的回报是<strong>固定已知</strong>的。因为已知,我们可以算出"新策略下的真实平均回报"当作标准答案,然后看两种估计法谁能对上。</p>
+
+<table>
+  <tr><th>动作</th><th>上</th><th>下</th><th>左</th><th>右</th></tr>
+  <tr><td><strong>回报 R</strong></td><td class="num">+10</td><td class="num">−5</td><td class="num">0</td><td class="num">+2</td></tr>
+</table>
+
+<div class="panel">
+  <h4>拖动新策略,然后采样,看三个数字</h4>
+  <p class="hint">数据<strong>永远只从旧策略里采</strong>(灰色那栏)。我们要用这些旧样本,去猜蓝色新策略的平均回报。</p>
+
+  <div class="phead"><span></span><span>旧策略 π_old(采样用这个)</span><span>新策略 π_new(想估计这个)</span></div>
+  <div id="pbars"></div>
+
+  <div class="lgrid" id="lg"></div>
+
+  <div class="ests">
+    <div class="est truth"><div class="lb">真值(标准答案)</div><div class="vv" id="vT">—</div><div class="er">直接算出来的</div></div>
+    <div class="est naive"><div class="lb">朴素平均 ✗</div><div class="vv" id="vN">—</div><div class="er" id="eN">直接把样本平均</div></div>
+    <div class="est is"><div class="lb">重要性采样 ✓</div><div class="vv" id="vI">—</div><div class="er" id="eI">加权后再平均</div></div>
+  </div>
+
+  <div class="ctl">
+    <button onclick="draw(1)">采 1 条</button>
+    <button onclick="draw(100)">采 100 条</button>
+    <button onclick="draw(2000)">采 2000 条</button>
+    <button class="ghost" onclick="reset1()">清空</button>
+    <span class="cnt" id="cnt">已采 0 条</span>
+  </div>
+  <div id="last" style="margin-top:12px;font-size:14.5px;color:var(--soft);min-height:26px"></div>
+</div>
+
+<div class="key">
+<p style="margin:0"><b>请采到 2000 条以上再看。</b>重复采样时通常会看到:<em>朴素平均趋向旧策略均值，重要性采样估计逐渐靠近新策略均值，但有限样本仍会波动。</em>下面解释其条件。</p>
+</div>
+
+<h2><span class="n">三</span>为什么加个权重就对了</h2>
+
+<p>旧策略采样时,各个动作出现的频率是 <span style="font-family:Georgia,serif;font-style:italic">π_old</span>。但我们想要的是它们按 <span style="font-family:Georgia,serif;font-style:italic">π_new</span> 的频率出现时的平均值。</p>
+
+<p><strong>所以每个样本要按"频率差多少倍"来重新称重:</strong></p>
+
+<div class="fml">
+  <span class="pc c2">ratio</span> <span style="color:var(--soft)">=</span>
+  <span class="mth">π<sub>new</sub></span>(a|s) <span style="color:var(--soft)">/</span> <span class="mth">π<sub>old</sub></span>(a|s)
+</div>
+
+<p>某个动作在新策略下该出现得<strong>更频繁</strong> → ratio &gt; 1 → 这类样本<strong>加重</strong>;<br>
+该出现得更少 → ratio &lt; 1 → <strong>减轻</strong>。</p>
+
+<p>用具体数字走一遍(以"上"为例,回报 +10):</p>
+
+<table>
+  <tr><th style="width:34%">项目</th><th>数值</th></tr>
+  <tr><td>旧策略里"上"的概率</td><td class="num" id="d1">—</td></tr>
+  <tr><td>新策略里"上"的概率</td><td class="num" id="d2">—</td></tr>
+  <tr><td><strong>ratio</strong></td><td class="num" id="d3">—</td></tr>
+  <tr><td>采到一次"上"时,朴素法记入</td><td class="num">+10</td></tr>
+  <tr><td><strong>重要性采样法记入</strong></td><td class="num" id="d4">—</td></tr>
+</table>
+
+<div class="note">
+<p style="margin-bottom:0">加权之后,这批旧样本<em>在统计上就"看起来像是"新策略采出来的了</em>。所以能继续用。</p>
+</div>
+
+<h2><span class="n">四</span>但它什么时候会坏</h2>
+
+<p class="lead">在这个有限动作例子里，旧策略对新策略可能选到的每个动作都有正概率，且回报有界；因此使用精确概率比的样本均值是<strong>无偏</strong>的，并在独立重复采样下满足大数定律。有限样本不保证接近真值，也没有统一的“够多”次数。一般任务还需检查支持集、可积性与相关采样等条件。</p>
+
+<div class="panel">
+  <h4>同样跑 5 组、每组 200 条,看结果稳不稳</h4>
+  <p class="hint">两种情形用的是同一套方法,唯一区别是新旧策略的差距。</p>
+
+  <h3 style="margin-top:6px;font-size:15.5px">情形 A:新旧策略比较接近</h3>
+  <div class="runs" id="runsA"></div>
+  <h3 style="font-size:15.5px">情形 B:新旧策略差距极大</h3>
+  <div class="runs" id="runsB"></div>
+
+  <div class="ctl">
+    <button onclick="runVar()">跑一次(两种情形各 5 组)</button>
+    <button class="ghost" onclick="runVar();runVar();runVar()">连跑 3 次</button>
+  </div>
+  <div id="varnote" style="margin-top:12px;font-size:14.5px;color:var(--soft)"></div>
+</div>
+
+<div class="key">
+<p><b>看清楚 B 组那几个数字彼此差多远。</b>它们用的是同一个方法、同一个真值,只是运气不同。</p>
+<p style="margin-top:9px">原因:B 里某个动作在旧策略下概率极低(比如 0.01),在新策略下很高(0.9),<em>ratio 高达 90</em>。一旦偶然采到它,<strong>这一个样本就会把整个估计拽走</strong>。</p>
+<p style="margin-top:9px">无偏 ≠ 可用。<strong>方差大到这个程度,估计值就是废的。</strong></p>
+</div>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>这就是 PPO 要解决的问题,一句话:</strong>重要性采样让我们能复用旧数据,但前提是<em>新旧策略不能差太远</em>。<strong>那就想办法强制它们不差太远。</strong>——这正是下一课 TRPO / PPO 的全部动机。</p>
+</div>
+
+<!-- ========== 复习 ========== -->
+<h2><span class="n">五</span>复习:学过的东西,分别站在哪</h2>
+
+<p class="lead">这是 PPO 的完整目标函数。<strong>里面几乎每一个符号,都是你前面某一课学过的东西。</strong>颜色对应下表。</p>
+
+<div class="fml">
+  <span class="mth">L</span> <span style="color:var(--soft)">=</span>
+  <span class="pc c1">E</span>
+  <span style="color:var(--soft)">[ min(</span>
+  <span class="pc c2">ratio</span> <span style="color:var(--soft)">·</span> <span class="pc c3">A</span><span style="color:var(--soft)">,</span>
+  <span class="pc c4">clip</span><span style="color:var(--soft)">(</span><span class="pc c2">ratio</span><span style="color:var(--soft)">, 1±ε) ·</span> <span class="pc c3">A</span>
+  <span style="color:var(--soft)">) ]</span>
+</div>
+
+<table>
+  <tr><th style="width:20%">部件</th><th style="width:22%">哪一课学的</th><th>它在这里干什么</th></tr>
+  <tr>
+    <td><span class="sw" style="background:var(--ac)"></span><strong>E[·]</strong> 期望</td>
+    <td>第 1 课(J 的定义)<br>第 2 课(采样估计)</td>
+    <td>因为策略是随机的,单趟没意义,必须取平均。<em>实践中就是"跑 N 趟求平均"</em></td>
+  </tr>
+  <tr>
+    <td><span class="sw" style="background:var(--blue)"></span><strong>ratio</strong></td>
+    <td><strong>本课</strong></td>
+    <td>让旧数据能复用。<strong>它就是 on-policy / off-policy 这对概念的落脚点</strong>——没有它,PPO 只能纯 on-policy,数据用一次就扔</td>
+  </tr>
+  <tr>
+    <td><span class="sw" style="background:var(--gold)"></span><strong>A</strong> 优势</td>
+    <td>第 3 课</td>
+    <td>决定这个动作该被鼓励还是抑制、力度多大。<em>你在神经网络那一页拖的就是它</em></td>
+  </tr>
+  <tr>
+    <td><span class="sw" style="background:var(--vio)"></span><strong>clip</strong></td>
+    <td>下一课</td>
+    <td>强制 ratio 不许跑太远,防止第四节那种崩溃</td>
+  </tr>
+</table>
+
+<h3>那 MC、TD、自举、γ 呢?——它们藏在 A 里面</h3>
+
+<p>上表里的 <strong>A</strong> 看起来只是一个字母,但它是一整条流水线的产物。<em>你前面学的其余概念,全部在这里面。</em></p>
+
+<table>
+  <tr><th style="width:20%">概念</th><th style="width:22%">哪一课</th><th>在 A 的计算里干什么</th></tr>
+  <tr>
+    <td><strong>A = R − V(s)</strong></td><td>第 3 课</td>
+    <td>优势的定义。<strong>减掉基线</strong>,把"绝对回报"变成"比预期好多少"</td>
+  </tr>
+  <tr>
+    <td><strong>V(s)</strong> / Critic</td><td>第 4 课</td>
+    <td>那个基线。它<strong>不是给定的,要用一个网络学出来</strong></td>
+  </tr>
+  <tr>
+    <td><strong>MC</strong></td><td>第 4 课</td>
+    <td>学 V 的方式之一:跑完整趟取平均。<em>无偏但方差大,还得等回合结束</em></td>
+  </tr>
+  <tr>
+    <td><strong>TD / 自举</strong></td><td>第 4 课</td>
+    <td>学 V 的方式之二:走一步就更新。<strong>PPO 里的 A 实际用 GAE 算,而 GAE 就是一串 TD 误差 δ 的加权和</strong></td>
+  </tr>
+  <tr>
+    <td><strong>γ 折扣因子</strong></td><td>第 4 课后补充</td>
+    <td>就在 TD 误差里:<span style="font-family:Georgia,serif;font-style:italic">δ = r + γV(s′) − V(s)</span>。<em>它让没有终点的任务也能算</em></td>
+  </tr>
+  <tr>
+    <td><strong>MSE</strong></td><td>神经网络那一页</td>
+    <td>Critic 的损失函数。<strong>Actor 用凑出来的 −logπ×A,Critic 用标准 MSE</strong></td>
+  </tr>
+</table>
+
+<div class="key">
+<p style="margin:0"><b>所以你前面五课没有一节是白学的。</b>它们不是并列的知识点,而是<em>层层嵌套在同一个公式里</em>:<br>
+γ 和 TD 误差 → 组装成 GAE → 得到 A → 乘上 ratio → 套进 E[·] → 加上 clip → <strong>就是 PPO</strong>。</p>
+</div>
+
+<h2><span class="n">六</span>检查(3 题)</h2>
+
+<ol class="q">
+  <li>在第二节的演示里,<strong>红色的"朴素平均"最后停在了哪个数附近?</strong>请把它和"旧策略下的平均回报"比一比(旧策略是 上0.40 / 下0.20 / 左0.15 / 右0.25,回报是 +10 / −5 / 0 / +2)。<strong>请把这个数算出来。</strong></li>
+
+  <li>用你自己的话说:<strong>为什么 B 组那 5 个数字差那么远?</strong>请具体提到 ratio。</li>
+
+  <li>看第五节最后那张表。<strong>如果我们把 Critic 整个去掉(不学 V 了),PPO 公式里哪一部分会出问题?为什么?</strong><br>
+  <span style="color:var(--soft);font-size:15px">(这题是下下课的入口——GRPO 干的正是这件事)</span></li>
+</ol>
+
+<footer>
+<strong>下一课:TRPO → PPO → GRPO 三代同源。</strong>只讲一个问题:怎么强制新旧策略不许差太远。<br>
+你在第四节亲手看到的那个崩溃,就是它们要修的东西。
+</footer>
+
+</div>
+
+<script>
+const R = [10, -5, 0, 2];
+const NM = ["上","下","左","右"];
+const P_OLD = [0.40, 0.20, 0.15, 0.25];
+let zNew = [1.4, -1.2, -1.0, 0.2];
+
+function softmax(z){const m=Math.max(...z);const e=z.map(v=>Math.exp(v-m));const s=e.reduce((a,b)=>a+b,0);return e.map(v=>v/s);}
+function dot(p){return p.reduce((s,v,i)=>s+v*R[i],0);}
+function pick(p){const r=Math.random();let c=0;for(let i=0;i<4;i++){c+=p[i];if(r<=c)return i;}return 3;}
+
+/* ---- panel 1 ---- */
+let n=0,sN=0,sI=0;
+function pNew(){return softmax(zNew);}
+
+function drawBars(){
+  const pn=pNew();
+  document.getElementById("pbars").innerHTML = NM.map((nm,i)=>
+    `<div class="prow"><div class="nm">${nm}</div>
+      <div class="trk"><div class="fl old" style="width:${(P_OLD[i]*100).toFixed(1)}%"></div></div>
+      <div class="pv">${P_OLD[i].toFixed(2)}</div>
+      <div class="trk"><div class="fl new" style="width:${(pn[i]*100).toFixed(1)}%"></div></div>
+      <div class="pv">${pn[i].toFixed(2)}</div></div>`).join("");
+}
+function drawSliders(){
+  document.getElementById("lg").innerHTML = zNew.map((v,i)=>
+    `<div><label><span>${NM[i]}</span><b id="lz${i}">${v.toFixed(1)}</b></label>
+     <input type="range" min="-3" max="3" step="0.1" value="${v}" oninput="onZ(${i},this.value)"></div>`).join("");
+}
+function onZ(i,v){ zNew[i]=parseFloat(v); document.getElementById("lz"+i).textContent=zNew[i].toFixed(1); reset1(); }
+
+function draw(k){
+  const pn=pNew();
+  let lastMsg="";
+  for(let t=0;t<k;t++){
+    const a=pick(P_OLD);
+    n++; sN+=R[a]; sI+=(pn[a]/P_OLD[a])*R[a];
+    if(t===k-1){
+      const rt=pn[a]/P_OLD[a];
+      lastMsg=`最后一条样本:动作「${NM[a]}」,回报 ${R[a]>=0?"+":"−"}${Math.abs(R[a])} &nbsp;·&nbsp; ratio = ${pn[a].toFixed(2)}/${P_OLD[a].toFixed(2)} = <b style="color:var(--blue)">${rt.toFixed(2)}</b> &nbsp;→&nbsp; 加权后记入 <b>${(rt*R[a]).toFixed(2)}</b>`;
+    }
+  }
+  document.getElementById("last").innerHTML=lastMsg;
+  upd();
+}
+function upd(){
+  const pn=pNew(), T=dot(pn);
+  document.getElementById("vT").textContent=T.toFixed(2);
+  if(n===0){
+    document.getElementById("vN").textContent="—";
+    document.getElementById("vI").textContent="—";
+    document.getElementById("eN").textContent="直接把样本平均";
+    document.getElementById("eI").textContent="加权后再平均";
+  }else{
+    const N=sN/n, I=sI/n;
+    document.getElementById("vN").textContent=N.toFixed(2);
+    document.getElementById("vI").textContent=I.toFixed(2);
+    document.getElementById("eN").textContent="偏差 "+(N-T>=0?"+":"−")+Math.abs(N-T).toFixed(2);
+    document.getElementById("eI").textContent="偏差 "+(I-T>=0?"+":"−")+Math.abs(I-T).toFixed(2);
+  }
+  document.getElementById("cnt").textContent="已采 "+n+" 条";
+  // 第三节数字
+  document.getElementById("d1").textContent=P_OLD[0].toFixed(2);
+  document.getElementById("d2").textContent=pn[0].toFixed(2);
+  document.getElementById("d3").textContent=(pn[0]/P_OLD[0]).toFixed(2);
+  document.getElementById("d4").textContent="+"+((pn[0]/P_OLD[0])*10).toFixed(2);
+  drawBars();
+}
+function reset1(){ n=0;sN=0;sI=0; document.getElementById("last").innerHTML=""; upd(); }
+
+/* ---- panel 2 ---- */
+function estimate(pOld,pNew_,k){
+  let s=0;
+  for(let t=0;t<k;t++){ const a=pick(pOld); s+=(pNew_[a]/pOld[a])*R[a]; }
+  return s/k;
+}
+function runVar(){
+  const oldA=[0.40,0.20,0.15,0.25], newA=[0.55,0.13,0.10,0.22];
+  const oldB=[0.01,0.33,0.33,0.33], newB=[0.90,0.04,0.03,0.03];
+  const TA=dot(newA), TB=dot(newB);
+  const A=[],B=[];
+  for(let i=0;i<5;i++){ A.push(estimate(oldA,newA,200)); B.push(estimate(oldB,newB,200)); }
+  const cell=(v,i)=>`<div class="run"><div class="i">第 ${i+1} 组</div><div class="v">${v.toFixed(2)}</div></div>`;
+  document.getElementById("runsA").innerHTML=A.map(cell).join("");
+  document.getElementById("runsB").innerHTML=B.map(cell).join("");
+  const spread=(x)=>Math.max(...x)-Math.min(...x);
+  document.getElementById("varnote").innerHTML =
+    `A 的真值 <b>${TA.toFixed(2)}</b>,5 组之间最大差距 <b style="color:var(--good)">${spread(A).toFixed(2)}</b><br>
+     B 的真值 <b>${TB.toFixed(2)}</b>,5 组之间最大差距 <b style="color:var(--crit)">${spread(B).toFixed(2)}</b>
+     &nbsp;·&nbsp; B 里"上"的 ratio = 0.90/0.01 = <b style="color:var(--crit)">90</b>`;
+}
+
+drawSliders(); upd(); runVar();
+</script>
+</body>
+</html>

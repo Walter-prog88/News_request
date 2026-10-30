@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>强化学习 · 第 5 课:数据为什么会过期</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{--paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;--gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;--grn:#1e6b3a;--grn-bg:#e6f4ea;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.95;}
+  .wrap{max-width:730px;margin:0 auto;padding:54px 26px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:12px;}
+  h1{font-size:27px;margin:0 0 10px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:21px;margin:56px 0 14px;padding-top:28px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:17.5px;margin:32px 0 10px;font-weight:600;}
+  p{margin:0 0 16px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 26px;line-height:1.85;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .contract{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ac);
+    border-radius:0 6px 6px 0;padding:18px 22px;margin:0 0 34px;font-size:15.5px;line-height:1.8;}
+  .contract b{color:var(--ac);}
+
+  .formula{text-align:center;padding:22px 10px;margin:20px 0;background:#fff;
+    border:1px solid var(--rule);border-radius:6px;font-size:19px;overflow-x:auto;}
+  .formula.plain{background:var(--paper);border:none;}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15.5px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:11px 13px;text-align:left;line-height:1.7;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+  td.up{color:var(--grn);font-weight:600;}
+  td.dn{color:var(--rose);font-weight:600;}
+  tr.bad td{background:var(--rose-bg);}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:17px 21px;margin:26px 0;
+    border-radius:0 5px 5px 0;font-size:16.5px;line-height:1.9;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin-bottom:0;}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+  .two .box{background:#fff;border:1px solid var(--rule);border-radius:7px;padding:20px 22px;}
+  .two .box.a{border-top:3px solid var(--ac);}
+  .two .box.b{border-top:3px solid var(--gold);}
+  .two .box h4{margin:0 0 4px;font-size:16.5px;font-weight:600;}
+  .two .box .en{font-size:12.5px;color:var(--soft);letter-spacing:.08em;margin-bottom:12px;}
+  .two .box p{font-size:15px;line-height:1.8;margin:0 0 10px;}
+  .two .box p:last-child{margin:0;}
+  @media(max-width:620px){.two{grid-template-columns:1fr;}}
+
+  ol.q{padding-left:22px;}
+  ol.q li{margin-bottom:26px;line-height:1.9;}
+  ul.b{padding-left:20px;margin:0 0 16px;}
+  ul.b li{margin-bottom:9px;}
+  .katex{font-size:1.04em;}
+  .big{font-size:15px;color:var(--soft);text-align:center;margin:-8px 0 22px;}
+  footer{margin-top:60px;padding-top:24px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.85;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 5 课:数据为什么会过期</h1>
+  <p class="sub">重要性采样 · on-policy 与 off-policy</p>
+</header>
+
+<div class="contract">
+  <b>这一课的范围(严格限定)</b><br>
+  只讲一件事:<strong>策略一更新,手上的数据就作废了。怎么办?</strong><br>
+  <span style="color:var(--soft)">顺带回答你早先问过的 on-policy / off-policy。不讲:PPO 的裁剪机制,那是下一课。</span>
+</div>
+
+<h2><span class="n">一</span>一个被藏在下标里的麻烦</h2>
+
+<p>回到第 2 课那个梯度公式,请特别看 <span>\(\mathbb{E}\)</span> 的下标:</p>
+
+<div class="formula">\[ \nabla_\theta J \;=\; \mathbb{E}_{\tau \sim \pi_\theta}\Big[\; \sum_t \nabla_\theta \log \pi_\theta(a_t \mid s_t)\cdot A \;\Big] \]</div>
+
+<p><span>\(\tau \sim \pi_\theta\)</span> —— 这四个字符是说:<em>轨迹必须由<strong>当前这个</strong> <span>\(\pi_\theta\)</span> 采出来。</em></p>
+
+<p>现在看训练的实际流程会发生什么:</p>
+
+<table>
+  <tr><th style="width:14%">步骤</th><th>动作</th><th style="width:30%">数据还能用吗</th></tr>
+  <tr><td><strong>1</strong></td><td>用策略 <span>\(\pi_{\theta_0}\)</span> 跑 100 趟,收集数据</td><td class="up">能用</td></tr>
+  <tr><td><strong>2</strong></td><td>用这批数据更新一次参数 → <span>\(\theta_1\)</span></td><td class="up">刚用完</td></tr>
+  <tr class="bad"><td><strong>3</strong></td><td>想再用这批数据更新第二次</td><td class="dn">不行了 ✗</td></tr>
+</table>
+
+<p>为什么不行?因为数据是 <span>\(\pi_{\theta_0}\)</span> 采的,而现在的策略已经是 <span>\(\pi_{\theta_1}\)</span> 了。<strong>公式要求的分布和手上数据的分布,对不上了。</strong></p>
+
+<div class="key">
+<p style="margin:0"><b>所以严格按公式办,每收集一批数据,只能更新一次参数,然后全部扔掉重采。</b></p>
+</div>
+
+<h2><span class="n">二</span>这个代价有多大</h2>
+
+<p>在格子世界里跑 100 趟也就是一眨眼的事。但换成 LLM:</p>
+
+<table>
+  <tr><th>环节</th><th>成本</th></tr>
+  <tr><td>让模型生成一批回答(几千条,每条几千 token)</td><td><strong>几十分钟到几小时</strong>,占用全部 GPU</td></tr>
+  <tr><td>用这批数据做一次梯度更新</td><td><strong>几秒</strong></td></tr>
+</table>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>花几小时采来的数据,只够用几秒钟,然后就得扔掉。</strong><em>这是 RL 训练 LLM 最昂贵的一件事。</em>如果能让每批数据多更新几次,整体效率就是成倍的提升。</p>
+</div>
+
+<h2><span class="n">三</span>出路:给旧数据打个补丁</h2>
+
+<p>思路很朴素:<strong>旧数据不是不能用,只是"配比"不对——按新策略,某些动作本该出现得更多,某些本该更少。</strong>那就给每个样本<em>重新称一下重量</em>。</p>
+
+<h3>用格子世界的具体数字看</h3>
+
+<p>假设在 A1 这一格,新旧两个策略是这样的:</p>
+
+<table>
+  <tr><th>在 A1 选</th><th style="text-align:right">旧策略 <span>\(\pi_{\text{old}}\)</span></th><th style="text-align:right">新策略 <span>\(\pi_{\text{new}}\)</span></th><th style="text-align:right;width:20%">比值 ratio</th></tr>
+  <tr><td>上</td><td class="num">0.70</td><td class="num">0.90</td><td class="num up">1.29</td></tr>
+  <tr><td>右</td><td class="num">0.20</td><td class="num">0.10</td><td class="num dn">0.50</td></tr>
+</table>
+
+<p>怎么读这两行:</p>
+
+<ul class="b">
+  <li><strong>"上"的 ratio = 1.29</strong> —— 新策略比旧策略更爱走"上"。所以旧数据里"走上"的样本<em>偏少了</em>,给它们<strong>加重 1.29 倍</strong>。</li>
+  <li><strong>"右"的 ratio = 0.50</strong> —— 新策略不太爱走"右"了。旧数据里这类样本<em>偏多了</em>,<strong>减半</strong>。</li>
+</ul>
+
+<div class="note">
+<p style="margin-bottom:0">加权之后,这批旧数据在统计意义上就"看起来像是"新策略采出来的了。<strong>于是它可以继续用。</strong></p>
+</div>
+
+<h3>写成公式</h3>
+
+<p>这个技巧叫<strong>重要性采样(importance sampling)</strong>,一般形式是:</p>
+
+<div class="formula">\[ \mathbb{E}_{x \sim p}\big[f(x)\big] \;=\; \mathbb{E}_{x \sim q}\left[\frac{p(x)}{q(x)}\, f(x)\right] \]</div>
+
+<p>读作:<em>"想要 p 下的平均值,但手上只有 q 采的样本?那就给每个样本乘上 <span>\(p/q\)</span>,照样能算。"</em></p>
+
+<p>放进 RL 里,<span>\(p\)</span> 是新策略,<span>\(q\)</span> 是旧策略,于是那个比值就有了名字:</p>
+
+<div class="formula">\[ \text{ratio} \;=\; \frac{\pi_{\text{new}}(a \mid s)}{\pi_{\text{old}}(a \mid s)} \]</div>
+
+<div class="warn">
+<p style="margin-bottom:0">这个 ratio <strong>会在你读到的每一篇 PPO / GRPO 相关论文里出现</strong>,通常写成 <span>\(r_t(\theta)\)</span>。看到它就想:<em>"新旧策略在这个动作上的口味差异"</em>。ratio &gt; 1 表示新策略更喜欢它,&lt; 1 表示更不喜欢。</p>
+</div>
+
+<h2><span class="n">四</span>on-policy 与 off-policy</h2>
+<p class="lead">你早先问过这两个词。到这里,它们的定义已经是现成的了。</p>
+
+<div class="two">
+  <div class="box a">
+    <h4>On-policy 同策略</h4>
+    <div class="en">"用自己走出来的数据学"</div>
+    <p>学习所用的数据,<strong>必须由当前策略自己产生</strong>。</p>
+    <p>优点:分布天然匹配,稳定。<br>缺点:<strong>数据用一次就废</strong>,极其费采样。</p>
+    <p style="color:var(--soft);font-size:14px">例:REINFORCE、A2C</p>
+  </div>
+  <div class="box b">
+    <h4>Off-policy 异策略</h4>
+    <div class="en">"用别人走出来的数据学"</div>
+    <p>可以用<strong>别的策略产生的数据</strong>来学——旧策略的、人类演示的、别的模型的都行。</p>
+    <p>优点:数据可反复利用。<br>缺点:分布不匹配,<strong>容易不稳定</strong>。</p>
+    <p style="color:var(--soft);font-size:14px">例:Q-learning、DQN</p>
+  </div>
+</div>
+
+<div class="key">
+<p><b>那 PPO 属于哪一类?</b></p>
+<p style="margin:10px 0 0">严格说 PPO 是 <strong>on-policy</strong> 的,但它靠重要性采样<em>偷了一点 off-policy 的便宜</em>——同一批数据允许更新好几次(通常 3～10 次),只要新旧策略还没差太远。</p>
+<p style="margin:10px 0 0">有人把这种做法叫 <strong>near on-policy</strong>。<em>它是这两种范式之间的一个务实折中,而这正是 PPO 最重要的工程价值。</em></p>
+</div>
+
+<h2><span class="n">五</span>但这里埋着一颗雷</h2>
+
+<p>重要性采样看起来完美:加个权重,旧数据就复活了。可它有个前提——<strong>新旧策略不能差太远。</strong></p>
+
+<p>看看差得远会怎样:</p>
+
+<table>
+  <tr><th>在某状态选某动作</th><th style="text-align:right"><span>\(\pi_{\text{old}}\)</span></th><th style="text-align:right"><span>\(\pi_{\text{new}}\)</span></th><th style="text-align:right;width:20%">ratio</th></tr>
+  <tr><td>差距不大</td><td class="num">0.20</td><td class="num">0.10</td><td class="num">0.50</td></tr>
+  <tr class="bad"><td><strong>差距很大</strong></td><td class="num">0.01</td><td class="num">0.90</td><td class="num dn"><strong>90</strong></td></tr>
+</table>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>ratio = 90 意味着:这<em>一个</em>样本会被放大 90 倍,单枪匹马主导整个梯度估计。</strong>而它本来只是旧策略偶然采到的一个罕见样本——很可能纯属噪声。<em>训练会在这种时刻直接崩掉。</em></p>
+</div>
+
+<h2><span class="n">六</span>检查(3 题)</h2>
+<p class="lead">第 1 题请写出计算过程。</p>
+
+<ol class="q">
+  <li>在某个状态下,旧策略选动作"左"的概率是 <strong>0.25</strong>,新策略是 <strong>0.40</strong>。<br>
+  <strong>(a)</strong> ratio 是多少?<br>
+  <strong>(b)</strong> 这说明新策略比旧策略更喜欢还是更不喜欢"左"?<br>
+  <strong>(c)</strong> 旧数据里"走左"的那些样本,权重应该被放大还是缩小?</li>
+
+  <li>用你自己的话回答:<strong>为什么 on-policy 方法这么费采样?</strong>请具体说到"分布"这个词。</li>
+
+  <li><strong>推理题。</strong>上面第五节说,ratio 失控会让训练崩掉。<br>
+  假设现在让你来修这个问题,<strong>你会怎么做?</strong>请先写两三个候选方案，再检查它们改变了什么。<br>
+  <span style="color:var(--soft);font-size:15px">(提示:你手上能动的东西只有那个 ratio,和"允许新旧策略差多远"这件事。)</span></li>
+</ol>
+
+<footer>
+<strong>第 3 题就是 PPO 本身。</strong>历史上这个问题先后有过两个著名答案,PPO 是其中更简单粗暴的那个,也是赢了的那个。<br>
+你能想到什么方案都行,下一课我们对照着看。
+</footer>
+
+</div>
+<script>
+function render(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body,{
+      delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],
+      throwOnError:false});
+  }
+}
+document.addEventListener("DOMContentLoaded",render);
+window.addEventListener("load",render);
+</script>
+</body>
+</html>

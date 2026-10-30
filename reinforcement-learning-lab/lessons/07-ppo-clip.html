@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 7 课 · 不许一步跑太远:TRPO 与 PPO 的 clip</title>
+<style>
+  :root{
+    --paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;
+    --blue:#2a78d6;--blue-bg:#e8f1fd;
+    --good:#0ca30c;--good-bg:#e9f7e9;
+    --crit:#d03b3b;--crit-bg:#fbebeb;
+    --gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;
+    --vio:#4a3aa7;--vio-bg:#eeecf9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.9;}
+  .wrap{max-width:820px;margin:0 auto;padding:52px 24px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:20px;}
+  h1{font-size:25px;margin:0 0 9px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:20px;margin:52px 0 12px;padding-top:26px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:16.5px;margin:26px 0 9px;font-weight:600;}
+  p{margin:0 0 15px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 22px;line-height:1.8;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:14px 18px;margin:20px 0;
+    border-radius:0 5px 5px 0;font-size:15.5px;line-height:1.8;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:16px 20px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin:0;}
+
+  .scope{background:#fff;border:1.5px solid var(--ink);border-radius:9px;padding:18px 22px;margin:22px 0;font-size:15.5px;}
+  .scope b.y{color:var(--ac);} .scope b.n2{color:var(--soft);}
+
+  .setup{background:#fff;border:1.5px solid var(--ac);border-radius:9px;padding:20px 22px;margin:20px 0;}
+  .setup h4{margin:0 0 12px;font-size:15px;color:var(--ac);font-weight:600;letter-spacing:.05em;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:9px 11px;text-align:center;line-height:1.6;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.l,th.l{text-align:left;}
+  td.num{font-variant-numeric:tabular-nums;}
+  tr.hot td{background:var(--crit-bg);font-weight:600;}
+  tr.hot td:first-child{color:var(--crit);}
+
+  .panel{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:22px 24px;margin:22px 0;}
+  .panel h4{margin:0 0 4px;font-size:16px;font-weight:600;}
+  .panel .hint{color:var(--soft);font-size:14.5px;margin:0 0 16px;line-height:1.7;}
+
+  .formula{text-align:center;padding:20px 12px;margin:16px 0;background:#fff;border:1px solid var(--rule);
+    border-radius:8px;font-size:19px;line-height:2.1;}
+  .mth{font-family:Georgia,"Times New Roman",serif;font-style:italic;}
+  .formula .op{color:var(--soft);margin:0 3px;font-style:normal;}
+  .pE{color:var(--ac);font-weight:600;}
+  .pR{color:var(--blue);font-weight:600;}
+  .pA{color:var(--gold);font-weight:700;}
+  .pNew{color:var(--crit);font-weight:700;}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;font-size:14px;color:var(--soft);margin:10px 0 0;}
+  .legend span b{font-weight:600;}
+
+  .eq{background:var(--paper);border-radius:6px;padding:14px 18px;margin:14px 0;text-align:center;
+    font-size:17px;font-variant-numeric:tabular-nums;}
+  .eq .hl{color:var(--crit);font-weight:700;}
+
+  .ctl{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;align-items:center;}
+  button{background:var(--ac);color:#fff;border:none;padding:9px 18px;font-size:14.5px;
+    font-family:inherit;border-radius:5px;cursor:pointer;font-weight:500;}
+  button:hover{opacity:.86;}
+  button.ghost{background:#fff;color:var(--ac);border:1px solid var(--ac);}
+  button.pick{background:#fff;color:var(--ink);border:1.5px solid var(--rule);}
+  button.pick.on{border-color:var(--ac);background:var(--ac-bg);color:var(--ac);font-weight:600;}
+
+  .sliderrow{display:flex;align-items:center;gap:12px;margin:14px 0 4px;font-size:15px;flex-wrap:wrap;}
+  .sliderrow b{font-variant-numeric:tabular-nums;}
+  input[type=range]{flex:1;min-width:160px;accent-color:var(--ac);}
+
+  .readout{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0 0;}
+  .ro{border:1.5px solid var(--rule);border-radius:7px;padding:10px 8px;text-align:center;background:var(--paper);}
+  .ro .t{font-size:13px;color:var(--soft);}
+  .ro .v{font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.4;}
+  .ro.win{border-color:var(--ac);background:var(--ac-bg);}
+  .ro.win .t{color:var(--ac);font-weight:600;}
+  @media(max-width:560px){.readout{grid-template-columns:1fr 1fr;}}
+
+  .statline{margin:12px 0 0;padding:11px 15px;border-radius:6px;font-size:15px;line-height:1.7;
+    background:var(--blue-bg);border-left:3px solid var(--blue);}
+  .statline.dead{background:var(--crit-bg);border-left-color:var(--crit);}
+
+  .runs{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:12px 0 0;}
+  .run{border:1.5px solid var(--rule);border-radius:7px;padding:10px 6px;text-align:center;background:var(--paper);}
+  .run .i{font-size:11.5px;color:var(--soft);}
+  .run .k{font-size:12.5px;font-weight:600;margin:3px 0 1px;}
+  .run .v{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.35;}
+  .run .v2{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.35;color:var(--ac);}
+  .run .lb{font-size:11px;color:var(--soft);}
+  .run.k0{border-color:#c9c7c0;} .run.k0 .k{color:var(--soft);}
+  .run.k1{border-color:#93c4f0;background:#f4f9fe;} .run.k1 .k{color:var(--blue);}
+  .run.k2{border-color:var(--good);background:var(--good-bg);} .run.k2 .k{color:var(--good);}
+  .run.k3{border-color:var(--crit);background:var(--crit-bg);} .run.k3 .k{color:var(--crit);}
+  @media(max-width:640px){.runs{grid-template-columns:repeat(2,1fr);}}
+
+  .truthbar{display:flex;align-items:center;gap:10px;margin:14px 0 0;font-size:15px;flex-wrap:wrap;
+    background:var(--vio-bg);border-left:3px solid var(--vio);padding:11px 16px;border-radius:0 5px 5px 0;}
+  .truthbar b{color:var(--vio);font-variant-numeric:tabular-nums;font-size:17px;}
+
+  svg text{font-family:"PingFang SC","Hiragino Sans GB",-apple-system,sans-serif;}
+
+  .walkbar{position:relative;height:30px;background:var(--paper);border:1px solid var(--rule);border-radius:6px;
+    overflow:hidden;margin:14px 0 6px;}
+  .walkfill{position:absolute;left:0;top:0;bottom:0;background:var(--ac);opacity:.75;width:1.11%;
+    transition:width .18s ease;}
+  .walknum{display:flex;justify-content:space-between;font-size:13.5px;color:var(--soft);}
+  .bigp{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;}
+
+  .vocab td{font-size:14.5px;text-align:left;}
+  footer{margin-top:52px;padding-top:22px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.8;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 7 课 · 不许一步跑太远:TRPO 与 PPO 的 clip</h1>
+  <p class="sub">上一课那 5 个乱跳的数字是病;这一课只讲药</p>
+</header>
+
+<div class="scope">
+  <p style="margin:0 0 8px"><b class="y">本课只讲一个问题:</b>怎样<strong>降低一次策略更新过大的风险</strong>。
+  TRPO 是第一代答案(一眼带过),PPO 的 clip 和 min 是重点(讲透)。</p>
+  <p style="margin:0"><b class="n2">明确不讲:</b>GRPO(下一课)、熵正则与探索(欠账记着,之后单独还)、RL 怎么搬到 LLM 上(下下课)。</p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">一</span>世界设定:还是上一课那个世界</h2>
+
+<p class="lead">一个状态、四个动作,回报固定。情形 B 的数字和上一课《ratio 与方差》完全相同,一个都没改;情形 A 的表等第五节用到时再摊开。</p>
+
+<div class="setup">
+  <h4>世界设定(与上一课相同)</h4>
+  <table>
+    <tr><th class="l">动作</th><th>上</th><th>下</th><th>左</th><th>右</th></tr>
+    <tr><td class="l"><strong>回报 R</strong></td><td class="num"><strong>+10</strong></td><td class="num">−5</td><td class="num">0</td><td class="num">+2</td></tr>
+    <tr><td class="l">旧策略 π<sub>old</sub> <span style="color:var(--soft)">(采样用)</span></td><td class="num">0.01</td><td class="num">0.33</td><td class="num">0.33</td><td class="num">0.33</td></tr>
+    <tr><td class="l">新策略 π<sub>new</sub> <span style="color:var(--soft)">(想跳过去)</span></td><td class="num">0.90</td><td class="num">0.04</td><td class="num">0.03</td><td class="num">0.03</td></tr>
+    <tr class="hot"><td class="l"><strong>ratio = π<sub>new</sub>/π<sub>old</sub></strong></td><td class="num"><strong>90</strong></td><td class="num">0.12</td><td class="num">0.09</td><td class="num">0.09</td></tr>
+  </table>
+  <p style="margin:12px 0 0;font-size:15px;color:var(--soft)">这一课还需要每个动作的<strong style="color:var(--ink)">优势 A</strong>(第 3 课:A = R − V)。
+  V 是旧策略的平均回报,先把它算出来:</p>
+  <div class="eq">V<sub>old</sub> = 0.01×10 + 0.33×(−5) + 0.33×0 + 0.33×2 = 0.10 − 1.65 + 0 + 0.66 = <strong>−0.89</strong></div>
+  <table>
+    <tr><th class="l">动作</th><th>上</th><th>下</th><th>左</th><th>右</th></tr>
+    <tr><td class="l"><strong>优势 A = R − V<sub>old</sub></strong></td>
+      <td class="num"><strong>+10.89</strong></td><td class="num">−4.11</td><td class="num">+0.89</td><td class="num">+2.89</td></tr>
+  </table>
+  <p style="margin:10px 0 0;font-size:14.5px;color:var(--soft)">为什么用<strong>旧</strong>策略的 V?样本全是旧策略采的,打分基准自然用它的;π<sub>new</sub> 此刻还没有一条自己的数据,想估也估不了。
+  另外,真实训练里没人告诉你这个 V —— 它是 Critic 网络用 MC/TD <em>估</em>出来的(第 4 课)。
+  这里的世界小到期望能直接算,我们替 Critic 把它理想情况下会收敛到的数算了出来,免得多一层估计噪声搅局。</p>
+</div>
+
+<h3>病历回顾(上一课的结尾)</h3>
+<p>ratio = 90 意味着<strong>每采到一次「上」,这一条样本要当 90 条用</strong>。
+结果就是你亲手跑出来的:5 组估计在 <strong>−0.14 到 17.86</strong> 之间乱跳,全看运气抽到几次「上」。
+你自己总结过这条链:<em>"策略更新过大 → ratio 极大 → 一条稀有样本被放大 → 训练崩。"</em></p>
+<h3>先把"要最大化的东西"拼出来</h3>
+<p>上一课 E[ratio × R] 的用途是<strong>估计</strong>——旧样本在手,估新策略能拿几分。
+训练要的是另一个用途:<strong>把这个数推高</strong>。三步,全是旧零件:</p>
+<table>
+  <tr><th style="width:10%">步</th><th class="l">做什么</th><th style="width:14%">来自</th></tr>
+  <tr><td>1</td><td class="l">想推高的是新策略的平均回报 E<sub>new</sub>[R]</td><td>第 2 课</td></tr>
+  <tr><td>2</td><td class="l">手里只有旧样本 → 改写成 E<sub>old</sub>[ratio × R]。上一课你是"看"这个数(估计),现在要"推"它(最大化)——<strong>式子没变,身份变了</strong></td><td>第 6 课</td></tr>
+  <tr><td>3</td><td class="l">R 换成 A = R − V:减基线不改"谁最大"(在这个世界里只是整个目标平移一个常数 V<sub>old</sub>),方差更小</td><td>第 3 课</td></tr>
+</table>
+<div class="eq">拼好的目标(论文里叫 <strong>surrogate objective,代理目标</strong>):&nbsp;&nbsp;最大化&nbsp; E<sub>old</sub>[ ratio × A ]</div>
+<p>现在可以正式提问了:朝这个目标猛冲,ratio 就会冲成 90,翻车如上。
+<strong>怎样在算法里降低"更新过大"的风险?</strong>历史上有两代答案。</p>
+
+<!-- ================================================================ -->
+<h2><span class="n">二</span>第一代答案:TRPO —— 立规矩</h2>
+
+<p>TRPO(2015,Trust Region Policy Optimization,信任区域策略优化)的思路是<strong>直接立法</strong>:</p>
+
+<div class="eq">
+  最大化&nbsp; E[ ratio × A ]&nbsp;&nbsp;<span style="color:var(--soft)">(刚拼好的代理目标)</span><br>
+  <strong>附加一条硬约束:</strong>新旧策略的 KL 距离&nbsp; KL(π<sub>old</sub>, π<sub>new</sub>) ≤ δ（此处是一状态示意）
+</div>
+
+<div class="note">
+<p style="margin:0"><strong>KL 散度是什么?</strong>今天只需要记名字:它是<em>衡量两个概率分布差多远的一个数</em>,分布相同时为 0,差得越远越大。
+本课把它当黑盒。讲 RLHF 那课它会以 <strong>"KL 惩罚"</strong> 的身份正式回来,到时候再拆开。</p>
+</div>
+
+<p>"信任区域"这个名字说的就是:<strong>以旧策略为圆心,画一个半径 δ 的圈,新策略只许在圈里选。</strong>KL 约束用于限制整体分布变化；即使 KL 较小，低概率动作的 ratio 仍可能很大。实际 TRPO 使用平均 KL 近似约束与线搜索，不能把它当作每个动作概率比的硬上限。</p>
+
+<p>思路很干净,但<strong>带约束的优化没法直接交给"算 loss → backward"这条流水线</strong>(接口课的流水线)。
+求解要用二阶导数、共轭梯度这些重型机械——实现难、算得慢、对大网络很不友好。所以 2017 年 PPO 出来后,几乎所有人都换了。</p>
+
+<table>
+  <tr><th style="width:18%"></th><th>TRPO(2015)</th><th>PPO(2017)</th></tr>
+  <tr><td class="l"><strong>手段</strong></td><td>硬约束:KL ≤ δ</td><td>改目标函数:越界的好处直接裁掉</td></tr>
+  <tr><td class="l"><strong>求解</strong></td><td>二阶方法,复杂笨重</td><td>照常 loss → backward,一行都不用改</td></tr>
+  <tr><td class="l"><strong>地位</strong></td><td>论文里的祖师爷,常被引用</td><td>实际训练的默认选择(包括 LLM)</td></tr>
+</table>
+
+<!-- ================================================================ -->
+<h2><span class="n">三</span>第二代答案:PPO —— 让越界无利可图</h2>
+
+<p>PPO(Proximal Policy Optimization,近端策略优化;proximal = "就近")的观察是:
+<strong>与其立法禁止越界,不如让越界捞不到任何好处。</strong>做法是把刚拼好的代理目标改成:</p>
+
+<div class="formula">
+  <span class="mth">J</span><sup style="font-size:13px">CLIP</sup> <span class="op">=</span>
+  <span class="pE">E</span><span class="op">[</span>
+  <span class="pNew">min</span><span class="op">(</span>
+  <span class="pR"><span class="mth">r</span></span><span class="op">·</span><span class="pA"><span class="mth">A</span></span><span class="op">,</span>
+  <span class="pNew">clip</span><span class="op">(</span><span class="pR"><span class="mth">r</span></span><span class="op">,</span>
+  1−<span class="pNew"><span class="mth">ε</span></span><span class="op">,</span>
+  1+<span class="pNew"><span class="mth">ε</span></span><span class="op">)</span><span class="op">·</span><span class="pA"><span class="mth">A</span></span>
+  <span class="op">)</span>
+  <span class="op">]</span>
+  <div class="legend">
+    <span><b style="color:var(--ac)">■ E[·]</b> 期望≈采样平均(第 2 课)</span>
+    <span><b style="color:var(--blue)">■ r = π<sub>new</sub>/π<sub>old</sub></b>(第 6 课)</span>
+    <span><b style="color:var(--gold)">■ A</b> 优势(第 3 课)</span>
+    <span><b style="color:var(--crit)">■ min、clip、ε</b> 新零件:两个函数 + 一个超参数</span>
+  </div>
+</div>
+
+<p>先别慌。<strong>这条公式你已经认识 80%</strong>:E 是第 2 课的、r 是第 6 课的、A 是第 3 课的。
+真正的新东西只有两个初中函数:</p>
+
+<h3>新零件 1:clip —— 一把夹子</h3>
+<p><strong>clip(x, 下限, 上限)</strong>:x 在范围内就原样放行,超出就按边界算。三个例子(取 ε = 0.2,即范围 [0.8, 1.2]):</p>
+<div class="eq">
+  clip(<span class="hl">90</span>, 0.8, 1.2) = <strong>1.2</strong> &nbsp;&nbsp;|&nbsp;&nbsp;
+  clip(1.05, 0.8, 1.2) = 1.05 &nbsp;&nbsp;|&nbsp;&nbsp;
+  clip(0.3, 0.8, 1.2) = <strong>0.8</strong>
+</div>
+<p>对 <em>clip(r)</em> 这个候选项，90 会被替换为 1.2。<strong>这不表示实际 ratio 被限制在 1.2 以内</strong>；PPO 还要比较未裁剪项，依据优势的正负决定哪一侧进入平台。</p>
+
+<h3>新零件 2:min —— 永远挑对自己更不利的那个</h3>
+<p>公式里摆了两个候选:<strong>没裁的 r·A</strong> 和 <strong>裁过的 clip(r)·A</strong>,然后取 min——
+两个里挑<em>小</em>的,也就是挑<em>更悲观</em>的那个。为什么必须这样,光看文字不直观,下面亲手拖一遍。</p>
+
+<div class="key">
+<p style="margin:0"><b>先记住结论,再去验证:</b>min 的效果是——<strong>占便宜的方向封顶,犯错误的方向不封。</strong>
+往"目标变好"的方向越界,好处到 1±ε 就到头了;往"目标变坏"的方向越界,罚单全额保留,一分不减。</p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">四</span>动手:clip 到底在裁什么,min 到底在防什么</h2>
+
+<div class="panel">
+  <h4>一条样本的目标值 L = min( r·A , clip(r)·A )</h4>
+  <p class="hint">选一条样本(动作和它的 A 来自上面设定表),拖动 r 和 ε,看三个数怎么变。
+  灰线是不设防的 r·A(没加任何保护的代理目标),绿实线是 PPO 实际用的 L。<strong>平的地方 = 斜率为 0 = 这条样本推不动网络了。</strong><br>
+  一个要点:设定表里「上」的 ratio=90 是"一步跳到终点"才会出现的数;训练中 π<sub>new</sub> 是被一步步推着挪的,
+  这根滑块拖的是<strong>"此刻挪到哪了"</strong>——你会看到刚过 1+ε 就已经无利可图,90 根本轮不到出场。</p>
+
+  <div class="ctl">
+    <span style="font-size:15px">这条样本是:</span>
+    <button class="pick on" id="pkUp">「上」 A = +10.89(好动作)</button>
+    <button class="pick" id="pkDn">「下」 A = −4.11(坏动作)</button>
+    <button class="ghost" id="pkMin" style="margin-left:auto">对比:去掉 min 会怎样</button>
+  </div>
+
+  <div class="sliderrow">r(新旧概率之比)<input type="range" id="slR" min="0" max="3" step="0.01" value="1.5"><b id="vR">1.50</b></div>
+  <div class="sliderrow">ε(clip 范围半径)<input type="range" id="slE" min="0.05" max="0.5" step="0.05" value="0.2"><b id="vE">0.20</b>
+    <span style="color:var(--soft);font-size:13.5px">→ 允许区间 [<span id="vLo">0.80</span>, <span id="vHi">1.20</span>]</span></div>
+
+  <svg id="svgCurve" viewBox="0 0 720 340" style="width:100%;height:auto;margin-top:10px"></svg>
+
+  <div class="readout">
+    <div class="ro" id="roRaw"><div class="t">不设防 r·A(第6课)</div><div class="v" id="nRaw">—</div></div>
+    <div class="ro" id="roClip"><div class="t">夹过 clip(r)·A</div><div class="v" id="nClip">—</div></div>
+    <div class="ro" id="roMin"><div class="t">实际用 = min(两者)</div><div class="v" id="nMin">—</div></div>
+  </div>
+  <div class="statline" id="stat">—</div>
+</div>
+
+<p>把 r 拖过两个边界、两条样本各试一遍,一共四种情况。整理成表:</p>
+
+<table>
+  <tr><th style="width:30%" class="l">情况(ε=0.2)</th><th class="l">min 选了谁</th><th class="l">对更新的意思</th></tr>
+  <tr><td class="l">A&gt;0,r 冲过 1.2<br><span style="color:var(--soft);font-size:13.5px">好动作已经加了很多</span></td>
+      <td class="l">裁过的(封顶)</td><td class="l"><strong>好处到顶,梯度=0</strong>——别再加了</td></tr>
+  <tr><td class="l">A&gt;0,r 掉到 0.8 以下<br><span style="color:var(--soft);font-size:13.5px">好动作反而被压低了</span></td>
+      <td class="l">没裁的</td><td class="l">保留梯度,<strong>把它拉回来</strong></td></tr>
+  <tr><td class="l">A&lt;0,r 掉到 0.8 以下<br><span style="color:var(--soft);font-size:13.5px">坏动作已经压了很多</span></td>
+      <td class="l">裁过的(封底)</td><td class="l"><strong>够了,梯度=0</strong>——不用再踩</td></tr>
+  <tr class="hot"><td class="l">A&lt;0,r 冲过 1.2<br><span style="color:var(--soft);font-size:13.5px">坏动作反而被加多了</span></td>
+      <td class="l"><strong>没裁的</strong></td><td class="l"><strong>全额罚单</strong>,使劲拉回来——这就是 min 存在的理由</td></tr>
+</table>
+
+<div class="warn">
+<p style="margin:0"><strong>最后一行就是"去掉 min"按钮让你看的东西。</strong>只用 clip 不取 min,
+在这条 A&lt;0 的样本上，若概率被推高越界，只用 clip 会让该样本的目标进入平台。
+min 保留未裁剪项对此样本的修正梯度；这描述的是<strong>单样本目标对 r 的局部斜率</strong>，不保证共享网络的总梯度、真实回报或最终更新方向。</p>
+</div>
+
+<div class="note">
+<p style="margin:0 0 8px"><strong>和神经网络怎么接?</strong>接口课的 Actor loss 是凑出来的 <code>-logp * A</code>。PPO 只是再换一次式子:</p>
+<div class="eq" style="text-align:left;font-family:ui-monospace,Menlo,monospace;font-size:14.5px;line-height:1.9">
+&nbsp;loss = -logp * A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 接口课的版本<br>
+&nbsp;loss = <span class="hl">-min(r*A, clip(r, 1-ε, 1+ε)*A)</span>&nbsp;&nbsp;# PPO 的版本<br>
+&nbsp;loss.backward()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 这一行永远不变
+</div>
+<p style="margin:10px 0 8px"><strong>慢着——接口课的 logp 去哪了?梯度从哪进网络?</strong>把 r 拆开就看到了:</p>
+<table style="font-size:14.5px">
+  <tr><td class="l" style="width:30%">分子 π<sub>new</sub>(a)</td>
+      <td class="l"><strong>网络此刻的输出,活的</strong>——参数一动它就动,梯度就是从这里流进网络的(它就是接口课里的 p[a],logp 是它的对数)</td></tr>
+  <tr><td class="l">分母 π<sub>old</sub>(a)</td>
+      <td class="l">采样那一刻<strong>存档下来的常数,死的</strong>——backward 不碰它</td></tr>
+</table>
+<p style="margin:8px 0 12px">所以"L 对 r 的斜率"就是流回网络的推力;曲线平了 = 这条样本给网络的推力为 0。
+实现里常写 <code>r = exp(logp_new − logp_old)</code>——logp 没有消失,只是搬进了 r 里。</p>
+<p style="margin:0"><em>PPO 的裁剪代理目标可以用常规一阶优化器更新。</em>这使实现通常比 TRPO 的约束优化简单；最终性能仍取决于任务、采样、价值估计与优化设置，不能归结为一个原因。</p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">五</span>回到上一课:那 5 个数字治好了吗</h2>
+
+<p class="lead">完全复刻上一课的实验:每组 200 条样本,跑 5 组。每张卡片同时给出<strong>不裁</strong>(上一课的算法)和<strong>裁后</strong>(把 ratio 夹进 [1−ε, 1+ε] 再算)两个数。
+三点说明:① 这里计算的是 <strong>clip(r)×R 的有偏均值估计，不是 PPO 的完整代理目标或策略更新</strong>；PPO 使用 min(rA, clip(r)A)，优势的正负与 min 选择都影响梯度。
+② 本实验只展示截断权重可能怎样改变方差与偏差，不保证降低任意任务的方差，也不能由此推出更新方向正确。
+③ 真实均值可以在这个玩具世界里精确算出，用来对照估计误差；实际训练通常没有这样的已知答案。</p>
+
+<div class="panel">
+  <div class="sliderrow">ε <input type="range" id="slE2" min="0.1" max="0.5" step="0.05" value="0.2"><b id="vE2">0.20</b>
+    <span style="color:var(--soft);font-size:13.5px">区间 [<span id="vLo2">0.80</span>, <span id="vHi2">1.20</span>]</span></div>
+
+  <h4>情形 A:新旧策略接近(ratio 在 0.65 ~ 1.38)</h4>
+  <table style="margin-top:4px">
+    <tr><th class="l">情形 A</th><th>上</th><th>下</th><th>左</th><th>右</th></tr>
+    <tr><td class="l">旧策略(采样用)</td><td class="num">0.40</td><td class="num">0.20</td><td class="num">0.15</td><td class="num">0.25</td></tr>
+    <tr><td class="l">新策略(想估计)</td><td class="num">0.55</td><td class="num">0.13</td><td class="num">0.10</td><td class="num">0.22</td></tr>
+    <tr><td class="l"><strong>ratio</strong></td><td class="num">1.38</td><td class="num">0.65</td><td class="num">0.67</td><td class="num">0.88</td></tr>
+  </table>
+  <p class="hint">ε=0.2 时 clip 碰到 <strong>1.38、0.65、0.67 三个头</strong>(0.67 那个因为回报是 0,裁没裁在结果里看不出来——clip 只看 ratio,不看回报);0.88 安然在区间里。</p>
+  <div class="runs" id="rA"></div>
+  <div class="truthbar">新策略真实均值 <b id="tA">—</b> · 不裁的5组最大差距 <b id="sAu">—</b> · 裁后的5组最大差距 <b id="sAc">—</b></div>
+
+  <h4 style="margin-top:30px">情形 B:想一步跳过去(ratio = 90)</h4>
+  <p class="hint">还是看"这组抽到几次上",再对比两行数字。</p>
+  <div class="runs" id="rB"></div>
+  <div class="truthbar">新策略真实均值 <b id="tB">—</b> · 不裁的5组最大差距 <b id="sBu" style="color:var(--crit)">—</b> · 裁后的5组最大差距 <b id="sBc" style="color:var(--good)">—</b> · 裁后理论落点 <b id="eBc">—</b></div>
+
+  <div class="ctl">
+    <button onclick="go2()">再跑一次</button>
+    <button class="ghost" onclick="go2();go2();go2()">连跑 3 次</button>
+  </div>
+</div>
+
+<p>你应该看到两件事:</p>
+
+<table>
+  <tr><th style="width:22%" class="l"></th><th class="l">发生了什么</th></tr>
+  <tr><td class="l"><strong style="color:var(--good)">本例波动通常减小</strong></td>
+      <td class="l">情形 B 裁后的 5 个数挤在一起(差距通常在 0.5 上下),抽没抽到「上」几乎不再影响结果。<strong>这里截断了单项权重，但采样方差仍存在。</strong></td></tr>
+  <tr><td class="l"><strong style="color:var(--crit)">但出现了偏差</strong></td>
+      <td class="l">裁后的数落在 <strong>−0.67 附近</strong>,离新策略的真实均值 8.86 差得很远。clip 等于直接宣布:<em>"跳到 90 倍远的地方能拿多少分,我拒绝估计。"</em></td></tr>
+</table>
+
+<p>"有偏"到底偏掉了什么、"稳"又稳住了什么,把四个动作的账摊开看(情形 B,每采到一条该动作的样本记多少分):</p>
+
+<table>
+  <tr><th class="l">动作</th><th>裁前记账 ratio×R</th><th>裁后记账 clip(ratio)×R</th><th class="l">符号变了吗</th></tr>
+  <tr><td class="l">上</td><td class="num">90 × 10 = 900</td><td class="num">1.2 × 10 = 12</td><td class="l">没变,仍是加分项</td></tr>
+  <tr><td class="l">下</td><td class="num">0.12 × (−5) = −0.6</td><td class="num">0.8 × (−5) = −4</td><td class="l">没变,仍是扣分项</td></tr>
+  <tr><td class="l">左</td><td class="num">0.09 × 0 = 0</td><td class="num">0.8 × 0 = 0</td><td class="l">都是 0</td></tr>
+  <tr><td class="l">右</td><td class="num">0.09 × 2 = 0.18</td><td class="num">0.8 × 2 = 1.6</td><td class="l">没变,仍是加分项</td></tr>
+</table>
+
+<div class="key">
+<p style="margin:0"><b>波动较小不等于估计正确，更不等于更新方向正确。</b>
+−0.67 与真实均值 8.86 连符号都不同。权重截断虽然保留了各项的正负号，却改变了相对大小，因此总估计、总梯度和动作排序都可能改变。这个实验只展示一种偏差与方差的取舍，<strong>不能据此解释为 PPO 保住方向或锁住步长</strong>。</p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">六</span>那还怎么到 0.90?小步快跑</h2>
+
+<p>一个容易产生的误解是：clip 让新策略只能在旧策略的 ±ε 内移动。<strong>PPO 的 clip 是代理目标的激励截断，不是概率比或 KL 的硬约束。</strong>下面另外人为规定每轮概率乘以 (1+ε)，只用来说明“反复小步也能累计成大变化”；这不是 PPO 优化器的实际轨迹。</p>
+
+<div class="panel">
+  <h4>从 π(上) = 0.01 走到 0.90,每轮最多把概率放大 (1+ε) 倍</h4>
+  <p class="hint">这是人为设定的乘法演示：每轮更新后的概率成为下一轮的起点。<br>
+  "最多 ×(1+ε)"是哪来的:ratio ≤ 1+ε 就是 π<sub>new</sub>(上) ≤ (1+ε) × π<sub>old</sub>(上),每轮把好处吃满,概率正好 ×(1+ε)。
+  真 PPO 中，单样本目标进入平台后，该样本在该方向的激励被截断；<strong>共享参数、其他样本梯度、动量或其他损失仍可让 ratio 越界</strong>。此演示只是假定概率按固定倍数增长，不模拟梯度优化。</p>
+  <div class="ctl">
+    <span style="font-size:15px">ε =</span>
+    <button class="pick" data-eps="0.1">0.1</button>
+    <button class="pick on" data-eps="0.2">0.2</button>
+    <button class="pick" data-eps="0.3">0.3</button>
+    <span style="margin-left:auto"></span>
+    <button id="btStep">走一轮</button>
+    <button class="ghost" id="btAuto">自动走完</button>
+    <button class="ghost" id="btReset">重来</button>
+  </div>
+  <div class="walkbar"><div class="walkfill" id="wFill"></div></div>
+  <div class="walknum"><span>0.01(起点)</span><span>0.90(目的地)</span></div>
+  <p style="margin:12px 0 0">第 <b id="wRound" class="bigp" style="font-size:20px">0</b> 轮 · 当前 π(上) = <span class="bigp" id="wP">0.010</span>
+  <span id="wMsg" style="color:var(--soft);font-size:14.5px"></span></p>
+</div>
+
+<div class="note">
+<p style="margin:0"><strong>顺带回答一个你可能正想问的问题:</strong>既然每步都重新采样,ratio 不就永远贴着 1,clip 岂不是从不出手?
+——好问题,答案藏在工程细节里:采一批数据很贵,PPO 会<strong>在同一批数据上反复更新好几遍</strong>(练几个 epoch,把数据榨干)。
+反复到后面,策略已经挪了,ratio 开始漂离 1——<strong>clip 就是在这时踩刹车的</strong>。
+这也是第 5 课"数据过期"的工程版结局:过期的数据不扔,但用的时候看紧它。
+<span style="color:var(--soft)">(同一批数据可以进行多个 epoch 的更新；真实训练还需考虑采样、KL 与停止条件。)</span></p>
+</div>
+
+<!-- ================================================================ -->
+<h2><span class="n">七</span>旧概念用在哪(全员到齐)</h2>
+
+<p class="lead">这是目前为止嵌套最深的一条公式——之前每一课都在里面。</p>
+
+<table>
+  <tr><th style="width:34%" class="l">零件</th><th style="width:18%">来自</th><th class="l">在 PPO 里的位置</th></tr>
+  <tr><td class="l">单状态、四动作的小世界(格子世界的极简版)</td><td>第 1 课</td><td class="l">本课的舞台</td></tr>
+  <tr><td class="l">E[·]:期望没法精确算,用采样平均代替</td><td>第 1、2 课</td><td class="l">目标函数最外层</td></tr>
+  <tr><td class="l">ratio = π<sub>new</sub>/π<sub>old</sub>:旧数据校准成新策略的账</td><td>第 6 课</td><td class="l">代理目标中用于裁剪候选项的变量</td></tr>
+  <tr><td class="l">A = R − V:比平均好多少,决定推的方向和力度</td><td>第 3 课</td><td class="l">乘在 ratio 后面</td></tr>
+  <tr><td class="l">V 从哪来:Critic 用 MC/TD 学,TD 里有 γ</td><td>第 4 课 + 补充</td><td class="l">A 里那个 V 的出处</td></tr>
+  <tr><td class="l">Actor 的 loss 是凑出来的;Critic 的 loss 是 MSE</td><td>接口课</td><td class="l">PPO 只改了 Actor 那半边的式子</td></tr>
+  <tr><td class="l">策略一变、数据过期 → on-policy 要勤采样</td><td>第 5 课</td><td class="l">为什么小步之后必须重新采样</td></tr>
+  <tr><td class="l">ratio 爆炸 → 方差爆炸 → 一条样本毁掉更新</td><td>第 6 课 + 补充</td><td class="l">本课要治的病</td></tr>
+  <tr><td class="l"><strong>clip、min、ε</strong></td><td><strong>本课</strong></td><td class="l">新零件:两个函数 + 一个超参数</td></tr>
+  <tr><td class="l">KL 散度(先记名字)</td><td>本课(黑盒)</td><td class="l">TRPO 的规矩;RLHF 课正式回收</td></tr>
+</table>
+
+<h3>读论文用的词汇卡</h3>
+<table class="vocab">
+  <tr><th style="width:34%" class="l">论文里的写法</th><th class="l">就是本课的</th></tr>
+  <tr><td class="l">surrogate objective(代理目标)</td><td class="l">E[ratio × A]——本课开头用三个旧零件拼出来的那个目标</td></tr>
+  <tr><td class="l">trust region(信任区域)</td><td class="l">以旧策略为圆心画的那个圈</td></tr>
+  <tr><td class="l">L<sup>CLIP</sup>、clipped surrogate</td><td class="l">本课的 J<sup>CLIP</sup> 公式</td></tr>
+  <tr><td class="l">ε(clip range,常见 0.1 ~ 0.3,LLM 里常用 0.2)</td><td class="l">夹子的半径</td></tr>
+  <tr><td class="l">KL divergence / KL penalty</td><td class="l">黑盒登场的那个"分布距离",RLHF 课拆开</td></tr>
+</table>
+
+<!-- ================================================================ -->
+<h2><span class="n">八</span>练习(3 题)</h2>
+
+<p class="lead">写出计算过程,不要只给结论——尤其第 1 题,每一步的数字都要落在纸面上。</p>
+
+<div class="setup">
+  <h4>题 1 · 手算三条样本(必须写过程)</h4>
+  <p style="font-size:15.5px;margin-bottom:6px">取 ε = 0.2(区间 [0.8, 1.2])。对下面每条样本,依次写出:
+  ① 不设防的 r·A;② clip(r) 是多少、夹过的 clip(r)·A;③ min 取了哪个;④ 这条样本此刻还推不推得动网络(梯度是否为 0)。</p>
+  <p style="font-size:15.5px;margin:0">
+  (a) r = 1.5,A = +4 &nbsp;&nbsp;&nbsp; (b) r = 1.5,A = −4 &nbsp;&nbsp;&nbsp; (c) r = 0.6,A = +4</p>
+</div>
+
+<div class="setup">
+  <h4>题 2 · min 到底防了什么</h4>
+  <p style="font-size:15.5px;margin:0">如果去掉 min、只用 clip(r)·A:题 1(b) 那条样本的目标值会从 −6.0 变成 −4.8,而且梯度变成 0。
+  用一两句话说清楚:<strong>这纵容了什么行为?</strong>(提示:那条样本说的是"一个坏动作的概率被推高了 1.5 倍"。)</p>
+</div>
+
+<div class="setup">
+  <h4>题 3 · 超纲推理(下一课的门)</h4>
+  <p style="font-size:15.5px;margin:0">换到 LLM 场景:同一个题目采 8 条回答,每条回答只有一个总分(比如 3, 7, 5, 9, 2, 6, 8, 4)。
+  <strong>你没有 Critic 网络</strong>,也就没有 V,套不了 A = R − V。
+  但第 3 课说过:基线 b 只要不依赖动作,减掉它就不破坏无偏性。
+  <strong>你能只用这 8 个分数,给每条回答造出一个 A 吗?写出你的式子,并算出第 1 条回答(得分 3)的 A。</strong><br>
+  <span style="color:var(--soft)">你可能会抗议:这个基线明明依赖了各条回答的得分,凭什么算合格的 b?——抗议成立,先记下来,下一课开头第一件事就是清算它。现在先把式子写出来。</span></p>
+</div>
+
+<footer>
+<strong>下一课:GRPO。</strong>把 Critic 网络整个扔掉,A 从一组样本的相互比较里来——题 3 就是它的门。
+之后:RL 怎么搬到 LLM 上(token = 动作,前缀 = 状态)。
+</footer>
+
+</div>
+
+<script>
+/* ---------------- 共用 ---------------- */
+function clip(x, lo, hi){ return Math.min(hi, Math.max(lo, x)); }
+function fmt(x, d){ return (x<0?"−":"") + Math.abs(x).toFixed(d===undefined?2:d); }
+
+/* ---------------- 交互 1:clip 曲线 ---------------- */
+(function(){
+  const A_UP = 10.89, A_DN = -4.11;
+  let A = A_UP, eps = 0.2, r = 1.5, showNoMin = false;
+
+  const svg = document.getElementById("svgCurve");
+  const slR = document.getElementById("slR"), slE = document.getElementById("slE");
+  const pkUp = document.getElementById("pkUp"), pkDn = document.getElementById("pkDn"), pkMin = document.getElementById("pkMin");
+
+  const W=720, H=340, mL=64, mR=18, mT=16, mB=42;
+  const rMax = 3;
+
+  function Lmin(rr){ return Math.min(rr*A, clip(rr,1-eps,1+eps)*A); }
+  function Lclip(rr){ return clip(rr,1-eps,1+eps)*A; }
+
+  function draw(){
+    const lo = 1-eps, hi = 1+eps;
+    document.getElementById("vR").textContent = r.toFixed(2);
+    document.getElementById("vE").textContent = eps.toFixed(2);
+    document.getElementById("vLo").textContent = lo.toFixed(2);
+    document.getElementById("vHi").textContent = hi.toFixed(2);
+
+    const yTop = Math.max(0, rMax*A) + Math.abs(A)*0.18;
+    const yBot = Math.min(0, rMax*A) - Math.abs(A)*0.18;
+    const X = rr => mL + (rr/rMax)*(W-mL-mR);
+    const Y = v  => mT + (yTop - v)/(yTop-yBot)*(H-mT-mB);
+
+    let s = "";
+    // 无梯度区底色
+    if(A>0){ s += `<rect x="${X(hi)}" y="${mT}" width="${X(rMax)-X(hi)}" height="${H-mT-mB}" fill="#d03b3b" opacity="0.07"/>`;
+             s += `<text x="${(X(hi)+X(rMax))/2}" y="${mT+18}" font-size="13" fill="#d03b3b" text-anchor="middle">无梯度区(斜率=0)</text>`; }
+    else   { s += `<rect x="${X(0)}" y="${mT}" width="${X(lo)-X(0)}" height="${H-mT-mB}" fill="#d03b3b" opacity="0.07"/>`;
+             s += `<text x="${(X(0)+X(lo))/2}" y="${mT+18}" font-size="13" fill="#d03b3b" text-anchor="middle">无梯度区(斜率=0)</text>`; }
+    // 坐标轴
+    s += `<line x1="${mL}" y1="${Y(0)}" x2="${W-mR}" y2="${Y(0)}" stroke="#9aa0a8" stroke-width="1"/>`;
+    s += `<line x1="${mL}" y1="${mT}" x2="${mL}" y2="${H-mB}" stroke="#9aa0a8" stroke-width="1"/>`;
+    for(let t=0; t<=3; t+=0.5){
+      s += `<line x1="${X(t)}" y1="${Y(0)-3}" x2="${X(t)}" y2="${Y(0)+3}" stroke="#9aa0a8"/>`;
+      s += `<text x="${X(t)}" y="${H-mB+20}" font-size="12" fill="#5b6470" text-anchor="middle">${t}</text>`;
+    }
+    s += `<text x="${W-mR}" y="${H-mB+36}" font-size="13" fill="#5b6470" text-anchor="end">r →</text>`;
+    // y 轴几个参考值
+    [A, (1+eps)*A, (1-eps)*A].forEach(v=>{
+      s += `<line x1="${mL-4}" y1="${Y(v)}" x2="${mL}" y2="${Y(v)}" stroke="#9aa0a8"/>`;
+      s += `<text x="${mL-8}" y="${Y(v)+4}" font-size="11.5" fill="#5b6470" text-anchor="end">${fmt(v,1)}</text>`;
+    });
+    // 边界虚线
+    [[lo,"1−ε"],[hi,"1+ε"]].forEach(([b,lab])=>{
+      s += `<line x1="${X(b)}" y1="${mT}" x2="${X(b)}" y2="${H-mB}" stroke="#8a6a2f" stroke-dasharray="4 4" stroke-width="1.2"/>`;
+      s += `<text x="${X(b)}" y="${H-mB+34}" font-size="12.5" fill="#8a6a2f" text-anchor="middle">${lab}=${b.toFixed(2)}</text>`;
+    });
+    // 灰线:r·A
+    s += `<line x1="${X(0)}" y1="${Y(0)}" x2="${X(rMax)}" y2="${Y(rMax*A)}" stroke="#b8bcc2" stroke-width="1.6"/>`;
+    s += `<text x="${X(2.62)}" y="${Y(2.62*A)+(A>0?-8:16)}" font-size="12.5" fill="#8b9097">r·A(不设防)</text>`;
+    // 虚线:只 clip 不 min
+    if(showNoMin){
+      const pts = [];
+      for(let rr=0; rr<=rMax+1e-9; rr+=0.02) pts.push(`${X(rr)},${Y(Lclip(rr))}`);
+      s += `<polyline points="${pts.join(" ")}" fill="none" stroke="#d03b3b" stroke-width="2" stroke-dasharray="6 5"/>`;
+      s += `<text x="${X(A>0?0.25:2.4)}" y="${Y(Lclip(A>0?0.25:2.4))-10}" font-size="12.5" fill="#d03b3b">只 clip 不 min</text>`;
+    }
+    // 实线:min 版
+    const pts2 = [];
+    for(let rr=0; rr<=rMax+1e-9; rr+=0.02) pts2.push(`${X(rr)},${Y(Lmin(rr))}`);
+    s += `<polyline points="${pts2.join(" ")}" fill="none" stroke="#2f6f6b" stroke-width="2.6"/>`;
+    s += `<text x="${X(A>0?1.62:1.25)}" y="${Y(Lmin(A>0?1.62:1.25))-10}" font-size="12.5" fill="#2f6f6b" font-weight="600">PPO 实际用的 L</text>`;
+    // 当前点
+    s += `<circle cx="${X(r)}" cy="${Y(Lmin(r))}" r="6" fill="#2f6f6b"/>`;
+    s += `<circle cx="${X(r)}" cy="${Y(r*A)}" r="4" fill="#b8bcc2"/>`;
+    svg.innerHTML = s;
+
+    // 读数
+    const raw = r*A, cl = Lclip(r), mn = Lmin(r);
+    document.getElementById("nRaw").textContent = fmt(raw);
+    document.getElementById("nClip").textContent = fmt(cl);
+    document.getElementById("nMin").textContent = fmt(mn);
+    const useRaw = raw <= cl + 1e-12;
+    document.getElementById("roRaw").classList.toggle("win", useRaw);
+    document.getElementById("roClip").classList.toggle("win", !useRaw);
+    document.getElementById("roMin").classList.add("win");
+
+    // 状态解读
+    const st = document.getElementById("stat");
+    let msg, dead=false;
+    if(A>0){
+      if(r>1+eps+1e-9){ msg=`好动作已经加过头(r=${r.toFixed(2)} &gt; ${(1+eps).toFixed(2)})→ <strong>好处封顶,梯度=0</strong>,这条样本暂时退休`; dead=true; }
+      else if(r<1-eps-1e-9){ msg=`好动作反而被压低了(r=${r.toFixed(2)} &lt; ${(1-eps).toFixed(2)})→ min 选了没裁的 r·A,<strong>保留梯度往回拉</strong>`; }
+      else { msg=`r 在信任区间里 → 照常使用,斜率 = A = ${fmt(A)},还在正常推`; }
+    } else {
+      if(r>1+eps+1e-9){ msg=`坏动作反而被加多了(r=${r.toFixed(2)} &gt; ${(1+eps).toFixed(2)})→ min 选了没裁的 r·A,<strong>全额罚单往回拉</strong>——去掉 min 这里就失守`; }
+      else if(r<1-eps-1e-9){ msg=`坏动作已经压得够低(r=${r.toFixed(2)} &lt; ${(1-eps).toFixed(2)})→ <strong>封底,梯度=0</strong>,不用再踩`; dead=true; }
+      else { msg=`r 在信任区间里 → 照常使用,斜率 = A = ${fmt(A)},还在往下压这个坏动作`; }
+    }
+    st.innerHTML = msg;
+    st.classList.toggle("dead", dead);
+  }
+
+  slR.addEventListener("input", ()=>{ r=parseFloat(slR.value); draw(); });
+  slE.addEventListener("input", ()=>{ eps=parseFloat(slE.value); draw(); });
+  pkUp.addEventListener("click", ()=>{ A=A_UP; pkUp.classList.add("on"); pkDn.classList.remove("on"); draw(); });
+  pkDn.addEventListener("click", ()=>{ A=A_DN; pkDn.classList.add("on"); pkUp.classList.remove("on"); draw(); });
+  pkMin.addEventListener("click", ()=>{ showNoMin=!showNoMin; pkMin.textContent = showNoMin? "隐藏:去掉 min 的曲线":"对比:去掉 min 会怎样"; draw(); });
+  draw();
+})();
+
+/* ---------------- 交互 2:5 组实验,裁 vs 不裁 ---------------- */
+const R2=[10,-5,0,2];
+const A_OLD=[0.40,0.20,0.15,0.25], A_NEW=[0.55,0.13,0.10,0.22];
+const B_OLD=[0.01,0.33,0.33,0.33], B_NEW=[0.90,0.04,0.03,0.03];
+const N2=200;
+let eps2=0.2, savedA=null, savedB=null;
+
+function dot2(p){ return p.reduce((s,v,i)=>s+v*R2[i],0); }
+function pick2(p){ const x=Math.random(); let c=0; for(let i=0;i<4;i++){ c+=p[i]; if(x<=c) return i; } return 3; }
+function sample2(pOld){
+  const counts=[0,0,0,0];
+  for(let t=0;t<N2;t++) counts[pick2(pOld)]++;
+  return counts;
+}
+function evalRun(counts, pOld, pNew){
+  let su=0, sc=0;
+  for(let a=0;a<4;a++){
+    const rt=pNew[a]/pOld[a];
+    su += counts[a]*rt*R2[a];
+    sc += counts[a]*clip(rt,1-eps2,1+eps2)*R2[a];
+  }
+  return { un:su/N2, cl:sc/N2, k:counts[0] };
+}
+function cards2(el,res,showK){
+  el.innerHTML=res.map((r,i)=>{
+    const cls = r.k>=3?"k3":(r.k===2?"k2":(r.k===1?"k1":"k0"));
+    const kline = showK ? `<div class="k">抽到「上」${r.k} 次</div>` : `<div class="k" style="color:var(--soft)">&nbsp;</div>`;
+    return `<div class="run ${showK?cls:''}"><div class="i">第 ${i+1} 组</div>${kline}
+      <div class="v">${fmt(r.un)}</div><div class="lb">不裁(第6课)</div>
+      <div class="v2">${fmt(r.cl)}</div><div class="lb">裁后(只看 clip)</div></div>`;
+  }).join("");
+}
+function clippedExpect(pOld,pNew){
+  let s=0; for(let a=0;a<4;a++) s+=pOld[a]*clip(pNew[a]/pOld[a],1-eps2,1+eps2)*R2[a];
+  return s;
+}
+function render2(){
+  const resA = savedA.map(c=>evalRun(c,A_OLD,A_NEW));
+  const resB = savedB.map(c=>evalRun(c,B_OLD,B_NEW));
+  cards2(document.getElementById("rA"),resA,false);
+  cards2(document.getElementById("rB"),resB,true);
+  const sp=(x,f)=>Math.max(...x.map(f))-Math.min(...x.map(f));
+  document.getElementById("tA").textContent=dot2(A_NEW).toFixed(2);
+  document.getElementById("tB").textContent=dot2(B_NEW).toFixed(2);
+  document.getElementById("sAu").textContent=sp(resA,v=>v.un).toFixed(2);
+  document.getElementById("sAc").textContent=sp(resA,v=>v.cl).toFixed(2);
+  document.getElementById("sBu").textContent=sp(resB,v=>v.un).toFixed(2);
+  document.getElementById("sBc").textContent=sp(resB,v=>v.cl).toFixed(2);
+  document.getElementById("eBc").textContent=fmt(clippedExpect(B_OLD,B_NEW));
+  document.getElementById("vE2").textContent=eps2.toFixed(2);
+  document.getElementById("vLo2").textContent=(1-eps2).toFixed(2);
+  document.getElementById("vHi2").textContent=(1+eps2).toFixed(2);
+}
+function go2(){
+  savedA=[]; savedB=[];
+  for(let i=0;i<5;i++){ savedA.push(sample2(A_OLD)); savedB.push(sample2(B_OLD)); }
+  render2();
+}
+document.getElementById("slE2").addEventListener("input", e=>{
+  eps2=parseFloat(e.target.value); render2();   // 同一批样本,只换 ε:运气不变,只有夹子在变
+});
+go2();
+
+/* ---------------- 交互 3:小步快跑 ---------------- */
+(function(){
+  const P0=0.01, GOAL=0.90;
+  let eps3=0.2, p=P0, round=0, timer=null;
+  const fill=document.getElementById("wFill"), rd=document.getElementById("wRound"),
+        pv=document.getElementById("wP"), msg=document.getElementById("wMsg");
+  const picks=[...document.querySelectorAll("button.pick[data-eps]")];
+
+  function paint(){
+    fill.style.width=(p/GOAL*100)+"%";
+    rd.textContent=round;
+    pv.textContent=p.toFixed(3);
+    if(p>=GOAL-1e-12){ msg.innerHTML=` —— <strong style="color:var(--ac)">到了!共 ${round} 轮</strong>,每一轮都重新采了一批新数据(第 5 课)`; }
+    else if(round>0){ msg.textContent=` —— 每轮最多 ×${(1+eps3).toFixed(1)},继续`; }
+    else { msg.textContent="";
+    }
+  }
+  function step(){
+    if(p>=GOAL-1e-12) return false;
+    p=Math.min(GOAL, p*(1+eps3)); round++;
+    paint(); return p<GOAL-1e-12;
+  }
+  function reset(){
+    if(timer){ clearInterval(timer); timer=null; }
+    p=P0; round=0; paint();
+  }
+  document.getElementById("btStep").addEventListener("click", ()=>{ if(timer)return; step(); });
+  document.getElementById("btAuto").addEventListener("click", ()=>{
+    if(timer) return;
+    timer=setInterval(()=>{ if(!step()){ clearInterval(timer); timer=null; } }, 110);
+  });
+  document.getElementById("btReset").addEventListener("click", reset);
+  picks.forEach(b=>b.addEventListener("click", ()=>{
+    picks.forEach(x=>x.classList.remove("on")); b.classList.add("on");
+    eps3=parseFloat(b.dataset.eps); reset();
+  }));
+  paint();
+})();
+</script>
+</body>
+</html>

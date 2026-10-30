@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>强化学习 · 第 1 课:一个格子世界</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{
+    --paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;
+    --gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.95;}
+  .wrap{max-width:730px;margin:0 auto;padding:54px 26px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:12px;}
+  h1{font-size:27px;margin:0 0 10px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:21px;margin:56px 0 14px;padding-top:28px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  p{margin:0 0 16px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 26px;line-height:1.85;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .contract{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ac);
+    border-radius:0 6px 6px 0;padding:18px 22px;margin:0 0 34px;font-size:15.5px;line-height:1.8;}
+  .contract b{color:var(--ac);}
+
+  /* grid world */
+  .world{display:flex;justify-content:center;margin:30px 0 14px;}
+  .grid{display:grid;grid-template-columns:repeat(3,88px);grid-template-rows:repeat(3,88px);
+    gap:5px;background:var(--rule);padding:5px;border-radius:6px;}
+  .cell{background:#fff;border-radius:4px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;font-size:13px;color:var(--soft);line-height:1.4;}
+  .cell .nm{font-size:15px;font-weight:600;color:var(--ink);}
+  .cell.goal{background:#e6f4ea;}
+  .cell.goal .nm{color:#1e6b3a;}
+  .cell.pit{background:#fbe9e9;}
+  .cell.pit .nm{color:#a33;}
+  .cell.start{background:var(--ac-bg);}
+  .cell.start .nm{color:var(--ac);}
+  .cap{text-align:center;color:var(--soft);font-size:14px;margin:0 0 26px;}
+
+  .card{background:#fff;border:1px solid var(--rule);border-radius:7px;padding:24px 26px;margin:24px 0;}
+  .card h3{margin:0 0 12px;font-size:18px;font-weight:600;}
+  .card h3 .lbl{color:var(--ac);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:3px;font-weight:600;}
+
+  .formula{text-align:center;padding:20px 10px;margin:18px 0;background:var(--paper);
+    border-radius:5px;font-size:19px;overflow-x:auto;}
+  .card .formula{background:var(--paper);}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15.5px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:11px 13px;text-align:left;line-height:1.7;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+
+  .path{background:var(--paper);border-radius:5px;padding:16px 18px;margin:16px 0;
+    font-size:15.5px;line-height:2.1;}
+  .path .step{display:inline-block;padding:2px 9px;background:#fff;border:1px solid var(--rule);
+    border-radius:4px;margin:2px 1px;font-weight:600;font-size:14.5px;}
+  .path .arr{color:var(--soft);margin:0 3px;}
+  .path .rw{color:var(--rose);font-weight:600;font-size:14px;}
+  .path .rw.pos{color:#1e6b3a;}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:17px 21px;margin:26px 0;
+    border-radius:0 5px 5px 0;font-size:16.5px;line-height:1.9;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin-bottom:0;}
+
+  ol.q{padding-left:22px;}
+  ol.q li{margin-bottom:24px;line-height:1.9;}
+  ul.b{padding-left:20px;margin:0 0 16px;}
+  ul.b li{margin-bottom:8px;}
+  .katex{font-size:1.04em;}
+  footer{margin-top:60px;padding-top:24px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.85;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 1 课:强化学习到底在干什么</h1>
+  <p class="sub">一个概念 · 一个例子 · 全是真实数字</p>
+</header>
+
+<div class="contract">
+  <b>这一课的范围(严格限定)</b><br>
+  只讲<strong>强化学习的基本设定</strong>,用一个格子世界从头走到尾。<br>
+  <span style="color:var(--soft)">不讲:策略梯度、TD、GAE、PPO、on-policy/off-policy、神经网络怎么训。这些全部往后排。</span>
+</div>
+
+<h2><span class="n">一</span>我们的世界</h2>
+
+<p>一个 <strong>3×3 的格子</strong>。有个机器人,从左下角出发,想走到右上角的宝藏,同时避开中间的陷阱。</p>
+
+<div class="world">
+  <div class="grid">
+    <div class="cell"><span class="nm">A3</span></div>
+    <div class="cell"><span class="nm">B3</span></div>
+    <div class="cell goal"><span class="nm">C3</span>宝藏 +10</div>
+    <div class="cell"><span class="nm">A2</span></div>
+    <div class="cell pit"><span class="nm">B2</span>陷阱 −10</div>
+    <div class="cell"><span class="nm">C2</span></div>
+    <div class="cell start"><span class="nm">A1</span>起点</div>
+    <div class="cell"><span class="nm">B1</span></div>
+    <div class="cell"><span class="nm">C1</span></div>
+  </div>
+</div>
+<p class="cap">规则:每走一步扣 1 分。走到 C3 得 +10 并结束;掉进 B2 得 −10 并结束。</p>
+
+<p>就这些。现在我用这个世界,把强化学习的<strong>五个基本概念</strong>逐个落地。每一个我都会直接指到这张图上。</p>
+
+<!-- 概念 1 -->
+<div class="card">
+  <h3><span class="lbl">概念 1</span>状态 <span>\(s\)</span> (state)</h3>
+  <p style="margin-bottom:0"><strong>就是"机器人现在在哪个格子"。</strong>这个世界里一共 9 个状态:A1、A2、A3、B1……C3。</p>
+  <div class="note" style="margin-bottom:0">
+    状态 = <em>做决定时所需要知道的全部信息</em>。在这里,知道自己站在哪一格就够了,不需要知道之前怎么走过来的。
+  </div>
+</div>
+
+<!-- 概念 2 -->
+<div class="card">
+  <h3><span class="lbl">概念 2</span>动作 <span>\(a\)</span> (action)</h3>
+  <p style="margin-bottom:0"><strong>机器人能做的事:上、下、左、右。</strong>一共 4 个动作。</p>
+</div>
+
+<!-- 概念 3 -->
+<div class="card">
+  <h3><span class="lbl">概念 3</span>奖励 <span>\(r\)</span> (reward)</h3>
+  <p><strong>每做完一个动作,世界立刻给的一个数字反馈。</strong></p>
+  <table style="margin-bottom:14px">
+    <tr><th>发生了什么</th><th style="width:26%;text-align:right">奖励 <span>\(r\)</span></th></tr>
+    <tr><td>走到普通格子</td><td class="num">−1</td></tr>
+    <tr><td>走到 C3(宝藏),回合结束</td><td class="num">+10</td></tr>
+    <tr><td>走到 B2(陷阱),回合结束</td><td class="num">−10</td></tr>
+  </table>
+  <div class="warn" style="margin-bottom:0">
+    <strong>为什么走一步要扣 1 分?</strong>因为如果不扣,机器人在格子里瞎转悠一万步再去拿宝藏,总分和直接走过去是一样的。<em>扣分是在告诉它:别磨蹭。</em>奖励怎么设计,本身就是 RL 里一个大学问。
+  </div>
+</div>
+
+<!-- 概念 4 -->
+<div class="card">
+  <h3><span class="lbl">概念 4</span>回合与轨迹 <span>\(\tau\)</span> (episode / trajectory)</h3>
+  <p><strong>从起点出发,一直走到结束(拿到宝藏或掉进坑),这一整趟叫一个<em>回合</em>。</strong>把这趟走过的路完整记录下来,就叫一条<strong>轨迹</strong>,记作 <span>\(\tau\)</span>(读作 tau)。</p>
+
+  <p style="margin-top:22px;margin-bottom:8px"><strong>轨迹一(走得不错):</strong></p>
+  <div class="path">
+    <span class="step">A1</span><span class="arr">—上→</span>
+    <span class="step">A2</span><span class="rw">−1</span><span class="arr">—上→</span>
+    <span class="step">A3</span><span class="rw">−1</span><span class="arr">—右→</span>
+    <span class="step">B3</span><span class="rw">−1</span><span class="arr">—右→</span>
+    <span class="step">C3</span><span class="rw pos">+10</span>
+  </div>
+
+  <p style="margin-top:22px;margin-bottom:8px"><strong>轨迹二(走砸了):</strong></p>
+  <div class="path">
+    <span class="step">A1</span><span class="arr">—右→</span>
+    <span class="step">B1</span><span class="rw">−1</span><span class="arr">—上→</span>
+    <span class="step">B2</span><span class="rw">−10</span>
+    <span style="color:var(--soft);font-size:14px;margin-left:8px">掉进陷阱,结束</span>
+  </div>
+
+  <div class="note" style="margin-bottom:0">
+    一条轨迹就是一串 <em>(状态, 动作, 奖励)</em> 的记录。RL 里所有的学习,都来自于反复产生这样的轨迹,然后从中总结经验。
+  </div>
+</div>
+
+<!-- 概念 5 -->
+<div class="card">
+  <h3><span class="lbl">概念 5</span>回报 <span>\(R\)</span> (return)</h3>
+  <p><strong>一条轨迹上所有奖励的总和。</strong>注意区分:<span>\(r\)</span> 是<em>某一步</em>的奖励,<span>\(R\)</span> 是<em>整趟</em>的总和。</p>
+
+  <table>
+    <tr><th>轨迹</th><th>各步奖励</th><th style="width:20%;text-align:right">回报 <span>\(R\)</span></th></tr>
+    <tr><td>轨迹一</td><td>−1, −1, −1, +10</td><td class="num"><strong>+7</strong></td></tr>
+    <tr><td>轨迹二</td><td>−1, −10</td><td class="num"><strong>−11</strong></td></tr>
+  </table>
+
+  <div class="key" style="margin-bottom:0">
+    <p><b>整个强化学习,追求的就是这一个数字。</b></p>
+    <p style="margin-top:8px">机器人不知道地图长什么样,也没人告诉它该往哪走。它<em>只能靠反复试、看 R 是大是小,来倒推出该怎么走</em>。这就是"强化"两个字的含义。</p>
+  </div>
+</div>
+
+<h2><span class="n">二</span>策略:机器人的"行动方针"</h2>
+
+<p>上面五个概念描述的是<strong>世界</strong>。现在讲机器人自己的那部分——<strong>策略</strong>。</p>
+
+<div class="card">
+  <h3><span class="lbl">概念 6</span>策略 <span>\(\pi\)</span> (policy)</h3>
+  <p><strong>策略就是一张表:在每个格子里,各个动作分别以多大概率被选中。</strong></p>
+  <p>比如机器人在 A1 时,它的策略可能长这样:</p>
+  <table>
+    <tr><th>在 A1 选择</th><th style="width:30%;text-align:right">概率</th></tr>
+    <tr><td>上</td><td class="num">0.70</td></tr>
+    <tr><td>右</td><td class="num">0.20</td></tr>
+    <tr><td>下</td><td class="num">0.05</td></tr>
+    <tr><td>左</td><td class="num">0.05</td></tr>
+    <tr><td style="color:var(--soft)">合计</td><td class="num" style="color:var(--soft)">1.00</td></tr>
+  </table>
+  <div class="note">
+    加起来正好等于 1 —— 它是一个<strong>概率分布</strong>。这对应神经网络的 <strong>softmax 输出</strong>。<em>神经网络最后吐出来的,就是这样一张表。</em>
+  </div>
+  <p style="margin-bottom:6px">写成符号:</p>
+  <div class="formula">\[ \pi(a \mid s) \]</div>
+  <p style="margin-bottom:0">读作:<strong>"在状态 s 下,选动作 a 的概率。"</strong>上面表格第一行就是 <span>\(\pi(\text{上} \mid \text{A1}) = 0.7\)</span>。</p>
+</div>
+
+<div class="warn">
+<p><strong>那 <span>\(\pi_\theta\)</span> 的下标 θ 是什么?</strong></p>
+<p>格子世界只有 9 个状态,这张表可以直接手写出来。但如果状态有几亿个(比如 LLM 里,"状态"是当前已经生成的一整段文字),表就写不下了。</p>
+<p style="margin-bottom:0">这时就用<strong>一个神经网络来代替这张表</strong>:输入状态,输出各动作的概率。<em>θ 就是这个网络的参数</em>，即训练过程中被不断调整的数值。<strong>所以 <span>\(\pi_\theta\)</span> 的意思就是:这张表是由参数 θ 的网络算出来的。</strong></p>
+</div>
+
+<h2><span class="n">三</span>把目标写成公式</h2>
+
+<p>现在把这些零件放在一起，看看一个核心问题:<strong>J 到底是什么?</strong></p>
+
+<p>先说人话版本的目标:</p>
+
+<div class="key">
+<p style="margin:0"><b>找到一个策略,使得机器人按它走的时候,平均能拿到最高的回报。</b></p>
+</div>
+
+<p>注意"<strong>平均</strong>"这两个字。为什么必须是平均?因为策略是带概率的——同一个策略,这次可能走出轨迹一(R=+7),下次可能走出轨迹二(R=−11)。<em>单看一趟没有意义,必须看很多趟的平均值。</em></p>
+
+<p>而"按某个分布采样后取平均"这件事,你已经会写了:</p>
+
+<div class="formula">\[ J(\theta) \;=\; \mathbb{E}_{\tau \sim \pi_\theta}\big[R(\tau)\big] \]</div>
+
+<table>
+  <tr><th style="width:30%">部分</th><th>含义</th></tr>
+  <tr><td><span>\(J(\theta)\)</span></td><td>目标函数。参数取 θ 时,这个策略有多好</td></tr>
+  <tr><td><span>\(\mathbb{E}[\cdot]\)</span></td><td>平均值或期望值</td></tr>
+  <tr><td><span>\(\tau \sim \pi_\theta\)</span></td><td>轨迹 τ 是按策略 <span>\(\pi_\theta\)</span> 走出来的</td></tr>
+  <tr><td><span>\(R(\tau)\)</span></td><td>这条轨迹的总回报,比如 +7 或 −11</td></tr>
+</table>
+
+<div class="note">
+<p><strong>这个式子把采样过程和评价目标放在了一起。</strong>按策略产生轨迹，再计算轨迹回报的期望。</p>
+<p style="margin-bottom:0">现在你知道它的名字了:<em>它就是 J,强化学习的目标函数。</em>我们想让它<strong>越大越好</strong>——所以更新参数时用 <strong>+</strong> 号,朝梯度正方向走。后续课程将解释怎样用采样估计这个梯度。</p>
+</div>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>怎么让 J 变大?</strong>这就是"策略梯度"要解决的问题,也是下一课的<strong>唯一</strong>内容。这一课不碰。</p>
+</div>
+
+<h2><span class="n">四</span>本课清单</h2>
+
+<table>
+  <tr><th style="width:22%">符号</th><th style="width:26%">名字</th><th>在格子世界里是什么</th></tr>
+  <tr><td><span>\(s\)</span></td><td>状态</td><td>机器人在哪一格</td></tr>
+  <tr><td><span>\(a\)</span></td><td>动作</td><td>上 / 下 / 左 / 右</td></tr>
+  <tr><td><span>\(r\)</span></td><td>奖励</td><td>走一步 −1,宝藏 +10,陷阱 −10</td></tr>
+  <tr><td><span>\(\tau\)</span></td><td>轨迹</td><td>一整趟走法的记录</td></tr>
+  <tr><td><span>\(R\)</span></td><td>回报</td><td>一趟的奖励总和,如 +7</td></tr>
+  <tr><td><span>\(\pi(a\mid s)\)</span></td><td>策略</td><td>每格里各动作的选择概率</td></tr>
+  <tr><td><span>\(J(\theta)\)</span></td><td>目标函数</td><td>这个策略平均能拿多少回报</td></tr>
+</table>
+
+<h2><span class="n">五</span>检查(3 题)</h2>
+<p class="lead">全部基于上面那张 3×3 的图,不需要任何本课以外的知识。直接在聊天框回复。</p>
+
+<ol class="q">
+  <li>机器人走了这样一趟:<br>
+  <span class="path" style="display:inline-block;padding:10px 14px;margin-top:8px">
+  <span class="step">A1</span><span class="arr">—右→</span><span class="step">B1</span><span class="arr">—右→</span><span class="step">C1</span><span class="arr">—上→</span><span class="step">C2</span><span class="arr">—上→</span><span class="step">C3</span></span><br>
+  <strong>这条轨迹的回报 R 是多少?</strong>(把每一步的奖励列出来再加总)</li>
+
+  <li>假设我们把规则改成:<strong>走一步不再扣分(改成 0 分)</strong>,其他不变。<br>
+  <strong>你觉得机器人学出来的行为会发生什么变化?为什么?</strong></li>
+
+  <li>用你自己的话说明:<strong>为什么 J 的定义里必须有"求平均"(期望)这一步?</strong>如果直接用"某一趟的回报"当作目标,会有什么问题?</li>
+</ol>
+
+<footer>
+<strong>下一课只讲一件事:</strong>怎么调整 θ 让 J 变大 —— 也就是策略梯度。<br>
+可以用上面三题检查本课概念，再进入下一课。
+</footer>
+
+</div>
+<script>
+function render(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body,{
+      delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],
+      throwOnError:false});
+  }
+}
+document.addEventListener("DOMContentLoaded",render);
+window.addEventListener("load",render);
+</script>
+</body>
+</html>

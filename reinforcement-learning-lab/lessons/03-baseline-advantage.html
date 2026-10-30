@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>强化学习 · 第 3 课:基线与优势</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{--paper:#fbfaf7;--ink:#1f2328;--soft:#5b6470;--rule:#e3ded4;
+    --ac:#2f6f6b;--ac-bg:#eaf2f1;--gold:#8a6a2f;--gold-bg:#faf4e6;
+    --rose:#8f4a4a;--rose-bg:#f9eeee;--grn:#1e6b3a;--grn-bg:#e6f4ea;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:17px;line-height:1.95;}
+  .wrap{max-width:730px;margin:0 auto;padding:54px 26px 130px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:12px;}
+  h1{font-size:27px;margin:0 0 10px;font-weight:600;line-height:1.4;}
+  .sub{color:var(--soft);font-size:14.5px;margin:0;}
+  h2{font-size:21px;margin:56px 0 14px;padding-top:28px;border-top:1px solid var(--rule);font-weight:600;}
+  h2 .n{color:var(--ac);margin-right:11px;}
+  h3{font-size:17.5px;margin:32px 0 10px;font-weight:600;}
+  p{margin:0 0 16px;}
+  .lead{color:var(--soft);font-size:15.5px;margin:0 0 26px;line-height:1.85;}
+  em{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:500;}
+
+  .contract{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ac);
+    border-radius:0 6px 6px 0;padding:18px 22px;margin:0 0 34px;font-size:15.5px;line-height:1.8;}
+  .contract b{color:var(--ac);}
+
+  .formula{text-align:center;padding:22px 10px;margin:20px 0;background:#fff;
+    border:1px solid var(--rule);border-radius:6px;font-size:19px;overflow-x:auto;}
+  .formula.plain{background:var(--paper);border:none;}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15.5px;background:#fff;}
+  th,td{border:1px solid var(--rule);padding:11px 13px;text-align:left;line-height:1.7;}
+  th{background:var(--ac-bg);color:var(--ac);font-weight:600;}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+  td.up{color:var(--grn);font-weight:600;}
+  td.dn{color:var(--rose);font-weight:600;}
+  tr.hl td{background:var(--grn-bg);}
+
+  .note{background:var(--ac-bg);border-left:3px solid var(--ac);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .warn{background:var(--gold-bg);border-left:3px solid var(--gold);padding:15px 19px;margin:22px 0;
+    border-radius:0 5px 5px 0;font-size:16px;line-height:1.85;}
+  .key{background:var(--rose-bg);border-left:3px solid var(--rose);padding:17px 21px;margin:26px 0;
+    border-radius:0 5px 5px 0;font-size:16.5px;line-height:1.9;}
+  .key b{color:var(--rose);}
+  .note p:last-child,.warn p:last-child,.key p:last-child{margin-bottom:0;}
+
+  .ruler{background:#fff;border:1px solid var(--rule);border-radius:7px;padding:22px 24px;margin:24px 0;}
+  .bar{height:26px;background:linear-gradient(90deg,var(--ac) 0%,var(--ac) 100%);border-radius:3px;position:relative;margin:6px 0 4px;}
+  .bar .sig{position:absolute;right:0;top:0;bottom:0;background:var(--gold);border-radius:0 3px 3px 0;}
+  .barlbl{font-size:13.5px;color:var(--soft);display:flex;justify-content:space-between;}
+
+  ol.q{padding-left:22px;}
+  ol.q li{margin-bottom:24px;line-height:1.9;}
+  ul.b{padding-left:20px;margin:0 0 16px;}
+  ul.b li{margin-bottom:9px;}
+  .katex{font-size:1.04em;}
+  .big{font-size:15px;color:var(--soft);text-align:center;margin:-8px 0 22px;}
+  footer{margin-top:60px;padding-top:24px;border-top:2px solid var(--ink);color:var(--soft);font-size:15px;line-height:1.85;}
+</style>
+</head>
+<body>
+<nav aria-label="课程导航" style="padding:12px 24px;background:#f4f6f8;font:14px/1.5 system-ui,sans-serif"><a href="../index.html" style="color:#245c64">← 强化学习交互实验室</a></nav>
+<div class="wrap">
+
+<header>
+  <h1>第 3 课:减掉一个基线</h1>
+  <p class="sub">你最早卡住的那一句 · 现在前提都齐了</p>
+</header>
+
+<div class="contract">
+  <b>这一课的范围(严格限定)</b><br>
+  只讲一件事:<strong>为什么减基线能修好上一课的问题,以及减什么最合适。</strong><br>
+  <span style="color:var(--soft)">不讲:TD、GAE、PPO、重要性采样、on-policy/off-policy。仍然往后排。</span>
+</div>
+
+<h2><span class="n">一</span>先把病症说准</h2>
+
+<p>上一课末尾那个坏掉的世界:</p>
+
+<table>
+  <tr><th>轨迹</th><th style="text-align:right;width:22%">回报 R</th><th style="width:32%">更新规则会怎么做</th></tr>
+  <tr><td>4 步拿到宝藏</td><td class="num">+1007</td><td class="up">调高 ↑</td></tr>
+  <tr><td>2 步掉进陷阱</td><td class="num">+989</td><td class="up">也调高 ↑</td></tr>
+</table>
+
+<p><strong>掉进陷阱的动作被鼓励了。</strong>机器人收到的信息是"掉坑是好事,请多做点",只是热情比拿宝藏低一点点。</p>
+
+<p>而真正有用的信号——两者之间的差距——只有:</p>
+
+<div class="ruler">
+  <div class="bar"><div class="sig" style="width:1.8%"></div></div>
+  <div class="barlbl"><span>共同的、没有信息量的部分 ≈ 989</span><span style="color:var(--gold);font-weight:600">信号 18</span></div>
+</div>
+
+<p style="margin-top:20px">整个更新里,<em>98% 是"把所有东西一起往上抬"的无用功</em>,只有 1.8% 携带了"哪个更好"的信息。</p>
+
+<div class="key">
+<p style="margin:0"><b>用一句话说清病因:</b>我们真正关心的是<em>相对好坏</em>,但公式里用的是<em>绝对数值</em>。而绝对数值里混进了一个跟"哪个动作更好"毫无关系的巨大共同项。</p>
+</div>
+
+<h2><span class="n">二</span>治法:把共同的那部分减掉</h2>
+
+<p>既然那个共同项没有信息量,那就减掉它。取两趟的平均值 <span>\(b = 998\)</span> 当作基准:</p>
+
+<table>
+  <tr><th>轨迹</th><th style="text-align:right">R</th><th style="text-align:right">R − b</th><th style="width:28%">更新规则会怎么做</th></tr>
+  <tr class="hl"><td>4 步拿到宝藏</td><td class="num">+1007</td><td class="num up">+9</td><td class="up">调高 ↑</td></tr>
+  <tr><td>2 步掉进陷阱</td><td class="num">+989</td><td class="num dn">−9</td><td class="dn">调低 ↓</td></tr>
+</table>
+
+<div class="note">
+<p style="margin-bottom:0"><strong>陷阱轨迹终于变成负的了,终于被调低了。</strong>而且现在更新的<em>全部内容</em>就是那个信号本身,不再是 1.8% 的零头。同样的采样次数,学习效率天差地别。</p>
+</div>
+
+<p>写成公式,只是在上一课的式子里加了三个字符:</p>
+
+<div class="formula">\[ \nabla_\theta J \;=\; \mathbb{E}\Big[\; \sum_t \nabla_\theta \log \pi_\theta(a_t \mid s_t)\;\cdot\; \big(R(\tau) - b\big) \;\Big] \]</div>
+
+<h2><span class="n">三</span>等一下,随便减一个数,不会把答案改错吗?</h2>
+
+<p class="lead">这是这一课唯一需要动脑的地方。如果你刚才心里冒出了这个疑问,那是对的直觉。</p>
+
+<p>答案是:<strong>不会。只要 <span>\(b\)</span> 不依赖于你选了哪个动作,减掉它完全不改变梯度的期望值。</strong></p>
+
+<p>严格证明先不做,给你一个足够可靠的直觉:</p>
+
+<div class="key">
+<p style="margin:0"><b>海平面比喻。</b>你要判断哪座山更高。<em>把"海拔零点"定在哪里,完全不影响哪座山更高这个结论</em>——因为零点对每座山一视同仁地加减了同一个数。</p>
+<p style="margin:10px 0 0">基线就是那个零点。它对该状态下的<strong>所有动作</strong>加减同一个数,所以动作之间的<strong>相对排序一点没变</strong>。</p>
+</div>
+
+<p>而它带来的好处是实打实的:数字的量级变小了,采样时的抖动跟着变小,<strong>估计的方差大幅下降</strong>。</p>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>这在 RL 里是罕见的好事:不付出任何代价(不引入偏差),白拿一个大幅降噪(方差下降)。</strong>正因如此,现代所有策略梯度算法都用基线,没有例外。</p>
+</div>
+
+<div class="note">
+<p style="margin-bottom:0"><strong>划重点:<span>\(b\)</span> 绝对不能依赖动作 <span>\(a\)</span>。</strong>如果你的基线偷看了"这次选的是哪个动作"再决定减多少,那就等于偷偷改变了动作之间的排序——海平面对不同的山定在了不同高度,结论就错了。<em>b 可以依赖状态 s,但不能依赖动作 a。</em></p>
+</div>
+
+<h2><span class="n">四</span>那减什么最好?</h2>
+
+<p>上面我随手取了两趟的平均。但更合理的选择是:<strong>用"从这个状态出发,平均能拿多少回报"当基线。</strong></p>
+
+<p>这个量你在第 1 课的符号表里见过,它叫<strong>状态价值</strong>:</p>
+
+<div class="formula plain">\[ V(s) \;=\; \text{从状态 } s \text{ 出发,按当前策略走下去,平均能拿到的回报} \]</div>
+
+<p>比如在格子世界里(用原始规则),<span>\(V(\text{A1})\)</span> 可能是 3.2,意思是"站在起点,按现在这个策略走,平均能拿 3.2 分"。</p>
+
+<p>用它当基线,减出来的东西就有了非常好的解释:</p>
+
+<div class="formula">\[ A \;=\; R - V(s) \]</div>
+
+<table>
+  <tr><th style="width:26%">A 的符号</th><th>含义</th><th style="width:26%">更新方向</th></tr>
+  <tr><td class="up">A &gt; 0</td><td>这次的结果<strong>比该状态的平均水平好</strong></td><td class="up">调高这些动作 ↑</td></tr>
+  <tr><td class="dn">A &lt; 0</td><td>这次的结果<strong>比平均水平差</strong></td><td class="dn">调低这些动作 ↓</td></tr>
+</table>
+
+<p><span>\(A\)</span> 就是<strong>优势函数(advantage)</strong>,读作:<em>"这个动作比该状态下的平均表现,好多少。"</em></p>
+
+<div class="key">
+<p><b>整个更新规则的含义,到这里发生了一次重要的升级:</b></p>
+<p style="margin:10px 0 0">
+从 &nbsp;—— &nbsp;"回报是正的就调高"<br>
+变成 —— &nbsp;<em>"比平均水平好就调高,比平均水平差就调低"</em>
+</p>
+<p style="margin:10px 0 0">后者才是合理的学习信号。</p>
+</div>
+
+<div class="warn">
+<p style="margin-bottom:0"><strong>现在可以说一句会贯穿你以后所有论文阅读的话了:</strong><br>
+<em>现代 RL 论文里绝大部分算法差异,本质上都在回答同一个问题——<strong>advantage 怎么算</strong>。</em><br>
+<span style="font-size:15px">PPO、GRPO、DPO、GAE、DAPO……这一长串名字,拆开看,大多是在这一个问题上给出不同答案。你以后拿着这把钥匙去读论文,会省掉大量力气。</span></p>
+</div>
+
+<h2><span class="n">五</span>检查(3 题)</h2>
+<p class="lead">第 3 题是推理题,答错没关系,写出推理过程即可。</p>
+
+<ol class="q">
+  <li>在格子世界(<strong>原始规则</strong>:每步 −1,宝藏 +10,陷阱 −10)中,假设 <span>\(V(\text{A1}) = 3.2\)</span>。<br>
+  机器人跑出一趟:<strong>A1→A2→A3→B3→C3</strong>,回报 <span>\(R = +7\)</span>。<br>
+  <strong>这一趟的 <span>\(A\)</span> 是多少?这趟里的动作会被调高还是调低?</strong></li>
+
+  <li>用你自己的话说明:<strong>为什么基线可以依赖状态 <span>\(s\)</span>,但绝对不能依赖动作 <span>\(a\)</span>?</strong>(可以借用海平面那个比喻)</li>
+
+  <li><strong>推理题。</strong>课上说 <span>\(V(s)\)</span> 是"从 s 出发平均能拿多少回报"。但请注意:<em>我们并不知道这个数</em>——没有人告诉过机器人 <span>\(V(\text{A1}) = 3.2\)</span>。<br>
+  <strong>那你觉得,这个 <span>\(V\)</span> 要从哪里来?</strong>凭直觉猜就行。</li>
+</ol>
+
+<footer>
+<strong>第 3 题又是下一课的入口。</strong>它的答案会一口气把两样东西带进来:你早先提到的 <strong>TD</strong>,以及 <strong>Actor-Critic</strong> 结构。<br>
+到那时,你手里就有了读 PPO 论文所需要的全部零件。
+</footer>
+
+</div>
+<script>
+function render(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body,{
+      delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],
+      throwOnError:false});
+  }
+}
+document.addEventListener("DOMContentLoaded",render);
+window.addEventListener("load",render);
+</script>
+</body>
+</html>
